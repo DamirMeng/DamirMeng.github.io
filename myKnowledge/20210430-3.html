@@ -1,0 +1,934 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java数据库编程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>Java数据库编程</h2>
+                    <div class="mini"><span class="later"></span><span class="later"></span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later"></span>
+                            <span id="word" class="later"></span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p>&nbsp;</p>
+                        <p><span>JDBC（Java Database Connectivity，Java数据库连接），是一种与平台无关的用于执行SQL语句的标准Java
+                                API，便于实现多种关系型数据库的统一操作。本文将记录Java与数据库间的操作，提别是MySQL数据库的连接与操作。</span></p>
+                        <h2 class="contents"  id='mysql数据库'><span>MySQL数据库</span></h2>
+                        <p><mark><span>MySQL是一个小型关系型数据库管理系统，</span></mark><span>广泛应用在中小型网站中。</span></p>
+                        <h6 id='mysql完全支持sql语法'><span>MySQL完全支持SQL语法。</span></h6>
+                        <h6 id='详见sql语法sql-教程--菜鸟教程-runoobcom'><span>详见SQL语法：</span><a
+                                href='https://www.runoob.com/sql/sql-tutorial.html'><span>SQL 教程 | 菜鸟教程 (runoob.com)</span></a></h6>
+                        <blockquote>
+                            <p><span>SQL(结构查询语言)是用于访问和处理数据库的标准的计算机语言,支持的数据库包括：MySQL、SQL Server、Access、Oracle、Sybase、DB2
+                                    等主流数据库。</span></p>
+                        </blockquote>
+                        <hr>
+                        <h2 class="contents"  id='mysql环境的配置'><span>MySQL环境的配置</span></h2>
+                        <h5 id='mysql数据库的安装'><span>MySQL数据库的安装</span></h5>
+                        <p>&nbsp;</p>
+                        <p><span>懒得说，详见：</span><a href='https://www.runoob.com/mysql/mysql-install.html'><span>MySQL 安装 | 菜鸟教程
+                                    (runoob.com)</span></a></p>
+                        <h5 id='windows自身的配置'><span>Windows自身的配置</span></h5>
+                        <p><span>如果想节省资源，则设置MySQL服务为手动启动，详见</span><a
+                                href='https://blog.csdn.net/androidjiaocheng/article/details/7957714'><span>启动MySQL</span></a></p>
+                        <blockquote>
+                            <p><span>我自己的已经关闭了自动启动，所以每次必须手动启动。</span></p>
+                        </blockquote>
+                        <p><span>启动MySQL服务：</span><code>net start mysql;</code><span>（需要管理员方式启动）</span></p>
+                        <p><span>关闭MySQL服务：</span><code>net stop mysql;</code></p>
+                        <p><span>初次使用需要建立数据库。</span></p>
+                        <p><span>接下来就是连接数据库、和选择使用哪个数据库了，这个可以看后面的命令。</span></p>
+                        <blockquote>
+                            <p><span>你可以使用Navicat、DBeaver、SQLyog等可视化数据库管理软件来管理你的数据库。</span></p>
+                        </blockquote>
+                        <h5 id='mysql的java配置'><span>MySQL的Java配置</span></h5>
+                        <ul>
+                            <li><span>Java要连接到MySQL需要下载驱动包：</span><a href='https://dev.mysql.com/downloads/connector/j/'><span>MySQL
+                                        :: Download Connector/J</span></a></li>
+                            <li><span>选择：Platform
+                                    Independent选项，然后下载，将解压后的</span><code>.jar</code><span>文件，如：mysql-connector-java-8.0.22.jar放到指定位置。</span>
+                            </li>
+                            <li><span>计算机环境变量的设置：添加用户变量（</span><a
+                                    href='https://jingyan.baidu.com/article/47a29f24610740c0142399ea.html'><span>windows系统如何设置添加环境变量-百度经验
+                                        (baidu.com)</span></a><span>）</span></li>
+                            <li><span>变量名为CLASSPATH，值为下载的</span><code>.jar</code><span>文件的位置</span></li>
+                        </ul>
+                        <p><span>比如：</span><a href='https://imgchr.com/i/DtJoeP'><img
+                                    src="https://s3.ax1x.com/2020/11/24/DtJoeP.png" referrerpolicy="no-referrer"
+                                    alt="DtJoeP.png"></a></p>
+                        <p><code>.;</code><span>指的是当前目录。</span></p>
+                        <p>&nbsp;</p>
+                        <p><span>这样，你的环境就配置好了。</span></p>
+                        <blockquote>
+                            <p><span>这里讲的是单纯的直接连接，如果是使用其他的开发工具，那就会更加简单了，请自行百度。</span></p>
+                        </blockquote>
+                        <h2 class="contents"  id='java使用数据库'><span>Java使用数据库</span></h2>
+                        <h6 id='数据库的操作都是从connection接口开始connection接口提供里一系列的方法'>
+                            <span>数据库的操作都是从</span><code>Connection</code><span>接口开始，</span><code>Connection</code><span>接口提供里一系列的方法。</span>
+                        </h6>
+                        <h6 id='对数据库进行操作要使用statement接口完成-statement接口也提供了一系列的方法'>
+                            <span>对数据库进行操作要使用</span><code>Statement</code><span>接口完成，
+                            </span><code>Statement</code><span>接口也提供了一系列的方法。</span></h6>
+                        <p><span>数据库驱动正常加载后可以使用</span><code>DriverManager</code><span>类来连接数据库。</span><code>DriverManager</code><span>类的两个常用方法：</span>
+                        </p>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><span>序号</span></th>
+                                        <th><span>方法</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><span>public static Connection getConnection(String url)</span><br><span>throws
+                                                SQLException</span></td>
+                                        <td><span>通过连接地址连接数据库</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><span>public static Connection getConnection(String url,</span><br><span>String user,
+                                                String password) throws SQLException</span></td>
+                                        <td><span>通过连接地址连接数据库，同时输入用户名和密码</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p>&nbsp;</p>
+                        <p><span>在DriverManager类中，提供的主要操作就是得到一个数据库的连接，</span><code>getConnection()</code><span>方法就是取得连接对象，</span><mark><span>此方法返回的类型是</span><code>Connection</code><span>对象</span></mark><span>，不管使用哪种方式连接，都必须提供一个数据库的连接地址，MySQL数据库的连接地址形式如格式17-13所示。如果在连接数据库时需要用户名和密码，则还需要将用户名和密码设置上。</span>
+                        </p>
+                        <p><span>MySQL数据库的连接地址格式</span>
+                            <code>jdbc:mysql://IP地址:端口号/数据库名称</code></p>
+                        <p><span>Java连接数据库需要使用Connection接口</span></p>
+                        <p><span>具体为：DriverManager类的</span><code>getConnection()</code><span>方法会取得连接对象，其返回类型是</span><code>Connection</code><span>对象，用</span><code>Connection</code><span>对象的方法</span><code>createStatement()</code><span>可以实例化一个</span><code>Statement</code><span>对象。</span>
+                        </p>
+                        <h6 id='connection接口的常用方法'><code>Connection</code><span>接口的常用方法</span></h6>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><span>序号</span></th>
+                                        <th><span>方法</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><span>Statement createStatement() throws SQLException</span></td>
+                                        <td><span>创建一个Statement对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><span>Statement createStatement(int resultSetType,int resultSetConcrrency) throws
+                                                SQLException</span></td>
+                                        <td><span>创建一个Statement对象，该对象将生成具有给定类型和并发性的ResultSet 对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>3</span></td>
+                                        <td><span>PreparedStatement prepareStatement(String sql)</span><br><span>throws
+                                                SQLException</span></td>
+                                        <td><span>创建一一个PreparedStatement 类型的对象</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <h6 id='statement接口的常用方法'><span>Statement接口的常用方法</span></h6>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><span>序号</span></th>
+                                        <th><span>方法</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><span>int executeUpdate(String sql) throws sQLException</span></td>
+                                        <td><span>执行数据库更新的SQL语句，如INSERT、UPDATE、DELETE等</span><br><span>语句，返回更新的记录数</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><span>ResultSet executeQuery(String sql) throws SQLException</span></td>
+                                        <td><span>执行数据库查询操作，返回一个结</span><br><span>果集对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>3</span></td>
+                                        <td><span>void addBatch(String sql) throws SQLException</span></td>
+                                        <td><span>增加一个待执行的SQL语句</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>4</span></td>
+                                        <td><span>int] executeBatch() throws SQLException</span></td>
+                                        <td><span>批量执行SQL语句</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>5</span></td>
+                                        <td><span>void close() throws SQLException</span></td>
+                                        <td><span>关闭Statement操作</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>6</span></td>
+                                        <td><span>boolean execute(String sql) throws SQLException</span></td>
+                                        <td><span>执行 SQL语句</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p><span>例子：</span></p>
+                        <p><span>数据库中的</span></p>
+                        <p><a href='https://imgchr.com/i/DNOnc6'><img src="https://s3.ax1x.com/2020/11/24/DNOnc6.png"
+                                    referrerpolicy="no-referrer" alt="DNOnc6.png"></a></p>
+                        <p><span>Java代码：</span></p>
+                        <pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false"
+                            lang="java"
+                            style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+                        <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+                            <div>74</div>
+                        </div>
+                    </div>
+                    <div class="CodeMirror-measure"></div>
+                    <div style="position: relative; z-index: 1;"></div>
+                    <div class="CodeMirror-code" role="presentation" style="text-rendering: auto;">
+                        <div class="CodeMirror-activeline" style="position: relative;">
+                            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+                            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+                                style="left: -34px; width: 34px;"></div>
+                            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">1</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">sql</span>.<span class="cm-operator">*</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">ConDemo</span> {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// static final String DB_URL = "jdbc:mysql://localhost:3306/RUNOOB";</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">10</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable-3">String</span> <span class="cm-variable">JDBC_DRIVER</span> <span class="cm-operator">=</span> <span class="cm-string">"com.mysql.cj.jdbc.Driver"</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable-3">String</span> <span class="cm-variable">DB_URL</span> <span class="cm-operator">=</span> <span class="cm-string">"jdbc:mysql://localhost:3306/msql?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 数据库的用户名与密码，需要根据自己的设置</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable-3">String</span> <span class="cm-variable">USER</span> <span class="cm-operator">=</span> <span class="cm-string">"root"</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">static</span> <span class="cm-keyword">final</span> <span class="cm-variable-3">String</span> <span class="cm-variable">PASS</span> <span class="cm-operator">=</span> <span class="cm-string">"root"</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">17</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-variable">main</span>(<span class="cm-variable-3">String</span>[] <span class="cm-variable">args</span>) {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">18</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Connection</span> <span class="cm-variable">conn</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">19</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Statement</span> <span class="cm-variable">stmt</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">20</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">21</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 注册 JDBC 驱动</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">22</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Class</span>.<span class="cm-variable">forName</span>(<span class="cm-variable">JDBC_DRIVER</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">23</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">24</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 打开链接</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">25</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"连接数据库..."</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">26</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">conn</span> <span class="cm-operator">=</span> <span class="cm-variable">DriverManager</span>.<span class="cm-variable">getConnection</span>(<span class="cm-variable">DB_URL</span>, <span class="cm-variable">USER</span>, <span class="cm-variable">PASS</span>);<span class="cm-comment">//数据库连接</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">27</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">28</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 执行查询</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">29</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"实例化Statement对象..."</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">30</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">stmt</span> <span class="cm-operator">=</span> <span class="cm-variable">conn</span>.<span class="cm-variable">createStatement</span>();<span class="cm-comment">//创建Statement对象</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">31</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">String</span> <span class="cm-variable">sql</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">32</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sql</span> <span class="cm-operator">=</span> <span class="cm-string">"SELECT id, name, url FROM websites"</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">33</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">ResultSet</span> <span class="cm-variable">rs</span> <span class="cm-operator">=</span> <span class="cm-variable">stmt</span>.<span class="cm-variable">executeQuery</span>(<span class="cm-variable">sql</span>);<span class="cm-comment">//</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">34</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">35</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 展开结果集数据库</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">36</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable">rs</span>.<span class="cm-variable">next</span>()) {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">37</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 通过字段检索</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">38</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">id</span> <span class="cm-operator">=</span> <span class="cm-variable">rs</span>.<span class="cm-variable">getInt</span>(<span class="cm-string">"id"</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">39</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">String</span> <span class="cm-variable">name</span> <span class="cm-operator">=</span> <span class="cm-variable">rs</span>.<span class="cm-variable">getString</span>(<span class="cm-string">"name"</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">40</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">String</span> <span class="cm-variable">url</span> <span class="cm-operator">=</span> <span class="cm-variable">rs</span>.<span class="cm-variable">getString</span>(<span class="cm-string">"url"</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">41</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">42</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 输出数据</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">43</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">print</span>(<span class="cm-string">"ID: "</span> <span class="cm-operator">+</span> <span class="cm-variable">id</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">44</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">print</span>(<span class="cm-string">", 站点名称: "</span> <span class="cm-operator">+</span> <span class="cm-variable">name</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">45</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">print</span>(<span class="cm-string">", 站点 URL: "</span> <span class="cm-operator">+</span> <span class="cm-variable">url</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">46</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">print</span>(<span class="cm-string">"\n"</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">47</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">48</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 完成后关闭</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">49</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">rs</span>.<span class="cm-variable">close</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">50</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">stmt</span>.<span class="cm-variable">close</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">51</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">conn</span>.<span class="cm-variable">close</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">52</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">SQLException</span> <span class="cm-variable">se</span>) {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">53</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 处理 JDBC 错误</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">54</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">se</span>.<span class="cm-variable">printStackTrace</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">55</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">Exception</span> <span class="cm-variable">e</span>) {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">56</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 处理 Class.forName 错误</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">57</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">e</span>.<span class="cm-variable">printStackTrace</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">58</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">finally</span> {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">59</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 关闭资源</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">60</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">61</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">stmt</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span>)</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">62</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">stmt</span>.<span class="cm-variable">close</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">63</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">SQLException</span> <span class="cm-variable">se2</span>) {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">64</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-comment">// 什么都不做</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">65</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">66</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">conn</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span>)</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">67</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">conn</span>.<span class="cm-variable">close</span>();<span class="cm-comment">//数据库关闭</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">68</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">SQLException</span> <span class="cm-variable">se</span>) {</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">69</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">se</span>.<span class="cm-variable">printStackTrace</span>();</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">70</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">71</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">72</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"Goodbye!"</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">73</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">74</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1800px;"></div>
+                <div class="CodeMirror-gutters" style="height: 1800px;">
+                    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+                </div>
+                </div>
+                </div>
+                </pre>
+                <p><span>运行结果：</span></p>
+                <blockquote>
+                    <p><span>连接数据库...</span></p>
+                    <p><span>实例化Statement对象...</span></p>
+                    <p><span>ID: 1, 站点名称: Google, 站点 URL: </span><a href='https://www.google.cm/' target='_blank'
+                            class='url'>https://www.google.cm/</a></p>
+                    <p><span>ID: 2, 站点名称: 淘宝, 站点 URL: </span><a href='https://www.taobao.com/' target='_blank'
+                            class='url'>https://www.taobao.com/</a></p>
+                    <p><span>ID: 3, 站点名称: 菜鸟教程, 站点 URL: </span><a href='http://www.runoob.com' target='_blank'
+                            class='url'>http://www.runoob.com</a></p>
+                    <p><span>ID: 4, 站点名称: 微博, 站点 URL: </span><a href='http://weibo.com/' target='_blank'
+                            class='url'>http://weibo.com/</a></p>
+                    <p><span>ID: 5, 站点名称: Facebook, 站点 URL: </span><a href='https://www.facebook.com/' target='_blank'
+                            class='url'>https://www.facebook.com/</a></p>
+                    <p><span>Goodbye!</span></p>
+                </blockquote>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <h2 class="contents"  id='mysql常用命令'><span>MySQL常用命令</span></h2>
+                <h5 id='这里讲的是通用型与java无关但是必要的'><span>这里讲的是通用型，与Java无关，但是必要的。</span></h5>
+                <h6 id='连接mysql数据库'><span>连接MySQL数据库</span></h6>
+                <p><span>先进入MySQL安装文件bin下面，我的路径是D:\mysql-8.0.22\bin，可以用cd命令或者在文件管理器中在对应位置上面输入cmd即可。</span></p>
+                <p><span>格式：</span></p>
+                <p><code>mysql -u用户名 -p密码</code></p>
+                <p><strong><span>注意：</span></strong><span>-u、-p是直接和用户名和密码连在一起的，也不要有分号，这是MySQL的一个坑。</span></p>
+                <p><span>左边显示：</span><code>mysql&gt;</code><span>时才是进入了MySQL的编辑状态。</span></p>
+                <p><span>出现一个提示的时候就可以恭喜你了：</span><code>Welcome to the MySQL monitor</code></p>
+                <blockquote>
+                    <p><span>输入“？”可查看MySQL中的命令</span></p>
+                </blockquote>
+                <p>&nbsp;</p>
+                <p><mark><strong><span>从这里开始，就是MySQL数据库的操作了，指令后面一定要加英文的分号</span></strong></mark></p>
+                <h6 id='创建数据库'><span>创建数据库</span></h6>
+                <p><code>CREATE DATABASE 数据库名称;</code></p>
+                <h6 id='删除数据库'><span>删除数据库</span></h6>
+                <p><code>DROP DATABASE 数据库名称;</code></p>
+                <h6 id='使用数据库'><span>使用数据库</span></h6>
+                <p><span>数据库建立后，需要选择使用哪个数据库。</span></p>
+                <p><span>使用数据库：</span><code>USE　数据库名称;</code></p>
+                <h6 id='创建数据库表'><span>创建数据库表</span></h6>
+                <pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false"
+                    lang="mysql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="mysql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+                    <div>6</div>
+                </div>
+                </div>
+                <div class="CodeMirror-measure"></div>
+                <div style="position: relative; z-index: 1;"></div>
+                <div class="CodeMirror-code" role="presentation" style="text-rendering: auto;">
+                    <div class="CodeMirror-activeline" style="position: relative;">
+                        <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+                        <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+                        </div>
+                        <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                style="left: 0px; width: 18px;">1</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">CREATE</span> <span class="cm-keyword">TABLE</span> 表名称<span class="cm-bracket">(</span></span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  字段名称1 字段类型 <span class="cm-bracket">[</span><span class="cm-keyword">DEFAULT</span> 默认值<span class="cm-bracket">][</span>约束<span class="cm-bracket">]</span><span class="cm-punctuation">,</span></span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  字段名称2 字段类型 <span class="cm-bracket">[</span><span class="cm-keyword">DEFAULT</span> 默认值<span class="cm-bracket">][</span>约束<span class="cm-bracket">]</span><span class="cm-punctuation">,</span></span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ...<span class="cm-punctuation">,</span></span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  字段名称n 字段类型 <span class="cm-bracket">[</span><span class="cm-keyword">DEFAULT</span> 默认值<span class="cm-bracket">][</span>约束<span class="cm-bracket">]</span></span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                style="left: 0px; width: 18px;">6</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-bracket">)</span><span class="cm-punctuation">;</span></span></pre>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 144px;"></div>
+                <div class="CodeMirror-gutters" style="height: 144px;">
+                    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+                </div>
+                </div>
+                </div>
+                </pre>
+                <h6 id='删除数据库表'><span>删除数据库表</span></h6>
+                <p><code>DROP TABLE 表名称;</code></p>
+                <h6 id='查看表的结构'><span>查看表的结构</span></h6>
+                <p><code>DESE 表名称;</code></p>
+                <h6 id='查看全部数据库'><span>查看全部数据库</span></h6>
+                <p><code>SHOW DATABASES;</code></p>
+                <h6 id='查看数据库的全部表'><span>查看数据库的全部表</span></h6>
+                <p><code>SHOW TABLES;</code></p>
+                <hr>
+                <h2 class="contents"  id='mysql的数据操作'><span>MySQL的数据操作</span></h2>
+                <p>&nbsp;</p>
+                <h5 id='mysql中的数据类型'><span>MySQL中的数据类型</span></h5>
+                <p><span>MySQL支持三种数据类型：数值、日期/时间和字符串(字符)类型。</span></p>
+                <p><span>详见：</span><a href='https://www.runoob.com/mysql/mysql-data-types.html'><span>MySQL 数据类型 | 菜鸟教程
+                            (runoob.com)</span></a></p>
+                <p>&nbsp;</p>
+                <h5 id='sql语法'><span>SQL语法</span></h5>
+                <p><span>MySQL完全兼容。</span></p>
+                <h6 id='增加数据'><span>增加数据</span></h6>
+                <p><code>INSERT INTO 表名称[(字段1,字段2,...,字段n)] VALUES（值1,值2,...,值n);</code></p>
+                <p><span>例子：</span><code>INSERT INTO user (name,password,age,sex,birthday) VALUES
+                        (&#39;李兴华&#39;,&#39;www.mldn.cn&#39;, 30,&#39;男&#39;,&#39;2008-08-27&#39;);</code></p>
+                <blockquote>
+                    <p><span>如果数据是字符串，则用“ &#39; ”括起来，日期的格式：</span><code>yyyy-mm-dd</code></p>
+                </blockquote>
+                <h6 id='删除数据'><span>删除数据</span></h6>
+                <p><code>DELETE FROM 表名称 [删除条件];</code></p>
+                <p><span>例子：</span><code>DELETE FROM user WHERE id=1;</code></p>
+                <blockquote>
+                    <p><span>应当指定条件，否则会删除一张表的全部数据，条件一般为id</span></p>
+                </blockquote>
+                <h6 id='更新数据修改）'><span>更新数据（修改）</span></h6>
+                <p><code>UPDATE 表名称 SET 字段 1=值 1,...,字段 n=值 n [WHERE 更新条件];</code></p>
+                <p><span>例子：</span><code>UPDATE user SET name=&#39;MLDN&#39;,age=5,birthday=&#39;2000-08-27&#39; WHERE id=2</code>
+                </p>
+                <h6 id='查询数据'><span>查询数据</span></h6>
+                <p><code>SELECT {*|column alias} FROM 表名称 别名 [WHERE condition(s)];</code></p>
+                <p><span>例子：查询user表中的姓名和生日</span>
+                    <code>SELECT name,birthday FROM user;</code></p>
+                <p><span>例子：查询姓名或密码中包含字母m的用户</span>
+                    <code>SELECT * FROM user WHERE name LIKE &#39;%m%&#39; OR password LIKE &#39;%m%&#39;;</code></p>
+                <blockquote>
+                    <p><span>%表示任意数据</span></p>
+                </blockquote>
+                <p>&nbsp;</p>
+                <p><span>取出多个数据：用LIMIT语句</span></p>
+                <p><code>SELECT 字段 FROM 表 WHERE 条件 LIMIT 开始行,取出的数据个数;</code></p>
+                <p><span>例子：取出第1~5行的记录</span>
+                    <code>SELECT * FROM user WHERE name LIKE &#39;%m%&#39; OR password LIKE &#39;%m%&#39; LIMIT 0,5;</code></p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                </div>
+    </div>
+    </main>
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

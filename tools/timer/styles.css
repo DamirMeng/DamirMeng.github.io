@@ -1,0 +1,476 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+html {
+	text-align: center;
+	background-color: #EFEFEF;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+.app {
+	width: 300vw;
+
+	transition: 0.4s;
+}
+
+
+/*-----------------------
+	Clocks General
+-----------------------*/
+
+.container {
+	position: relative;
+	float: left;
+	width: 100vw;
+	max-width: none;
+	position: relative;
+	/* canceling auto styles from materialize.css */
+}
+
+form {
+	width: 100%;
+	height: 85px;
+	padding: 10px;
+	margin: 50px auto;
+	color: #0277BD;
+	border-radius: 2px;
+
+}
+
+form a {
+	margin: 0 5px;
+}
+
+.control {
+	display: inline-block;
+	width: 130px;
+	vertical-align: middle;
+}
+
+.input-field {
+	display: inline-block;
+	position: relative;
+	padding-right: 20px;
+}
+
+.checkbox {
+	padding-left: 20px;
+}
+
+
+.clock.inactive {
+	color: #9e9e9e;
+}
+
+.clock .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.switch label .lever:after {
+	background-color: #fff;
+}
+
+/*-----------------------
+	Timer
+-----------------------*/
+
+#timer-input {
+	font-size: 32px;
+	text-align: center;
+	color: inherit;
+}
+
+.timer-btn {
+	font-size: 24px;
+	cursor: pointer;
+}
+
+
+/*-----------------------
+	Responsiveness
+-----------------------*/
+
+
+
+.switch-clocks {
+	display: block;
+	background-color: #00ACC1;
+}
+
+.switch-clocks a {
+	font-size: 26px;
+	color: #fff;
+	padding: 30px 40px;
+	text-decoration: none;
+}
+
+.start {
+	margin-left: 50px;
+}
+
+.waves-effect {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	vertical-align: middle;
+	z-index: 1;
+	will-change: opacity, transform;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+input[type=number] {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #9e9e9e;
+	color: inherit;
+	text-align: center;
+	font-size: 36px;
+	outline: none;
+	height: 3rem;
+	width: 100%;
+	margin: 0 0 15px 0;
+	padding: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition: 0.3s;
+	transition: 0.3s;
+}
+
+.input-field label.active {
+	font-size: 0.8rem;
+	-webkit-transform: translateY(-140%);
+	-moz-transform: translateY(-140%);
+	-ms-transform: translateY(-140%);
+	-o-transform: translateY(-140%);
+	transform: translateY(-140%);
+}
+
+.input-field label {
+	color: #9e9e9e;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: 1rem;
+	cursor: text;
+	-webkit-transition: 0.2s ease-out;
+	-moz-transition: 0.2s ease-out;
+	-o-transition: 0.2s ease-out;
+	-ms-transition: 0.2s ease-out;
+	transition: 0.2s ease-out;
+	font-size: 0.8rem;
+}
+
+input[type=text]:focus,
+input[type=number]:focus {
+	border-bottom: 1px solid #26a69a;
+	-webkit-box-shadow: 0 1px 0 0 #26a69a;
+	-moz-box-shadow: 0 1px 0 0 #26a69a;
+	box-shadow: 0 1px 0 0 #26a69a;
+}
+
+/* 声音按钮 */
+[type="checkbox"]+label:before {
+	content: '';
+	position: absolute;
+	margin-top: 2px;
+	left: 0;
+	z-index: 0;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	background-clip: padding-box;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-o-transition: 0.2s;
+	-ms-transition: 0.2s;
+	transition: 0.2s;
+}
+
+[type="checkbox"]:not(:checked)+label:before {
+	top: 0px;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #5a5a5a;
+}
+
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label {
+	position: relative;
+	padding-left: 35px;
+	cursor: pointer;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	font-size: 1rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+	position: absolute;
+	left: -9999px;
+}
+
+[type="checkbox"]:checked+label:before {
+	left: -3px;
+	top: -4px;
+	width: 12px;
+	height: 22px;
+	border-top: 2px solid transparent;
+	border-left: 2px solid transparent;
+	border-right: 2px solid #26a69a;
+	border-bottom: 2px solid #26a69a;
+	-webkit-transform: rotateZ(40deg);
+	-moz-transform: rotateZ(40deg);
+	-ms-transform: rotateZ(40deg);
+	-o-transform: rotateZ(40deg);
+	transform: rotateZ(40deg);
+	-webkit-transform-origin: 100% 100%;
+	-moz-transform-origin: 100% 100%;
+	-ms-transform-origin: 100% 100%;
+	-o-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+}
+
+/* 时钟 */
+.clock {
+	position: relative;
+	height: 300px;
+	max-width: 888px;
+	width: 100%;
+	display: block;
+	margin: 50px auto;
+	font-size: 150px;
+	color: #0277BD;
+	text-align: center;
+	line-height: 300px;
+	/* background-color: #fff; */
+	border-radius: 2px;
+	transition: all 0.4s ease-in, box-shadow 0.2s;
+}
+
+.clock:hover {
+	-webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+#myProgress {
+	position: relative;
+	height: 300px;
+	width: 100%;
+	max-width: 888px;
+	margin: 50px auto;
+	;
+	/* z-index: -1; */
+	background-color: #4CAF50;
+	transform: translate(0, -400px);
+}
+
+
+
+progress::-webkit-progress-bar {
+	background-color: white;
+}
+
+progress::-webkit-progress-value {
+	background-color: orange;
+}
+
+progress::-webkit-progress-bar {
+	background: white;
+}
+
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+	background: orange;
+}
+
+/* 下方表单 */
+.focus {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	margin: auto;
+}
+
+.focus form {
+	margin: 0 auto;
+}
+
+.focus label {
+	margin-left: 35px;
+	color: #000;
+}
+
+select {
+	cursor: pointer;
+	background-color: transparent;
+	color: inherit;
+	border: 0;
+	font-size: 18px;
+	padding: 4px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	-khtml-appearance: none;
+}
+
+select:focus,
+select option:focus {
+	outline: none;
+}
+
+select option {
+	font-size: 28px;
+	background-color: white;
+	color: #2980b9;
+	text-align: right;
+	border: none;
+}
+
+.focus-start {
+	margin-left: 60px;
+}
+
+label[for="auto-start"] {
+	margin-left: 0;
+	color: #2980b9;
+
+}
+
+/* 历史记录 */
+#record {
+	position: fixed;
+	left: 0;
+	top: 160px;
+}
+
+#record li {
+	width: 200px;
+}
+
+.title {
+	margin-bottom: 30px;
+	font-size: 20px;
+}
+
+.time {
+	padding: 2px 3px;
+	font-size: 22px;
+	color: blue;
+}
+
+@media (max-width: 800px) {
+
+	.switch-clocks a {
+		padding: 20px;
+	}
+
+	form {
+		height: auto;
+		padding: 10px;
+		margin: 10px auto;
+	}
+
+	.checkbox {
+		padding-left: 0;
+		display: none;
+	}
+
+	.clock {
+		font-size: 60px;
+		height: 180px;
+		line-height: 180px;
+		margin-top: 20px;
+	}
+
+	.stopwatch form a {
+		padding: 0 1rem;
+	}
+
+	/* 时钟 */
+	.clock {
+		position: relative;
+		height: 200px;
+		max-width: 888px;
+		width: 100%;
+		display: block;
+		margin: 50px auto;
+		font-size: 66px;
+		color: #0277BD;
+		text-align: center;
+		line-height: 200px;
+		/* background-color: #fff; */
+		border-radius: 2px;
+		transition: all 0.4s ease-in, box-shadow 0.2s;
+	}
+
+	#myProgress {
+		display: block;
+	}
+
+	.focus {
+		top: 30%;
+	}
+
+	.focus label {
+		margin-left: 20px;
+	}
+	.input-field {
+		float: left;
+	}
+	.control {
+		width: 110px;
+	}
+	.timer-btn {
+		margin-top: 20px;
+	}
+	#record {
+		position: fixed;
+		left: 0;
+		top: 45%;
+	}
+}

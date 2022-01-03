@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我用过的手机</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+    <style>
+        section {
+            padding: 100px 0;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        body {
+            font-family: 'Roboto';
+            font-size: 17px;
+            font-weight: 400;
+            background-color: #eee;
+        }
+
+        .timeline h1 {
+            font-size: 200%;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .timeline header {
+            background: #3F51B5;
+            color: #FFFFFF;
+            padding: 150px 0;
+        }
+
+        .timeline header p {
+            font-family: 'Allura';
+            color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 0;
+            font-size: 60px;
+            margin-top: -30px;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            background: #C5CAE9;
+            width: 5px;
+            height: 95%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            width: 100%;
+            margin-bottom: 70px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right;
+            padding: 40px 30px 10px 30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content .date {
+            right: auto;
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            width: 0;
+            height: 0;
+            top: 30px;
+            left: -15px;
+            border-width: 10px 15px 10px 0;
+            border-color: transparent #f5f5f5 transparent transparent;
+        }
+
+        .timeline-item::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 10px 30px;
+            border-radius: 4px;
+            background: #f5f5f5;
+            box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            width: 0;
+            height: 0;
+            top: 30px;
+            right: -15px;
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent #f5f5f5;
+        }
+
+        .timeline-img {
+            width: 30px;
+            height: 30px;
+            background: #3F51B5;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            margin-top: 25px;
+            margin-left: -15px;
+        }
+
+        .timeline a {
+            background: #3F51B5;
+            color: #FFFFFF;
+            padding: 8px 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.6);
+        }
+
+        .timeline a:hover,
+        .timeline a:active,
+        .timeline a:focus {
+            background: #32408f;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+
+        .timeline-item .timeline-img-header {
+            background-size: cover;
+        }
+
+        .timeline-img-header {
+            height: 200px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-img-header h2 {
+            color: #FFFFFF;
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+        }
+
+        .timeline-img-header img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .timeline-item p {
+            margin-top: 30px;
+            text-align: justify;
+            font-size: 14px;
+            color: #757575;
+            border-left-color: #3F51B5;
+            padding: 0 20px;
+        }
+
+        .date {
+            background: #FF4081;
+            display: inline-block;
+            color: #FFFFFF;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::before {
+                left: 50px;
+            }
+
+            .timeline .timeline-img {
+                left: 50px;
+            }
+
+            .timeline .timeline-content {
+                max-width: 100%;
+                width: auto;
+                margin-left: 70px;
+            }
+
+            .timeline .timeline-item:nth-child(even) .timeline-content {
+                float: none;
+            }
+
+            .timeline .timeline-item:nth-child(odd) .timeline-content::after {
+                content: '';
+                position: absolute;
+                border-style: solid;
+                width: 0;
+                height: 0;
+                top: 30px;
+                left: -15px;
+                border-width: 10px 15px 10px 0;
+                border-color: transparent #f5f5f5 transparent transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>我用过的手机</h2>
+                    <div class="mini"><span class="later"></span><span class="later">读后感</span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later">2019年暑假</span>
+                            <span id="word" class="later">11661字</span></span>
+                    </div>
+                </header>
+
+                <div class="massage">
+                    <section class="timeline">
+                        <ul class="container">
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content js--fadeInLeft">
+                                    <h2>我的第一部手机</h2>
+                                    <div class="date">初中</div>
+                                    <p>我的第一部手机是初中的时候买的，具体的时间已经不记得了，好像是初二（2011、2012年）买的。
+                                        那部手机不是智能手机，顶多算是半智能的吧，应该是塞班系统的。不能自己下载软件安装，
+                                        或者说能下载的少，随着智能手机手机的普及，那部手机很快的淘汰了，后面用的是别人给的手机。
+                                        体验就是，可以聊QQ，玩农场，逛空间，也就这样了。
+                                    </p>
+                                    <!-- <a class="bnt-more" href="javascript:void(0)">More</a> -->
+                                </div>
+                            </li>
+
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content   js--fadeInRight">
+                                    <div class="timeline-img-header">
+                                        <img src="https://s1.ax1x.com/2020/04/08/GWcx0S.md.jpg" alt="图片加载中……">
+                                    </div>
+                                    <div class="date">August 2014</div>
+                                    <h2>第二部手机</h2>
+                                    <p>说来惭愧我是被坑的，那时候被那人套路说可以底价可以买小米三（小米4？），然后又说要信用卡什么的，
+                                        后来就被迫买了另一部，记得好像是八百块。那时候的八百块对我来说还算挺多的，而且拿钱还是我辛辛苦苦打工
+                                        （物流处卸货）赚的，然后那手机超级卡，真的是心痛呀，也没用多久就得买个新的了。真的是乡巴佬进城，
+                                        还是得先吃亏呀。ps:图有点那啥，懒得搞了。
+                                    </p>
+                                    <!-- <a class="bnt-more" href="javascript:void(0)">More</a> -->
+                                </div>
+
+                            </li>
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content js--fadeInLeft">
+                                    <div class="timeline-img-header">
+                                        <img src="https://s1.ax1x.com/2020/04/07/G2fA4H.jpg" alt="">
+                                    </div>
+                                    <div class="date">高中</div>
+                                    <h2>vivo Y系列</h2>
+                                    <p>这部手机应该是高一或者高二的时候买的价格应该是八百到一千块之间，颜值是没得说，性能也差强人意，
+                                        可以说是还算是满意的。记得是在南城对面买的，贸易城旁边，最后这部手机以250元的价格卖给了韦斯榜，还算是挺满意的吧。
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content js--fadeInRight">
+                                    <div class="timeline-img-header">
+                                        <img src="https://s1.ax1x.com/2020/04/07/G2fkUe.jpg" alt="">
+
+                                    </div>
+                                    <div class="date">02 April 2016</div>
+                                    <h2>联想乐檬 K3</h2>
+                                    <p>这是我的第一部网购的手机，也是从这以后我的电子设备几乎全是网购的（实体店太坑了），也正因为是网购才找到了准确的购买时间。
+                                        这部手机颜值不错性能物超所值，想不明白联想频繁抛弃子品牌的原因，产品还是不错的。价格是499元，只能用移动卡，
+                                        那时候全网通还是挺难得的。
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content   js--fadeInLeft">
+                                    <div class="timeline-img-header">
+                                        <img src="https://s1.ax1x.com/2020/04/07/G2fFED.jpg" alt="">
+                                    </div>
+                                    <div class="date">18 June 2017</div>
+                                    <h2>联想ZUK Edge</h2>
+                                    <p>高考结束后买的，正好是618促销，价格是1689元，参数、颜值没得说，但总感觉不够流畅，
+                                        也可能是我的期望太高了吧，毕竟这手机在当时可是安卓手机顶级的配置，应该是联想的调教不够好。
+                                        值得一提的是这手机后盖被一个小屁孩摔坏了，而且还是没经过我的允许就动我的手机，
+                                        而且果然这小孩和我第一眼看到的感觉没家教的感觉一样，最近有看到他，感觉这小孩有点毁了，
+                                        也有希望是我看走眼了吧。后面这手机在上课的时候掉下来，按键失灵还有许多问题，
+                                        硬生生是在阳逻的路上走挺久才找到了维修掉，地图导航有时候不太可信呀，地图上不远显示很远，
+                                        后来回家以后又从口袋掉下去，又还原到没修之前了，哎。
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content   js--fadeInRight">
+                                    <div class="timeline-img-header">
+                                        <img src="https://s1.ax1x.com/2020/04/07/G2hWSs.jpg" alt="">
+                                    </div>
+                                    <div class="date">30 January 2018</div>
+                                    <h2>魅族魅蓝S6</h2>
+                                    <p>淘宝买的，价格是1219元，记得那时候还在砍甘蔗呢。总体来说还算不错，挺轻薄的，用起来也体验不错。
+                                        可是安卓毕竟是安卓，会变卡，到后面这手机的响应速度有点慢。
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="timeline-item">
+                                <div class="timeline-img"></div>
+                                <div class="timeline-content js--fadeInLeft">
+
+                                    <div class="timeline-img-header">
+                                        <img src="https://s1.ax1x.com/2020/04/07/G2fCDK.jpg" alt="">
+                                    </div>
+                                    <div class="date">01 June 2019</div>
+                                    <h2>Redmi K20Pro</h2>
+                                    <p>买之前一直在关注这款手机，还在图书馆看了发布会，感觉这手机是否符合我的需求，
+                                        然后在深思熟虑之后就买了它，到货的时候刚好是六一儿童节，记得是在培训单片机，
+                                        然后我去图书馆前面领的。对了，价格是2999元。感觉这部手机是买的最好的一部了，
+                                        用了快一年，体验还是飞起，十分流畅，就是散热还做得不够顶级。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <div id="lv-container" data-id="city" data-uid="MTAyMC80OTE3Mi8yNTY2Ng==">
+                    </div>
+            </main>
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+        $(function () {
+
+            window.sr = ScrollReveal();
+
+            if ($(window).width() < 768) {
+
+                if ($('.timeline-content').hasClass('js--fadeInLeft')) {
+                    $('.timeline-content').removeClass('js--fadeInLeft').addClass('js--fadeInRight');
+                }
+
+                sr.reveal('.js--fadeInRight', {
+                    origin: 'right',
+                    distance: '300px',
+                    easing: 'ease-in-out',
+                    duration: 800,
+                    reset: true,
+                });
+
+            } else {
+
+                sr.reveal('.js--fadeInLeft', {
+                    origin: 'left',
+                    distance: '300px',
+                    easing: 'ease-in-out',
+                    duration: 800,
+                    reset: true,
+                });
+
+                sr.reveal('.js--fadeInRight', {
+                    origin: 'right',
+                    distance: '300px',
+                    easing: 'ease-in-out',
+                    duration: 800,
+                    reset: true,
+                });
+
+            }
+
+            sr.reveal('.js--fadeInLeft', {
+                origin: 'left',
+                distance: '300px',
+                easing: 'ease-in-out',
+                duration: 800,
+                reset: true,
+            });
+
+            sr.reveal('.js--fadeInRight', {
+                origin: 'right',
+                distance: '300px',
+                easing: 'ease-in-out',
+                duration: 800,
+                reset: true,
+            });
+
+
+        });
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+
+
+</body>
+
+</html>

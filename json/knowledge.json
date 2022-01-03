@@ -1,0 +1,47 @@
+{
+    "//": "转载的技术文章",
+    "articles": [{
+            "url": "../../../../knowledge/cssmind.html",
+            "img_url": " https://s1.ax1x.com/2020/04/08/GWf88H.jpg",
+            "title": "CSS思维导图",
+            "introduction": "CSS思维导图，展示了完整的CSS结果、知识点全面，简单易懂，值得收藏！",
+            "classification": "思维导图",
+            "tag": "CSS 思维导图",
+            "time": "2020-04-04",
+            "writer": "网络资源"
+        }, {
+            "url": "../../../../knowledge/20210209.html",
+            "img_url": "https://i.loli.net/2021/02/09/B54s3j81WgLmIq7.jpg",
+            "title": "十大经典排序算法",
+            "introduction": "总结包括冒泡排序、选择排序、插入排序在内的十种算法，图文并茂地展示排序算法的基本理论。排序算法是数据结构的重要部分，面试必问，系统地学习很有必要！",
+            "classification": "其他",
+            "tag": "算法",
+            "time": "2021-02-09",
+            "writer": "CodeSheep"
+        }, {
+            "url": "../../../../knowledge/20210217.html",
+            "img_url": "https://s3.ax1x.com/2021/02/17/ygHVP0.jpg",
+            "title": "3种最基本的查找算法",
+            "introduction": "查找是在大量的信息中寻找一个特定的信息元素，在计算机应用中，查找是常用的基本运算，例如编译程序中符号表的查找。本文简单概括性的介绍了最基本的三种查找算法，顺序查找、二分查找、插值查找，插值查找是二分查找的优化算法。",
+            "classification": "其他",
+            "tag": "算法",
+            "time": "2021-02-17",
+            "writer": "CSDN"
+        }, {
+            "url": "../../../../knowledge/20210218.html",
+            "img_url": "https://s3.ax1x.com/2021/02/18/yR6wOP.jpg",
+            "title": "八大数据结构分类",
+            "introduction": "数据结构是指相互之间存在着一种或多种关系的数据元素的集合和该集合中数据元素之间的关系组成 。常用的数据结构有：数组，栈，链表，队列，树，图，堆，散列表等",
+            "classification": "其他",
+            "tag": "数据结构",
+            "time": "2021-02-18",
+            "writer": "CSDN"
+        }
+
+
+
+
+
+
+    ]
+}

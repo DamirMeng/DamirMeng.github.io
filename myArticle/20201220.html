@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我有一个大胆的想法。。。</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h1><a name="我有一个大胆的想法" class="md-header-anchor"></a><span>我有一个大胆的想法。。。</span></h1>
+                    <div class="mini"><span class="later"></span><span class="later">建站 博客</span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later">2020-12-20</span>
+                            <span id="word" class="later">11661字</span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p><span>最近在学Java和数据库，在GitHub
+                                pages的静态页面无法支持后端的编程语言，而且静态站点的局限太多，同时我还看到了我的名字拼音域名：</span><code>mengdaming.com</code><span>并没有被注册，而且长远来看我还是有学习互联网的需求的，并且虚拟主机的价格好像我还是可以接受的。所以我就产生了一个大胆的想法，那就是：</span>
+                        </p>
+                        <p><strong><span>自己动手做一个完全自主的博客系统！！！</span></strong></p>
+                        <p>&nbsp;</p>
+                        <p><span>毫无疑问，对我这个微电子出身的人来说是巨大的挑战！</span></p>
+                        <p><span>下面我将会谈一谈这个大胆的想法。</span></p>
+                        <p><span>可以想象，拥有了虚拟主机之后我的博客将拥有正常的网站做具有的所有功能（如果我可以实现的话）。同时，我可以利用这个契机学会许多的互联网技术。</span></p>
+                        <h2 class="contents"><a name="它是怎样的" class="md-header-anchor"></a><span>它是怎样的？</span></h2>
+                        <p><span>我的构想什么样的呢？</span></p>
+                        <p><span>毫无疑问，界面肯定要是现代化的。同时，它将会将会实现所有博客系统所拥有的所有功能（如果是必要的话）。</span></p>
+                        <p><span>当然写文章肯定会支持markdown，并且文章的显示效果肯定是和后台预览的一致，显示目录等都是必不可少的，所有前端的功能都是可以动态添加的。</span></p>
+                        <p><span>现在我在GitHub
+                                pagdes上面发布文章是十分繁琐的，这个系统将实现随时随地地发布文章，它将完全面向普通用户，</span><strong><span>发表一篇文章你只需要会写文章就可以！</span></strong>
+                        </p>
+                        <p><span>所有的公共模块都是基于后端或者说JavaScript的，这便于后期的维护与修改。</span></p>
+                        <p><span>用户页面是动态加载的，站内搜索也将完善，可以查找文章里面的内容。</span></p>
+                        <p><strong><span>事实上，我的构想就是构建一个完全自己编写的博客系统，它是司空见惯的，但如果我可以完全自己构建，那将会是十分令人激动的！</span></strong></p>
+                        <p><span>可以预见，它将会是十分灵活的，想实现什么功能都完全可以自己去编写代码。</span></p>
+                        <p><span>那么，实现方法呢？</span></p>
+                        <h2 class="contents"><a name="如何实现" class="md-header-anchor"></a><span>如何实现？</span></h2>
+                        <p><span>如果不考虑细节的话，实现起来似乎很简单，就是把前台的文章内容存储到数据库，然后在将数据库的内容向用户展示。</span></p>
+                        <p>&nbsp;</p>
+                        <p><span>简单地说，就是有一个管理员界面，从这个界面编辑的markdown文章将会存储到数据库中，同时生成相对于的json/xml文件、对应的HTML文件。管理员界面用以发布文章，主要面向站长。</span>
+                        </p>
+                        <p><span>访客界面将从数据库加载所有文件，或者加载生成的HTML文件，所有数据将会模板化。</span></p>
+                        <p><span>这些看起来都是十分容易实现的，但具体操作估计对我这种菜鸟来说难如登天。</span></p>
+                        <p><span>以下是大概的图解：</span></p>
+                        <p><a href='https://imgchr.com/i/rdPyPe'><img src="https://s3.ax1x.com/2020/12/20/rdPyPe.png"
+                                    referrerpolicy="no-referrer" alt="rdPyPe.png"></a></p>
+                        <h4><a name="访客界面" class="md-header-anchor"></a><span>访客界面</span></h4>
+                        <p><span>毫无疑问，一个面向访客的页面是必要的，而且这我也早就在GitHub上面发布过不止一个站点了。但是，有别于这种无自己的服务器的静态站点，所有的数据都将自己存储，而不是利用网上的资源去为自己的网页服务，以后将不再需要第三方的评论、浏览记录等网站来实现自己的需求，当然图床还是需要的，毕竟自己的服务器资源是有限的。</span>
+                        </p>
+                        <p><span>简而言之，就是将所有的文章及站点信息都存储在自己的MySQL数据库中，当然如果有SEO需求将会生成静态网页。</span></p>
+                        <p><span>访客页面的文章列表、句子、资源等信息都可以从数据库读取，实现动态的加载，这将会比之前直接加载json文件灵活许多。</span></p>
+                        <p><span>同时，利用cookie对不同用户进行不同的文章推荐也是有必要的，但这又是一大问题了。</span></p>
+                        <p><span>有了数据库，站内搜索将会得到完美地实现，直接从数据库检索即可。</span></p>
+                        <h4><a name="管理员界面" class="md-header-anchor"></a><span>管理员界面</span></h4>
+                        <p><span>通过登录页面进入管理页面，将可以随时随地发布文章，后台管理界面的功能和其他博客系统差不多这里不再赘述。</span></p>
+                        <p><span>后台将使用markdown编辑器编辑文章，点击发布文章之后，文章的所有内容将会自动保存到MySQL数据库，同时生成一个对应json或xml文件，为了SEO的需求还会利用模板生成一个对应HTML文件。这些文件生成以后毫无疑问向用户展示将是比前面的内容更加简单的事情。有了这些文件，我们甚至还可以将他展示到APP中。</span>
+                        </p>
+                        <h2 class="contents"><a name="需要实现的功能" class="md-header-anchor"></a><span>需要实现的功能</span></h2>
+                        <p><span>具体功能就和普通的博客系统一样，这里简单说一些吧，毫无疑问会遗漏许许多多的功能。</span></p>
+                        <h3><a name="前台" class="md-header-anchor"></a><span>前台</span></h3>
+                        <p><span>页面可以完全使用已有的界面，可以添加：</span></p>
+                        <ul>
+                            <li><span>依赖于Java后台的评论、点赞、转发等用户互动功能</span></li>
+                            <li><span>依赖于Java后台的浏览信息功能（访客数量等）</span></li>
+                            <li><span>导航页面、页尾等页面使用Java后台来加载（目前优化为）</span></li>
+                            <li><span>文章的所有编辑信息</span></li>
+                            <li><span>甚至可以实现除了我之外的用户来发布文章，并且快速建立起类似CSDN等博客的用户拥有自己的博客主页（当然我知道这无比艰难）</span></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <h3><a name="后台" class="md-header-anchor"></a><span>后台</span></h3>
+                        <ul>
+                            <li><span>没错，我想使用的后台语言是Java，而不是逐渐日薄西山的世界上最后的语言PHP。</span></li>
+                            <li><span>数据库将会使用MYSQL</span></li>
+                            <li><span>用Java来处理所有公共页面和文章</span></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <p><span>懒得打那么多字了。</span></p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <h2 class="contents"><a name="结果呢" class="md-header-anchor"></a><span>结果呢？</span></h2>
+                        <p><span>大概思路是有了，可是实现呢？</span></p>
+                        <p><span>对不起，我的Java、服务器等能力不够强，加上刚刚来实习，而且从事的是单片机的工作，同时还需要做毕业设计（要学Android、Java），所以毫无疑问，我是完全没有时间的。</span>
+                        </p>
+                        <p><span>所以，虽然为了这个构想我花了许多时间来查询资料，甚至查了“Java和PHP的利弊和趋势等”，但是非常地遗憾，能力有限、时间有限。</span></p>
+                        <p><span>所以，</span></p>
+                        <p><strong><span>这个大胆的想法必须得搁置了！</span></strong></p>
+                        <p><span>但是，我并非一无所获，我了解了许多的建站流程与知识。</span></p>
+                        <p><span>同时，这个大胆的想法或许有一天会被被我实现。</span></p>
+                        <p><span>内容为王的时代，网站做得好不一定就能吸引用户，虽说这好像不是的关注点。</span></p>
+                        <p><span>但我写博客的初衷就是为了写博客，搞这些博客知识知识因为好奇心罢了。</span></p>
+                        <p><span>所以，加油吧，先坚持写自己的博客，积累自己，提升自己，该来的会来的。</span></p>
+                        <p><span>或许我可以到CSDN、博客园等平台开一个博客账号。</span></p>
+                        <p>&nbsp;</p>
+                        <p><span>打字手好累，就打那么多吧，尽管我还有许多想说的。</span></p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

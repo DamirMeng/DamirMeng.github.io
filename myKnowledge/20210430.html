@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>C语言中的指针</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>C语言中的指针</h2>
+                    <div class="mini"><span class="later"></span><span class="later"></span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later"></span>
+                            <span id="word" class="later"></span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p><span>在Ｃ语言中，允许用一个变量来存放指针，这种变量称为指针变量。因此，一个指针变量的值就是某个内存单元的地址或称为某内存单元的指针。 </span></p>
+                        <p><span>严格地说，一个指针是一个地址，是一个常量。而一个指针变量却可以被赋予不同的指针值，是变量。但常把指针变量简称为指针。 </span></p>
+                        <p><span>为了避免混淆，我们中约定：</span><strong><span>“指针”是指地址</span></strong><span>，是常量，</span><strong><span>“指针变量”是指取值为地址的变量</span></strong><span>。
+                            </span></p>
+                        <p><span>定义指针的目的是为了通过指针去访问内存单元。 数据往往都是连续存放的，所以利用指针可以方便地访问变量、结构体、共同体、数组、函数等</span></p>
+                        <p><span>变量的指针就是变量的地址。存放变量地址的变量是指针变量。 </span></p>
+                        <p><span>用“*”符号表示“指向”， </span></p>
+                        <h5 class="contents" id='定义指针'><span>定义指针</span></h5>
+                        <p><code>类型说明符 *变量名；</code>
+                            <span>其中，</span><span>*</span><span>表示这是一个指针变量，变量名即为定义的指针变量名，类型说明符表示本指</span>
+                            <span>针变量所指向的变量的数据类型。 </span></p>
+                        <p><span>两个有关的运算符：</span>
+                            <span>1) &amp;:取地址运算符。</span>
+                            <span>2) *：指针运算符（或称“间接访问” 运算符）。 </span></p>
+                        <p><span>&amp;、*为单目运算符，为从右至左结合</span></p>
+                        <p><code>pointer_1=&amp;a</code><span>，则&amp;*pointer_1 取a的地址</span></p>
+                        <p><code>int *p=&amp;a;</code><span>“*”是类型说明符，表示其后的变量是指针类型。 </span></p>
+                        <p><span>或</span></p>
+                        <p><code>int *p;</code>
+                            <code>p=&amp;a;</code></p>
+                        <h4 class="contents" id='指针变量作为函数参数'><span>指针变量作为函数参数 </span></h4>
+                        <p><span>函数的参数不仅可以是整型、实型、字符型等数据，还可以是指针类型。它的作用是将一个变量的地址传送到另一个函数中。 </span></p>
+                        <pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+                            spellcheck="false" lang="c"
+                            style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+                        <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+                            <div>16</div>
+                        </div>
+                    </div>
+                    <div class="CodeMirror-measure"></div>
+                    <div style="position: relative; z-index: 1;"></div>
+                    <div class="CodeMirror-code" role="presentation" style="text-rendering: auto;">
+                        <div class="CodeMirror-activeline" style="position: relative;">
+                            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+                            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+                                style="left: -34px; width: 34px;"></div>
+                            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">1</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">swap</span>(<span class="cm-variable-3">int</span> <span class="cm-variable-3">*</span><span class="cm-variable">p1</span>,<span class="cm-variable-3">int</span> <span class="cm-variable-3">*</span><span class="cm-variable">p2</span>)</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">2</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">3</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">temp</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">4</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">temp</span><span class="cm-operator">=*</span><span class="cm-variable">p1</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">5</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-operator">*</span><span class="cm-variable">p1</span><span class="cm-operator">=*</span><span class="cm-variable">p2</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">6</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-operator">*</span><span class="cm-variable">p2</span><span class="cm-operator">=</span><span class="cm-variable">temp</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">7</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">8</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">main</span>()</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">9</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">10</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">a</span>,<span class="cm-variable">b</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">11</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable-3">*</span><span class="cm-variable">pointer_1</span>,<span class="cm-operator">*</span><span class="cm-variable">pointer_2</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">12</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">scanf</span>(<span class="cm-string">"%d,%d"</span>,<span class="cm-operator">&amp;</span><span class="cm-variable">a</span>,<span class="cm-operator">&amp;</span><span class="cm-variable">b</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">13</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">pointer_1</span><span class="cm-operator">=&amp;</span><span class="cm-variable">a</span>;<span class="cm-variable">pointer_2</span><span class="cm-operator">=&amp;</span><span class="cm-variable">b</span>;</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">14</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">if</span>(<span class="cm-variable">a</span><span class="cm-operator">&lt;</span><span class="cm-variable">b</span>) <span class="cm-variable">swap</span>(<span class="cm-variable">pointer_1</span>,<span class="cm-variable">pointer_2</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 26px;">15</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"\n%d,%d\n"</span>,<span class="cm-variable">a</span>,<span class="cm-variable">b</span>);</span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 26px;">16</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 384px;"></div>
+    <div class="CodeMirror-gutters" style="height: 384px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p><span>指针变量作为函数形参是按地址传递，会改变实参的内容，这是与按值传递的区别</span></p>
+    <p><code>char *pc;</code>
+        <code>pc=&quot;C Language&quot;;</code></p>
+    <p>&nbsp;</p>
+    <pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false"
+        lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>12</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="text-rendering: auto;">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 26px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;stdio.h&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;string.h&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">str</span>[]<span class="cm-operator">=</span><span class="cm-string">"hel\0lo"</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char*</span> <span class="cm-variable">sp</span><span class="cm-operator">=</span><span class="cm-string">"abcd"</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">sp</span><span class="cm-operator">+=</span><span class="cm-number">1</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"%ld %c %s\n"</span>,<span class="cm-variable">sp</span>,<span class="cm-operator">*</span><span class="cm-variable">sp</span>,<span class="cm-variable">sp</span>);<span class="cm-comment">//地址 &nbsp; b  bcd </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"%s  %s\n"</span>,<span class="cm-variable">str</span>,<span class="cm-operator">&amp;</span><span class="cm-variable">str</span>[<span class="cm-number">1</span>]);<span class="cm-comment">//hel &nbsp; el </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 26px;">10</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">//%s遇到\0就结束</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -34px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 26px;">12</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> } </span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 288px;"></div>
+    <div class="CodeMirror-gutters" style="height: 288px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p>&nbsp;</p>
+    <h5 class="contents" id='指针问题'><span>指针问题</span></h5>
+    <p><code>int* a</code><span>等价于</span><code>int *a</code></p>
+    <ol start=''>
+        <li><span>一个整型数</span><span> </span><code>int a;</code></li>
+        <li><span>指向整型的指针 </span><code>int *a;</code></li>
+        <li><span>指向指针的指针，它指向的指针是个整型数：</span><code>int **a;</code></li>
+        <li><span>数组：</span><code>int a[10];</code></li>
+        <li><span>一个有十个指针的数组，该指针指向的是整型数：</span><code>int *a[10]</code><span> 是一个数组 int *是数据类型</span></li>
+        <li><span>一个指向有10个整型数数组的指针：</span><code>int (*a)[10]</code><span> 是一个指针</span></li>
+        <li><span>一个指向函数的指针,该函数有一个整型参数并返回一个整型数:</span><code>int (*a)(int a)</code><span> 是指针</span></li>
+        <li><span>一个有10个指针的数组，该指针指向一个函数,该函数有一个整型参数并返回一个整型数</span>
+            <code>int *a[10](int a)</code><span>和</span><code>int (*a[10])(int a)</code></li>
+    </ol>
+    <p>&nbsp;</p>
+    <p><span>指针变量作为函数形参是按地址传递，会改变实参的内容，这是与按值传递的区别</span></p>
+    <p><span>指向字符串：</span><code>char *pc=&quot;C Language&quot;;</code></p>
+    <p>&nbsp;</p>
+    </div>
+    </div>
+    </main>
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

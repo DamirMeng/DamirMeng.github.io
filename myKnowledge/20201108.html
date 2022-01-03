@@ -1,0 +1,556 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> C语言中的strlen和sizeof</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h1><a name=" C语言中的strlen和sizeof" class="md-header-anchor"></a><span> C语言中的strlen和sizeof</span></h1>
+                    <div class="mini"><span class="later"></span><span class="later">C语言</span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later">2020-11-08</span>
+                            <span id="word" class="later">11661字</span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p><span>strlen和sizeof是平时及面试中是十分常见的，本文将讲述C语言中strlen和sizeof的用法和区别，并写出两者的区别和常见的错误，目的是是自己更加了解strlen和sizeof的使用。</span>
+                        </p>
+                        <h2 class="contents"><a name="strlen" class="md-header-anchor"></a><span>strlen</span></h2>
+                        <h3><a name="strlen的基本概念" class="md-header-anchor"></a><span>strlen的基本概念</span></h3>
+                        <p><span>strlen所作的是一个计数器的工作，它从内存的某个位置（可以是字符串开头，中间某个位置，甚至是某个不确定的内存区域）开始扫描，直到碰到第一个字符串结束符&#39;\0&#39;为止，然后返回计数器值(长度不包含&#39;\0&#39;)。</span>
+                        </p>
+                        <blockquote>
+                            <p><span>简而言之，strlen就是用来计算字符串长度的，</span><mark><span>传入一个指针，直到遇到&#39;\0&#39;就会停止</span></mark><span>。</span>
+                            </p>
+                        </blockquote>
+                        <h3><a name="函数原型" class="md-header-anchor"></a><span>函数原型</span></h3>
+                        <p><code>unsigned int strlen(const char *str);</code></p>
+                        <blockquote>
+                            <p><span>参数：字符串，一般为一个指针</span></p>
+                            <p><span>返回值：字符串长度</span></p>
+                        </blockquote>
+                        <h3><a name="实现方法" class="md-header-anchor"></a><span>实现方法</span></h3>
+                        <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded md-focus"
+                        lang="c"><div class="CodeMirror cm-s-inner CodeMirror-wrap CodeMirror-focused" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 168px; left: 37.9125px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre>
+                </div>
+                <div class="CodeMirror-measure"></div>
+                <div style="position: relative; z-index: 1;"></div>
+                <div class="CodeMirror-code" role="presentation" style="text-rendering: auto;">
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                style="left: 0px; width: 18px;">1</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">unsigned</span> <span class="cm-variable-3">int</span> <span class="cm-def">strlen</span>(<span class="cm-keyword">const</span> <span class="cm-variable-3">char</span> <span class="cm-variable-3">*</span><span class="cm-variable">str</span>)</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">assert</span>(<span class="cm-variable">str</span> <span class="cm-operator">!=</span> <span class="cm-variable">NULL</span>);</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">len</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">while</span>((<span class="cm-operator">*</span><span class="cm-variable">str</span><span class="cm-operator">++</span>) <span class="cm-operator">!=</span> <span class="cm-string">'\0'</span>)</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">len</span><span class="cm-operator">++</span>;</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">len</span>;</span></pre>
+                    </div>
+                    <div class="CodeMirror-activeline" style="position: relative;">
+                        <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+                        <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+                        </div>
+                        <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                style="left: 0px; width: 18px;">8</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 192px;"></div>
+                <div class="CodeMirror-gutters" style="height: 192px;">
+                    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+                </div>
+                </div>
+                </div>
+                </pre>
+    <p>&nbsp;</p>
+    <h2 class="contents"><a name="sizeof" class="md-header-anchor"></a><span>sizeof</span></h2>
+    <blockquote>
+        <p><mark><span>本质上来说：sizeof的运算对象是类型，即计算类型的长度。</span></mark></p>
+    </blockquote>
+    <h3><a name="sizeof的基本概念" class="md-header-anchor"></a><span>sizeof的基本概念</span></h3>
+    <p><span>sizeof是C/C++中的一个操作符（operator），简单的说其作用就是返回一个对象或者类型所占的内存字节数。</span></p>
+    <blockquote>
+        <p><span>sizeof()括号里面是类型说明符或者表达式，其为C语言的关键字之一。</span></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <hr />
+    <p>&nbsp;</p>
+    <h2 class="contents"><a name="两者的比较" class="md-header-anchor"></a><span>两者的比较</span></h2>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th><span>strlen</span></th>
+                    <th><span>sizeof</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>头文件</span></td>
+                    <td><span>string.h</span></td>
+                    <td><span>不需要/c语言关键字</span></td>
+                </tr>
+                <tr>
+                    <td><span>参数</span></td>
+                    <td><span>指针</span></td>
+                    <td><span>变量/类型</span></td>
+                </tr>
+                <tr>
+                    <td><span>返回值</span></td>
+                    <td><span>字符串长度</span></td>
+                    <td><span>内存字节数</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <h2 class="contents"><a name="代码示例" class="md-header-anchor"></a><span>代码示例</span></h2>
+    <h3><a name="字符串一维数组指针" class="md-header-anchor"></a><span>字符串、一维数组、指针</span></h3>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"
+        style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16px; left: 52px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 32px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>22</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -32px; width: 32px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;stdio.h&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;string.h&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">5</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">str</span>[]<span class="cm-operator">=</span><span class="cm-string">"he\0llo"</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">6</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable-3">*</span><span class="cm-variable">sp</span><span class="cm-operator">=</span><span class="cm-string">"abc"</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">7</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">int_str</span>[]<span class="cm-operator">=</span>{<span class="cm-number">11</span>,<span class="cm-number">22</span>,<span class="cm-number">35</span>}; </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">8</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">short</span> <span class="cm-variable">short_str</span>[]<span class="cm-operator">=</span>{<span class="cm-number">11</span>,<span class="cm-number">55</span>,<span class="cm-number">44</span>};</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">9</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">long</span> <span class="cm-variable">long_str</span>[<span class="cm-number">5</span>]<span class="cm-operator">=</span>{<span class="cm-number">11</span>,<span class="cm-number">55</span>,<span class="cm-number">44</span>};</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">10</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">11</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"strlen:%d\t%d\n"</span>,<span class="cm-variable">strlen</span>(<span class="cm-variable">sp</span>),<span class="cm-variable">strlen</span>(<span class="cm-variable">str</span>));<span class="cm-comment">//  3  2</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">12</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">//strlen不包括'\0'，遇到'\0'就认为字符串结束</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">13</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"sizeof:%d\t%d\t%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-operator">*</span><span class="cm-variable">sp</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">sp</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">str</span>));<span class="cm-comment">//1  8  7 </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">14</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//第一个：sizeof(*sp)中*sp指向的是a，而a只char型所以占1个字节</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">15</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//第二个：sizeof(sp)相当于sizeof(char*),即一个指针所占的空间，64（32）位计算机中指针占8（4）个字节</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">16</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//第三个：sizeof(str)计算的是整个数组所占的内存，包括最后面的'\0'</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">17</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"%d\t%d\t%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">short_str</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">int_str</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">long_str</span>));<span class="cm-comment">// 6  12  20</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">18</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//sizeof(short_str)计算数组长度：2*3=6</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">19</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//sizeof(int_str)：4*3=12</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">20</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//sizeof(long_str)：4*5=20</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">21</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">22</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> } </span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 563px;"></div>
+    <div class="CodeMirror-gutters" style="height: 563px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 31px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p>&nbsp;</p>
+    <h3><a name="二维数组的情况" class="md-header-anchor"></a><span>二维数组的情况</span></h3>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"
+        style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 16px; left: 52px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 32px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>22</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -32px; width: 32px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;stdio.h&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;string.h&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">{ </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">5</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">char</span> <span class="cm-variable-3">*</span><span class="cm-variable">month</span>[] <span class="cm-operator">=</span> {<span class="cm-string">"January"</span>,<span class="cm-string">"February"</span>,<span class="cm-string">"March"</span>,<span class="cm-string">"April"</span>,<span class="cm-string">"May"</span>,<span class="cm-string">"June"</span>,</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">6</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-string">"July"</span>,<span class="cm-string">"August"</span>,<span class="cm-string">"September"</span>,<span class="cm-string">"October"</span>,<span class="cm-string">"November"</span>,<span class="cm-string">"December"</span>};</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">7</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">a</span>[<span class="cm-number">3</span>][<span class="cm-number">4</span>] <span class="cm-operator">=</span> {<span class="cm-number">0</span>}; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">8</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">a</span>)); &nbsp; <span class="cm-comment">//48 &nbsp; &nbsp; &nbsp; 整个二维数组的大小</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">9</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">a</span>[<span class="cm-number">0</span>][<span class="cm-number">0</span>])); <span class="cm-comment">//4 &nbsp;  下标为a[0][0]的长度，也就是第一行第一个元素的大小</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">10</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">a</span>[<span class="cm-number">0</span>])); &nbsp; &nbsp;<span class="cm-comment">//16 &nbsp; 第1行的大小 第一行有四个每个又为整型 所以4*4=16</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">11</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">a</span>[<span class="cm-number">0</span>]<span class="cm-operator">+</span><span class="cm-number">1</span>)); &nbsp;<span class="cm-comment">//4 &nbsp;  第一行第二个元素的地址 &nbsp; </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">12</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-number">1</span>)); &nbsp; &nbsp; <span class="cm-comment">//8 &nbsp;  第二行的地址 &nbsp; </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">13</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-operator">&amp;</span><span class="cm-variable">a</span>[<span class="cm-number">0</span>]<span class="cm-operator">+</span><span class="cm-number">1</span>)); <span class="cm-comment">//8 &nbsp; 第1行的地址的长度 &nbsp; &nbsp; &nbsp; </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">14</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-operator">*</span><span class="cm-variable">a</span>)); &nbsp; &nbsp; &nbsp;<span class="cm-comment">//16 &nbsp; &nbsp; 第0行的长度</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">15</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\t%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">month</span>[<span class="cm-number">2</span>]),<span class="cm-variable">strlen</span>(<span class="cm-variable">month</span>[<span class="cm-number">2</span>])); &nbsp; &nbsp;<span class="cm-comment">//8  5 &nbsp; &nbsp;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">16</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">//sizeof(month[0]):month[2]是个指针，指针的长度为8 </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">17</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp;<span class="cm-comment">// strlen(month[0])计算了字符串"March"的字符个数 </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">18</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">printf</span>(<span class="cm-string">"%d\t%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">month</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-operator">*</span><span class="cm-variable">month</span>));<span class="cm-comment">//96 <span class="cm-tab" role="presentation" cm-text="	">   </span>8</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">19</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">//sizeof(month)计算了整个字符串数组的大小</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">20</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">//sizeof(*month)相当于sizeof(month[0]) 计算一个指针的大小 </span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 23px;">21</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -32px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 23px;">22</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 563px;"></div>
+    <div class="CodeMirror-gutters" style="height: 563px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 31px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p>&nbsp;</p>
+    </div>
+    </div>
+
+    </main>
+
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

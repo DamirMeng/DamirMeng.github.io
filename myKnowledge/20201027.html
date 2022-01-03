@@ -1,0 +1,1377 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>typora样式参考</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>typora样式参考</h2>
+                    <div class="mini"><span class="later"></span><span class="later">博客</span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later">2020-10-26</span>
+                            <span id="word" class="later">11661字</span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id="write" class=" first-line-indent">
+                        <h1><a name="欢迎使用-markdown在线编辑器-mdeditor" class="md-header-anchor"></a><span>欢迎使用 Markdown在线编辑器
+                                MdEditor</span></h1>
+                        <p><strong><span>Markdown是一种轻量级的「标记语言」</span></strong></p>
+                        <p><img src="https://s1.ax1x.com/2020/09/01/dzVwM4.jpg" referrerpolicy="no-referrer"
+                                alt="markdown" title="markdown"></p>
+                        <p><span>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面，Markdown文件的后缀名便是“.md”</span>
+                        </p>
+                        <h2 class="contents"><a name="mdeditor是一个在线编辑markdown文档的编辑器"
+                                class="md-header-anchor"></a><span>MdEditor是一个在线编辑Markdown文档的编辑器</span></h2>
+                        <p><em><span>MdEditor扩展了Markdown的功能（如表格、脚注、内嵌HTML等等），以使让Markdown转换成更多的格式，和更丰富的展示效果，这些功能原初的Markdown尚不具备。</span></em>
+                        </p>
+                        <blockquote>
+                            <p><span>Markdown增强版中比较有名的有Markdown Extra、MultiMarkdown、
+                                    Maruku等。这些衍生版本要么基于工具，如</span><del><span>Pandoc</span></del><span>，Pandao；要么基于网站，如GitHub和Wikipedia，在语法上基本兼容，但在一些语法和渲染效果上有改动。</span>
+                            </p>
+                        </blockquote>
+                        <p><span>MdEditor源于Pandao的JavaScript开源项目，开源地址</span><a
+                                href="https://github.com/pandao/editor.md"
+                                title="Editor.md"><span>Editor.md</span></a><span>，并在MIT开源协议的许可范围内进行了优化，以适应广大用户群体的需求。向优秀的markdown开源编辑器原作者Pandao致敬。</span>
+                        </p>
+                        <p><img src="https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png"
+                                referrerpolicy="no-referrer" alt="Pandao editor.md" title="Pandao editor.md"></p>
+                        <p>&nbsp;</p>
+                        <h2 class="contents"><a name="mdeditor的功能列表演示"
+                                class="md-header-anchor"></a><span>MdEditor的功能列表演示</span></h2>
+                        <h1><a name="标题h1" class="md-header-anchor"></a><span>标题H1</span></h1>
+                        <h2><a name="标题h2" class="md-header-anchor"></a><span>标题H2</span></h2>
+                        <h3><a name="标题h3" class="md-header-anchor"></a><span>标题H3</span></h3>
+                        <h4><a name="标题h4" class="md-header-anchor"></a><span>标题H4</span></h4>
+                        <h5><a name="标题h5" class="md-header-anchor"></a><span>标题H5</span></h5>
+                        <h6><a name="标题h6" class="md-header-anchor"></a><span>标题H6</span></h6>
+                        <h3 class="contents"><a name="字符效果和横线等" class="md-header-anchor"></a><span>字符效果和横线等</span></h3>
+                        <hr>
+                        <p><del><span>删除线</span></del><span> </span><s><span>删除线（开启识别HTML标签时）</span></s></p>
+                        <p><em><span>斜体字</span></em><span> </span><em><span>斜体字</span></em></p>
+                        <p><strong><span>粗体</span></strong><span> </span><strong><span>粗体</span></strong></p>
+                        <p><strong><em><span>粗斜体</span></em></strong><span>
+                            </span><strong><em><span>粗斜体</span></em></strong></p>
+                        <p><span>上标：X</span><sub><span>2</span></sub><span>，下标：O</span><sup><span>2</span></sup></p>
+                        <p><strong><span>缩写(同HTML的abbr标签)</span></strong></p>
+                        <blockquote>
+                            <p><span>即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启</span></p>
+                        </blockquote>
+                        <p><span>The </span><abbr title="Hyper Text Markup Language"><span>HTML</span></abbr><span>
+                                specification is maintained by the </span><abbr
+                                title="World Wide Web Consortium"><span>W3C</span></abbr><span>.</span></p>
+                        <h3 class="contents"><a name="引用-blockquotes" class="md-header-anchor"></a><span>引用
+                                Blockquotes</span></h3>
+                        <blockquote>
+                            <p><span>引用文本 Blockquotes</span></p>
+                        </blockquote>
+                        <p><span>引用的行内混合 Blockquotes</span></p>
+                        <blockquote>
+                            <p><span>引用：如果想要插入空白换行</span><code>即&lt;br
+                                    /&gt;标签</code><span>，在插入处先键入两个以上的空格然后回车即可，</span><a
+                                    href="https://www.mdeditor.com/"><span>普通链接</span></a><span>。</span></p>
+                        </blockquote>
+                        <h3><a name="锚点与链接-links" class="md-header-anchor"></a><span>锚点与链接 Links</span></h3>
+                        <p><a href="https://www.mdeditor.com/"><span>普通链接</span></a>
+                            <a href="https://www.mdeditor.com/" title="普通链接带标题"><span>普通链接带标题</span></a>
+                            <span>直接链接：</span><a href="https://www.mdeditor.com" target="_blank"
+                                class="url">https://www.mdeditor.com</a>
+                            <a href="https://www.mdeditor.com/" target="_blank"><span>锚点链接</span></a></p>
+                        <p><a href="mailto:test.test@gmail.com"><span>mailto:test.test@gmail.com</span></a>
+                            <span>GFM a-tail link @pandao</span>
+                            <span>邮箱地址自动链接 </span><a href="mailto:test.test@gmail.com" target="_blank"
+                                class="url">test.test@gmail.com</a><span> </span><a href="mailto:www@vip.qq.com"
+                                target="_blank" class="url">www@vip.qq.com</a></p>
+                        <blockquote>
+                            <p><span>@pandao</span></p>
+                        </blockquote>
+                        <h3 class="contents"><a name="多语言代码高亮-codes" class="md-header-anchor"></a><span>多语言代码高亮
+                                Codes</span></h3>
+                        <h4><a name="行内代码-inline-code" class="md-header-anchor"></a><span>行内代码 Inline code</span></h4>
+                        <p><span>执行命令：</span><code>npm install marked</code></p>
+                        <h4><a name="缩进风格" class="md-header-anchor"></a><span>缩进风格</span></h4>
+                        <p><span>即缩进四个空格，也做为实现类似 </span><code>&lt;pre&gt;</code><span> 预格式化文本 ( Preformatted Text )
+                                的功能。</span></p>
+                        <pre spellcheck="false"
+                            class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+                            lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;?php</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2
+                            </div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  echo "Hello world!";</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                style="left: 0px; width: 18px;">3</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;">?&gt;</span></pre>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 72px;"></div>
+    <div class="CodeMirror-gutters" style="height: 72px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p><span>预格式化文本：</span></p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>4</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">| First Header  | Second Header |</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">| ------------- | ------------- |</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">| Content Cell  | Content Cell  |</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 18px;">4</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">| Content Cell  | Content Cell  |</span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 96px;"></div>
+    <div class="CodeMirror-gutters" style="height: 96px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <h4 class="contents"><a name="js代码" class="md-header-anchor"></a><span>JS代码</span></h4>
+    <!-- <button id="copy" data-clipboard-target="#input">复制input框中的内容</button> -->
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="javascript">
+        <div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="javascript">
+            
+            <div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">test</span>() {</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">"Hello world!"</span>);</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 18px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 72px;"></div>
+    <div class="CodeMirror-gutters" style="height: 72px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <h4 class="contents"><a name="html-代码-html-codes" class="md-header-anchor"></a><span>HTML 代码 HTML codes</span></h4>
+    <pre spellcheck="false" class=" md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="html"
+        style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 26px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">&lt;!DOCTYPE html&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">mate</span> <span class="cm-attribute">charest</span>=<span class="cm-string">"utf-8"</span> <span class="cm-tag cm-bracket">/&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">meta</span> <span class="cm-attribute">name</span>=<span class="cm-string">"keywords"</span> <span class="cm-attribute">content</span>=<span class="cm-string">"Editor.md, Markdown, Editor"</span> <span class="cm-tag cm-bracket">/&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>Hello world!<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">style</span> <span class="cm-attribute">type</span>=<span class="cm-string">"text/css"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag">body</span>{<span class="cm-property">font-size</span>:<span class="cm-number">14px</span>;<span class="cm-property">color</span>:<span class="cm-atom">#444</span>;<span class="cm-property">font-family</span>: <span class="cm-string">"Microsoft Yahei"</span>, <span class="cm-variable">Tahoma</span>, <span class="cm-string">"Hiragino Sans GB"</span>, <span class="cm-variable">Arial</span>;<span class="cm-property">background</span>:<span class="cm-atom">#fff</span>;}</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag">ul</span>{<span class="cm-property">list-style</span>: <span class="cm-atom">none</span>;}</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 26px;">10</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag">img</span>{<span class="cm-property">border</span>:<span class="cm-atom">none</span>;<span class="cm-property">vertical-align</span>: <span class="cm-atom">middle</span>;}</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">style</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span> <span class="cm-attribute">class</span>=<span class="cm-string">"text-xxl"</span><span class="cm-tag cm-bracket">&gt;</span>Hello world!<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span> <span class="cm-attribute">class</span>=<span class="cm-string">"text-green"</span><span class="cm-tag cm-bracket">&gt;</span>Plain text<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div class="" style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+        <div class="" style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 26px;">17</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 432px;"></div>
+    <div class="CodeMirror-gutters" style="height: 432px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <h3 class="contents"><a name="c语言代码" class="md-header-anchor"></a><span>C语言代码</span></h3>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c"
+        style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 39px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>21</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style="text-rendering: auto;"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;stdio.h&gt;</span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include&lt;string.h&gt;</span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>()</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char</span> <span class="cm-variable">str</span>[]<span class="cm-operator">=</span><span class="cm-string">"hello"</span>;</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">char*</span> <span class="cm-variable">sp</span><span class="cm-operator">=</span><span class="cm-string">"abc"</span>;</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">i</span><span class="cm-operator">=</span><span class="cm-number">0</span>,<span class="cm-variable">sum</span><span class="cm-operator">=</span><span class="cm-number">0</span>;</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">int</span> <span class="cm-variable">tt</span>[]<span class="cm-operator">=</span>{<span class="cm-number">11</span>,<span class="cm-number">22</span>,<span class="cm-number">35</span>}; </span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">short</span> <span class="cm-variable">sh</span>[]<span class="cm-operator">=</span>{<span class="cm-number">11</span>,<span class="cm-number">55</span>,<span class="cm-number">44</span>};</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 26px;">10</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable-3">long</span> <span class="cm-variable">sl</span>[]<span class="cm-operator">=</span>{<span class="cm-number">11</span>,<span class="cm-number">55</span>,<span class="cm-number">44</span>};</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"strlen:%d\t%d\n"</span>,<span class="cm-variable">strlen</span>(<span class="cm-variable">sp</span>),<span class="cm-variable">strlen</span>(<span class="cm-variable">str</span>));<span class="cm-comment">//  3  5 </span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"sizeof:%d\t%d\t%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-operator">*</span><span class="cm-variable">sp</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">sp</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">str</span>));<span class="cm-comment">//1  8  5 </span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"%d\t%d\t%d\n"</span>,<span class="cm-keyword">sizeof</span>(<span class="cm-variable">sh</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">tt</span>),<span class="cm-keyword">sizeof</span>(<span class="cm-variable">sl</span>));<span class="cm-comment">// 6  12  12 &nbsp;</span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">//指针 </span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">sp</span><span class="cm-operator">+=</span><span class="cm-number">1</span>;</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">17</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"指针：%ld\t%c\t%s\n"</span>,<span class="cm-variable">sp</span>,<span class="cm-operator">*</span><span class="cm-variable">sp</span>,<span class="cm-variable">sp</span>);<span class="cm-comment">//地址 &nbsp; b  bc </span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">18</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">printf</span>(<span class="cm-string">"指针：%s\t%s\n"</span>,<span class="cm-variable">str</span>,<span class="cm-operator">&amp;</span><span class="cm-variable">str</span>[<span class="cm-number">1</span>]);<span class="cm-comment">//hello &nbsp; ello </span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">19</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 26px;">20</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 26px;">21</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> } </span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 504px;"></div>
+    <div class="CodeMirror-gutters" style="height: 504px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p>&nbsp;</p>
+    <h3 class="contents"><a name="图片-images" class="md-header-anchor"></a><span>图片 Images</span></h3>
+    <p><span>图片加链接 (Image + Link)：</span></p>
+    <p><a href="https://www.mdeditor.com/images/logos/markdown.png" title="markdown"><img
+                src="https://www.mdeditor.com/images/logos/markdown.png" referrerpolicy="no-referrer"></a></p>
+    <blockquote>
+        <p><span>Follow your heart.</span></p>
+    </blockquote>
+    <hr>
+    <h3 class="contents"><a name="列表-lists" class="md-header-anchor"></a><span>列表 Lists</span></h3>
+    <h4><a name="无序列表减号）unordered-lists--" class="md-header-anchor"></a><span>无序列表（减号）Unordered Lists (-)</span></h4>
+    <ul>
+        <li><span>列表一</span></li>
+        <li><span>列表二</span></li>
+        <li><span>列表三</span></li>
+    </ul>
+    <h4><a name="无序列表星号）unordered-lists-" class="md-header-anchor"></a><span>无序列表（星号）Unordered Lists
+            (*)</span></h4>
+    <ul>
+        <li><span>列表一</span></li>
+        <li><span>列表二</span></li>
+        <li><span>列表三</span></li>
+    </ul>
+    <h4><a name="无序列表加号和嵌套）unordered-lists-" class="md-header-anchor"></a><span>无序列表（加号和嵌套）Unordered Lists (+)</span>
+    </h4>
+    <ul>
+        <li>
+            <p><span>列表一</span></p>
+        </li>
+        <li>
+            <p><span>列表二</span></p>
+            <ul>
+                <li><span>列表二-1</span></li>
+                <li><span>列表二-2</span></li>
+                <li><span>列表二-3</span></li>
+            </ul>
+        </li>
+        <li>
+            <p><span>列表三</span></p>
+            <ul>
+                <li><span>列表一</span></li>
+                <li><span>列表二</span></li>
+                <li><span>列表三</span></li>
+            </ul>
+        </li>
+    </ul>
+    <h4><a name="有序列表-ordered-lists--" class="md-header-anchor"></a><span>有序列表 Ordered Lists (-)</span>
+    </h4>
+    <ol start="">
+        <li><span>第一行</span></li>
+        <li><span>第二行</span></li>
+        <li><span>第三行</span></li>
+    </ol>
+    <h4><a name="gfm-task-list" class="md-header-anchor"></a><span>GFM task list</span></h4>
+    <ul>
+        <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="">
+            <p><span>GFM task list 1</span></p>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="">
+            <p><span>GFM task list 2</span></p>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+            <p><span>GFM task list 3</span></p>
+            <ul>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p><span>GFM task list 3-1</span></p>
+                </li>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p><span>GFM task list 3-2</span></p>
+                </li>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p><span>GFM task list 3-3</span></p>
+                </li>
+            </ul>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+            <p><span>GFM task list 4</span></p>
+            <ul>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p><span>GFM task list 4-1</span></p>
+                </li>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p><span>GFM task list 4-2</span></p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <h3 class="contents"><a name="绘制表格-tables" class="md-header-anchor"></a><span>绘制表格 Tables</span></h3>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th><span>项目</span></th>
+                    <th style="text-align:right;"><span>价格</span></th>
+                    <th style="text-align:center;"><span>数量</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>计算机</span></td>
+                    <td style="text-align:right;"><span>$1600</span></td>
+                    <td style="text-align:center;"><span>5</span></td>
+                </tr>
+                <tr>
+                    <td><span>手机</span></td>
+                    <td style="text-align:right;"><span>$12</span></td>
+                    <td style="text-align:center;"><span>12</span></td>
+                </tr>
+                <tr>
+                    <td><span>管线</span></td>
+                    <td style="text-align:right;"><span>$1</span></td>
+                    <td style="text-align:center;"><span>234</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th><span>First Header</span></th>
+                    <th><span>Second Header</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>Content Cell</span></td>
+                    <td><span>Content Cell</span></td>
+                </tr>
+                <tr>
+                    <td><span>Content Cell</span></td>
+                    <td><span>Content Cell</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th><span>First Header</span></th>
+                    <th><span>Second Header</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>Content Cell</span></td>
+                    <td><span>Content Cell</span></td>
+                </tr>
+                <tr>
+                    <td><span>Content Cell</span></td>
+                    <td><span>Content Cell</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th><span>Function name</span></th>
+                    <th><span>Description</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>help()</code></td>
+                    <td><span>Display the help window.</span></td>
+                </tr>
+                <tr>
+                    <td><code>destroy()</code></td>
+                    <td><strong><span>Destroy your computer!</span></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:left;"><span>Left-Aligned</span></th>
+                    <th style="text-align:center;"><span>Center Aligned</span></th>
+                    <th style="text-align:right;"><span>Right Aligned</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:left;"><span>col 3 is</span></td>
+                    <td style="text-align:center;"><span>some wordy text</span></td>
+                    <td style="text-align:right;"><span>$1600</span></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;"><span>col 2 is</span></td>
+                    <td style="text-align:center;"><span>centered</span></td>
+                    <td style="text-align:right;"><span>$12</span></td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;"><span>zebra stripes</span></td>
+                    <td style="text-align:center;"><span>are neat</span></td>
+                    <td style="text-align:right;"><span>$1</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th><span>Item</span></th>
+                    <th style="text-align:right;"><span>Value</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>Computer</span></td>
+                    <td style="text-align:right;"><span>$1600</span></td>
+                </tr>
+                <tr>
+                    <td><span>Phone</span></td>
+                    <td style="text-align:right;"><span>$12</span></td>
+                </tr>
+                <tr>
+                    <td><span>Pipe</span></td>
+                    <td style="text-align:right;"><span>$1</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <hr>
+    <h4 class="contents"><a name="特殊符号-html-entities-codes" class="md-header-anchor"></a><span>特殊符号 HTML Entities
+            Codes</span></h4>
+    <p>©<span> &amp; </span>¨<span> </span>™<span> </span>¡<span> </span>£
+        &amp;<span> </span>&lt;<span> </span>&gt;<span> </span>¥<span> </span>€<span> </span>®<span> </span>±<span>
+        </span>¶<span> </span>§<span> </span>¦<span> </span>¯<span> </span>«<span> </span>·</p>
+    <p><span>X</span>²<span> Y</span>³<span> </span>¾<span> </span>¼<span> </span>×<span> </span>÷<span> </span>»</p>
+    <p><span>18</span>º<span>C </span>"<span> </span>'</p>
+    <p><span>[</span><mark><span>=</span></mark><span>===]</span></p>
+    <h3><a name="emoji表情-smiley" class="md-header-anchor"></a><span>Emoji表情 </span>😃</h3>
+    <blockquote>
+        <p><span>Blockquotes </span>⭐️</p>
+    </blockquote>
+    <h4><a name="gfm-task-lists--emoji--fontawesome-icon-emoji--editormd-logo-emoji-editormd-logo-5x"
+            class="md-header-anchor"></a><span>GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd
+            logo emoji :editormd-logo-5x:</span></h4>
+    <ul>
+        <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="">
+            <p>😃<span> @mentions, </span>😃<span> #refs, </span><a href=""><span>links</span></a><span>,
+                </span><strong><span>formatting</span></strong><span>, and </span><del><span>tags</span></del><span>
+                    supported :editormd-logo:;</span></p>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="">
+            <p><span>list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;</span></p>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="">
+            <p><span>[ ] </span>😃<span> this is a complete item </span>😃<span>;</span></p>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+            <p><span>[]this is an incomplete item </span><a href="#"><span>test link</span></a><span> :fa-star:
+                    @pandao;</span></p>
+        </li>
+        <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+            <p><span>[ ]this is an incomplete item :fa-star: :fa-gear:;</span></p>
+            <ul>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p>😃<span> this is an incomplete item </span><a href="#"><span>test link</span></a><span> :fa-star:
+                            :fa-gear:;</span></p>
+                </li>
+                <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">
+                    <p>😃<span> this is :fa-star: :fa-gear: an incomplete item </span><a href="#"><span>test
+                                link</span></a><span>;</span></p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h4><a name="反斜杠-escape" class="md-header-anchor"></a><span>反斜杠 Escape</span></h4>
+    <p><span>*</span><span>literal asterisks</span><span>*</span></p>
+    <p><span>[</span><mark><span>=</span></mark><span>===]</span></p>
+    <h3><a name="科学公式-texkatex" class="md-header-anchor"></a><span>科学公式 TeX(KaTeX)</span></h3>
+    <p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="8.97ex" height="2.326ex"
+                viewBox="0 -899.7 3862.1 1001.4" role="img" focusable="false" style="vertical-align: -0.236ex;">
+                <defs>
+                    <path stroke-width="0" id="E34-MJMATHI-45"
+                        d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMAIN-3D"
+                        d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMATHI-6D"
+                        d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMATHI-63"
+                        d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMAIN-32"
+                        d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z">
+                    </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                    <use xlink:href="#E34-MJMATHI-45" x="0" y="0"></use>
+                    <use xlink:href="#E34-MJMAIN-3D" x="1041" y="0"></use>
+                    <use xlink:href="#E34-MJMATHI-6D" x="2097" y="0"></use>
+                    <g transform="translate(2975,0)">
+                        <use xlink:href="#E34-MJMATHI-63" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E34-MJMAIN-32" x="612" y="513"></use>
+                    </g>
+                </g>
+            </svg></span>
+        <script type="math/tex">E=mc^2</script>
+    </p>
+    <p><span>行内的公式</span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="8.97ex" height="2.326ex"
+                viewBox="0 -899.7 3862.1 1001.4" role="img" focusable="false" style="vertical-align: -0.236ex;">
+                <defs>
+                    <path stroke-width="0" id="E34-MJMATHI-45"
+                        d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMAIN-3D"
+                        d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMATHI-6D"
+                        d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMATHI-63"
+                        d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMAIN-32"
+                        d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z">
+                    </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                    <use xlink:href="#E34-MJMATHI-45" x="0" y="0"></use>
+                    <use xlink:href="#E34-MJMAIN-3D" x="1041" y="0"></use>
+                    <use xlink:href="#E34-MJMATHI-6D" x="2097" y="0"></use>
+                    <g transform="translate(2975,0)">
+                        <use xlink:href="#E34-MJMATHI-63" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E34-MJMAIN-32" x="612" y="513"></use>
+                    </g>
+                </g>
+            </svg></span>
+        <script type="math/tex">E=mc^2</script><span>行内的公式，行内的</span><span class="MathJax_SVG" tabindex="-1"
+            style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="8.97ex" height="2.326ex" viewBox="0 -899.7 3862.1 1001.4" role="img" focusable="false"
+                style="vertical-align: -0.236ex;">
+                <defs>
+                    <path stroke-width="0" id="E34-MJMATHI-45"
+                        d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMAIN-3D"
+                        d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMATHI-6D"
+                        d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMATHI-63"
+                        d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z">
+                    </path>
+                    <path stroke-width="0" id="E34-MJMAIN-32"
+                        d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z">
+                    </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                    <use xlink:href="#E34-MJMATHI-45" x="0" y="0"></use>
+                    <use xlink:href="#E34-MJMAIN-3D" x="1041" y="0"></use>
+                    <use xlink:href="#E34-MJMATHI-6D" x="2097" y="0"></use>
+                    <g transform="translate(2975,0)">
+                        <use xlink:href="#E34-MJMATHI-63" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E34-MJMAIN-32" x="612" y="513"></use>
+                    </g>
+                </g>
+            </svg></span>
+        <script type="math/tex">E=mc^2</script><span>公式。</span>
+    </p>
+    <p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="5.58ex" height="2.094ex"
+                viewBox="0 -600.5 2402.6 901.7" role="img" focusable="false" style="vertical-align: -0.7ex;">
+                <defs>
+                    <path stroke-width="0" id="E35-MJMATHI-78"
+                        d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z">
+                    </path>
+                    <path stroke-width="0" id="E35-MJMAIN-3E"
+                        d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z">
+                    </path>
+                    <path stroke-width="0" id="E35-MJMATHI-79"
+                        d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z">
+                    </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                    <use xlink:href="#E35-MJMATHI-78" x="0" y="0"></use>
+                    <use xlink:href="#E35-MJMAIN-3E" x="849" y="0"></use>
+                    <use xlink:href="#E35-MJMATHI-79" x="1905" y="0"></use>
+                </g>
+            </svg></span>
+        <script type="math/tex">x > y</script>
+    </p>
+    <p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="23.583ex" height="3.021ex"
+                viewBox="0 -949.6 10153.9 1300.6" role="img" focusable="false" style="vertical-align: -0.815ex;">
+                <defs>
+                    <path stroke-width="0" id="E36-MJMAIN-5C"
+                        d="M56 731Q56 740 62 745T75 750Q85 750 92 740Q96 733 270 255T444 -231Q444 -239 438 -244T424 -250Q414 -250 407 -240Q404 -236 230 242T56 731Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-28"
+                        d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-33"
+                        d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMATHI-78"
+                        d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-2212"
+                        d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path>
+                    <path stroke-width="0" id="E36-MJMAIN-31"
+                        d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-221A"
+                        d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-2B"
+                        d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-29"
+                        d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z">
+                    </path>
+                    <path stroke-width="0" id="E36-MJMAIN-32"
+                        d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z">
+                    </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                    <g fill="red" stroke="red">
+                        <use xlink:href="#E36-MJMAIN-5C"></use>
+                        <use xlink:href="#E36-MJMAIN-28" x="500" y="0"></use>
+                    </g>
+                    <g transform="translate(889,0)">
+                        <use xlink:href="#E36-MJMAIN-221A" x="0" y="14"></use>
+                        <rect stroke="none" width="2794" height="60" x="833" y="754"></rect>
+                        <g transform="translate(833,0)">
+                            <use xlink:href="#E36-MJMAIN-33" x="0" y="0"></use>
+                            <use xlink:href="#E36-MJMATHI-78" x="500" y="0"></use>
+                            <use xlink:href="#E36-MJMAIN-2212" x="1294" y="0"></use>
+                            <use xlink:href="#E36-MJMAIN-31" x="2294" y="0"></use>
+                        </g>
+                    </g>
+                    <use xlink:href="#E36-MJMAIN-2B" x="4738" y="0"></use>
+                    <use xlink:href="#E36-MJMAIN-28" x="5738" y="0"></use>
+                    <use xlink:href="#E36-MJMAIN-31" x="6127" y="0"></use>
+                    <use xlink:href="#E36-MJMAIN-2B" x="6850" y="0"></use>
+                    <use xlink:href="#E36-MJMATHI-78" x="7850" y="0"></use>
+                    <g transform="translate(8422,0)">
+                        <use xlink:href="#E36-MJMAIN-29" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E36-MJMAIN-32" x="550" y="513"></use>
+                    </g>
+                    <g fill="red" stroke="red" transform="translate(9264,0)">
+                        <use xlink:href="#E36-MJMAIN-5C"></use>
+                        <use xlink:href="#E36-MJMAIN-29" x="500" y="0"></use>
+                    </g>
+                </g>
+            </svg></span>
+        <script type="math/tex">\(\sqrt{3x-1}+(1+x)^2\)</script>
+    </p>
+    <p><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="28.561ex" height="3.137ex"
+                viewBox="0 -949.6 12297.2 1350.5" role="img" focusable="false" style="vertical-align: -0.931ex;">
+                <defs>
+                    <path stroke-width="0" id="E37-MJMAIN-73"
+                        d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-69"
+                        d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-6E"
+                        d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-28"
+                        d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMATHI-3B1"
+                        d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-29"
+                        d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMATHI-3B8"
+                        d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-3D"
+                        d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJSZ1-2211"
+                        d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMATHI-6E"
+                        d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMATHI-69"
+                        d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-30"
+                        d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMATHI-78"
+                        d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-2B"
+                        d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-63"
+                        d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMAIN-6F"
+                        d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z">
+                    </path>
+                    <path stroke-width="0" id="E37-MJMATHI-66"
+                        d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z">
+                    </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                    <use xlink:href="#E37-MJMAIN-73"></use>
+                    <use xlink:href="#E37-MJMAIN-69" x="394" y="0"></use>
+                    <use xlink:href="#E37-MJMAIN-6E" x="672" y="0"></use>
+                    <use xlink:href="#E37-MJMAIN-28" x="1228" y="0"></use>
+                    <use xlink:href="#E37-MJMATHI-3B1" x="1617" y="0"></use>
+                    <g transform="translate(2257,0)">
+                        <use xlink:href="#E37-MJMAIN-29" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E37-MJMATHI-3B8" x="550" y="513"></use>
+                    </g>
+                    <use xlink:href="#E37-MJMAIN-3D" x="3355" y="0"></use>
+                    <g transform="translate(4411,0)">
+                        <use xlink:href="#E37-MJSZ1-2211" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E37-MJMATHI-6E" x="1493" y="674"></use>
+                        <g transform="translate(1056,-286)">
+                            <use transform="scale(0.707)" xlink:href="#E37-MJMATHI-69" x="0" y="0"></use>
+                            <use transform="scale(0.707)" xlink:href="#E37-MJMAIN-3D" x="345" y="0"></use>
+                            <use transform="scale(0.707)" xlink:href="#E37-MJMAIN-30" x="1123" y="0"></use>
+                        </g>
+                    </g>
+                    <use xlink:href="#E37-MJMAIN-28" x="6714" y="0"></use>
+                    <g transform="translate(7103,0)">
+                        <use xlink:href="#E37-MJMATHI-78" x="0" y="0"></use>
+                        <use transform="scale(0.707)" xlink:href="#E37-MJMATHI-69" x="808" y="513"></use>
+                    </g>
+                    <use xlink:href="#E37-MJMAIN-2B" x="8241" y="0"></use>
+                    <g transform="translate(9242,0)">
+                        <use xlink:href="#E37-MJMAIN-63"></use>
+                        <use xlink:href="#E37-MJMAIN-6F" x="444" y="0"></use>
+                        <use xlink:href="#E37-MJMAIN-73" x="944" y="0"></use>
+                    </g>
+                    <use xlink:href="#E37-MJMAIN-28" x="10580" y="0"></use>
+                    <use xlink:href="#E37-MJMATHI-66" x="10969" y="0"></use>
+                    <use xlink:href="#E37-MJMAIN-29" x="11519" y="0"></use>
+                    <use xlink:href="#E37-MJMAIN-29" x="11908" y="0"></use>
+                </g>
+            </svg></span>
+        <script type="math/tex">\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))</script>
+    </p>
+    <p><span>多行公式：</span></p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="math"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="math"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>5</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">\displaystyle</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">\left( \sum\_{k=1}^n a\_k b\_k \right)^2</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">\leq</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">\left( \sum\_{k=1}^n a\_k^2 \right)</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 18px;">5</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">\left( \sum\_{k=1}^n b\_k^2 \right)</span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 120px;"></div>
+    <div class="CodeMirror-gutters" style="height: 120px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="katex"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="katex"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">\displaystyle</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  \frac{1}{</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  1+\frac{e^{-6\pi}}</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {1+\frac{e^{-8\pi}}</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; {1+\cdots} }</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 18px;">9</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 216px;"></div>
+    <div class="CodeMirror-gutters" style="height: 216px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="latex"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="latex"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">f(x) = <span class="cm-tag">\int</span>_<span class="cm-bracket">{</span>-<span class="cm-tag">\infty</span><span class="cm-bracket">}</span>^<span class="cm-tag">\infty</span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag">\hat</span> f(<span class="cm-tag">\xi</span>)<span class="cm-tag">\,</span>e^<span class="cm-bracket">{</span><span class="cm-atom">2</span> <span class="cm-tag">\pi</span> i <span class="cm-tag">\xi</span> x<span class="cm-bracket">}</span></span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 18px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag">\,</span>d<span class="cm-tag">\xi</span></span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 72px;"></div>
+    <div class="CodeMirror-gutters" style="height: 72px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <h3><a name="分页符-page-break" class="md-header-anchor"></a><span>分页符 Page break</span></h3>
+    <blockquote>
+        <p><span>Print Test: Ctrl + P</span></p>
+    </blockquote>
+    <p><span>[</span><mark><span>=</span></mark><span>===]</span></p>
+    <h3 class="contents"><a name="绘制流程图-flowchart" class="md-header-anchor"></a><span>绘制流程图 Flowchart</span></h3>
+    <div class="md-diagram-panel"><svg height="530.408203125" version="1.1" width="273.5078125"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="overflow: hidden; position: relative; top: -0.5625px;" viewBox="0 0 273.5078125 530.408203125"
+            preserveAspectRatio="xMidYMid meet">
+            <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc>
+            <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block"
+                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                <marker id="raphael-marker-endblock33-obje1ra0" markerHeight="3" markerWidth="3" orient="auto"
+                    refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)"
+                        stroke-width="1.6667" fill="currentColor" stroke="none"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use>
+                </marker>
+                <marker id="raphael-marker-endblock33-objchamm" markerHeight="3" markerWidth="3" orient="auto"
+                    refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)"
+                        stroke-width="1.6667" fill="currentColor" stroke="none"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use>
+                </marker>
+                <marker id="raphael-marker-endblock33-objeqsex" markerHeight="3" markerWidth="3" orient="auto"
+                    refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)"
+                        stroke-width="1.6667" fill="currentColor" stroke="none"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use>
+                </marker>
+                <marker id="raphael-marker-endblock33-objfj5nt" markerHeight="3" markerWidth="3" orient="auto"
+                    refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <use xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)"
+                        stroke-width="1.6667" fill="currentColor" stroke="none"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use>
+                </marker>
+            </defs>
+            <rect x="0" y="0" width="76.40625" height="36.015625" rx="20" ry="20" fill="var(--bg-color)"
+                stroke="currentColor" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="3"
+                class="flowchart" id="st" transform="matrix(1,0,0,1,87.5508,47.8691)"></rect><text x="10" y="18.0078125"
+                text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="currentColor"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;"
+                id="stt" class="flowchartt" transform="matrix(1,0,0,1,87.5508,47.8691)" stroke-width="1">
+                <tspan dy="4.796875" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">用户登陆</tspan>
+            </text>
+            <rect x="0" y="0" width="77.21875" height="36.015625" rx="0" ry="0" fill="var(--bg-color)"
+                stroke="currentColor" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="3"
+                class="flowchart" id="op" transform="matrix(1,0,0,1,87.1445,181.7539)"></rect><text x="10"
+                y="18.0078125" text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none"
+                fill="currentColor"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;"
+                id="opt" class="flowchartt" transform="matrix(1,0,0,1,87.1445,181.7539)" stroke-width="1">
+                <tspan dy="4.796875" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">登陆操作</tspan>
+            </text>
+            <path fill="var(--bg-color)" stroke="currentColor"
+                d="M59.876953125,29.9384765625L0,59.876953125L119.75390625,119.75390625L239.5078125,59.876953125L119.75390625,0L0,59.876953125"
+                stroke-width="3" id="cond" class="flowchart" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+                transform="matrix(1,0,0,1,6,273.7695)"></path><text x="64.876953125" y="59.876953125"
+                text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="currentColor"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;"
+                id="condt" class="flowchartt" transform="matrix(1,0,0,1,6,273.7695)" stroke-width="1">
+                <tspan dy="4.806640625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">登陆成功 Yes or No?</tspan>
+            </text>
+            <rect x="0" y="0" width="76.40625" height="36.015625" rx="20" ry="20" fill="var(--bg-color)"
+                stroke="currentColor" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="3"
+                class="flowchart" id="e" transform="matrix(1,0,0,1,87.5508,491.3926)"></rect><text x="10" y="18.0078125"
+                text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="currentColor"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;"
+                id="et" class="flowchartt" transform="matrix(1,0,0,1,87.5508,491.3926)" stroke-width="1">
+                <tspan dy="4.796875" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">进入后台</tspan>
+            </text>
+            <path fill="none" stroke="currentColor"
+                d="M125.75390625,83.884765625C125.75390625,83.884765625,125.75390625,158.06506071100011,125.75390625,177.26210973227944"
+                stroke-width="3" marker-end="url(#raphael-marker-endblock33-obje1ra0)"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            <path fill="none" stroke="currentColor"
+                d="M125.75390625,217.76953125C125.75390625,217.76953125,125.75390625,255.97030210494995,125.75390625,269.26969156763516"
+                stroke-width="3" marker-end="url(#raphael-marker-endblock33-objchamm)"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            <path fill="none" stroke="currentColor"
+                d="M125.75390625,393.5234375C125.75390625,393.5234375,125.75390625,467.7037325860001,125.75390625,486.90078160727944"
+                stroke-width="3" marker-end="url(#raphael-marker-endblock33-objeqsex)"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="130.75390625" y="403.5234375"
+                text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="currentColor"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;"
+                stroke-width="1">
+                <tspan dy="4.796875" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">yes</tspan>
+            </text>
+            <path fill="none" stroke="currentColor"
+                d="M245.5078125,333.646484375C245.5078125,333.646484375,270.5078125,333.646484375,270.5078125,333.646484375C270.5078125,333.646484375,270.5078125,156.75390625,270.5078125,156.75390625C270.5078125,156.75390625,125.75390625,156.75390625,125.75390625,156.75390625C125.75390625,156.75390625,125.75390625,170.05787754058838,125.75390625,177.2555338833481"
+                stroke-width="3" marker-end="url(#raphael-marker-endblock33-objfj5nt)"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="250.5078125" y="323.646484375"
+                text-anchor="start" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="currentColor"
+                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: Arial; font-size: 14px;"
+                stroke-width="1">
+                <tspan dy="4.794921875" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">no</tspan>
+            </text>
+        </svg></div>
+    <p><span>[</span><mark><span>=</span></mark><span>===]</span></p>
+    <h3><a name="绘制序列图-sequence-diagram" class="md-header-anchor"></a><span>绘制序列图 Sequence Diagram</span></h3>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="seq"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="seq"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 31px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 27px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>4</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27px; width: 27px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Andrew-&gt;China: Says Hello</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">Note right of China: China thinks\nabout it</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">China--&gt;Andrew: How are you?</span></pre>
+    </div>
+    <div style="position: relative;">
+        <div class="CodeMirror-gutter-wrapper" style="left: -27px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                style="left: 0px; width: 18px;">4</div>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;">Andrew-&gt;&gt;China: I am good thanks!</span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 96px;"></div>
+    <div class="CodeMirror-gutters" style="height: 96px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <h3><a name="end" class="md-header-anchor"></a><span>End</span></h3>
+    </div>
+    </div>
+    </main>
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

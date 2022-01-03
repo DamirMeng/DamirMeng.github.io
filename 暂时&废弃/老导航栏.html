@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的天才梦 —— 张爱玲</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="../css/base.css" rel="stylesheet"> -->
+    <link href="../css/mobile.css" rel="stylesheet">
+    <link href="../css/details.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+    <style>
+
+@media screen {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+
+    }
+
+
+    .background{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background:url(https://i.loli.net/2020/03/12/FDtNL41ZWTm8sg6.jpg) center;
+        background-size: 100% 100%; 
+
+        background-repeat: no-repeat; 
+    }
+    img {
+        border: 0;
+        display: block
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+	/* 反馈层 */
+	.mask {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+		/* opacity: 0; */
+		display: none;
+		transition: all .2s;
+		-webkit-transition: all .2s;
+	}
+
+	.feedback_msg {
+		position: fixed;
+		z-index: 11;
+		width: 40%;
+		left: 30%;
+		right: 30%;
+		top: 20%;
+		display: none;
+		border-radius: 5px;
+		transition: all .5s;
+		background-color: white;
+		text-align: center;
+	}
+
+	.feedback_msg img {
+		width: 20%;
+		height: 20%;
+	}
+
+	.feedback_msg p {
+		font-size: 35px;
+		color: red;
+	}
+}
+
+        /* 所有HTML通用，即框架 */
+/* =======================PC导航栏======================== */
+@media screen {
+
+/*左边句子*/
+h1.t_nav span {
+    text-indent: 1rem;
+    float: left;
+    color: #999
+}
+
+h1.t_nav {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 38px;
+    width: 35%;
+    overflow: hidden;
+    float: left;
+    padding-right: 2%;
+}
+
+.tabbed {
+    width: 100%;
+    min-width: 400px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-bottom: 4px solid blue;
+    overflow: hidden;
+    transition: border 250ms ease;
+    position: fixed;
+    z-index: 1000;
+    height: 60px;
+    top: 0;
+    background-color: #fff;
+}
+
+.tabbed ul {
+    margin: 0;
+    float: left;
+    list-style-type: none;
+    width: auto;
+}
+
+.tabbed ul * {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+}
+
+.tabbed ul li a {
+    /* cursor: auto; */
+    color: red;
+
+}
+
+.tabbed ul li {
+    display: block;
+    float: right;
+    padding: 10px 24px 8px;
+    background-color: #ffef61;
+    margin-right: 70px;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    color: #777;
+    text-transform: uppercase;
+    font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+    transition: all 250ms ease;
+}
+
+.tabbed ul li:before,
+.tabbed ul li:after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 101%;
+    width: 44px;
+    background-color: #ffef61;
+    transition: all 250ms ease;
+}
+
+.tabbed ul li:before {
+    right: -24px;
+    transform: skew(30deg, 0deg);
+    box-shadow: rgba(0, 0, 0, .1) 3px 2px 5px, inset rgba(255, 255, 255, .09) -1px 0;
+}
+
+.tabbed ul li:after {
+    left: -24px;
+    transform: skew(-30deg, 0deg);
+    box-shadow: rgba(0, 0, 0, .1) -3px 2px 5px, inset rgba(255, 255, 255, .09) 1px 0;
+}
+
+.tabbed ul li:hover,
+.tabbed ul li a:hover,
+.tabbed ul li:hover:before,
+.tabbed ul li:hover:after {
+    background-color: #049bff;
+    color: #ffeb3b;
+    z-index: 100;
+}
+
+#active {
+    z-index: 3;
+}
+
+#active,
+#active a,
+#active:before,
+#active:after {
+    background-color: blue;
+    color: #fff;
+}
+
+/* Round Tabs */
+.tabbed.round ul li {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.tabbed.round ul li:before {
+    border-radius: 0 8px 0 0;
+}
+
+.tabbed.round ul li:after {
+    border-radius: 8px 0 0 0;
+}
+}
+
+        /* 所有HTML通用，即框架 */
+        /* =======================PC导航栏======================== */
+        @media screen {
+
+            /*左边句子*/
+            h1.t_nav span {
+                text-indent: 1rem;
+                float: left;
+                color: #999
+            }
+
+            h1.t_nav {
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 38px;
+                width: 35%;
+                overflow: hidden;
+                float: left;
+                padding-right: 2%;
+            }
+
+            .tabbed {
+                width: 100%;
+                min-width: 400px;
+                margin: 0 auto;
+                padding-top: 20px;
+                border-bottom: 4px solid blue;
+                overflow: hidden;
+                transition: border 250ms ease;
+                position: fixed;
+                z-index: 1000;
+                height: 60px;
+                top: 0;
+                background-color: #fff;
+            }
+
+            .tabbed ul {
+                margin: 0;
+                float: left;
+                list-style-type: none;
+                width: auto;
+            }
+
+            .tabbed ul * {
+                margin: 0px;
+                padding: 0px;
+                font-size: 16px;
+            }
+
+            .tabbed ul li a {
+                /* cursor: auto; */
+                color: red;
+
+            }
+
+            .tabbed ul li {
+                display: block;
+                float: right;
+                padding: 10px 24px 8px;
+                background-color: #ffef61;
+                margin-right: 70px;
+                z-index: 2;
+                position: relative;
+                cursor: pointer;
+                color: #777;
+                text-transform: uppercase;
+                font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+                transition: all 250ms ease;
+            }
+
+            .tabbed ul li:before,
+            .tabbed ul li:after {
+                display: block;
+                content: " ";
+                position: absolute;
+                top: 0;
+                height: 101%;
+                width: 44px;
+                background-color: #ffef61;
+                transition: all 250ms ease;
+            }
+
+            .tabbed ul li:before {
+                right: -24px;
+                transform: skew(30deg, 0deg);
+                box-shadow: rgba(0, 0, 0, .1) 3px 2px 5px, inset rgba(255, 255, 255, .09) -1px 0;
+            }
+
+            .tabbed ul li:after {
+                left: -24px;
+                transform: skew(-30deg, 0deg);
+                box-shadow: rgba(0, 0, 0, .1) -3px 2px 5px, inset rgba(255, 255, 255, .09) 1px 0;
+            }
+
+            .tabbed ul li:hover,
+            .tabbed ul li a:hover,
+            .tabbed ul li:hover:before,
+            .tabbed ul li:hover:after {
+                background-color: #049bff;
+                color: #ffeb3b;
+                z-index: 100;
+            }
+
+            #active {
+                z-index: 3;
+            }
+
+            #active,
+            #active a,
+            #active:before,
+            #active:after {
+                background-color: blue;
+                color: #fff;
+            }
+
+            /* Round Tabs */
+            .tabbed.round ul li {
+                border-radius: 8px 8px 0 0 !important;
+            }
+
+            .tabbed.round ul li:before {
+                border-radius: 0 8px 0 0;
+            }
+
+            .tabbed.round ul li:after {
+                border-radius: 8px 0 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    </div>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>我的天才梦 —— 张爱玲</h2>
+                    <div class="mini"><span class="later"></span><span class="later">文学知识</span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later">2020-03-09</span>
+                             <span id="word" class="later">11661字</span></span>
+                    </div>
+                </header>
+
+                <div class="massage">
+                    <p> 我是一个古怪的女孩，从小被目为天才，除了发展我的天才外别无生存的目标。然而，当童年的狂想逐渐褪色的时候，我发现我除了天才的梦之外一无所有——所有的只是天才的乖僻缺点。世人原谅瓦格涅的疏狂，可是他们不会原谅我。
+                    </p>
+                    <p>加上一点美国式的宣传，也许我会被誉为神童。我三岁时能背诵唐诗。我还记得摇摇摆摆地立在一个满清遗老的藤椅前朗吟“商女不知亡国恨，隔江犹唱后庭花”，眼看着他的泪珠滚下来。七岁时我写了第一部小说，一个家庭悲剧。遇到笔划复杂的字，我常常跑去问厨子怎样写。第二部小说是关于一个失恋自杀的女郎。我母亲批评说：如果她要自杀，她决不会从上海乘火车到西湖去自溺。可是我因为西湖诗意的背景。终于固执地保存了这一点。
+                    </p>
+                    <p>我仅有的课外读物是《西游记》与少量的童话，但我的思想并不为它们所束缚。八岁那年，我尝试过一篇类似乌托邦的小说，题名《快乐村》。快乐村人是一个好战的高原民族，因克服苗人有功，蒙中国皇帝特许，免征赋税，并予自治权。所以快乐村是一个与外界隔绝的大家庭，自耕自织，保存着部落时代的活泼文化。
+                    </p>
+                    <p id="t">
+                        我特地将半打练习簿缝在一起，预期一本洋洋大作，然而不久我就对这伟大的题材失去了兴趣。现在我仍旧保存着我所绘的插画多帧，介绍这种理想社会的服务，建筑，室内装修，包括图书馆，“演武厅”，巧克力店，屋顶花园。公共餐室是荷花池里一座凉亭。我不记得那里有没有电影院与社会主义——虽然缺少这两样文明产物，他们似乎也过得很好。
+                    </p>
+                    <p>九岁时，我踌躇着不知道应当选择音乐或美术作我终身的事业。看了一张描写穷困的画家的影片后，我哭了一场，决定做一个钢琴家，在富丽堂皇的音乐厅里演奏。对于色彩，音符，字眼，我极为敏感。当我弹奏钢琴时，我想像那八个音符有不同的个性，穿戴了鲜艳的衣帽携手舞蹈。我学写文章，爱用色彩浓厚，音韵铿锵的字眼，如“珠灰”，“黄昏”，“婉妙”，“splendour”（辉煌，壮丽），“melancholy”（忧郁），因此常犯了堆砌的毛病。直到现在，我仍然爱看《聊斋志异》与俗气的巴黎时装报告，便是为了这种有吸引力的字眼。
+                    </p>
+                    <p> 在学校里我得到自由发展。我的自信心日益坚强，直到我十六岁时，我母亲从法国回来，将她睽违多年的女儿研究了一下。
+                    </p>
+
+                    <p> “我懊悔从前小心看护你的伤寒症，”她告诉我，“我宁愿看你死，不愿看你活着使你
+                        自己处处受痛苦。”我发现我不会削苹果，经过艰苦的努力我才学会补袜子。我怕上理发店，怕见客，怕给裁缝试衣裳。许多人尝试过教我织绒线，可是没有一个成功。在一间房里住了两年，问我电铃在哪儿我还茫然。我天天乘黄包车上医院去打针，接连三个月，仍然不认识那条路。总而言之，在现实的社会里，我等于一个废物。
+                    </p>
+                    <p> 我母亲给我两年的时间学习适应环境。她教我煮饭；用肥皂粉洗衣；练习行路的姿势；看人的眼色；点灯后记得拉上窗帘；照镜子研究面部神态；如果没有幽默天才，千万别说笑话。
+                    </p>
+                    <p>在待人接物的常识方面，我显露惊人的愚笨。我的两年计划是一个失败的试验。除了使我的思想失去均衡外，我母亲的沉痛警告没有给我任何的影响。
+                    </p>
+                    <p> 生活的艺术，有一部分我不是不能领略。我懂得怎么看《七月巧云》，听苏格兰兵吹bagpipe（风笛），享受微风中的藤椅，吃盐水花生，欣赏雨夜的霓虹灯，从双层公共汽车上伸出手摘树顶的绿叶。在没有人与人交接的场合，我充满了生命的欢悦。可是我一天不能克服这种咬啮性的小烦恼，生命是一袭华美的袍，爬满了蚤子。
+                    </p>
+                </div>
+
+            </main>
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+	<!-- aside可置顶显示 -->
+	<script src="../../../../public/aside.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- <script type="text/javascript" src="../js/base.js"></script> -->
+</body>
+</html>

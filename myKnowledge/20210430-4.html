@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java网络编程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>Java网络编程</h2>
+                    <div class="mini"><span class="later"></span><span class="later"></span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later"></span>
+                            <span id="word" class="later"></span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p><span>Java的网络编程提供了两种通信协议: TCP (传输控制协议)和UDP ( 数据报协议)。 本章将就这两种实现进行讲解，在讲解中也将融合之前讲解的I0及多线程技术进行网络程序的开发。</span>
+                        </p>
+                        <h2 class="contents"  id='协议'><span>协议</span></h2>
+                        <p><span>TCP和UDP都属于传输层协议，TCP ( Transmission Control Protocol)是可靠的传输协议，传输前会采用“三方握手”的方式建立连接，以保证传输的可靠性;而UDP (
+                                User Datagram Protocol)协议是不可靠的传输协议，即发送出去的数据不一定接收得到，网上的聊天工具一般采用此种协议。</span></p>
+                        <p>&nbsp;</p>
+                        <p><span>IP地址的格式</span></p>
+                        <p><code>IP地址=网络地址+主机地址</code>
+                            <span>网络号：用于识别主机所在的网络。</span>
+                            <span>主机号：用于识别该网络中的主机。</span></p>
+                        <p><span>IP地址范围：</span></p>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style='text-align:center;'><span>序号</span></th>
+                                        <th style='text-align:center;'><span>地址分类</span></th>
+                                        <th><span>地址范围</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style='text-align:center;'><span>1</span></td>
+                                        <td style='text-align:center;'><span>A类地址</span></td>
+                                        <td><span>1.0.0.1~ 126.255.255.254</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>2</span></td>
+                                        <td style='text-align:center;'><span>B类地址</span></td>
+                                        <td><span>128.0.0.1~191.255.255.254</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>3</span></td>
+                                        <td style='text-align:center;'><span>C类地址</span></td>
+                                        <td><span>192.0.0.1~ 223.255.255.254</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>4</span></td>
+                                        <td style='text-align:center;'><span>D类地址</span></td>
+                                        <td><span>224.0.0.1 ~ 239.255.255.254</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>5</span></td>
+                                        <td style='text-align:center;'><span>E类地址</span></td>
+                                        <td><span>240.0.0.1 ~ -255.255.255.254</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p>&nbsp;</p>
+                        <blockquote>
+                            <p><span>本机的IP地址为：127.0.0.1</span></p>
+                        </blockquote>
+                        <p>&nbsp;</p>
+                        <ul>
+                            <li><strong><span>TCP</span></strong><span>：TCP 是传输控制协议的缩写，它保障了两个应用程序之间的可靠通信。通常用于互联网协议，被称 TCP /
+                                    IP。</span></li>
+                            <li><strong><span>UDP</span></strong><span>：UDP 是用户数据报协议的缩写，一个无连接的协议。提供了应用程序之间要发送的数据的数据包。</span></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <h2 class="contents"  id='inetaddress'><span>InetAddress</span></h2>
+                        <p><span>InetAddress类主要表示IP地址，这个类有两个子类: Inet4Address、 Inet6Address，前者用于表示IPv4，后者用于表示IPv6。 </span></p>
+                        <h6 id='inetaddress-类的常用方法'><span>InetAddress 类的常用方法</span></h6>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style='text-align:left;'><span>序号</span></th>
+                                        <th style='text-align:left;'><span>方法</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style='text-align:left;'><span>1</span></td>
+                                        <td style='text-align:left;'><span>public static InetAddress getByName(String host) throws
+                                                UnknownHostException</span></td>
+                                        <td><span>通过主机名称得到InetAddress 对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:left;'><span>2</span></td>
+                                        <td style='text-align:left;'><span>public static InetAddress getI ocalHost() throws
+                                                UnknownHostException</span></td>
+                                        <td><span>通过本机得到InetAddress对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:left;'><span>3</span></td>
+                                        <td style='text-align:left;'><span>public tring getHostName()</span></td>
+                                        <td><span>获得IP地址</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:left;'><span>4</span></td>
+                                        <td style='text-align:left;'><span>public boolean isReachable(int timeout) throws
+                                                lOException</span></td>
+                                        <td><span>判断地址是否可以到达，同时指定超时时间</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <h2 class="contents"  id='url'><span>URL</span></h2>
+                        <p><span>URL (Uniform Resource Locator)统- 资源定位符，可以直接使用此类找到互联网上的资源(如一个简单的网页)。</span></p>
+                        <h5 id='url类的常用方法'><span>URL类的常用方法：</span></h5>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style='text-align:center;'><span>序号</span></th>
+                                        <th><span>方法</span></th>
+                                        <th><span>类型</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style='text-align:center;'><span>1</span></td>
+                                        <td><span>public URL(String spec) throws MalformedURLException</span></td>
+                                        <td><span>构造</span></td>
+                                        <td><span>构造根据指定的地址实例化URL对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>2</span></td>
+                                        <td><span>public URL(String protocol,String host,int port,String fle)throws
+                                                MalformedURLException</span></td>
+                                        <td><span>构造</span></td>
+                                        <td><span>实例化URL对象，并指定协议、主机、端口名称、资源文件</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>3</span></td>
+                                        <td><span>public URLConnection openConection0 throws lOException</span></td>
+                                        <td><span>普通</span></td>
+                                        <td><span>取得一 个URLConnection对象</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>4</span></td>
+                                        <td><span>public final InputStream openStream()throws IOException</span></td>
+                                        <td><span>普通</span></td>
+                                        <td><span>普通取得输入流</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p>&nbsp;</p>
+                        <h5 id='url-connection'><span>URL Connection</span></h5>
+                        <p><span>URLConnection是封装访问远程网络资源一般 方法的类,通过它可以建立与远程服务器</span>
+                            <span>的连接，检查远程资源的一些属性。 </span></p>
+                        <p><span>URLConnection 对象可以通过URL类的openConnection()方法取得</span></p>
+                        <h6 id='urlconnection的常用方法'><span>URLConnection的常用方法</span></h6>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style='text-align:center;'><span>序号</span></th>
+                                        <th><span>方法</span></th>
+                                        <th><span>类型</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style='text-align:center;'><span>1</span></td>
+                                        <td><span>public int getContentI ength)</span></td>
+                                        <td><span>普通</span></td>
+                                        <td><span>取得内容的长度</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>2</span></td>
+                                        <td><span>public String getContentType()</span></td>
+                                        <td><span>普通</span></td>
+                                        <td><span>取得内容的类型</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>3</span></td>
+                                        <td><span>public InputStream getInputStream() throws IOException</span></td>
+                                        <td><span>普通</span></td>
+                                        <td><span>取得连接的输入流</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p>&nbsp;</p>
+                        <h2 class="contents"  id='urlencoder与urldecoder'><span>URLEncoder与URLDecoder</span></h2>
+                        <p><span>URL无法对中文正常显示，因此需要编码。</span></p>
+                        <p><span>在Java中如果要完成这样的编码和解码操作就必须使用URLEncoder和URLDecoder两个类。URLEncoder可以为传递的内容进行编码，而URLDecoder可以为传递的内容进行解码。</span>
+                        </p>
+                        <p>&nbsp;</p>
+                        <h5 id='这两个类的常用方法'><span>这两个类的常用方法</span></h5>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style='text-align:center;'><span>序号</span></th>
+                                        <th><span>方法</span></th>
+                                        <th><span>分类</span></th>
+                                        <th><span>描述</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style='text-align:center;'><span>1</span></td>
+                                        <td><span>public static String encode(String s,String enc)throws
+                                                UnsupportedEncodingException</span></td>
+                                        <td><span>URLEncoder方法</span></td>
+                                        <td><span>使用指定的编码机制将字符串转换为application/x- www-form-urlencoded 格式</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style='text-align:center;'><span>2</span></td>
+                                        <td><span>public static String decode(String s,String enc)throws
+                                                UnsupportedEncodingException</span></td>
+                                        <td><span>URLDecoder方法</span></td>
+                                        <td><span>使用指定的编码机制对application/x-www-form-urlencoded字符串解码</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <h2 class="contents"  id='tcp程序设计'><span>TCP程序设计、</span></h2>
+                        <p><span>在Java中使用Socket (即套接字)完成TCP程序的开发，使用此类可以方便地建立可靠的、双向的、持续的、点对点的通信连接。</span></p>
+                        <p><span>在Socket的程序开发中，服务器端使用ServerSocket等待客户端的连接，对于Java的网络程序来讲，每一个客户端都使用一个Socket对象表示。</span></p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <h3 id='socket-编程'><span>Socket 编程</span></h3>
+                        <p><span>套接字使用TCP提供了两台计算机之间的通信机制。 客户端程序创建一个套接字，并尝试连接服务器的套接字。</span></p>
+                        <p><span>当连接建立时，服务器会创建一个 Socket 对象。客户端和服务器现在可以通过对 Socket 对象的写入和读取来进行通信。</span></p>
+                        <p><span>java.net.Socket 类代表一个套接字，并且 java.net.ServerSocket 类为服务器程序提供了一种来监听客户端，并与他们建立连接的机制。</span></p>
+                        <p><span>以下步骤在两台计算机之间使用套接字建立TCP连接时会出现：</span></p>
+                        <ul>
+                            <li><span>服务器实例化一个 ServerSocket 对象，表示通过服务器上的端口通信。</span></li>
+                            <li><span>服务器调用 ServerSocket 类的 accept() 方法，该方法将一直等待，直到客户端连接到服务器上给定的端口。</span></li>
+                            <li><span>服务器正在等待时，一个客户端实例化一个 Socket 对象，指定服务器名称和端口号来请求连接。</span></li>
+                            <li><span>Socket 类的构造函数试图将客户端连接到指定的服务器和端口号。如果通信被建立，则在客户端创建一个 Socket 对象能够与服务器进行通信。</span></li>
+                            <li><span>在服务器端，accept() 方法返回服务器上一个新的 socket 引用，该 socket 连接到客户端的 socket。</span></li>
+                        </ul>
+                        <p><span>连接建立后，通过使用 I/O 流在进行通信，每一个socket都有一个输出流和一个输入流，客户端的输出流连接到服务器端的输入流，而客户端的输入流连接到服务器端的输出流。</span></p>
+                        <p><span>TCP 是一个双向的通信协议，因此数据可以通过两个数据流在同一时间发送.以下是一些类提供的一套完整的有用的方法来实现 socket。</span></p>
+                        <p>&nbsp;</p>
+                        <h3 id='serversocket-类的方法'><span>ServerSocket 类的方法</span></h3>
+                        <p><span>服务器应用程序通过使用 java.net.ServerSocket 类以获取一个端口,并且侦听客户端请求。</span></p>
+                        <p><span>ServerSocket 类有四个构造方法：</span></p>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><strong><span>序号</span></strong></th>
+                                        <th><strong><span>方法描述</span></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><strong><span>public ServerSocket(int port) throws IOException</span></strong><span>
+                                                创建绑定到特定端口的服务器套接字。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><strong><span>public ServerSocket(int port, int backlog) throws
+                                                    IOException</span></strong><span> 利用指定的 backlog 创建服务器套接字并将其绑定到指定的本地端口号。</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>3</span></td>
+                                        <td><strong><span>public ServerSocket(int port, int backlog, InetAddress address) throws
+                                                    IOException</span></strong><span> 使用指定的端口、侦听 backlog 和要绑定到的本地 IP 地址创建服务器。</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>4</span></td>
+                                        <td><strong><span>public ServerSocket() throws IOException</span></strong><span>
+                                                创建非绑定服务器套接字。</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p><span>创建非绑定服务器套接字。 如果 ServerSocket 构造方法没有抛出异常，就意味着你的应用程序已经成功绑定到指定的端口，并且侦听客户端请求。</span></p>
+                        <p><span>这里有一些 ServerSocket 类的常用方法：</span></p>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><strong><span>序号</span></strong></th>
+                                        <th><strong><span>方法</span></strong></th>
+                                        <th><strong><span>描述</span></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><strong><span>public int getLocalPort()</span></strong></td>
+                                        <td><span>返回此套接字在其上侦听的端口。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><strong><span>public Socket accept() throws IOException</span></strong></td>
+                                        <td><span>侦听并接受到此套接字的连接。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>3</span></td>
+                                        <td><strong><span>public void setSoTimeout(int timeout)</span></strong></td>
+                                        <td><span>通过指定超时值启用/禁用 SO_TIMEOUT，以毫秒为单位。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>4</span></td>
+                                        <td><strong><span>public void bind(SocketAddress host, int backlog)</span></strong></td>
+                                        <td><span>将 ServerSocket 绑定到特定地址（IP 地址和端口号）。</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <hr />
+                        <h3 id='socket-类的方法'><span>Socket 类的方法</span></h3>
+                        <p><span>java.net.Socket 类代表客户端和服务器都用来互相沟通的套接字。客户端要获取一个 Socket 对象通过实例化 ，而 服务器获得一个 Socket 对象则通过 accept()
+                                方法的返回值。</span></p>
+                        <p><span>Socket 类有五个构造方法.</span></p>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><strong><span>序号</span></strong></th>
+                                        <th><strong><span>方法</span></strong></th>
+                                        <th><strong><span>描述</span></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><strong><span>public Socket(String host, int port) throws UnknownHostException,
+                                                    IOException</span></strong></td>
+                                        <td><span>创建一个流套接字并将其连接到指定主机上的指定端口号。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><strong><span>public Socket(InetAddress host, int port) throws
+                                                    IOException</span></strong></td>
+                                        <td><span>创建一个流套接字并将其连接到指定 IP 地址的指定端口号。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>3</span></td>
+                                        <td><strong><span>public Socket(String host, int port, InetAddress localAddress, int
+                                                    localPort) throws IOException</span></strong></td>
+                                        <td><span>创建一个套接字并将其连接到指定远程主机上的指定远程端口。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>4</span></td>
+                                        <td><strong><span>public Socket(InetAddress host, int port, InetAddress localAddress, int
+                                                    localPort) throws IOException</span></strong></td>
+                                        <td><span>创建一个套接字并将其连接到指定远程地址上的指定远程端口。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>5</span></td>
+                                        <td><strong><span>public Socket()</span></strong></td>
+                                        <td><span>通过系统默认类型的 SocketImpl 创建未连接套接字</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                        <p><span>当 Socket 构造方法返回，并没有简单的实例化了一个 Socket 对象，它实际上会尝试连接到指定的服务器和端口。</span></p>
+                        <p><span>下面列出了一些感兴趣的方法，注意客户端和服务器端都有一个 Socket 对象，所以无论客户端还是服务端都能够调用这些方法。</span></p>
+                        <figure>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><strong><span>序号</span></strong></th>
+                                        <th><strong><span>方法</span></strong></th>
+                                        <th><strong><span>描述</span></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>1</span></td>
+                                        <td><strong><span>public void connect(SocketAddress host, int timeout) throws
+                                                    IOException</span></strong></td>
+                                        <td><span>将此套接字连接到服务器，并指定一个超时值。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>2</span></td>
+                                        <td><strong><span>public InetAddress getInetAddress()</span></strong></td>
+                                        <td><span>返回套接字连接的地址。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>3</span></td>
+                                        <td><strong><span>public int getPort()</span></strong></td>
+                                        <td><span>返回此套接字连接到的远程端口。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>4</span></td>
+                                        <td><strong><span>public int getLocalPort()</span></strong></td>
+                                        <td><span>返回此套接字绑定到的本地端口。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>5</span></td>
+                                        <td><strong><span>public SocketAddress getRemoteSocketAddress()</span></strong></td>
+                                        <td><span>返回此套接字连接的端点的地址，如果未连接则返回 null。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>6</span></td>
+                                        <td><strong><span>public InputStream getInputStream() throws IOException</span></strong>
+                                        </td>
+                                        <td><span>返回此套接字的输入流。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>7</span></td>
+                                        <td><strong><span>public OutputStream getOutputStream() throws IOException</span></strong>
+                                        </td>
+                                        <td><span>返回此套接字的输出流。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>8</span></td>
+                                        <td><strong><span>public void close() throws IOException</span></strong></td>
+                                        <td><span>关闭此套接字。</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                    </div>
+    </div>
+    </main>
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

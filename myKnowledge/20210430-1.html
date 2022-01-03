@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>C语言基础</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>C语言基础</h2>
+                    <div class="mini"><span class="later"></span><span class="later"></span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later"></span>
+                            <span id="word" class="later"></span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p><span>记录C语言基础中的难点和易错点，不包括多维数组、指针、结构体等难点。</span></p>
+                        <h4 class="contents" id='算法的五大特性'><span>算法的五大特性：</span></h4>
+                        <ul>
+                            <li><span>有穷性：一个算法应包含有限的操作步骤而不能是无限的。</span></li>
+                            <li><span>确定性：算法中每一个步骤应当是确定的，而不能应当是含糊的、模棱两可的。</span></li>
+                            <li><span>有零个或多个输入。</span></li>
+                            <li><span>有一个或多个输出。</span></li>
+                            <li><span>有效性：算法中每一个步骤应当能有效地执行，并得到确定的结果。</span></li>
+                        </ul>
+                        <h4 class="contents" id='结构化程序设计方法'><span>结构化程序设计方法</span></h4>
+                        <ul>
+                            <li><span>自顶向下；</span></li>
+                            <li><span>逐步细化；</span></li>
+                            <li><span>模块化设计；</span></li>
+                            <li><span>结构化编码。</span></li>
+                        </ul>
+                        <h4 class="contents" id='标识符'><span>标识符</span></h4>
+                        <p><span>由字母、数字、下划线组成，不能用数字开头、大小写敏感</span></p>
+                        <p><span>八进制 0前缀</span>
+                            <span>十六进制 0x前缀</span>
+                            <span>无符号 u后缀</span>
+                            <span>长整型 L后缀</span></p>
+                        <p><span>浮点数表示的数据不准确</span></p>
+                        <h4 class="contents" id='输入输出'><span>输入输出</span></h4>
+                        <p><code>printf(&quot;格式控制字符串&quot;，输出表列)</code>
+                            <span>格式字符串形式为：</span>
+                            <code>[标志][输出最小宽度][.精度][长度]类型</code></p>
+                        <p><span>输出表列中的求值顺序，不同的编译系统不一定相同，可以从左到右，也可从右到左。</span>
+                            <span>输出顺都是从左至右</span></p>
+                        <p><code>scanf(&quot;格式控制字符串&quot;，地址表列);</code></p>
+                        <p><span>格式字符串的一般形式为：</span>
+                            <code>%类型</code>
+                            <span>scanf()会直接获取空格、TAB、回车，所以输入多个字符时不用间隔</span></p>
+                        <p><span>%d%d%d时，空格、TAB、回车作为间隔符。</span></p>
+                        <p><span>scanf() 读取字符串时以空格为分隔，遇到空格就认为当前字符串结束了，所以无法读取含有空格的字符串。</span></p>
+                        <p><span>putchar 函数是字符输出函数，其功能是在显示器上输出单个字符。</span></p>
+                        <p><span>getchar 函数的功能是从键盘上输入一个字符。 </span></p>
+                        <p><span>getchar 函数只能接受单个字符，输入数字也按字符处理。输入多于一个字符时，只接收第一个字符。 </span></p>
+                        <p><span>使用本函数前必须包含文件</span><code>&quot;stdio.h&quot;</code><span>。 </span></p>
+                        <h4 class="contents" id='数组'><span>数组</span></h4>
+                        <p><span>C语言中的数组长度必须是确定的</span></p>
+                        <p><span>未赋初值的元素自动取 0 值。</span>
+                            <span>定义时不能在方括号中用变量来表示元素的个数， 但是可以是符号常数或常量表达式。</span>
+                            <span>下标不为整数时将自动取整。</span></p>
+                        <p><span>二维数组定义的一般形式是：</span>
+                            <code>类型说明符 数组名[常量表达式 1][常量表达式 2]</code>
+                            <span>对于二维数组存储器单元是按一维线性排列的</span>
+                            <span>二维数组可以不写出第一维的长度</span></p>
+                        <p><span>数组存储字符串：</span>
+                            <code>char c[]={&quot;C program&quot;};</code><span>后面会自动加“\0”</span>
+                            <span>一般不必指定数组的长度</span></p>
+                        <p><span>scanf 函数输入字符串时，字符串中不能含有空格，否则将以空格作为字符串的结束符。</span>
+                            <span>scanf的变量是一个地址</span></p>
+                        <h2 class="contents" id='字符串处理函数'><span>字符串处理函数</span></h2>
+                        <p><strong><span>包含头文件</span><code>&lt;string.h&gt;</code></strong></p>
+                        <h4 id='字符串输出函数-puts'><span>字符串输出函数 puts</span></h4>
+                        <p><span>格式： </span><code>puts(字符数组名)</code></p>
+                        <h4 id='字符串输入函数-gets'><span>字符串输入函数 gets</span></h4>
+                        <p><span>格式： </span><code>gets(字符数组名)</code>
+                            <span>功能：从标准输入设备键盘上输入一个字符串。</span>
+                            <strong><span>gets 函数并不以空格作为字符串输入结束的标志，而</span><em><code>只以回车作为输入</code></em><span>结束。这是与
+                                    scanf
+                                    函数不同的。</span></strong></p>
+                        <h4 id='字符串连接函数-strcat'><span>字符串连接函数 strcat</span></h4>
+                        <p><span>格式： </span><code>strcat(字符数组名 1，字符数组名 2)</code>
+                            <span>功能：把字符数组 2 中的字符串连接到字符数组 1 中字符串的后面，并删去字符串1后的串标志“\0”。本函数返回值是字符数组 1 的首地址。</span></p>
+                        <h4 id='字符串拷贝函数-strcpy'><span>字符串拷贝函数 strcpy</span></h4>
+                        <p><span>格式： </span><code>strcpy(字符数组名 1，字符数组名 2)</code>
+                            <span>功能： 把字符数组 2 中的字符串拷贝到字符数组 1 中。串结束标志“\0”也一同拷贝。</span>
+                            <span>字符数组名 2，也可以是一个字符串常量。这时相当于把一个字符串赋予一个字符数组。</span></p>
+                        <h4 id='字符串比较函数-strcmp'><span>字符串比较函数 strcmp</span></h4>
+                        <p><span>格式： </span><code>strcmp(字符数组名 1，字符数组名 2)</code>
+                            <span>功能：按照 ASCII 码顺序比较两个数组中的字符串，并由函数返回值返回比较结果。</span>
+                            <span>字符串1＝字符串 2，返回值 ＝ 0；</span>
+                            <span>字符串1 &gt; 字符串 2，返回值 &gt; 0；</span>
+                            <span>字符串1 &lt; 字符串 2，返回值 &lt; 0。</span></p>
+                        <h2 class="contents" id='函数'><span>函数</span></h2>
+                        <p><span>形参变量只有在被调用时才分配内存单元，在调用结束时，即刻释放所分配的内存单元。 </span></p>
+                        <p><span>函数返回值的类型和函数定义中函数的类型应保持一致。如果两者不一致，则以函数类</span>
+                            <span>型为准，自动进行类型转换 </span></p>
+                        <h5 id='函数的声明'><span>函数的声明</span></h5>
+                        <p><span>其一般形式为：</span>
+                            <code>类型说明符 被调函数名(类型 形参，类型 形参…);</code>
+                            <span>或为：</span>
+                            <code>类型说明符 被调函数名(类型，类型…);</code></p>
+                        <h5 id='函数的递归'><span>函数的递归</span></h5>
+                        <p><span>一个函数在它的函数体内调用它自身称为递归调用。这种函数称为递归函数。 </span></p>
+                        <p><span>函数内有终止递归调用的手段。常用的办法是加条件判断，满足某种条件后就不再作递归调用，然后逐层返回。 </span></p>
+                        <h5 id='数组名作为函数参数'><span>数组名作为函数参数 </span></h5>
+                        <p><span>形参和相对应的实参都必须是类型相同的数组 </span></p>
+                        <p><span>在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。 </span>
+                        </p>
+                        <p><span>数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。
+                            </span></p>
+                        <h2 class="contents" id='变量的存储类别'><span>变量的存储类别</span></h2>
+                        <p><span>从变量的作用域（即从空间）角度来分，可以分为全局变量和局部变量。</span>
+                            <span>从另一个角度，从变量值存在的作时间（即生存期）角度来分，可以分为静态存储方式和动态存储方式。 </span></p>
+                        <p><span>静态存储方式：是指在程序运行期间分配固定的存储空间的方式。</span>
+                            <span>动态存储方式：是在程序运行期间根据需要进行动态的分配存储空间的方式 </span></p>
+                        <p><span>用户存储空间可以分为三个部分：</span>
+                            <span>1) 程序区；</span>
+                            <span>2) 静态存储区；</span>
+                            <span>3) 动态存储区； </span></p>
+                        <p><span>全局变量全部存放在静态存储区，在程序开始执行时给全局变量分配存储区，程序行完毕就释放。在程序执行过程中它们占据固定的存储单元，而不动态地进行分配和释放；</span>
+                            <span>动态存储区存放以下数据：</span>
+                            <span>1) 函数形式参数；</span>
+                            <span>2) 自动变量（未加 static 声明的局部变量）；</span>
+                            <span>3) 函数调用实的现场保护和返回地址；</span>
+                            <span>对以上这些数据，在函数开始调用时分配动态存储空间，函数结束时释放这些空间。 </span></p>
+                        <h5 id='auto-变量'><span>auto 变量 </span></h5>
+                        <p><span>函数中的局部变量，如不专门声明为 static
+                                存储类别，都是动态地分配存储空间的，数据存储在动态存储区中。函数中的形参和在函数中定义的变量（包括在复合语句中定义的变量），都属此类，在调用该函数时系统会给它们分配存储空间，在函数调用结束时就自动释放这些存储空间。这类局部变量称为自动变量。自动变量用关键字
+                                auto 作存储类别的声明。 </span></p>
+                        <h5 id='用-static-声明局部变量'><span>用 static 声明局部变量</span></h5>
+                        <p><span>有时希望函数中的局部变量的值在函数调用结束后不消失而保留原值，这时就应该指定局部变量为“静态局部变量”，用关键字 static 进行声明。 </span></p>
+                        <p><span>静态局部变量属于静态存储类别，在静态存储区内分配存储单元。在程序整个运行期间都不释放 </span></p>
+                        <p><span>静态局部变量在编译时赋初值，即只赋初值一次；</span></p>
+                        <h5 id='用-static-声明全局变量呢'><span>用 static 声明全局变量呢？</span></h5>
+                        <p><span>全局变量本身就是静态存储方式， 静态全局变量当然也是静态存储方式。</span></p>
+                        <p><span>两者的区别虽在于非静态全局变量的作用域是整个源程序，当一个源程序由多个源文件组成时，非静态的全局变量在各个源文件中都是有效的。
+                                而</span><strong><span>静态全局变量则限制了其作用域， 即只在定义该变量的源文件内有效，
+                                    在同一源程序的其它源文件中不能使用它</span></strong><span>。由于静态全局变量的作用域局限于一个源文件内，只能为该源文件内的函数公用，
+                                因此可以避免在其它源文件中引起错误。</span></p>
+                        <h5 id='register-变量'><span>register 变量</span></h5>
+                        <p><span>为了提高效率，C 语言允许将局部变量得值放在 CPU 中的寄存器中，这种变量叫“寄存器变量”，用关键字 register 作声明。 </span></p>
+                        <p><span>只有局部自动变量和形式参数可以作为寄存器变量； </span></p>
+                        <h5 id='用-extern-声明外部变量'><span>用 extern 声明外部变量</span></h5>
+                        <p><span>关键字 extern对该变量作“外部变量声明”。表示该变量是一个已经定义的外部变量，不再开辟新的空间。 </span></p>
+                        <ul>
+                            <li><span>全局变量：存储存放在静态存储区,在程序开始执行时给全局变量分配存储区,程序行完毕就释放</span></li>
+                            <li><span>局部变量存储在栈中</span></li>
+                            <li><span>动态分布的数据存储在堆中</span></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <ul>
+                            <li><span>栈区主要用于函数调用的使用</span></li>
+                            <li><span>堆区主要是用于内存的动态申请和归还</span></li>
+                            <li><span>静态存储区用于保存全局变量和静态变量</span></li>
+                        </ul>
+                        <h5 id='const关键字---只读变量'><span>const关键字 只读变量</span></h5>
+                        <p><span>const=永恒不变的</span></p>
+                        <p><span>const 修饰</span></p>
+                        <p><span>定义：</span></p>
+                        <p><code>const int a = 10;</code></p>
+                        <p><span>const 和变量类型 int 可以互换位置，二者是等价的，即上条语句等价于：</span></p>
+                        <p><code>int const a = 10;</code></p>
+                        <p><span>const 修饰的变量，无论是全局变量还是局部变量，生存周期都是程序运行的整个过程，已经变成static 类型</span></p>
+                        <h5 id='volatile不稳定易变的修饰线程间共享的变量或者硬件编程时使用'><span>volatile：不稳定，易变的，修饰线程间共享的变量，或者硬件编程时使用</span>
+                        </h5>
+                        <p><span> 如果一个变量的值没有显示的修改，编译器不会再次从内存中读取它的数值，而是直接使用上次读取的结果（优化）。</span>
+                            <span> volatile的功能就是告诉编译器变量的值随时可能发生变化，不要优化它的取值过程（每次用到变量的时候都去内存中获取它大的值）。</span></p>
+                        <h5 id='const-char-char-const-charconst-的区别'><span>const char</span><span>*</span><span>, char
+                                const</span><span>*</span><span>, char*const 的区别</span></h5>
+                        <p><span>Bjarne在他的The C++ Programming
+                                Language里面给出过一个助记的方法：</span><strong><span>把一个声明从右向左读</span></strong><span>。</span></p>
+                        <pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+                            spellcheck="false"
+                            lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+                        <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+                            <div>7</div>
+                        </div>
+                    </div>
+                    <div class="CodeMirror-measure"></div>
+                    <div style="position: relative; z-index: 1;"></div>
+                    <div class="CodeMirror-code" role="presentation" style="text-rendering: auto;">
+                        <div class="CodeMirror-activeline" style="position: relative;">
+                            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+                            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+                                style="left: -26px; width: 26px;"></div>
+                            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 18px;">1</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">char * const cp; ( * 读成 pointer to ) </span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 18px;">2</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">cp is a const pointer to char </span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 18px;">3</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 18px;">4</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">const char * p; </span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 18px;">5</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">p is a pointer to const char; </span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                    style="left: 0px; width: 18px;">6</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre>
+                        </div>
+                        <div style="position: relative;">
+                            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                    style="left: 0px; width: 18px;">7</div>
+                            </div>
+                            <pre class=" CodeMirror-line "
+                                role="presentation"><span role="presentation" style="padding-right: 0.1px;">char const * p; </span></pre>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 168px;"></div>
+    <div class="CodeMirror-gutters" style="height: 168px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p><span>同上因为C++里面没有const*的运算符，所以const只能属于前面的类型。</span></p>
+    <p><span>C++标准规定，const关键字放在类型或变量名之前等价的。</span></p>
+    <p><span>一个指针在32位的计算机上，占4个字节；</span>
+        <span>一个指针在64位的计算机上，占8个字节。</span></p>
+    <h5 id='cab的结果'><span>c=a+++b的结果</span></h5>
+    <p><span>等于c=(a++)+b</span></p>
+    <p><span>++的优先级高于+</span></p>
+    <h5 id='计算机存储分布'><span>计算机存储分布</span></h5>
+    <p><span>1）正文段——CPU执行的机器指令部分；一个程序只有一个副本；只读，防止程序由于意外事故而修改自身指令；</span>
+        <span>2）初始化数据段（数据段）——在程序中所有赋了初值的全局变量，存放在这里。</span>
+        <span>3）非初始化数据段（bss段）——在程序中没有初始化的全局变量；内核将此段初始化为0。</span>
+        <span>4）栈——增长方向：自顶向下增长；自动变量以及每次函数调用时所需要保存的信息（返回地址；环境信息）。</span>
+        <span>5）堆——动态存储分。</span></p>
+    <p><span>在全局变量之前加上关键字static，全局变量就被定义成为一个全局静态变量。</span>
+        <span>1）内存中的位置：静态存储区（静态存储区在整个程序运行期间都存在）</span>
+        <span>2）初始化：未经初始化的全局静态变量会被程序自动初始化为0（自动对象的值是任意的，除非他被显示初始化）</span>
+        <span>3）作用域：全局静态变量在声明他的文件之外是不可见的。准确地讲从定义之处开始到文件结尾。</span></p>
+    <p><span>好处：</span>
+        <span>定义全局静态变量的好处：</span>
+        <span>&lt;1&gt;不会被其他文件所访问，修改</span>
+        <span>&lt;2&gt;其他文件中可以使用相同名字的变量，不会发生冲突。</span></p>
+    <p><span>局部静态变量</span>
+        <span>在局部变量之前加上关键字static，局部变量就被定义成为一个局部静态变量。</span>
+        <span>1）内存中的位置：静态存储区</span>
+        <span>2）初始化：未经初始化的全局静态变量会被程序自动初始化为0（自动对象的值是任意的，除非他被显示初始化）</span>
+        <span>3）作用域：作用域仍为局部作用域，当定义它的函数或者语句块结束的时候，作用域随之结束。</span></p>
+    <p><span>注：当static用来修饰局部变量的时候，它就改变了局部变量的存储位置，从原来的栈中存放改为静态存储区。但是局部静态变量在离开作用域之后，并没有被销毁，而是仍然驻留在内存当中，直到程序结束，只不过我们不能再对他进行访问。</span>
+        <span>当static用来修饰全局变量的时候，它就改变了全局变量的作用域（在声明他的文件之外是不可见的），但是没有改变它的存放位置，还是在静态存储区中。</span></p>
+    <p><span>静态函数</span>
+        <span>在函数的返回类型前加上关键字static，函数就被定义成为静态函数。</span>
+        <span>函数的定义和声明默认情况下是extern的，但静态函数只是在声明他的文件当中可见，不能被其他文件所用。</span></p>
+    <p><span>程序的局部变量存在于（ 堆栈 ）中，全局变量存在于（ 静态区 ）中，动态申请数据存在于（ 堆 ）中。</span>
+        <span>内存中，全局变量和静态变量存在于全局区/静态区，局部变量存在于栈区，new的对象存在于堆区，malloc的对象存在于自由存储区，常量存在于常量区</span></p>
+    </div>
+    </div>
+    </main>
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>

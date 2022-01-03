@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="stopwatch-mode">
+
+<head lang="en">
+	<meta charset="gb2312">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>计时器</title>
+	<link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<header class="switch-clocks">
+			<a href="../../" class="timer waves-effect">返回主页</a>
+			<a class="timer waves-effect" id="toggle">显示时钟</a>
+		</header>
+
+		<div class="app">
+			<div class="container timer">
+				<form>
+					<div class="control input-field">
+						<input id="timer-input-hour" type="number" placeholder="0">
+						<label for="timer-input">时</label>
+					</div>
+					<div class="control input-field">
+						<input id="timer-input-minute" type="number" value="25" placeholder="0">
+						<label for="timer-input">分</label>
+					</div>
+					<div class="control input-field">
+						<input id="timer-input-second" type="number" placeholder="0">
+						<label for="timer-input">秒</label>
+					</div>
+					<a class="timer-btn start waves-effect">开始</a>
+					<a class="timer-btn pause waves-effect">暂停</a>
+					<a class="timer-btn reset waves-effect">重置</a>
+					<a class="timer-btn timing waves-effect">正计时</a>
+					<div class="control checkbox">
+						<input type="checkbox" id="timer-sounds" checked="checked" />
+						<label for="timer-sounds">声音</label>
+					</div>
+				</form>
+
+				<div class="clock inactive z-depth-1 waves-effect">0:00:00:00</div>
+				<progress id="myProgress"></progress>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="focus">
+		<form>
+			<label>专注时长：</label>
+			<select name="focus-time">
+				<option value="1">1分钟</option>
+				<option value="2">2分钟</option>
+				<option value="20">20分钟</option>
+				<option value="25" selected>25分钟</option>
+				<option value="30">30分钟</option>
+				<option value="35">35分钟</option>
+				<option value="40">40分钟</option>
+				<option value="45">45分钟</option>
+			</select>
+
+			<label>休息时间：</label>
+			<select name="rest-time">
+				<option value="1">1分钟</option>
+				<option value="2">2分钟</option>
+				<option value="3">3分钟</option>
+				<option value="5" selected>5分钟</option>
+				<option value="8">8分钟</option>
+				<option value="10">10分钟</option>
+				<option value="15">15分钟</option>
+			</select>
+			<label>重复次数：</label>
+			<select name="count">
+				<option value="1">1次</option>
+				<option value="2">2次</option>
+				<option value="3">3次</option>
+				<option value="4">4次</option>
+				<option value="5" selected>5次</option>
+				<option value="6">6次</option>
+				<option value="10">10次</option>
+			</select>
+			<a class="timer-btn focus-start waves-effect">执行</a>
+			<div class="control checkbox">
+				<input type="checkbox" id="auto-start" checked="checked" />
+				<label for="auto-start">自动开始</label>
+			</div>
+		</form>
+	</div>
+	<div id="record">
+		<ul>
+			<li class="title">历史记录</li>
+		</ul>
+	</div>
+	<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script src="timer.js"></script>
+</body>
+
+</html>
