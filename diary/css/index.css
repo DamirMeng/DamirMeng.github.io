@@ -1,0 +1,649 @@
+/* ======================书本样式显示=========== */
+@media only screen {
+	* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		list-style: none;
+	}
+
+	body {
+		overflow: hidden;
+		background-color: #fcfcfc;
+		margin: 0;
+		padding: 0;
+	}
+
+	/*密码  */
+	.password {
+		position: absolute;
+		transform: translate(-50%);
+		left: 50%;
+		top: 50%;
+		width: 60%;
+		height: 10%;
+		font-size: 50px;
+		display: inline-block;
+		border-radius: 20px;
+
+	}
+
+	.password input {
+		border: 2px solid #2196F3;
+		border-radius: 5px;
+		background: transparent;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 90%;
+		color: black;
+		font-size: 26px;
+		padding-left: 20px;
+
+	}
+
+	input::placeholder {
+		color: black;
+		font-size: 26px;
+		padding-left: 20px;
+	}
+
+	.password button {
+		border: 2px solid #2196F3;
+		border-radius: 5px;
+
+		background: #2196F3;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 20%;
+		cursor: pointer;
+		position: absolute;
+	}
+
+	.password button:before {
+		content: "Go！";
+		font-size: 36px;
+		color: #F9F0DA;
+	}
+
+	.flipbook-viewport {
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+	}
+
+	.container {
+		position: fixed;
+		top: 5%;
+		left: 16.5%;
+		margin: auto;
+	}
+
+	.flipbook-viewport .page {
+		width: 461px;
+		height: 600px;
+		background-color: white;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.flipbook .page {
+		-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+		-ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+		-o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	}
+
+	.flipbook-viewport .page img {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		margin: 0;
+	}
+
+	.flipbook-viewport .shadow {
+		-webkit-transition: -webkit-box-shadow 0.5s;
+		-moz-transition: -moz-box-shadow 0.5s;
+		-o-transition: -webkit-box-shadow 0.5s;
+		-ms-transition: -ms-box-shadow 0.5s;
+
+		-webkit-box-shadow: 0 0 20px #ccc;
+		-moz-box-shadow: 0 0 20px #ccc;
+		-o-box-shadow: 0 0 20px #ccc;
+		-ms-box-shadow: 0 0 20px #ccc;
+		box-shadow: 0 0 20px #ccc;
+	}
+
+	.flipbook .even {
+		background-image: -webkit-linear-gradient(left, #FFF 95%, #ddd 100%);
+		background-image: -moz-linear-gradient(left, #FFF 95%, #ddd 100%);
+		background-image: -o-linear-gradient(left, #FFF 95%, #ddd 100%);
+		background-image: -ms-linear-gradient(left, #FFF 95%, #ddd 100%);
+	}
+
+	.flipbook .odd {
+		background-image: -webkit-linear-gradient(right, #FFF 95%, #ddd 100%);
+		background-image: -moz-linear-gradient(right, #FFF 95%, #ddd 100%);
+		background-image: -o-linear-gradient(right, #FFF 95%, #ddd 100%);
+		background-image: -ms-linear-gradient(right, #FFF 95%, #ddd 100%);
+	}
+}
+
+/* ======================前面几页的设置=========== */
+@media screen {
+
+	/* 封面 */
+	.end,
+	.cover-img {
+		width: 100%;
+		height: 100%;
+	}
+
+	#font-cover {
+		position: absolute;
+		background-color: #fff;
+		width: 100%;
+		z-index: 10000;
+	}
+
+	.cover {
+		font-size: 44px;
+		position: absolute;
+		left: 50%;
+		top: 20%;
+		transform: translate(-50%);
+		color: #f44336;
+		white-space: nowrap;
+	}
+
+	.author {
+		position: absolute;
+		left: 50%;
+		top: 38%;
+		transform: translate(-50%);
+		color: #000;
+		font-size: 18px;
+	}
+
+	/* 封面背面 */
+
+	.saying {
+		font-size: 26px;
+		text-align: center;
+		position: absolute;
+		top: 8%;
+		left: 50%;
+		transform: translate(-50%);
+	}
+
+	.tips {
+		position: absolute;
+		top: 18%;
+		font-size: 19px;
+		padding: 0 50px;
+	}
+
+	.tips li {
+		font-size: 16px;
+		margin: 4px 0;
+
+	}
+
+	.title-i {
+		font-size: 26px;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%);
+
+	}
+
+	.title-i:after {
+		content: "";
+		width: 330%;
+		height: 4px;
+		position: absolute;
+		bottom: -18px;
+		left: -110%;
+		background-color: #03A9F4;
+		scale: (1000000%, 0);
+	}
+
+	/* 扉页 */
+	.head {
+		border-radius: 50%;
+		height: 200px;
+		width: 200px;
+		position: absolute;
+		left: 50%;
+		top: 16%;
+		transform: translate(-50%);
+	}
+
+	.cover-f {
+		font-size: 44px;
+		position: absolute;
+		left: 50%;
+		top: 53%;
+		transform: translate(-50%);
+		color: #f44336;
+		white-space: nowrap;
+	}
+
+	.author-f {
+		position: absolute;
+		left: 50%;
+		top: 65%;
+		transform: translate(-50%);
+		color: #000;
+		font-size: 18px;
+	}
+
+	/* 扉页背面 */
+
+	.information {
+		position: absolute;
+		top: 47%;
+		left: 2%;
+	}
+
+	.information li {
+		font-size: 14px;
+		margin: 8px 15px;
+	}
+
+	/* 目录 */
+	.content-main {
+		position: absolute;
+		top: 23%;
+		width: 100%;
+		height: 80%;
+		margin: 0;
+		padding: 0 10%;
+		font-size: 15px;
+		overflow: hidden
+	}
+
+	.content-main p {
+		text-indent: 2em;
+		margin: 0.1em 0;
+		line-height: 1.4em;
+		letter-spacing: 1px;
+		text-align: justify;
+	}
+
+
+
+
+	.content-c {
+		position: absolute;
+		top: 8%;
+		left: 50%;
+		transform: translate(-50%);
+		/* text-decoration: underline; */
+		text-align: center;
+		font-size: 28px;
+
+	}
+
+	.content-c:after {
+		content: "";
+		width: 100%;
+		height: 3px;
+		position: absolute;
+		bottom: -4px;
+		left: 0px;
+		background-color: gray;
+		transform: scaleX(1.2);
+	}
+
+	.content-e {
+		position: absolute;
+		top: 16%;
+		left: 50%;
+		text-align: center;
+		transform: translate(-50%);
+		color: gray;
+
+	}
+
+	.contents-list {
+		position: absolute;
+		top: 25%;
+		left: 20%;
+	}
+
+	.list-number {
+		position: absolute;
+		top: 25%;
+		left: 10%;
+		color: #03A9F4;
+	}
+
+	.list-number li:after {
+		content: "";
+		width: 2px;
+		height: 38px;
+		position: absolute;
+		background-color: #03A9F4;
+		transform: translate(250%, 0);
+
+	}
+
+	.list-number li:first-child:after {
+		content: "";
+		width: 2px;
+		height: 38px;
+		position: absolute;
+		background-color: #03A9F4;
+		transform: translate(380%, 0);
+
+	}
+
+	.contents-list li,
+	.list-number li {
+		margin: 9px 0;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	/* 自序注脚 */
+	.c-tip {
+		position: absolute;
+		bottom: 11%;
+		right: 10%;
+	}
+
+	/* 反馈层 */
+	.mask {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+		/* opacity: 0; */
+		display: none;
+		transition: all .2s;
+		-webkit-transition: all .2s;
+	}
+
+	.feedback_msg {
+		position: fixed;
+		z-index: 11;
+		width: 40%;
+		left: 30%;
+		right: 30%;
+		top: 20%;
+		display: none;
+		border-radius: 5px;
+		transition: all .5s;
+		background-color: white;
+		text-align: center;
+	}
+
+	.feedback_msg img {
+		width: 20%;
+		height: 20%;
+	}
+
+	.feedback_msg p {
+		font-size: 35px;
+		color: red;
+	}
+}
+
+/* ======================日记内容=========== */
+@media screen {
+
+
+	/* 今日事项显示 */
+	.items {
+		position: absolute;
+		top: 14%;
+		left: 2%;
+		width: 77%;
+		height: 76%;
+		margin: 0 10% 0 13%;
+		padding: 20% 0 0 5%;
+		font-size: 14px;
+		overflow: hidden;
+		display: none;
+	}
+
+	.done,
+	.undone {
+		font-size: 20px;
+		width: 70%;
+		margin: 1.2% 0;
+		padding: 1.24% 5%;
+		list-style-type: none;
+		border-radius: 0 6px 6px 0;
+	}
+
+	.done {
+		background-color: #ddffff;
+		border-left: 4px solid #ccc;
+		border-color: #2196F3;
+	}
+
+	.undone {
+		background-color: gainsboro;
+		border-left: 4px solid gray;
+		border-color: red;
+
+	}
+
+
+
+	/* 切换按钮 */
+	.change-left,
+	.change-right {
+		position: absolute;
+		top: 13%;
+		height: 40px;
+		width: 40px;
+		z-index: 10000;
+		cursor: pointer;
+	}
+
+	.change-left {
+		right: 13%;
+	}
+
+	.change-right {
+		left: 16%;
+	}
+
+	/* 上部栏 */
+
+	.title-image {
+		position: absolute;
+		top: 5%;
+		left: 15%;
+		height: 5%;
+		width: 70%;
+
+	}
+
+	.date {
+		font-size: 10px;
+		position: absolute;
+		top: 6.6%;
+		left: 20%;
+		height: 5%;
+		width: 35%;
+	}
+
+	.tag {
+		text-align: right;
+		font-size: 10px;
+		position: absolute;
+		top: 6.6%;
+		right: 20%;
+		height: 5%;
+		width: 35%;
+	}
+
+	/* 页码 */
+
+
+	.even .page-number {
+		text-decoration: underline;
+		position: absolute;
+		bottom: 3%;
+		left: 5%;
+	}
+
+	.odd .page-number {
+		text-decoration: underline;
+		position: absolute;
+		bottom: 3%;
+		right: 5%;
+	}
+
+	/* 翻页按钮 */
+	#control {
+		position: fixed;
+		bottom: 1%;
+		left: 50%;
+		transform: translate(-50%);
+		white-space: nowrap;
+	}
+
+	#pre,
+	#content,
+	#next,
+	#home {
+		background-color: #ddffff;
+		border: rgb(93, 183, 247) solid 2px;
+		border-radius: 8px;
+		margin: 6px;
+		font-size: 18px;
+		padding: 8px;
+	}
+
+	/* 日记主要内容 */
+
+	.content {
+		position: absolute;
+		top: 14%;
+		width: 77%;
+		height: 76%;
+		margin-left: 13%;
+		margin-right: 10%;
+		font-size: 16px;
+		overflow: hidden;
+		/* background-color: #fff; */
+	}
+
+	.daily-title {
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.secret,
+	.daily-content {
+		text-indent: 2em;
+		margin: 0.5em 0;
+		line-height: 1.5em;
+		letter-spacing: 1px;
+		text-align: justify;
+		text-justify: distribute-all-lines;
+	}
+
+
+}
+
+/* 适配手机 */
+@media only screen and (max-width: 479px) {
+
+
+	.flipbook-viewport .container {
+		position: fixed;
+		top: 3%;
+		left: 3%;
+		margin: auto;
+	}
+
+	#control {
+		bottom: 4%;
+	}
+
+	.flipbook .even,
+	.flipbook .odd {
+		background-image: none;
+	}
+
+	.information {
+		left: 0%;
+		padding: 0 20px;
+	}
+
+	.tips {
+		top: 14%;
+		font-size: 19px;
+		padding: 0 31px;
+	}
+
+	.list-number {
+		left: 0;
+	}
+
+	.contents-list {
+		top: 25%;
+		left: 11%;
+	}
+
+	.content-main {
+		top: 20%;
+		width: 100%;
+		height: 76%;
+		margin: 0;
+		padding: 0 10%;
+		font-size: 14px;
+		overflow: hidden;
+	}
+
+	.c-tip {
+		width: 100%;
+		position: absolute;
+		bottom: 4%;
+		padding-left: 50%;
+	}
+
+	.even .page-number {
+		right: 5%;
+		left: unset;
+	}
+
+	.password {
+		font-size: 30px;
+		width: 80%;
+		height: 8%;
+	}
+
+	.change-left,
+	.change-right {
+		top: 13%;
+		height: 7%;
+		left: 16%;
+		right: unset;
+	}
+
+	.password button {
+		width: 25%;
+
+	}
+
+	.password button:before {
+		font-size: 24px;
+	}
+}

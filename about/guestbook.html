@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/typora.style.css" rel="stylesheet">
+    <link href="../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>留言板</h2>
+                </header>
+                <div class="massage">
+                    <p>感谢您来到本博客！如果你能在茫茫网络中来到本站，那我们肯定是十分有缘的！</p>
+                    <p>由于本站为个人博客，能力有限，时间有限，其中肯定难免有bug，如果您发现了bug，恳请您留言或者联系我提出您宝贵的发现。</p>
+                    <p>欢迎点评本博客的缺点和待提高的地方，为本站建设提供您宝贵的意见。</p>
+                    <p>您也可以在这里随意吐槽、畅所欲言，即使内容与本站无关。</p>
+                    <p> 不过活在天朝，请遵守天朝的法律法规！来者不惧、惧者不来，有话您请讲！但您的留言与本站无关，更加不代表本站的立场！</p>
+                </div>
+            </main>
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script>
+        // 添加来必力评论
+        var main = document.querySelector("main"),
+            h2 = document.createElement("h2"),
+            div = document.createElement("div"),
+            span = document.createElement("span");
+        h2.innerText = "留言";
+        span.innerText = "文明上网，理性发言";
+        span.setAttribute('id', 'tips');
+        h2.appendChild(span);
+        div.setAttribute('id', 'lv-container');
+        div.setAttribute('data-id', 'city');
+        div.setAttribute('data-uid', 'MTAyMC80OTE3Mi8yNTY2Ng==');
+        main.appendChild(h2);
+        main.appendChild(div);
+        //添加js
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+            if (typeof LivereTower === 'function') {
+                return;
+            }
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</body>
+
+</html>

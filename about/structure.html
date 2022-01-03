@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>标签</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/typora.style.css" rel="stylesheet">
+    <link href="../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+    <style>
+        #tags_list a {
+            text-decoration: none;
+            display: block;
+            float: left;
+            font-size: 22px;
+            padding: 12px 16px;
+            margin: 15px 14px 0 0;
+            border-radius: 5px;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            color: #FFF;
+            box-shadow: 6px 6px 0px #9E9E9E;
+        }
+    </style>
+</head>
+
+<body>
+  	<!-- PC、移动端导航栏和菜单 -->
+	<script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2>标签</h2>
+                </header>
+                <div class="massage">
+                    <div id="tags_list"></div>
+                </div>
+            </main>
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+    </div>
+	<!-- aside可置顶显示 -->
+	<script src="../../../../public/aside.js"></script>
+    <script>
+        var xmlhttp = new XMLHttpRequest()
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var articles = JSON.parse(this.responseText).articles //例化
+                var div = document.querySelector("#tags_list")
+                var tags = new Array
+                var num = new Array
+                for (let index = 0; index < articles.length; index++) { //遍历json
+                    var str = articles[index].tag.split(" ") //以空格划分，可能存在多个标签
+                    for (let index = 0; index < str.length; index++) { //遍历划分的标签
+                        if (!tags.includes(str[index])) { //将不重名的标签放进数组
+                            num.push(1)
+                            tags.push(str[index])
+                        } else { //有重名、数量+1
+                            var i = tags.indexOf(str[index])
+                            num[i]++
+                        }
+                    }
+                }
+                // 排序
+                var max;
+                //遍历数组，默认arr中的某一个元素为最大值，进行逐一比较
+                for (var i = 0; i < num.length; i++) {
+                    //外层循环一次，就拿arr[i] 和 内层循环arr.legend次的 arr[j] 做对比
+                    for (var j = i; j < num.length; j++) {
+                        if (num[i] < num[j]) {
+                            //如果arr[j]大就把此时的值赋值给最大值变量max
+                            max = num[j];
+                            num[j] = num[i];
+                            num[i] = max;
+                            // 一起交换
+                            max = tags[j];
+                            tags[j] = tags[i];
+                            tags[i] = max;
+                        }
+                    }
+                }
+                // 添加 设置
+                var colors = ["#66CCFF", "#FF6600", "#FF0033", "#0099CC", "#0066CC", "#ff9800", "#2196f3",
+                    "#FF6666", "#FF9966"
+                ]
+                for (let index = 0; index < tags.length; index++) {
+                    var a = document.createElement("a");
+                    a.innerHTML = tags[index] //设置内容+ "（" + num[index] + "）"
+                    a.href = '../../../../about/search.html' + '#' + tags[index]
+                    a.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)] //随机颜色
+                    div.appendChild(a)
+                }
+            }
+        }
+        xmlhttp.open("GET", "../../../../json/index.json", true);
+        xmlhttp.send();
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+</body>
+
+</html>

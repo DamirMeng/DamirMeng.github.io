@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>至简博客概述</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../css/typora.style.css" rel="stylesheet">
+  <link href="../css/mobile.css" rel="stylesheet">
+  <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<!-- PC、移动端导航栏和菜单 -->
+<script src="../../../../public/nav.js"></script>
+<div id="perspective">
+  <div id="container">
+    <!-- 正文，文章列表 -->
+    <main>
+      <header class="title">
+        <h2>至简博客概述</h2>
+      </header>
+      <div class="massage">
+        <div id='write' class=''>
+          <p><span>博客网站写完了，为了做个记录，同时便于日后的操作，在此做个关于博客的概述。主要包括以下内容：</span></p>
+          <ol start=''>
+            <li><span>本站文章的分类</span></li>
+            <li><span>本站文件的分布、结构</span></li>
+            <li><span>本站的发表文章指南</span></li>
+          </ol>
+          <h2 class="contents"><a name="文章分类" class="md-header-anchor"></a><span>文章分类</span></h2>
+          <h4><a name="文章分为五个部分" class="md-header-anchor"></a><span>文章分为五个部分：</span></h4>
+          <ul>
+            <li><span>自己写的一些谈不上文章的随笔、感悟、读后感、想法等与知识无关的内容。</span></li>
+            <li><span>自己写的类似于笔记的知识类文章，它包括：C语言、嵌入式、Java等计算机知识。软件、电脑等东西的使用与安装技巧等。还有其他可以学习到知识的文章。</span></li>
+            <li><span>转载的文学类美文和一些其他美文</span></li>
+            <li><span>转载的知识类文章</span></li>
+            <li><span>短句，包括自己写的短句（感悟、句子）、转载的美句</span></li>
+          </ul>
+          <p><strong><span>简单来说，所有内容都分为原创和转载，分为3个类目：知识百科类、文学类、句子。</span></strong></p>
+          <h4><a name="图说" class="md-header-anchor"></a><span>图说：</span></h4>
+          <p><a href='https://imgchr.com/i/ypZfTs'><img src="https://s3.ax1x.com/2021/01/28/ypZfTs.png"
+                referrerpolicy="no-referrer" alt="ypZfTs.png"></a></p>
+          <p>&nbsp;</p>
+          <h2 class="contents"><a name="文件结构" class="md-header-anchor"></a><span>文件结构</span></h2>
+          <p><span>话不多说，直接看图！</span></p>
+          <h4><a name="图说-n380" class="md-header-anchor"></a><span>图说：</span></h4>
+          <p><a href='https://imgchr.com/i/ypmXJ1'><img src="https://s3.ax1x.com/2021/01/28/ypmXJ1.png"
+                referrerpolicy="no-referrer" alt="ypmXJ1.png"></a></p>
+          <h2 class="contents"><a name="文件对应关系" class="md-header-anchor"></a><span>文件对应关系</span></h2>
+          <p>
+            <span>所有页面都在一个宽高均占满屏幕的框架内（iframe），文章的展示使用由</span><code>homePage.html</code><span>来完成，句子由</span><code>sentence.html</code><span>和</span><code>mySentence.html</code><span>来完成。需要说明的是，这三个文件都依赖来JS来加载json文件，然后显示内容。</span>
+          </p>
+          <p><span>文章展示页面必须加载base.css、typora.style.css、mobile.css</span></p>
+          <p><span>如下图所示。</span></p>
+          <p>&nbsp;</p>
+          <h4><a name="图说-n387" class="md-header-anchor"></a><span>图说：</span></h4>
+          <p><a href='https://imgchr.com/i/ype236'><img src="https://s3.ax1x.com/2021/01/28/ype236.png"
+                referrerpolicy="no-referrer" alt="ype236.png"></a></p>
+          <h2 class="contents"><a name="文件的模块化" class="md-header-anchor"></a><span>文件的模块化</span></h2>
+          <p><span>模块化主要体现在：网站的导航栏、底部栏、右下角侧边栏都是分别通过nav.js、footer.js、aside.js来加载的。只需修改这三个文件的内容，所有页面的内容都会全部改变。</span></p>
+          <p><span>文章列表和句子都是通过json文章来动态加载。</span></p>
+          <h2 class="contents"><a name="关于发文" class="md-header-anchor"></a><span>关于发文</span></h2>
+          <p><span>鉴于本站是在GitHub
+              page上面发布的，所以发布文章都是通过直接写代码文件的形式而不是类似CSDN、博客园等网站有后端的用户界面。因此，书写一个文章发布指南是十分有必要的，有可能让访问者有所启发，最重要的是可以让自己可以在忘记的时候回来查看！</span>
+          </p>
+          <p><span>若有疑问可查看：</span><a href='../about/summary.html'><span>至简博客概述</span></a><span>和</span><a
+              href='../about/timeline.html'><span>更新日志</span></a></p>
+          <h4><a name="基本说明" class="md-header-anchor"></a><span>基本说明</span></h4>
+          <p>
+            <span>显而易见，发布文章其实就是新增一个HTML页面，这里建议直接复制一个同一目录下的HTML文件。不论你是新建还是复制，必须保证页面里面包含文件</span><code>base.js</code><span>、</span><code>typora.style.css</code><span>、</span><code>mobile.css</code><span>，它们可以确保你的HTML文件得到最基础的支持。</span>
+          </p>
+          <p><span>最重要的是，你必须引入</span><code>typora.style.css</code><span>，它定义了你的文章的几乎所有样式。</span></p>
+          <p><span>这些在</span><a href='#文件对应关系'><span>上面</span></a><span>也已经提到了。</span></p>
+          <h3><a name="文章内容的书写" class="md-header-anchor"></a><span>文章内容的书写</span></h3>
+          <h4><a name="基本内容的编写" class="md-header-anchor"></a><span>基本内容的编写：</span></h4>
+          <p><span>使用Markdown编辑器Typora编写，几乎和word一样简便，步骤如下：</span></p>
+          <ol start=''>
+            <li>
+              <span>在</span><strong><span>typora</span></strong><span>中编写Markdown文件并导出HTML文件(不需要CSS)，typora的样式详见：</span><a
+                href='../myKnowledge/20201027.html'><span>typora样式参考</span></a></li>
+            <li><span>复制一个同类目（同级）下的HTML文件</span></li>
+            <li><span>将</span><strong><span>typora</span></strong><span>导出的HTML文件里面的 </span><code>&lt;div
+                id=&#39;write&#39;&gt;</code><span>放到新建的</span><code>&lt;div
+                class=&quot;massage&quot;&gt;</code><span>里面（即替换掉原来的）</span></li>
+            <li><span>保存即可</span></li>
+            <li><span>添加文章目录（如果必要的话）</span></li>
+            <li><span>设置json文件的内容</span></li>
+          </ol>
+          <p><span>更多内容请参考:</span><a href='../myArticle/20201026.html'><span>博客将使用Markdown编辑器来编写</span></a></p>
+          <h4><a name="文章目录的添加" class="md-header-anchor"></a><span>文章目录的添加</span></h4>
+          <p>
+            <span>目前，文章目录的添加依赖于是否有文章信息栏的“字数”（</span><code>id=&quot;word&quot;</code><span>）项来决定是否自动生成目录，如果没“字数”（</span><code>id=&quot;word&quot;</code><span>）项，但依然要生成目录，可以调用函数</span><code>addLeftList()</code><span>来添加。</span>
+          </p>
+          <p>
+            <span>目录的条目是通过锚点的方式实现的，添加</span><code>class=&quot;contents&quot;</code><span>会让其在目录栏生成条目，</span><code>data-title-name</code><span>可以用来定义要在目录中显示的内容，如果</span><code>data-title-name</code><span>是未定义的，那么会自动把有</span><code>class=&quot;contents&quot;</code><span>的节点的所有文本作为目录的条目内容。</span>
+          </p>
+          <blockquote>
+            <p>
+              <code>class=&quot;contents&quot;</code><span>的添加是自由的，但是建议添加在</span><code>&lt;h&gt;</code><span>标签里面,最好是</span><code>&lt;h2&gt;</code><span>标签。</span>
+            </p>
+          </blockquote>
+
+          <h4><a name="json文件的编写" class="md-header-anchor"></a><span>json文件的编写</span></h4>
+          <p><span>编写json文件的目的是让文章得到显示、索引、搜索、推荐等，这会让文章更新到：目录、文章分类、标签、归档等。至于json的格式，直接复制前面的代码即可，值得一提的是，文章中</span><code>&quot;top&quot;:
+              true</code><span>可令文章置顶、</span><code>&quot;recommend&quot;: true</code><span>可以让文章在站长推荐中得到优先显示。</span></p>
+          <blockquote>
+            <p><span>网站会有多个json文件，所有的文章必须在index.json里面写，然后在对应的类目里面写。</span></p>
+          </blockquote>
+          <h4><a name="所有json文件和功能如下" class="md-header-anchor"></a><span>所有json文件和功能如下：</span></h4>
+          <figure>
+            <table>
+              <thead>
+                <tr>
+                  <th><span>json文件名</span></th>
+                  <th><span>功能</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span>index.json</span></td>
+                  <td><span>存储所有的文章</span></td>
+                </tr>
+                <tr>
+                  <td><span>article.json</span></td>
+                  <td><span>转载的常规文章</span></td>
+                </tr>
+                <tr>
+                  <td><span>myArticle.json</span></td>
+                  <td><span>我的原创文章</span></td>
+                </tr>
+                <tr>
+                  <td><span>sentence.json</span></td>
+                  <td><span>名人名言</span></td>
+                </tr>
+                <tr>
+                  <td><span>mysentence.json</span></td>
+                  <td><span>我的感悟</span></td>
+                </tr>
+                <tr>
+                  <td><span>knowledge.json</span></td>
+                  <td><span>转载的技术博文</span></td>
+                </tr>
+                <tr>
+                  <td><span>myKnowledge.json</span></td>
+                  <td><span>我的技术博文</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <p>&nbsp;</p>
+          <h3 class="contents"><a name="遮盖层的调用" class="md-header-anchor"></a><span>遮盖层的调用</span></h3>
+          <p><span>遮盖层的实现是直接设置在框架外的，所以就只有一个，在</span><code>index.html</code><span>中。</span></p>
+          <h4><a name="提示框" class="md-header-anchor"></a><span>提示框</span></h4>
+          <p><span>提示框可以显示提示文本和图片。</span></p>
+          <p><span>利用</span><code>Mask(text, src)</code><span>函数实现。</span></p>
+          <p><span>第一个参数，</span><code>text</code><span>为要显示的文本，第二个参数</span><code>src</code><span>为要显示的图片地址。</span></p>
+          <p><span>如果要缺省第一个则第一个参数可谓空或者空格，要缺省第二个参数则只写一个参数即可。</span></p>
+          <p><span>一般在调用时，</span><code>window.parent.Mask(&quot;文本&quot;,&quot;地址&quot;);</code></p>
+          <p>
+            <span>如：</span><code>window.parent.Mask(&quot;欢迎扫码添加微信&quot;,&quot;https://s1.ax1x.com/2020/04/02/GJvhLj.jpg&quot;);</code>
+          </p>
+          <h4><a name="正在加载栏" class="md-header-anchor"></a><span>正在加载栏</span></h4>
+          <p><span>在加载一些资源时可以添加正在加载的提示。</span></p>
+          <p>
+            <span>利用</span><code>Loading();</code><span>函数实现显示，利用</span><code>LoadingcClose();</code><span>函数实现关闭提示。</span>
+          </p>
+          <p><span>调用：</span></p>
+          <p><code>window.parent.Loading();</code><span> 显示加载中提示</span></p>
+          <p><code>window.parent.LoadingClose();</code><span> 关闭提示</span></p>
+          <p><strong><span>显示加载时点击遮盖层会关闭提示，但请在加载完成时对其进行关闭</span></strong></p>
+          <blockquote>
+            <p><span>为了避免加载资源的速度很快，但是却闪过加载提示，所以加载页面提示会有一定的延时。</span></p>
+          </blockquote>
+          <h3 class="contents"><a name="更多" class="md-header-anchor"></a><span>更多</span></h3>
+          <h5><a name="每次代码更新后应当编写本站时光轴便于记录网站改动" class="md-header-anchor"></a><span>每次代码更新后应当编写“本站时光轴”，便于记录网站改动。</span>
+          </h5>
+          <h3><a name="待实现的功能" class="md-header-anchor"></a><span>待实现的功能</span></h3>
+          <ul>
+            <li><del><span>图片的显示</span></del><span>（已实现）</span></li>
+            <li><del><span>代码的显示</span></del><span>（已实现，并添加复制功能）</span></li>
+            <li><span>文章添加导语、标签、分类</span></li>
+            <li><del><span>编写文章时一些常用样式</span></del><span>（已通过Typora实现）</span></li>
+            <li><span>文章显示、句子显示模块页数多之后瀑布流的显示</span></li>
+          </ul>
+          <p><span> </span></p>
+          <hr />
+          <p><span>了解更多关于本站的信息请进入</span><a href='index.html'><span>关于本站</span></a><span>页面。</span></p>
+        </div>
+      </div>
+    </main>
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+  </div>
+</div>
+<!-- aside可置顶显示 -->
+<script src="../../../../public/aside.js"></script>
+<script type="text/javascript" src="../js/base.js"></script>
+<script>
+  addLeftList()
+</script>
+</body>
+
+</html>

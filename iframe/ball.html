@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Particular Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+
+        button {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            z-index: 1;
+        }
+
+        button::before {
+            content: attr(id);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script src="../js/ball.js"></script>
+</body>
+
+</html>

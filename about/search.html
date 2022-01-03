@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/mobile.css" rel="stylesheet">
+    <title>搜索</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .pagination {
+            margin-bottom: 0;
+        }
+
+        .blogs {
+            width: 100% !important;
+        }
+
+        .search {
+            position: relative;
+            height: 100px;
+            width: 50%;
+            margin: 50px auto 20px auto;
+            line-height: 30px;
+        }
+
+        .search .search-icon {
+
+            float: left;
+            height: 100%;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .search-start {
+            position: absolute;
+            left: -25px;
+            transform: translateX(30px);
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 10px;
+        }
+
+        input[type=text]:focus {
+            background-color: #fff;
+            box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075), 0 0 0 0.2em #dbedff;
+            border: 1px solid #4285f4;
+        }
+
+        .search .search-input {
+            padding-left: 30px;
+            float: left;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            border: 1px solid #d1d5da;
+            background-color: #fafafa;
+            border-radius: 3px;
+            box-shadow: inset 0 1px 2px rgba(27, 31, 35, .075);
+        }
+
+        .search .search-clear {
+            display: none;
+        }
+
+        .show-result {
+            text-align: center;
+            padding: 25px 25px 25px 2px;
+            height: 100px;
+            width: 80%;
+            margin: auto;
+            font-size: 22px;
+        }
+
+        .length,
+        .keyword {
+            color: #2196f3;
+        }
+
+        @media only screen and (min-width: 800px) {
+
+
+            .article-list {
+                width: 68% !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="no_particle none-top-word">
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <div class="blogs">
+                <div class="search">
+                    <i class="material-icons search-icon search-start">search</i>
+                    <input type="text" class="search-input" placeholder="请输入要搜索的关键词！" />
+                    <i class="material-icons search-icon search-clear">clear</i>
+                </div>
+                <div class="show-result">搜索到“<span class="keyword"></span>”：共 <span class="length"></span> 条</div>
+                <ul id="article_ul" class="article-list">
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                    <li> <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a></a></h3>
+                        <div class="bloginfo">
+                            <p></p>
+                        </div>
+                        <div class="author">
+                            <span class="lm"><a></a></span>
+                            <span class="dtime"><a></a></span>
+                            <span class="writer"><a></a></span>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 分页 -->
+                <div>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="active"><a class="page-link" href="#">1</a></li>
+                        <li><a class="page-link" href="#">2</a></li>
+                        <li><a class="page-link" href="#">3</a></li>
+                        <li><a class="page-link" href="#">4</a></li>
+                        <li><a class="page-link" href="#">5</a></li>
+                        <li>
+                            <a href="#" class="page-link" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- bottom_frame -->
+                <iframe id="bottom_frame" frameborder="0"></iframe>
+                <!-- 底部栏 -->
+                <script src="../../../../public/footer.js"></script>
+            </div>
+        </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        if (document.querySelector("#article_ul li")) {
+            ScrollReveal().reveal('#article_ul li', {
+                // delay: 400, //延时
+                distance: '24px', //距离
+                // duration: 800, //持续事件
+                easing: 'ease-in-out', //动画
+                interval: 300, //间隔F
+                origin: 'bottom', //起点
+                reset: false,
+
+            });
+        }
+    </script>
+    <script>
+        // ajax 的兼容写法
+        var articles
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                articles = JSON.parse(this.responseText).articles //例化
+                //decodeURI对锚点解码  substring(1)去#号
+                getJsonItems(decodeURI(document.location.hash.substring(1)))
+            }
+        }
+        xmlhttp.open('get', '../json/index.json', true);
+        xmlhttp.send();
+        // 获取搜索框、清空搜索
+        var searchClear = document.querySelector('.search-clear');
+        var searchInput = document.querySelector('.search-input');
+
+        searchInput.oninput = function () {
+            setTimeout(searchConfirm, 0);
+        }
+        // 清空按钮点击函数
+        searchClear.onclick = function () {
+            searchInput.value = '';
+            searchClear.style.display = 'none';
+        }
+
+        function searchConfirm() {
+            if (searchInput.value == '') {
+                searchClear.style.display = 'none';
+            } else if (searchInput.value.search(/^\s+$/) >= 0) {
+                searchInput.value = '';
+                // 检测输入值全是空白的情况
+                // searchInit();
+            } else {
+                // 合法输入值的情况
+                searchClear.style.display = 'block';
+                getJsonItems(searchInput.value)
+            }
+        }
+        var randomPictureApi = [
+            "http://api.mtyqx.cn/api/random.php",
+            "http://www.dmoe.cc/random.php",
+            "https://api.ixiaowai.cn/api/api.php",
+            "https://bing.ioliu.cn/v1/rand?w=1920&h=1200",
+            "https://bing.ioliu.cn/v1/rand?w=600&h=800"
+
+        ]
+        var result = new Array
+
+        function getJsonItems(searchText) {
+            document.querySelector('.keyword').innerHTML = searchText
+            var result = []
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索标题
+                if (articles[index].title.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index)
+                }
+            }
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索简介
+                if (articles[index].introduction.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index)
+                }
+            }
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索标签
+                if (articles[index].tag.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index)
+                }
+            }
+            for (let index = 0; index < articles.length; index++) { // 搜索作者
+                if (articles[index].writer.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index)
+                }
+            }
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索分类
+                if (articles[index].classification.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index)
+                }
+            }
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索日期
+                if (articles[index].time.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index)
+                }
+            }
+            // 单字检索
+            var s_word = searchText.split(""); //剪辑成数组
+            var j = 0
+
+
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索标题
+                    if (articles[index].title.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index)
+                    }
+                }
+            }
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索简介
+                    if (articles[index].introduction.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index)
+                    }
+                }
+            }
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索标签
+                    if (articles[index].tag.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index)
+                    }
+                }
+            }
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) { // 搜索作者
+                    if (articles[index].writer.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index)
+                    }
+                }
+            }
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索分类
+                    if (articles[index].classification.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index)
+                    }
+                }
+            }
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索日期
+                    if (articles[index].time.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index)
+                    }
+                }
+            }
+
+
+            showResult(result)
+
+        }
+        // 展示结果
+        function showResult(result) {
+            document.querySelector('.length').innerHTML = result.length
+
+            for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
+                document.querySelectorAll(".pagination li")[index].classList.remove(
+                    "active") //清除之前就存在的active
+                document.querySelectorAll(".pagination li")[1].classList.add(
+                    "active")
+            }
+            var per_page_amount = 10 //决定每页卡片数量  可以调整
+            var nth_page = 0 //第几页  
+            setCardHTML(0);
+            document.querySelector(".pagination").addEventListener("click", function (e) { //监听页码
+                for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
+                    document.querySelectorAll(".pagination li")[index].classList.remove(
+                        "active") //清除之前就存在的active
+                    if (document.querySelectorAll(".pagination li")[index] == e.target.parentElement ||
+                        document.querySelectorAll(".pagination li")[index] == e.target.parentElement
+                        .parentElement) {
+                        // 确定触发源
+                        if (index == 0) { //到首页
+                            nth_page = 0
+                        } else if (index == document.querySelectorAll('.pagination li').length -
+                            1) { //到有页码的页
+                            nth_page = document.querySelectorAll('.pagination li').length - 3
+                        } else { //到末页
+                            nth_page = index - 1
+                        }
+                    }
+                }
+                document.querySelectorAll(".pagination li")[nth_page + 1].classList.add("active") //显示是第几页
+                setCardHTML(nth_page); //设置对应的HTML
+            })
+            // ==================HTML的设置函数
+            function setCardHTML(nth_page) {
+                var start_card = nth_page * per_page_amount //开始的页面
+                var articlesHTML = document.querySelectorAll("#article_ul li") //
+
+                for (let nth_card = start_card; nth_card < start_card +
+                    per_page_amount; nth_card++) { //遍历所有的s十个json对象
+                    //nth_card是json中的序号
+                    var nth_li = nth_card - start_card //nth_li是HTML里的序号
+                    var result_item = result[nth_card];
+                    var element = articlesHTML[nth_li];
+                    if (result_item >= 0) { //还存在json对象数据
+                        element.querySelector("span a").href = articles[result_item].url //图片的目的链接
+                        element.querySelector("span a img").src = articles[result_item]
+                            .img_url //图片链接src用于图片显示
+                        element.querySelector(".blogtitle a").innerHTML = articles[result_item]
+                            .title //标题
+                        element.querySelector(".blogtitle a").href = articles[result_item]
+                            .url //标题的目的链接
+                        element.querySelector(".bloginfo p").innerHTML = articles[result_item]
+                            .introduction //文章简介
+                        element.querySelector(".lm a").innerHTML = articles[result_item].tag //标签
+                        element.querySelector(".lm a").href = '../../../../about/search.html' + '#' +
+                            articles[result_item].tag
+                        element.querySelector(".dtime a").innerHTML = articles[result_item].time //发表时间
+                        element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' +
+                            articles[result_item].time
+                        element.querySelector(".writer a").innerHTML = articles[result_item].writer //作者
+                        element.querySelector(".writer a").href = '#' +
+                            articles[result_item].writer
+                    } else { //无数据，加载默认内容
+                        element.querySelector("span a img").src = randomPictureApi[Math.floor(Math.random() *
+                            randomPictureApi.length)]
+
+                        // 图片采用必应API 图片动态更新
+                        // 延时几毫秒使图片不同？  待实现
+                        element.querySelector(".blogtitle a").innerHTML = "没有更多结果了！^o^"
+                        element.querySelector(".bloginfo p").innerHTML = "欢迎来到至简博客，至简是少即是多的意思，简简单单、更少很多时候才会获得更多。"
+                        element.querySelector(".lm a").innerHTML = "demo"
+                        element.querySelector(".dtime a").innerHTML = "2012-12-12"
+                        element.querySelector(".writer a").innerHTML = "佚名"
+                    }
+                }
+
+            }
+
+        }
+        var author = document.querySelectorAll(".author");
+        for (let index = 0; index < author.length; index++) {
+            author[index].addEventListener('click', function (e) {
+                getJsonItems(e.target.innerHTML);
+                document.documentElement.scrollTop = 0;
+            });
+        }
+    </script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script src="https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.js"></script>
+    <script>
+        if (document.querySelector("#article_ul li")) {
+            ScrollReveal().reveal('#article_ul li', {
+                delay: 100, //延时
+                distance: '24px', //距离
+                duration: 800, //持续时间
+                easing: 'ease-in-out', //动画
+                interval: 300, //间隔F
+                origin: 'bottom', //起点
+                cleanup: false,
+                reset: true,
+            });
+        }
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</body>
+
+</html>
