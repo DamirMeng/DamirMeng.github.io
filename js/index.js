@@ -143,10 +143,10 @@ const topItems = document.querySelectorAll(".top-items li");
 //strList为nav.js中定义的标题名称
 
 // 设置标题名称
-topItems[1].textContent=strList2[0];
-topItems[2].textContent=strList2[1];
-topItems[3].textContent=strList3[0];
-topItems[4].textContent=strList3[1];
+topItems[1].textContent=secondMenuStr[1][0][0];
+topItems[2].textContent=secondMenuStr[1][0][1];
+topItems[3].textContent=secondMenuStr[2][0][0];
+topItems[4].textContent=secondMenuStr[2][0][1];
 (function () { //根据跳转时的锚点来响应展示的内容
     var target = decodeURI(document.location.hash.substring(1));
     if (target == "article") {
@@ -181,19 +181,19 @@ topItems[4].textContent=strList3[1];
                 const element = topItems[index];
                 element.classList.remove("active")
             }
-            if (target == strList2[0]) {
+            if (target == secondMenuStr[1][0][0]) {
                 getArticleData("json/article.json");
                 topItems[1].classList.add("active");
                 document.documentElement.scrollTop = window.innerHeight
-            } else if (target == strList2[1]) {
+            } else if (target == secondMenuStr[1][0][1]) {
                 getArticleData("json/knowledge.json");
                 topItems[2].classList.add("active");
                 document.documentElement.scrollTop = window.innerHeight
-            } else if (target == strList3[0]) {
+            } else if (target == secondMenuStr[2][0][0]) {
                 getArticleData("json/myArticle.json");
                 topItems[3].classList.add("active");
                 document.documentElement.scrollTop = window.innerHeight
-            } else if (target == strList3[1]) {
+            } else if (target == secondMenuStr[2][0][1]) {
                 getArticleData("json/myKnowledge.json");
                 topItems[4].classList.add("active");
                 document.documentElement.scrollTop = window.innerHeight
@@ -201,7 +201,7 @@ topItems[4].textContent=strList3[1];
                 getArticleData("json/index.json");
                 topItems[0].classList.add("active");
             }
-            if (target == strList2[0] || target == strList2[1] || target == strList3[0] || target ==strList3[1]) {
+            if (target == secondMenuStr[1][0][0] || target == secondMenuStr[1][0][1] || target == secondMenuStr[2][0][0] || target ==secondMenuStr[2][0][1]) {
                 if (document.querySelector(".menubar").classList.contains('arrow')) {
                     document.querySelector(".menubar").classList.remove("arrow");
                     document.querySelector(".nav-container").style.display = "none";
@@ -221,17 +221,17 @@ topItems[4].textContent=strList3[1];
                 const element = topItems[index];
                 element.classList.remove("active")
             }
-            if (target == strList2[0]) {
+            if (target == secondMenuStr[1][0][0]) {
                 getArticleData("json/article.json");
                 topItems[1].classList.add("active");
-            } else if (target == strList2[1]) {
+            } else if (target == secondMenuStr[1][0][1]) {
                 getArticleData("json/knowledge.json");
                 topItems[2].classList.add("active");
-            } else if (target == strList3[0]) {
+            } else if (target == secondMenuStr[2][0][0]) {
                 getArticleData("json/myArticle.json");
                 topItems[3].classList.add("active");
 
-            } else if (target == strList3[1]) {
+            } else if (target == secondMenuStr[2][0][1]) {
                 getArticleData("json/myKnowledge.json");
                 topItems[4].classList.add("active");
             } else {
