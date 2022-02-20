@@ -1,0 +1,11 @@
+<svg viewBox="55.5 18.273 395.358 395.358" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="75.143" height="38.864"></bx:grid>
+  </defs>
+  <rect x="55.5" y="18.273" width="395.358" height="395.358" style="paint-order: stroke; stroke-linecap: round; stroke-width: 0px; stroke: rgb(194, 240, 43); stroke-miterlimit: 1; stroke-linejoin: round; fill: rgb(0, 153, 255);" rx="53.074" ry="53.074"></rect>
+  <g style="" transform="matrix(1.410428, 0.003863, 0, 1.122335, -105.668877, -29.512293)">
+    <path style="fill: none; paint-order: fill; stroke: rgb(255, 255, 255); stroke-linejoin: round; stroke-linecap: round; stroke-width: 31.7099px;" d="M 254.507 334.503 C 235.432 334.503 219.914 314.534 219.773 289.769 C 219.567 254.218 253.836 217.471 253.836 217.471 M 254.507 334.503 C 273.599 334.503 288.887 314.534 288.745 289.769 C 288.54 254.218 253.836 217.471 253.836 217.471 M 173.718 337.264 L 173.234 334.503 L 171.918 105.227 L 254.123 211.084 L 308.95 139.135 L 334.786 105.227 L 336.105 334.503 L 336.292 337.277" transform="matrix(1.000004, -0.003523, 0.002151, 0.999989, -0.476787, 0.898199)"></path>
+  </g>
+  <circle style="fill: rgb(255, 69, 0);" cx="188.445" cy="209.417" r="25"></circle>
+  <circle style="fill: rgb(255, 69, 0);" cx="315.669" cy="209.417" r="25"></circle>
+</svg>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> 如何在vscode优雅地使用Git来提交到Github</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://i.loli.net/2020/03/12/C9SY8baEqQklv61.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h2> 如何在vscode优雅地使用Git来提交到Github</h2>
+                    <div class="mini"><span class="later"></span><span class="later"></span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later"></span>
+                            <span id="word" class="later"></span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <h2 id='前提条件' ><span>前提条件</span></h2>
+                        <ul>
+                            <li><span>在Github上申请好账号并创建有仓库来存放你的项目。</span></li>
+                            <li><span>电脑上安装好Git、vscode</span></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <h2 id='设置方法' ><span>设置方法</span></h2>
+                        <h4 id='1让git获得文件控制权'><span>1、让Git获得文件控制权</span></h4>
+                        <p><span>文件夹最好直接从原来的仓库克隆或拉取</span></p>
+                        <ol start=''>
+                            <li><span>在当前文件夹下右击执行Git Bash</span></li>
+                            <li><span>在Git上输入命令：</span><code>git init</code>
+                                <span>随后该文件夹下会生成一个</span><code>.git</code><span>隐藏文件，说明该文件已受控制</span></li>
+                        </ol>
+                        <h4 id='如第一次通过git去使用github时还需要进行如下操作'><span>如第一次通过git去使用GitHub时，还需要进行如下操作</span></h4>
+                        <h5 id='进行全局配置'><span>进行全局配置</span></h5>
+                        <p><span>Git上运行命令</span></p>
+                        <br><code>git config --global user.name &quot;你的用户名&quot;</code></br>
+                            <code>git config --global user.email &quot;你的邮箱&quot;</code></p>
+                        <h5 id='设置github上的ssh-key'><span>设置GitHub上的SSH Key</span></h5>
+                        <ol start=''>
+                            <li>
+                                <p><span>Git上运行命令</span><code>cd ~/.ssh</code><span>（看你是否有了ssh key 密钥，有了就备份）</span></p>
+                            </li>
+                            <li>
+                                <p><span>Git上运行命令</span><code>ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code></p>
+                                <p><span>根据提示来操作，最终会显示密钥所在的目录，id_rsa文件即是你的私有密钥，id_rsa.pub是共开密钥</span></p>
+                            </li>
+                            <li>
+                                <p><span>打开你的id_rsa.pub文件，复制下里面的内容，然后登录github</span></p>
+                            </li>
+                            <li>
+                                <p><span>在右上角账户那里点击头像边上的下拉，点击settings，找到左侧的SSH Keys，添加SSH Keys</span></p>
+                            </li>
+                            <li>
+                                <p><span>Git上输入命令</span><code>ssh -T git@github.com</code><span>测试是否配置成功</span></p>
+                            </li>
+                        </ol>
+                        <p><span>若有错误可以运行</span><code>git remote set-url origin
+                                git@github.com:用户名/仓库名.git</code><span>，origin后面的内容可以到对应仓库的“code”按钮里面复制</span></p>
+                        <h4 id='在vscode上面提交同步'><span>在vscode上面提交、同步</span></h4>
+                        <p><span>使用vscode打开你的项目，点击左侧的源代码管理，然后进行提交、同步即可将代码更新到GitHub上了。</span></p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+            </main>
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+</body>
+
+</html>
