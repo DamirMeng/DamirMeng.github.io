@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-
+<!-- 以分类的方式查找文章 -->
 <head>
     <meta charset="UTF-8">
     <title>分类查找</title>
@@ -20,11 +20,13 @@
                 width: 95%;
                 margin-bottom: 50px;
             }
-            .time{
+
+            .time {
                 display: none;
             }
-            .alarm_item  .alarm_item_description{
-                width: 100%!important;
+
+            .alarm_item .alarm_item_description {
+                width: 100% !important;
                 text-align: center;
             }
         }
@@ -121,9 +123,11 @@
             top: 60px;
             z-index: 2;
         }
-        .card.unfolded  .bottom{
+
+        .card.unfolded .bottom {
             height: 80px;
         }
+
         /* .card.folded .top {
             animation: fold_top 0.6s forwards ease-in-out;
         }
@@ -229,8 +233,8 @@
 </head>
 
 <body>
-  	<!-- PC、移动端导航栏和菜单 -->
-	<script src="../../../../public/nav.js"></script>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
     <div id="perspective">
         <div id="container">
             <!-- 正文，文章列表 -->
@@ -246,72 +250,12 @@
                                 <div class="title">我的文章（原创）</div>
                                 <div class="number">32篇</div>
                             </div>
-                            <ul></ul>
-                        </li>
-
-                        </li>
-                        <li class="card folded mymind">
-                            <div class="card_description">
-                                <div class="title">思维导图（原创）</div>
-                                <div class="number">32篇</div>
-                            </div>
                             <ul>
+                                <li class="alarm_item bottom"><a href="">
+                                        <div class="time"></div>
+                                        <div class="alarm_item_description"></div>
+                                    </a></li>
                             </ul>
-                        </li>
-                        <li class="card folded other">
-                            <div class="card_description">
-                                <div class="title">其他（原创）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="card folded mind">
-                            <div class="card_description">
-                                <div class="title">思维导图（转载）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="card folded essay">
-                            <div class="card_description">
-                                <div class="title">散文（转载）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="card folded novel">
-                            <div class="card_description">
-                                <div class="title">小说（转载）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="card folded poetry">
-                            <div class="card_description">
-                                <div class="title">诗歌（转载）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="card folded classical">
-                            <div class="card_description">
-                                <div class="title">文言文（转载）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul>
-                            </ul>
-                        </li>
-                        <li class="card folded other_c">
-                            <div class="card_description">
-                                <div class="title">其他（转载）</div>
-                                <div class="number">32篇</div>
-                            </div>
-                            <ul> </ul>
                         </li>
                     </ul>
                 </div>
@@ -321,25 +265,79 @@
             <script src="../../../../public/footer.js"></script>
         </div>
     </div>
-	<!-- aside可置顶显示 -->
-	<script src="../../../../public/aside.js"></script>
-    <script>
-        for (var i = 0; i < document.querySelectorAll('.card').length; i++) { //监听所有class=card
-            document.querySelectorAll(".card")[i].addEventListener("click", function (e) {
-                if (this.classList.contains('unfolded') == true) { //如果已经展开
-                    this.classList.replace("unfolded", "folded") //关闭
-                } else { //如果没展开
-                    for (var j = 0; j < document.querySelectorAll('.card').length; j++) { //把展开的关闭
-                        document.querySelectorAll('.card')[j].classList.replace("unfolded", "folded")
-                    }
-                    this.classList.replace("folded", "unfolded") //展开点击的地方
-                }
-            })
-        }
-    </script>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script type="text/javascript" src="../js/base.js"></script>
-    <script type="text/javascript" src="classification.js"></script>
+    <script>
+        function classMap(name, number) {
+            this.name = name;
+            this.number = 0;
+            this.index = new Array();
+
+        }
+        //原创内容
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var articles = JSON.parse(this.responseText).articles //例化
+
+                var classification = new Array(); //存储分类字符串，便于索引
+                var message = new Array(); //分类的详细信息
+                // 获取json数据到数组
+                for (let index = 0; index < articles.length; index++) { //
+                    const element = articles[index];
+                    if (!classification.includes(element.classification)) { //建立分类，之前没有的添加
+                        classification.push(element.classification);
+                        message.push(new classMap(element.classification))
+                    }
+                    // 将文章索引信息加入对应分类
+                    message[classification.indexOf(element.classification)].
+                    index[message[classification.indexOf(element.classification)].number] = index;
+                    message[classification.indexOf(element.classification)].number++; //文章数量
+                }
+                // 添加节点，设置信息
+                for (let index = 0; index < message.length; index++) {
+                    const element = message[index];
+                    var li = document.querySelector(".card").cloneNode(true) //克隆详细分类
+                    li.querySelector("div.title").innerHTML = element.name //分类名称
+                    li.querySelector("div.number").innerHTML = element.number + "篇" //该分类文章数量
+                    // 随机背景颜色
+                    li.querySelector(".card_description").style.backgroundColor =
+                        "#" + Math.round(Math.random() * 0x1000000).toString(16);
+                    for (let j = 0; j < element.number; j++) { //克隆分类下的文章节点
+                        var li2 = document.querySelector("li.alarm_item").cloneNode(true)
+                        li2.querySelector("a").href = articles[element.index[j]].url //文章链接
+                        li2.querySelector(".time").innerHTML = articles[element.index[j]].time //文章日期
+                        li2.querySelector(".alarm_item_description").innerHTML = articles[element.index[j]]
+                            .title + " — " + articles[element.index[j]].writer //文章标题
+                        li.querySelector(".card ul").appendChild(li2) //追加
+                    }
+                    document.querySelector(".cards_wrapper").appendChild(li) //追加
+
+                    li.querySelector("li.alarm_item").remove() //删除模板
+                }
+                document.querySelector(".card").remove(); //删除模板
+
+                //为列表添加动画 
+                for (var i = 0; i < document.querySelectorAll('.card').length; i++) { //监听所有class=card
+                    document.querySelectorAll(".card")[i].addEventListener("click", function (e) {
+                        if (this.classList.contains('unfolded') == true) { //如果已经展开
+                            this.classList.replace("unfolded", "folded") //关闭
+                        } else { //如果没展开
+                            for (var j = 0; j < document.querySelectorAll('.card').length; j++) { //把展开的关闭
+                                document.querySelectorAll('.card')[j].classList.replace("unfolded",
+                                    "folded")
+                            }
+                            this.classList.replace("folded", "unfolded") //展开点击的地方
+                        }
+                    })
+                }
+            }
+        }
+        xmlhttp.open("GET", "../json/index.json", true);
+        xmlhttp.send();
+    </script>
 </body>
 
 </html>
