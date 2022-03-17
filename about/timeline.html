@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <!-- 记录本站代码更新日志 -->
+
 <head>
     <meta charset="UTF-8">
     <title>本站时光轴</title>
@@ -24,8 +25,25 @@
                 </header>
 
                 <div class="massage">
-                    <p>本站时光轴记录的是本站的代码更新情况，而不是记录文字及句子的更新情况，若想查看文章更新的情况，请进入<a href="file.html">存档</a>页面。</p>
+                    <p>本站时光轴记录的是本站的代码更新情况，
+                        而不是记录文字及句子的更新情况，若想查看文章更新的情况，请进入<a href="file.html">存档</a>页面。</p>
                     <ul class="timeline">
+                        <li  class="contents" data-title-name="新增“投资计算器”">
+                            <div>
+                                <div class="flag-wrapper">
+                                    <span class="hexa"></span>
+                                    <span class="flag ">新增“投资计算器”</span>
+                                    <span class="time-wrapper"><span class="time">2022-03-17</span>
+                                </div>
+                                <div class="desc">
+                                    <ol type="i">
+                                        <li>新增投资计算器，可用来计算投资收益率、达到目标收益率所需涨幅、
+                                            持仓收益率等数据，可通过导航栏“发现更多”中的“投资计算器”打开。</li>
+                                        <li>优化了其他一些代码。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </li>
                         <li>
                             <div>
                                 <div class="flag-wrapper">
@@ -35,7 +53,8 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>优化导航栏代码，使用三维数组来实现批量添加，现在只需修改数组即可修改导航栏，后续可考虑使用JSON文件来配置更多的内容。</li>
+                                        <li>优化导航栏代码，使用三维数组来实现批量添加，现在只需修改数组即可修改导航栏，
+                                            后续可考虑使用JSON文件来配置更多的内容。</li>
                                         <li>优化about文件夹内的代码，将JavaScript代码放到HTML文件。</li>
                                         <li>优化“分类查找”的代码，现在已实现根据JSON文件自动对文章分类与归纳。</li>
                                     </ol>
@@ -51,7 +70,8 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>将首页的文章列表上方的按钮文本改变成与nav.js里面的变量一致，因此其会与导航栏文本一致，避免了其文本改变之后部分按钮点击动作失效。</li>
+                                        <li>将首页的文章列表上方的按钮文本改变成与nav.js里面的变量一致，
+                                            因此其会与导航栏文本一致，避免了其文本改变之后部分按钮点击动作失效。</li>
                                     </ol>
                                 </div>
                             </div>
@@ -113,8 +133,11 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>博客网站内容基本全部完成，下一步就专心写博客或者做其他的，关于web方面应该只修改一些bug了。</li>
-                                        <li>最重要的是，本次把所有文件都分离好、全部模块化，详见<a href="summary.html#文件的模块化">至简博客概述</a></li>
+                                        <li>博客网站内容基本全部完成，下一步就专心写博客或者做其他的，
+                                            关于web方面应该只修改一些bug了。</li>
+                                        <li>最重要的是，本次把所有文件都分离好、全部模块化，详见
+                                            <a href="summary.html#文件的模块化">至简博客概述</a>
+                                        </li>
                                         <li>优化了文章数量不足时的默认显示，其中图片会展示不同的图片，避免单调。</li>
                                         <li>添加文章类目的选择，文章分为全部、转载技术、转载经典、原创技术、原创经典五个类目。</li>
                                         <li>所有样式的使用统一变量，其他的一些优化。</li>
@@ -163,7 +186,8 @@
                                         <li>还有许多更新，几乎算是半重建了。</li>
                                     </ol>
                                     <p class="ps"> <strong>ps:</strong>
-                                        我感觉我老是想要修改与添加，老是想改动，不过原因还是对web开发不够了解，导致前期犯了许多的错误。
+                                        我感觉我老是想要修改与添加，老是想改动，不过原因还是对web开发不够了解，
+                                        导致前期犯了许多的错误。
                                     </p>
                                 </div>
                             </div>
@@ -177,13 +201,18 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>修改了网站的logo图标，图标是通过svg设计的，左上角也新增了logo图标，因为对svg不了解且没有艺术细胞，所以logo的设计过程也是一把泪，详见<a
-                                                target="_blank" href='../../../myarticle/other/20201027.html'
-                                                class="blue-link">logo的设计过程</a></li>
-                                        <li>重定义了pc端导航栏的布局，现在基本是按文本流来布局了，展开页等也重新定义了，最重要的是所有的栏目及其展开页都是通过js来定义的，即base.js。以后可以根据新增内容来布局了，它相当于是一个独立的组件！
+                                        <li>修改了网站的logo图标，图标是通过svg设计的，左上角也新增了logo图标，
+                                            因为对svg不了解且没有艺术细胞，所以logo的设计过程也是一把泪，详见
+                                            <a target="_blank" href='../../../myarticle/other/20201027.html'
+                                                class="blue-link">logo的设计过程</a>
+                                        </li>
+                                        <li>重定义了pc端导航栏的布局，现在基本是按文本流来布局了，展开页等也重新定义了，
+                                            最重要的是所有的栏目及其展开页都是通过js来定义的，即base.js。
+                                            以后可以根据新增内容来布局了，它相当于是一个独立的组件！
                                         </li>
                                         <li>修复了详情页上部分粒子文字在鼠标离开后会有假的鼠标响应的问题！</li>
-                                        <li>修改了音乐播放器的位置，同时歌单的位置也改变了，音乐将不会自动播放，因为自动播放音乐的用户体验很不好。</li>
+                                        <li>修改了音乐播放器的位置，同时歌单的位置也改变了，音乐将不会自动播放，
+                                            因为自动播放音乐的用户体验很不好。</li>
                                         <li>新增打开日记、首个网站、计时器时会打开新的页面，顶部进度条的宽度修改为1px。</li>
                                         <li>base.js文件的优化，使网站不再加载不使用的内容，同时优化代码结构。</li>
                                         <li>优化其他样式、代码细节。</li>
@@ -200,10 +229,11 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>文章将使用Typora来编写，简化了博客的编写流程，并且完美的修改侧边栏JS代码来兼容Typora导出的HTML文件。</li>
+                                        <li>文章将使用Typora来编写，简化了博客的编写流程，
+                                            并且完美的修改侧边栏JS代码来兼容Typora导出的HTML文件。</li>
                                         <li>新增代码显示的样式，并在右上角添加复制按钮并实现点击复制功能。</li>
-                                        <li>新增各级标题的样式，新增系列的样式，即使用Typora编写的文档的所有样式。详见<a target="_blank"
-                                                href='../../../myarticle/other/20201027.html'
+                                        <li>新增各级标题的样式，新增系列的样式，即使用Typora编写的文档的所有样式。
+                                            详见<a target="_blank" href='../../../myarticle/other/20201027.html'
                                                 class="blue-link">Typora样式示例</a></li>
                                         <li>优化其他代码</li>
                                     </ol>
@@ -300,7 +330,8 @@
                                 <div class="desc">
                                     <ol type="i">
                                         <li>新增搜索功能，不过只对json文件中的内容进行搜索。</li>
-                                        <li>用锚点来搜索： &apos;../../../../about/search.html&apos;+&apos;#&apos;+搜索内容</li>
+                                        <li>用锚点来搜索： &apos;../../../../about/search.html
+                                            &apos;+&apos;#&apos;+搜索内容</li>
                                         <li>文章列表、标签页已经添加跳转功能。</li>
                                     </ol>
                                 </div>
@@ -364,7 +395,8 @@
                                             margin-top: -150px ;用于防止锚点被上方导航栏遮盖。</li>
                                         <li>目录等页面下滑到一定位置才显示，优化体验。</li>
                                     </ol>
-                                    <p class="ps"> <strong>ps:</strong>对JavaScript了解不够深，加上JavaScript的易用性不够好，所以花了很多的时间，
+                                    <p class="ps"> <strong>ps:</strong>对JavaScript了解不够深，
+                                        加上JavaScript的易用性不够好，所以花了很多的时间，
                                         下次可以用jQuery来编程。编程过程中思维有点混乱，对于复杂的过程建议先画流程图。
                                     </p>
                                 </div>
@@ -382,12 +414,15 @@
                                         <li>根据index.json动态添加内容，由时间排序，年份间隔开。</li>
                                         <li>展示方式是时光轴，用于归档文章。</li>
                                         <li>
-                                            使用了cloneNode(true)克隆节点 为true时克隆的时全部节点，反之为false则只克隆当前节点不包含子节点
+                                            使用了cloneNode(true)克隆节点 为true时克隆的时全部节点，
+                                            反之为false则只克隆当前节点不包含子节点
                                         </li>
                                         <li>优化顶部导航栏的hover，不hover时超出会隐藏。</li>
                                     </ol>
-                                    <p class="ps"> <strong>ps:</strong>之前生成节点都是全部用js生成的，代码过于复杂，编程难度高。
-                                        用克隆可以先在HTML上写一个再克隆，然后再设置对应的文本和链接等。这个方法对复杂节点比较好。</p>
+                                    <p class="ps"> <strong>ps:</strong>之前生成节点都是全部用js生成的，
+                                        代码过于复杂，编程难度高。
+                                        用克隆可以先在HTML上写一个再克隆，然后再设置对应的文本和链接等。
+                                        这个方法对复杂节点比较好。</p>
                                 </div>
                             </div>
                         </li>
@@ -514,7 +549,8 @@
                                 <div class="desc">
                                     <ol type="i">
                                         <li>首页头部新增了一个SVG以优化用户访问时的体验。</li>
-                                        <li>同时新增一个iframe来显示一个小球的跌落（小球颜色随机），以提高视觉效果，两者时叠加的。</li>
+                                        <li>同时新增一个iframe来显示一个小球的跌落（小球颜色随机），以提高视觉效果，
+                                            两者时叠加的。</li>
                                     </ol>
                                     <p class="ps"> <strong>ps:</strong>优化了JavaScript代码的形式.</p>
                                 </div>
@@ -532,7 +568,8 @@
                                         <li>在底部新增frame来加入图形，加入的图形为独立的页面的图形，会随机加载一个，
                                             目前有三个，后期可以无限新增。</li>
                                     </ol>
-                                    <p class="ps"> <strong>ps:</strong>几个展示页面因为footer的特殊性（开始埋下的坑）而导致要特殊处理。</p>
+                                    <p class="ps"> <strong>ps:</strong>几个展示页面因为footer的特殊性（以前埋下的坑）
+                                        而导致要特殊处理。</p>
                                 </div>
                             </div>
                         </li>
@@ -545,7 +582,8 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>在绝大数文件上部新增粒子形状的文字，以提高文章显示丰富性。粒子的文字为自动加载该文章的标题。
+                                        <li>在绝大数文件上部新增粒子形状的文字，以提高文章显示丰富性。
+                                            粒子的文字为自动加载该文章的标题。
                                             当标题字数过多时会显示hello！
                                         </li>
                                         <li>实现方法为应用canvas来绘制。在base.js中自动新增canvas。</li>
@@ -565,13 +603,16 @@
                                         <li>新增了思维导图的显示样式！为了用户体验，宽度不宽的思维导图样式不一样。</li>
                                         <li>新增的思维导图为：本站文章分类、本站文章结构、CSS知识。</li>
                                         <li>新增了思维导图文件夹，优化了其他一些细节。</li>
-                                        <li>尝试了几种不同的svg显示方式，最终还是直接嵌入SVG效果最好，不过感觉vscode的对长度过长的SVG代码显示
-                                            的性能不太好或者长的SVG的本身就消耗性能，vscode多次假死或者出现bug，不过大多数思维导图的SVG的长度并没有那么长，
+                                        <li>尝试了几种不同的svg显示方式，最终还是直接嵌入SVG效果最好，
+                                            不过感觉vscode的对长度过长的SVG代码显示
+                                            的性能不太好或者长的SVG的本身就消耗性能，vscode多次假死或者出现bug，
+                                            不过大多数思维导图的SVG的长度并没有那么长，
                                             还是在可接受范围。
                                         </li>
 
                                     </ol>
-                                    <p class="ps"> <strong>ps:</strong>今天又是头疼的一天（哭），尝试移动端真机调试失败了，了解了HTML文件的加载顺序。</p>
+                                    <p class="ps"> <strong>ps:</strong>今天又是头疼的一天（哭），
+                                        尝试移动端真机调试失败了，了解了HTML文件的加载顺序。</p>
                                 </div>
                             </div>
                         </li>
@@ -584,12 +625,15 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>加入文章分类页面，选择可以通过该页面查找本站的内容了。而且页面的内容可以通过JSON文件动态加载。</li>
+                                        <li>加入文章分类页面，选择可以通过该页面查找本站的内容了。
+                                            而且页面的内容可以通过JSON文件动态加载。</li>
                                         <li>优化了JSON文件的结构，现在文章的JSON变为首页文章、我的文章、转载的文章。</li>
-                                        <li>文章的JSON文件加入加入了分类（classification）用以分类文章、为后续文章的查找提供基础。标签依然保存，打算用字符串查找的方式提供查找服务。
+                                        <li>文章的JSON文件加入加入了分类（classification）用以分类文章、
+                                            为后续文章的查找提供基础。标签依然保存，打算用字符串查找的方式提供查找服务。
                                         </li>
                                     </ol>
-                                    <p class="ps"> <strong>ps:</strong>在考虑修改导航栏内容，文章展示样式，新增文章沉浸式阅读模式。</p>
+                                    <p class="ps"> <strong>ps:</strong>在考虑修改导航栏内容，文章展示样式，
+                                        新增文章沉浸式阅读模式。</p>
                                 </div>
                             </div>
                         </li>
@@ -602,12 +646,15 @@
                                 </div>
                                 <div class="desc">
                                     <ol type="i">
-                                        <li>完善本站信息板块，学到了许多新的知识，编辑了一些文字。真的是头疼，有许多不会，新学的。</li>
+                                        <li>完善本站信息板块，学到了许多新的知识，编辑了一些文字。真的是头疼，
+                                            有许多不会，新学的。</li>
                                         <li>优化本站时光轴的细节</li>
-                                        <li>优化了反馈层的显示，现在可以显示图片了，只需要在调用时加入src即可。其他小优化就不谈了.</li>
+                                        <li>优化了反馈层的显示，现在可以显示图片了，只需要在调用时加入src即可。
+                                            其他小优化就不谈了.</li>
                                     </ol>
                                     <p class="ps"> <strong>ps:</strong> 为了提高英语水平，以后日期用英文来记，
-                                        偶然间发现了mindmaster居然可以生成svg格式的思维导图！！！期待后续，但学业繁忙可能需要等待。</p>
+                                        偶然间发现了mindmaster居然可以生成svg格式的思维导图！！！期待后续，
+                                        但学业繁忙可能需要等待。</p>
                                 </div>
                             </div>
                         </li>
@@ -633,7 +680,7 @@
     <!-- aside可置顶显示 -->
     <script src="../../../../public/aside.js"></script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../public/base.js"></script>
     <script>
         addLeftList()
     </script>

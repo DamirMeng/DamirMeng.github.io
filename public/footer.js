@@ -96,7 +96,6 @@ function writeFooter() {
     document.writeln("</div>");
     document.writeln("</footer>");
 }
-
 writeFooter();
 
 // 时间显示
@@ -241,10 +240,11 @@ if (timeToNowDOM) {
     document.addEventListener("DOMContentLoaded", init, false);
 })();
 
+// 添加底部动画
 (function () {
     // add iframe  底部动画
-    //随机几个
     var h = window.innerHeight / 2 - 50 + "px"
+    //随机几个
     var bottomSrc = [
         "../../../iframe/bike.html",
         "../../../iframe/horse.html",

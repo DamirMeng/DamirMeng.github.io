@@ -239,8 +239,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- bottom_frame -->
-                <iframe id="bottom_frame" frameborder="0"></iframe>
                 <!-- 底部栏 -->
                 <script src="../../../../public/footer.js"></script>
             </div>
@@ -269,9 +267,9 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                articles = JSON.parse(this.responseText).articles //例化
+                articles = JSON.parse(this.responseText).articles;//例化
                 //decodeURI对锚点解码  substring(1)去#号
-                getJsonItems(decodeURI(document.location.hash.substring(1)))
+                getJsonItems(decodeURI(document.location.hash.substring(1)));
             }
         }
         xmlhttp.open('get', '../json/index.json', true);
@@ -302,6 +300,7 @@
                 getJsonItems(searchInput.value)
             }
         }
+        // 搜索无结果时显示图片的API
         var randomPictureApi = [
             "http://api.mtyqx.cn/api/random.php",
             "http://www.dmoe.cc/random.php",
@@ -313,61 +312,60 @@
         var result = new Array
 
         function getJsonItems(searchText) {
-            document.querySelector('.keyword').innerHTML = searchText
-            var result = []
+            document.querySelector('.keyword').innerHTML = searchText;
+            var s_word = searchText.split(""); //剪辑成数组
+            var result = [];
+            // 注：不合并是为让具有相关度更高的文章排在前面，比如说优先显示与标题相关的
             for (let index = 0; index < articles.length; index++) {
                 // 搜索标题
                 if (articles[index].title.search(searchText) != -1 && !result.includes(index)) {
-                    result.push(index)
+                    result.push(index);
                 }
             }
-            for (let index = 0; index < articles.length; index++) {
-                // 搜索简介
-                if (articles[index].introduction.search(searchText) != -1 && !result.includes(index)) {
-                    result.push(index)
-                }
-            }
-            for (let index = 0; index < articles.length; index++) {
-                // 搜索标签
-                if (articles[index].tag.search(searchText) != -1 && !result.includes(index)) {
-                    result.push(index)
+            // 提高单字搜索标题的优先级
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索标题
+                    if (articles[index].title.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index);
+                    }
                 }
             }
             for (let index = 0; index < articles.length; index++) { // 搜索作者
                 if (articles[index].writer.search(searchText) != -1 && !result.includes(index)) {
-                    result.push(index)
+                    result.push(index);
                 }
             }
             for (let index = 0; index < articles.length; index++) {
                 // 搜索分类
                 if (articles[index].classification.search(searchText) != -1 && !result.includes(index)) {
-                    result.push(index)
+                    result.push(index);
+                }
+            }
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索标签
+                if (articles[index].tag.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index);
+                }
+            }
+            for (let index = 0; index < articles.length; index++) {
+                // 搜索简介
+                if (articles[index].introduction.search(searchText) != -1 && !result.includes(index)) {
+                    result.push(index);
                 }
             }
             for (let index = 0; index < articles.length; index++) {
                 // 搜索日期
                 if (articles[index].time.search(searchText) != -1 && !result.includes(index)) {
-                    result.push(index)
+                    result.push(index);
                 }
             }
+
             // 单字检索
-            var s_word = searchText.split(""); //剪辑成数组
-            var j = 0
-
-
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
-                for (let index = 0; index < articles.length; index++) {
-                    // 搜索标题
-                    if (articles[index].title.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index)
-                    }
-                }
-            }
-            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
-                for (let index = 0; index < articles.length; index++) {
-                    // 搜索简介
-                    if (articles[index].introduction.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index)
+                for (let index = 0; index < articles.length; index++) { // 搜索作者
+                    if (articles[index].writer.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index);
                     }
                 }
             }
@@ -375,14 +373,7 @@
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索标签
                     if (articles[index].tag.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index)
-                    }
-                }
-            }
-            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
-                for (let index = 0; index < articles.length; index++) { // 搜索作者
-                    if (articles[index].writer.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index)
+                        result.push(index);
                     }
                 }
             }
@@ -390,7 +381,15 @@
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索分类
                     if (articles[index].classification.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index)
+                        result.push(index);
+                    }
+                }
+            }
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索简介
+                    if (articles[index].introduction.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index);
                     }
                 }
             }
@@ -398,47 +397,44 @@
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索日期
                     if (articles[index].time.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index)
+                        result.push(index);
                     }
                 }
             }
 
-
             showResult(result)
-
         }
-        // 展示结果
+        // 展示搜索结果
         function showResult(result) {
-            document.querySelector('.length').innerHTML = result.length
+            document.querySelector('.length').innerHTML = result.length;
 
             for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
-                document.querySelectorAll(".pagination li")[index].classList.remove(
-                    "active") //清除之前就存在的active
-                document.querySelectorAll(".pagination li")[1].classList.add(
-                    "active")
+                //清除之前就存在的active
+                document.querySelectorAll(".pagination li")[index].classList.remove("active");
+                document.querySelectorAll(".pagination li")[1].classList.add("active");
             }
-            var per_page_amount = 10 //决定每页卡片数量  可以调整
-            var nth_page = 0 //第几页  
+            var per_page_amount = 10;//决定每页卡片数量  可以调整
+            var nth_page = 0;//第几页  
             setCardHTML(0);
             document.querySelector(".pagination").addEventListener("click", function (e) { //监听页码
                 for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
-                    document.querySelectorAll(".pagination li")[index].classList.remove(
-                        "active") //清除之前就存在的active
+                    //清除之前就存在的active
+                    document.querySelectorAll(".pagination li")[index].classList.remove("active")
                     if (document.querySelectorAll(".pagination li")[index] == e.target.parentElement ||
-                        document.querySelectorAll(".pagination li")[index] == e.target.parentElement
-                        .parentElement) {
+                        document.querySelectorAll(".pagination li")[index] == e.target.parentElement.parentElement) {
                         // 确定触发源
                         if (index == 0) { //到首页
-                            nth_page = 0
-                        } else if (index == document.querySelectorAll('.pagination li').length -
-                            1) { //到有页码的页
-                            nth_page = document.querySelectorAll('.pagination li').length - 3
+                            nth_page = 0;
+                        } else if (index == document.querySelectorAll('.pagination li').length - 1) {
+                            //到有页码的页
+                            nth_page = document.querySelectorAll('.pagination li').length - 3;
                         } else { //到末页
-                            nth_page = index - 1
+                            nth_page = index - 1;
                         }
                     }
                 }
-                document.querySelectorAll(".pagination li")[nth_page + 1].classList.add("active") //显示是第几页
+                //显示是第几页
+                document.querySelectorAll(".pagination li")[nth_page + 1].classList.add("active")
                 setCardHTML(nth_page); //设置对应的HTML
             })
             // ==================HTML的设置函数
@@ -446,42 +442,38 @@
                 var start_card = nth_page * per_page_amount //开始的页面
                 var articlesHTML = document.querySelectorAll("#article_ul li") //
 
-                for (let nth_card = start_card; nth_card < start_card +
-                    per_page_amount; nth_card++) { //遍历所有的s十个json对象
+                for (let nth_card = start_card; nth_card < start_card + per_page_amount; nth_card++) { 
+                    //遍历所有的十个json对象
                     //nth_card是json中的序号
                     var nth_li = nth_card - start_card //nth_li是HTML里的序号
                     var result_item = result[nth_card];
                     var element = articlesHTML[nth_li];
                     if (result_item >= 0) { //还存在json对象数据
-                        element.querySelector("span a").href = articles[result_item].url //图片的目的链接
-                        element.querySelector("span a img").src = articles[result_item]
-                            .img_url //图片链接src用于图片显示
-                        element.querySelector(".blogtitle a").innerHTML = articles[result_item]
-                            .title //标题
-                        element.querySelector(".blogtitle a").href = articles[result_item]
-                            .url //标题的目的链接
-                        element.querySelector(".bloginfo p").innerHTML = articles[result_item]
-                            .introduction //文章简介
-                        element.querySelector(".lm a").innerHTML = articles[result_item].tag //标签
+                        element.querySelector("span a").href = articles[result_item].url;//图片的目的链接
+                        element.querySelector("span a img").src = articles[result_item].img_url;//图片链接src用于图片显示
+                        element.querySelector(".blogtitle a").innerHTML = articles[result_item].title;//标题
+                        element.querySelector(".blogtitle a").href = articles[result_item].url;//标题的目的链接
+                        element.querySelector(".bloginfo p").innerHTML = articles[result_item].introduction; //文章简介
+                        element.querySelector(".lm a").innerHTML = articles[result_item].tag;//标签
                         element.querySelector(".lm a").href = '../../../../about/search.html' + '#' +
-                            articles[result_item].tag
+                            articles[result_item].tag;
                         element.querySelector(".dtime a").innerHTML = articles[result_item].time //发表时间
                         element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' +
-                            articles[result_item].time
+                            articles[result_item].time;
                         element.querySelector(".writer a").innerHTML = articles[result_item].writer //作者
-                        element.querySelector(".writer a").href = '#' +
-                            articles[result_item].writer
+                        element.querySelector(".writer a").href = '#' + articles[result_item].writer;
                     } else { //无数据，加载默认内容
                         element.querySelector("span a img").src = randomPictureApi[Math.floor(Math.random() *
                             randomPictureApi.length)]
 
                         // 图片采用必应API 图片动态更新
                         // 延时几毫秒使图片不同？  待实现
-                        element.querySelector(".blogtitle a").innerHTML = "没有更多结果了！^o^"
-                        element.querySelector(".bloginfo p").innerHTML = "欢迎来到至简博客，至简是少即是多的意思，简简单单、更少很多时候才会获得更多。"
-                        element.querySelector(".lm a").innerHTML = "demo"
-                        element.querySelector(".dtime a").innerHTML = "2012-12-12"
-                        element.querySelector(".writer a").innerHTML = "佚名"
+                        element.querySelector(".blogtitle a").innerHTML = "没有更多结果了！^o^";
+                        element.querySelector(".bloginfo p").innerHTML =
+                            "欢迎来到至简博客，至简是少即是多的意思，简简单单、更少很多时候才会获得更多。"
+                        element.querySelector(".lm a").innerHTML = "demo";
+                        element.querySelector(".dtime a").innerHTML = "2012-12-12";
+                        element.querySelector(".writer a").innerHTML = "佚名";
                     }
                 }
 
@@ -496,7 +488,7 @@
             });
         }
     </script>
-    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../public/base.js"></script>
     <script src="https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.js"></script>
     <script>
         if (document.querySelector("#article_ul li")) {

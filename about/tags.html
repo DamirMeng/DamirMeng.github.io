@@ -29,8 +29,8 @@
 </head>
 
 <body>
-  	<!-- PC、移动端导航栏和菜单 -->
-	<script src="../../../../public/nav.js"></script>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
     <div id="perspective">
         <div id="container">
             <!-- 正文，文章列表 -->
@@ -46,29 +46,28 @@
             <script src="../../../../public/footer.js"></script>
         </div>
     </div>
-	<!-- aside可置顶显示 -->
-	<script src="../../../../public/aside.js"></script>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
     <script>
         var xmlhttp = new XMLHttpRequest()
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var articles = JSON.parse(this.responseText).articles //例化
-                var div = document.querySelector("#tags_list")
-                var tags = new Array
-                var num = new Array
+                var articles = JSON.parse(this.responseText).articles;//例化
+                var div = document.querySelector("#tags_list");
+                var tags = new Array;//将标签名引入（不重复）
+                var num = new Array;//标签所对应的文章数量
                 for (let index = 0; index < articles.length; index++) { //遍历json
-                    var str = articles[index].tag.split(" ") //以空格划分，可能存在多个标签
+                    var str = articles[index].tag.split(" ");//以空格划分，可能存在多个标签
                     for (let index = 0; index < str.length; index++) { //遍历划分的标签
                         if (!tags.includes(str[index])) { //将不重名的标签放进数组
-                            num.push(1)
-                            tags.push(str[index])
+                            num.push(1);
+                            tags.push(str[index]);
                         } else { //有重名、数量+1
-                            var i = tags.indexOf(str[index])
-                            num[i]++
+                            num[tags.indexOf(str[index])]++;
                         }
                     }
                 }
-                // 排序
+                // 排序,将文章数量多的排在前面
                 var max;
                 //遍历数组，默认arr中的某一个元素为最大值，进行逐一比较
                 for (var i = 0; i < num.length; i++) {
@@ -87,15 +86,17 @@
                     }
                 }
                 // 添加 设置
-                var colors = ["#66CCFF", "#FF6600", "#FF0033", "#0099CC", "#0066CC", "#ff9800", "#2196f3",
+                var colors = ["#66CCFF", "#FF6600",
+                    "#FF0033", "#0099CC", "#0066CC",
+                    "#ff9800", "#2196f3",
                     "#FF6666", "#FF9966"
                 ]
                 for (let index = 0; index < tags.length; index++) {
                     var a = document.createElement("a");
-                    a.innerHTML = tags[index] //设置内容+ "（" + num[index] + "）"
-                    a.href = '../../../../about/search.html' + '#' + tags[index]
-                    a.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)] //随机颜色
-                    div.appendChild(a)
+                    a.innerHTML = tags[index] + "(" + num[index] + ")";//设置内容
+                    a.href = '../../../../about/search.html' + '#' + tags[index];
+                    a.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];//随机颜色
+                    div.appendChild(a);
                 }
             }
         }
@@ -103,7 +104,7 @@
         xmlhttp.send();
     </script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="../public/base.js"></script>
 
 </body>
 

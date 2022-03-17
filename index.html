@@ -317,12 +317,12 @@
     <script>
         //刷新
         if (document.location.hash.substring(1).length > 5) { //借助锚点来加载框架的src  substring(1)去除#
-            document.getElementById('iframe').src = document.location.hash.substring(1)
+            document.getElementById('iframe').src = document.location.hash.substring(1);
         } else {
-            document.getElementById('iframe').src = "homePage.html"
+            document.getElementById('iframe').src = "homePage.html";
         }
         console.log("%cBlue Blog%c\n 蒙大明的博客\n\n  用于发布一些文章！", "font-size:96px;color:#3b3e43",
-            "font-size:12px;color:#4285f4;")
+            "font-size:12px;color:#4285f4;");
 
         // 遮盖层的实现
         const feedback = document.querySelector('#feedback');

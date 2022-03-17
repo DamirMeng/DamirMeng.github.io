@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/index.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <title>投资计算器</title>
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        html {
+            line-height: 1;
+        }
+
+        h2.title {
+            margin: 7rem 0px 1rem 0;
+            font-size: 2.5rem;
+            line-height: 3.2rem;
+            text-align: center;
+            font-weight: 450;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        h2.heading {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-align: left;
+            color: #506982;
+            border-bottom: 1px solid #506982;
+            padding-bottom: 3px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            text-align: left;
+            position: relative;
+        }
+
+        .controls input[type="text"],
+        .controls input[type="email"],
+        .controls input[type="tel"],
+        .controls textarea,
+        .controls button,
+        .controls select {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #9fb1c163;
+            width: 100%;
+            margin-bottom: 18px;
+            color: #888;
+            font-family: 'Lato', 'sans-serif';
+            font-size: 16px;
+            font-weight: 300;
+            background-color: #fff;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .controls input[type="text"]:focus,
+        .controls input[type="text"]:hover,
+        .controls input[type="email"]:focus,
+        .controls input[type="email"]:hover,
+        .controls input[type="tel"]:focus,
+        .controls input[type="tel"]:hover,
+        .controls textarea:focus,
+        .controls textarea:hover,
+        .controls button:focus,
+        .controls button:hover,
+        .controls select:focus,
+        .controls select:hover {
+            outline: none;
+            border-color: #2196f342;
+        }
+
+        .controls input[type="text"]:focus+label,
+        .controls input[type="text"]:hover+label,
+        .controls input[type="email"]:focus+label,
+        .controls input[type="email"]:hover+label,
+        .controls input[type="tel"]:focus+label,
+        .controls input[type="tel"]:hover+label,
+        .controls textarea:focus+label,
+        .controls textarea:hover+label,
+        .controls button:focus+label,
+        .controls button:hover+label,
+        .controls select:focus+label,
+        .controls select:hover+label {
+            color: #ff5722;
+            cursor: text;
+        }
+
+        .controls .fa-sort {
+            position: absolute;
+            right: 10px;
+            top: 17px;
+            color: #999;
+        }
+
+        .controls select {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .controls label {
+            position: absolute;
+            left: 8px;
+            top: 12px;
+            color: #999;
+            font-size: 16px;
+            display: inline-block;
+            padding: 4px 10px;
+            font-weight: 400;
+            background-color: rgba(255, 255, 255, 0);
+            pointer-events: none;
+            -moz-transition: color 0.3s, top 0.3s, background-color 0.8s;
+            -o-transition: color 0.3s, top 0.3s, background-color 0.8s;
+            -webkit-transition: color 0.3s, top 0.3s, background-color 0.8s;
+            transition: color 0.3s, top 0.3s, background-color 0.8s;
+        }
+
+        .controls label.active {
+            top: -11px;
+            color: #077ABC;
+            /* background-color: white; */
+        }
+
+        .controls textarea {
+            resize: none;
+            height: 200px;
+        }
+
+
+        .controls button:hover {
+            background-color: #08ccb7;
+        }
+
+        .htmleaf-content {
+            font-size: 150%;
+            padding: 1em 0;
+        }
+
+        div.htmleaf-content form {
+            padding: 0 10% 4em 10%;
+        }
+
+        .result .heading {
+            color: #2196f3;
+        }
+
+        div.showData {
+            padding-bottom: 25px;
+        }
+
+        .result div.showData div {
+            font-size: 16px;
+            padding: 8px 10px;
+        }
+
+        .result div.showData span {
+            font-size: 16px;
+            color: #00A61D;
+            font-weight: bold;
+        }
+
+        .controls button {
+            cursor: pointer;
+            background-color: #07B3A1;
+            border: none;
+            margin: 15px 1%;
+            color: #fff;
+            padding: 12px 0;
+            width: 31%;
+        }
+
+        #add {
+
+            float: left;
+        }
+
+        #reduce {
+            float: right;
+        }
+    </style>
+</head>
+
+<body class="no_particle none-top-word">
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <h2 class="title">投资计算器</h2>
+            <div class="htmleaf-content">
+                <form action="">
+                    <!--  基本交易 -->
+                    <div class="form-group">
+                        <h2 class="heading">基本参数</h2>
+                        <div class="controls">
+                            <input type="text" id="initia-amount" type="number" class="floatLabel number">
+                            <label for="loss">当前持仓金额(元)</label>
+                        </div>
+                        <div class="controls">
+                            <i class="fa fa-sort"></i>
+                            <select class="floatLabel" id="rate">
+                                <option value="rate0">不计算交易费率</option>
+                                <option value="rate5">万份之5（股票、不免五）</option>
+                                <option value="rate3">万份之3（股票、不免五）</option>
+                                <option value="rate2_5">万份之2.5（场内ETF、免五）</option>
+                                <option value="tips">注：以上不包括印花税、过户费</option>
+                            </select>
+                            <label for="rate" class="active">每笔交易费率</label>
+                        </div>
+                        <div class="controls">
+                            <input type="text" id="target-rate" type="number" class="floatLabel number" name="number">
+                            <label for="loss">目标收益率(%)</label>
+                        </div>
+                    </div>
+
+                    <!--  后市交易 -->
+                    <div class="form-group result">
+                        <h2 class="heading">后市交易</h2>
+
+                        <div class="cell">
+                            <div class="controls">
+                                <input type="text" class="floatLabel number add rate-cell" name="cell">
+                                <label for="rate-cell">第1次交易前收益率(%)</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" class="floatLabel number add amount-cell" name="cell">
+                                <label for="amount-cell">第1次交易金额(元)</label>
+                            </div>
+
+                            <div class="showData">
+                                <div class="gap-rate">从上次交易后的收益率 <span>--</span>%到本次交易前的收益率
+                                    <span>--</span>%，需要的涨跌幅：<span>--</span>%
+                                </div>
+                                <div class="total-funds">交易后投资成本：<span>--</span> 元</div>
+                                <div class="profit-funds">交易后投资收益：<span>--</span> 元</div>
+                                <div class="rate-fee">交易费用：<span>--</span> 元</div>
+                                <div class="final-funds">交易后总市值：<span>--</span> 元</div>
+                                <div class="total-rate">交易后收益率：<span>--</span>%</div>
+                                <div class="need-rate">达到目标收益率所需收益率：<span>--</span>%</div>
+                                <div class="target-return">达到目标收益率后的收益金额：<span>--</span> 元</div>
+                                <div class="target-funds">达到目标收益率后的总市值：<span>--</span> 元</div>
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <button id="add" type="button">添加交易</button>
+                            <button id="refresh">重新计算</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- 底部栏 -->
+            <script src="../../../../public/footer.js"></script>
+        </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <script type="text/javascript" src="../../../public/base.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script>
+        var addNumber = 1;//添加交易次数，默认为1
+
+        //获取下一个兄弟元素的兼容函数
+        function getNextElement(element) {
+            if (element.nextElementSibling) {
+                return element.nextElementSibling;
+            } else {
+                var next = element.nextSibling;//下一个兄弟节点
+                while (next && 1 !== next.nodeType) {//有 并且 不是我想要的
+                    next = next.nextSibling;
+                }
+                return next;
+            }
+        }
+
+        // 添加基础动画及提示文本
+        function addAnimation() {
+            var floatLabel = document.querySelectorAll(".floatLabel");
+            for (let index = 0; index < floatLabel.length; index++) {
+                const element = floatLabel[index];
+                element.onfocus = function () {//绑定获取焦点事件
+                    getNextElement(element).classList.add("active");//下一个兄弟节点添加class
+                    element.setAttribute("placeholder", "请输入数字！");//无输入时，添加输入提示
+                };
+                element.onblur = function () {//绑定失去焦点事件
+                    if (element.value == '' || element.value === 'blank') {
+                        // 输入为空时恢复
+                        getNextElement(element).classList.remove("active");
+                        element.setAttribute("placeholder", "");
+                    }
+                }
+            }
+        }
+
+        // 只能输入数字（包括小数点）
+        function pickNumber(obj) {
+
+            obj.value = obj.value.replace(/[^\d.-]/g, ""); //清除"数字"和"."以外的字符
+            obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个小数点, 清除多余的
+            obj.value = obj.value.replace(/\-{2,}/g, "-"); //只保留第一个负号, 清除多余的
+            obj.value = obj.value.replace(".", "#").replace(/\./g, "").replace("#", ".");
+            console.log(obj.value);
+            console.log(obj.value.indexOf(".") != "");
+            if (obj.value.indexOf(".") < 0 && obj.value != "") {//过滤非法字符
+                if (obj.value != "-") {//过滤只有负号的情况
+                    obj.value = parseFloat(obj.value);
+                }
+            }
+        }
+
+        // 显示计算结果
+        function showResult() {
+            // 用于获取基本参数
+            var targetReturnRate = 0;//目标收益率
+            var rate = 0;//交易费率
+            var fee = 0;//交易费用
+
+            // 用于获取交易信息
+            var tradeRate = 0;//交易前收益率
+            var tradeAmount = 0;//交易金额
+
+            // 用于计算交易结果
+            var gapRate = 0;//上次交易后涨跌幅
+            var capex = 0;//投资成本
+            var profitFunds = 0;//收益金额
+            var marketValue = 0;//市值
+            var returnRate = 0;//收益率
+            var needRate = 0;//所需收益率
+
+            var previousFunds = 0;//上一次交易后总市值
+            var previousRate = 0;//上一次收益率
+            // -----------------------*获取基本参数*-----------------------
+            // 获取建仓成本
+            if (parseFloat(document.querySelector("#initia-amount").value)) {//防止其没有设置数据时为NaN
+                capex = parseFloat(document.querySelector("#initia-amount").value);//当前金额
+                previousFunds = parseFloat(document.querySelector("#initia-amount").value);
+            }
+            // 获取交易费率
+            if (document.querySelector("#rate").value) {
+                rate = document.querySelector("#rate").value;
+            }
+            // 获取目标收益率
+            if (parseFloat(document.querySelector("#target-rate").value)) {
+                targetReturnRate = parseFloat(document.querySelector("#target-rate").value) / 100;//目标收益率
+            }
+
+            //  计算费率
+            if (capex != 0) {
+                if (rate == "rate5") {//万5
+                    if (capex * 0.0005 > 5) {
+                        fee += capex * 0.0005;
+                    } else {
+                        fee += 5;
+                    }
+                }
+                else if (rate == "rate3") {//万3
+                    if (capex * 0.0003 > 5) {
+                        fee += capex * 0.0003;
+                    } else {
+                        fee += 5;
+                    }
+                }
+                else if (rate == "rate2_5") {//万2.5
+                    fee += capex * 0.00025;
+                } else if (rate == "tips") {//
+                    window.parent.Mask("您选择的交易费率不合法！");
+                }
+            }
+
+            // -----------------------*对后市交易进行计算*-----------------------
+            var cell = document.querySelectorAll("div.cell");//获取每次交易的DOM
+            for (let index = 0; index < cell.length; index++) {//遍历所有后市交易
+                const element = cell[index];
+                // 获取交易前收益率
+                if (parseFloat(element.querySelector(".rate-cell").value)) {
+                    //从现在开始，第一次交易时收益率
+                    tradeRate = parseFloat(element.querySelector(".rate-cell").value) / 100;
+                }
+                profitFunds = capex * tradeRate;//交易后收益金额=交易前投资成本*前期收益率
+                marketValue = capex * (1 + tradeRate);//交易后市值=成本*（1+收益率）
+                //从上次交易后到交易前收益率涨跌幅=总市值/交易前成本-1
+                gapRate = (marketValue / previousFunds - 1);
+                // 显示 从上次交易后到交易前收益率涨跌幅
+                element.querySelector(".gap-rate").querySelectorAll("span")[0].innerHTML = (previousRate * 100).toFixed(3);//上次收益率
+                element.querySelector(".gap-rate").querySelectorAll("span")[1].innerHTML = (tradeRate * 100).toFixed(3);//本次交易前收益率
+                element.querySelector(".gap-rate").querySelectorAll("span")[2].innerHTML = (gapRate * 100).toFixed(3);//从上次收益到目前涨跌幅
+                // 获取交易金额
+                if (parseFloat(element.querySelector(".amount-cell").value)) {
+                    tradeAmount = parseFloat(element.querySelector(".amount-cell").value);//交易金额
+                }
+                capex += tradeAmount;//交易后成本金额=交易前成本+交易金额
+                // 计算交易费率
+                if (tradeAmount != 0) {//费用为0时，不计算
+                    if (rate == "rate5") {//万5
+                        if (tradeAmount * 0.0005 > 5) {
+                            fee += tradeAmount * 0.0005;
+                        } else {
+                            fee += 5;
+                        }
+                    }
+                    else if (rate == "rate3") {//万3
+                        if (tradeAmount * 0.0003 > 5) {
+                            fee += tradeAmount * 0.0003;
+                        } else {
+                            fee += 5;
+                        }
+                    }
+                    else if (rate == "rate2_5") {//万2.5
+                        fee += tradeAmount * 0.00025;
+                    } else if (rate == "tips") {//
+                        window.parent.Mask("您选择的交易费率不合法！");
+                    }
+                }
+
+                marketValue = capex + profitFunds;//交易后市值=成本+收益金额 
+                returnRate = (marketValue - capex) / capex;//交易后收益率=(交易后金额-交易后成本）/交易后成本金额
+                // (1+所需收益率）*当前市值=目标市值=（1+目标收益率）*投资成本
+                needRate = (1 + targetReturnRate) * capex / marketValue - 1;//所需收益率
+                previousRate = returnRate;//上一次交易后收益率=本次交易后收益率（留给下一次计算）
+                previousFunds = marketValue;//保存交易后总市值，留下一次使用
+
+                // -----------------------*显示计算后数据*-----------------------
+                element.querySelector(".total-funds span").innerHTML = capex.toFixed(3);//投资成本
+                element.querySelector(".profit-funds span").innerHTML = profitFunds.toFixed(3);//投资收益
+                element.querySelector(".rate-fee span").innerHTML = fee.toFixed(3);//交易费用
+                element.querySelector(".final-funds span").innerHTML = marketValue.toFixed(3);//交易后市值
+                element.querySelector(".total-rate span").innerHTML = returnRate.toFixed(5) * 100;//交易后收益率
+                element.querySelector(".need-rate span").innerHTML = needRate.toFixed(5) * 100;//达到目标收益率所需收益率
+                element.querySelector(".target-return span").innerHTML = (capex * targetReturnRate).toFixed(2);//达到目标收益率后的收益：
+                element.querySelector(".target-funds span").innerHTML = (capex * (1 + targetReturnRate)).toFixed(2);//达到目标收益率后的总市值：
+            }
+        };
+
+        // 在targetElement之后插入newElement
+        function insertAfter(newElement, targetElement) {
+            var parent = targetElement.parentNode;
+            if (parent.lastChild == targetElement) {
+                parent.appendChild(newElement);
+            } else {
+                parent.insertBefore(newElement, targetElement.nextSibling);
+            }
+        }
+
+        // 监听输入值的变化
+        function listenFloatLabel() {
+            var floatLabel = document.querySelectorAll(".floatLabel");//获取所有输入DOM
+            for (let index = 0; index < floatLabel.length; index++) {//遍历所有DOM
+                const element = floatLabel[index];
+                if (element.tagName == "INPUT") {//输入框
+                    element.oninput = function () {//监听正在输入时
+                        pickNumber(element);//只允许输入数字
+                        showResult();//显示计算结果
+                    };
+                } else if (element.tagName == "SELECT") {//选择框
+                    element.onchange = function () {//监听选择框变化
+                        showResult();//显示计算结果
+                    };
+                }
+            }
+        }
+
+        // -----------------------*JavaScript运行入口*-----------------------
+        (function () {//立即执行函数
+            addAnimation();//添加动画效果
+            listenFloatLabel();//监听输入量的变化
+            var btn = document.querySelector(".controls #add");
+            btn.addEventListener('click', function (e) {//监听添加交易按钮
+                addNumber++;
+                // 复制一个DOM
+                var cell = document.querySelector("div.cell").cloneNode(true);
+                cell.querySelector("label[for=\"rate-cell\"]").innerHTML = "第" + addNumber + "次交易前收益率(%)";
+                cell.querySelector("label[for=\"amount-cell\"]").innerHTML = "第" + addNumber + "次交易金额(元)";
+                insertAfter(cell, document.querySelectorAll("div.cell")[addNumber - 2]);//在后面追加
+
+                addAnimation();//重新添加动画
+                listenFloatLabel();//重新添加监听事件
+                showResult();//立即显示一次结果
+            })
+
+        })();
+
+
+    </script>
+</body>
+
+</html>

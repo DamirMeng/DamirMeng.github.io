@@ -156,7 +156,7 @@ function resetTimer() {
 function positiveTiming() {
     // 防止同时进行多个间隔。
     clearInterval(timerInterval);
-    timerTime = 0
+    timerTime = 0;
     // 每10ms刷新一次
     timerInterval = setInterval(function () {
         timerTime++;

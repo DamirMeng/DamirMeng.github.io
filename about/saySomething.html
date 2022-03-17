@@ -61,12 +61,14 @@
                     document.querySelector(".timeline").appendChild(li)
                     year = element.date.replace(/[^0-9]/ig, "").substring(0, 4)
                 }
+
                 var li = document.querySelector(".entry:not(.period)").cloneNode(true)
                 if (element.date) {
                     li.querySelector(".title div").innerText = element.date
                 } else {
                     li.querySelector(".title div").innerText = " "
                 }
+
                 if (element.location) {
                     li.querySelector(".title a").innerText = element.location
                 } else {
@@ -81,7 +83,7 @@
     xmlhttp.open("GET", "../../../../json/saySomething.json", true);
     xmlhttp.send();
 </script>
-<script type="text/javascript" src="../js/base.js"></script>
+<script type="text/javascript" src="../public/base.js"></script>
 </body>
 
 </html>

@@ -67,6 +67,7 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
                 "https://s3.ax1x.com/2021/01/26/sXeD1J.jpg"
             ]
 
+            // 提取文章
             for (let index = 0; index < articles.length; index++) {
                 if (articles[index].top == true) { //用数组来取序号
                     top.push(index); //置顶文章
@@ -131,7 +132,7 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
                     }
                 }
             }
-            setCardHTML(0); //未点击前自动加载第一页
+            setCardHTML(0); //未点击前，自动加载第一页
             window.parent.LoadingClose(); //关闭
         }
     }
@@ -150,7 +151,7 @@ topItems[4].textContent=secondMenuStr[2][0][1];
 (function () { //根据跳转时的锚点来响应展示的内容
     var target = decodeURI(document.location.hash.substring(1));
     if (target == "article") {
-        getArticleData("json/article.json"); //展示把他的文章
+        getArticleData("json/article.json"); //展示转载的文章
         topItems[1].classList.add("active"); //按钮添加active
         document.documentElement.scrollTop = window.innerHeight - 60 //直接滚到下面
     } else if (target == "knowledge") {
@@ -173,30 +174,31 @@ topItems[4].textContent=secondMenuStr[2][0][1];
 
 (function () { //监听菜单来动态加载json、不必判断移动端还是pc，因为菜单是动态加载的pc、移动端只存在其一
     //移动端菜单点击 响应
+    // secondMenuStr在nav.js中定义
     const mobileNav = document.querySelector(".mobile-navbar")
     if (mobileNav) {
         mobileNav.addEventListener("click", function (e) {
-            var target = e.target.textContent
+            var target = e.target.textContent;
             for (let index = 0; index < topItems.length; index++) {
                 const element = topItems[index];
-                element.classList.remove("active")
+                element.classList.remove("active");
             }
             if (target == secondMenuStr[1][0][0]) {
                 getArticleData("json/article.json");
                 topItems[1].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight
+                document.documentElement.scrollTop = window.innerHeight;
             } else if (target == secondMenuStr[1][0][1]) {
                 getArticleData("json/knowledge.json");
                 topItems[2].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight
+                document.documentElement.scrollTop = window.innerHeight;
             } else if (target == secondMenuStr[2][0][0]) {
                 getArticleData("json/myArticle.json");
                 topItems[3].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight
+                document.documentElement.scrollTop = window.innerHeight;
             } else if (target == secondMenuStr[2][0][1]) {
                 getArticleData("json/myKnowledge.json");
                 topItems[4].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight
+                document.documentElement.scrollTop = window.innerHeight;
             } else {
                 getArticleData("json/index.json");
                 topItems[0].classList.add("active");
@@ -216,10 +218,10 @@ topItems[4].textContent=secondMenuStr[2][0][1];
     const reprint = document.querySelector(".nav-list")
     if (reprint) {
         reprint.addEventListener("click", function (e) {
-            var target = e.target.textContent
+            var target = e.target.textContent;
             for (let index = 0; index < topItems.length; index++) {
                 const element = topItems[index];
-                element.classList.remove("active")
+                element.classList.remove("active");
             }
             if (target == secondMenuStr[1][0][0]) {
                 getArticleData("json/article.json");
@@ -250,9 +252,9 @@ topItems[4].textContent=secondMenuStr[2][0][1];
         document.querySelector(".top-items").addEventListener("click", function (e) {
             for (let index = 0; index < topItems.length; index++) {
                 const element = topItems[index];
-                element.classList.remove("active")
+                element.classList.remove("active");
             }
-            e.target.classList.add("active")
+            e.target.classList.add("active");
             document.documentElement.scrollTop = window.innerHeight - 60;
         });
     }
@@ -260,7 +262,7 @@ topItems[4].textContent=secondMenuStr[2][0][1];
     //首页向下箭头
     document.querySelector(".top_svg").style.height = window.innerHeight + "px";
     document.querySelector("#headerDown").addEventListener("click", function (e) {
-        document.documentElement.scrollTop = window.innerHeight - 60
+        document.documentElement.scrollTop = window.innerHeight - 60;
     });
     document.querySelector(".pagination").addEventListener("click", function (e) { //监听页码点击事件
         setTimeout(function () { //直接跳转不行，我也不知道为什么

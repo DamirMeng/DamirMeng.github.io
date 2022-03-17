@@ -16,7 +16,7 @@ var width = document.documentElement.clientWidth;
 ! function () {
     // 改变QQ地址  （腾讯QQ的API移动端与PC端链接不同） PC优先
     if (width < 600) {
-        document.querySelector('#qq').href = "mqqwpa://im/chat?chat_type=wpa&uin=790430354&version=1&src_type=web&web_src=oicqzone.com"
+        document.querySelector('#qq').href = "mqqwpa://im/chat?chat_type=wpa&uin=790430354&version=1&src_type=web&web_src=oicqzone.com";
     }
     // 置顶键的响应（右下角）
     // window.onload = function () {

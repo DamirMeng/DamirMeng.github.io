@@ -114,14 +114,14 @@ var secondMenuStr = [
         [
             "关于本站",
             "更新日志",
-            "本站统计",
+            // "本站统计",
             "本站概述",
             "留言板"
         ],
         [
             "../../../../about",
             "../../../../about/timeline.html",
-            "https://tongji.baidu.com/web/welcome/ico?s=dfb2e9af2c4ea3536c96e73ddb3dc6b8",
+            // "https://tongji.baidu.com/web/welcome/ico?s=dfb2e9af2c4ea3536c96e73ddb3dc6b8",
             "../../../../about/summary.html",
             "../../../../about/guestbook.html"
         ]
@@ -131,12 +131,14 @@ var secondMenuStr = [
         [
             "首个网站",
             "每日明记",
-            "计时器"
+            "计时器",
+            "投资计算器"
         ],
         [
             "https://damirmeng.github.io/oldBlog",
             "../../../../diary",
-            "../../../../tools/timer"
+            "../../../../tools/timer",
+            "../../../../tools/calculator/iCalculator.html"
         ]
     ]
 
