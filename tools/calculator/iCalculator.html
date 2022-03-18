@@ -243,8 +243,8 @@
                             </div>
 
                             <div class="showData">
-                                <div class="gap-rate">从上次交易后的收益率 <span>--</span>%到本次交易前的收益率
-                                    <span>--</span>%，需要的涨跌幅：<span>--</span>%
+                                <div class="gap-rate">从上次交易后的收益率 <span>--</span>%到本次交易前的收益率<span>--</span>%，
+                                    需要的涨跌幅：<span>--</span>%，从建仓后价格变动：<span>--</span>%
                                 </div>
                                 <div class="total-funds">交易后投资成本：<span>--</span> 元</div>
                                 <div class="profit-funds">交易后投资收益：<span>--</span> 元</div>
@@ -335,6 +335,7 @@
 
             // 用于计算交易结果
             var gapRate = 0;//上次交易后涨跌幅
+            var totalGapRate = 1;//建仓后目标标的的价格变动
             var capex = 0;//投资成本
             var profitFunds = 0;//收益金额
             var marketValue = 0;//市值
@@ -394,10 +395,13 @@
                 marketValue = capex * (1 + tradeRate);//交易后市值=成本*（1+收益率）
                 //从上次交易后到交易前收益率涨跌幅=总市值/交易前成本-1
                 gapRate = (marketValue / previousFunds - 1);
+                totalGapRate =(totalGapRate * (1 + gapRate));
+                console.log(totalGapRate);
                 // 显示 从上次交易后到交易前收益率涨跌幅
                 element.querySelector(".gap-rate").querySelectorAll("span")[0].innerHTML = (previousRate * 100).toFixed(3);//上次收益率
                 element.querySelector(".gap-rate").querySelectorAll("span")[1].innerHTML = (tradeRate * 100).toFixed(3);//本次交易前收益率
                 element.querySelector(".gap-rate").querySelectorAll("span")[2].innerHTML = (gapRate * 100).toFixed(3);//从上次收益到目前涨跌幅
+                element.querySelector(".gap-rate").querySelectorAll("span")[3].innerHTML = (totalGapRate * 100-100).toFixed(3);//从上次收益到目前涨跌幅
                 // 获取交易金额
                 if (parseFloat(element.querySelector(".amount-cell").value)) {
                     tradeAmount = parseFloat(element.querySelector(".amount-cell").value);//交易金额
