@@ -132,13 +132,15 @@ var secondMenuStr = [
             "首个网站",
             "每日明记",
             "计时器",
-            "投资计算器"
+            "投资计算器",
+            "ETF投资计算器",
         ],
         [
             "https://damirmeng.github.io/oldBlog",
             "../../../../diary",
             "../../../../tools/timer",
-            "../../../../tools/calculator/iCalculator.html"
+            "../../../../tools/calculator/iCalculator.html",
+            "../../../../tools/calculator/ETFCalculator.html",
         ]
     ]
 

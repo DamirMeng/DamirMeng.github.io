@@ -8,7 +8,7 @@
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/index.css" rel="stylesheet">
     <link href="../../css/mobile.css" rel="stylesheet">
-    <title>投资计算器</title>
+    <title>ETF投资计算器</title>
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style>
@@ -37,6 +37,17 @@
             border-bottom: 1px solid #506982;
             padding-bottom: 3px;
             margin-bottom: 20px;
+        }
+
+        .form-group .describe {
+            font-size: 14px;
+            padding: 8px 0px 36px 0px;
+            color: #888;
+            text-align: justify;
+            text-indent: 2rem;
+            line-height: 1.8;
+            overflow: hidden;
+            margin: .8em 0;
         }
 
         .controls {
@@ -193,6 +204,14 @@
         #reduce {
             float: right;
         }
+
+        .important {
+            color: rgb(0, 153, 255) !important;
+        }
+
+        .important span {
+            color: #ff5722 !important;
+        }
     </style>
 </head>
 
@@ -201,59 +220,65 @@
     <script src="../../../../public/nav.js"></script>
     <div id="perspective">
         <div id="container">
-            <h2 class="title">投资计算器</h2>
+            <h2 class="title">ETF投资计算器</h2>
             <div class="htmleaf-content">
                 <form action="">
+                    <!--  投资策略 -->
+                    <div class="form-group">
+                        <h2 class="heading">投资策略</h2>
+                        <p class="describe">
+                            只买入永远不死的ETF品种。在其低估时分批买入，在其高估时分批卖出。
+                            将资金分成100份，每下降一定比例就买入，比如说建仓价格是1，后续每次（回撤5%）买入的价格就乘以0.95，
+                            比如0.9025。一般来说，第一次买入时必须已回撤20%以上，首次卖出时价格必须高于首次买入时的价格。
+                        </p>
+                    </div>
                     <!--  基本交易 -->
                     <div class="form-group">
                         <h2 class="heading">基本参数</h2>
                         <div class="controls">
-                            <input type="text" id="initia-amount" type="number" class="floatLabel number">
-                            <label for="loss">当前持仓金额(元)</label>
+                            <input type="text" id="initia-price" type="number" class="floatLabel number">
+                            <label for="loss">建仓价格(元)</label>
                         </div>
                         <div class="controls">
-                            <i class="fa fa-sort"></i>
-                            <select class="floatLabel" id="rate">
-                                <option value="rate0">不计算交易费率</option>
-                                <option value="rate5">万份之5（股票、不免五）</option>
-                                <option value="rate3">万份之3（股票、不免五）</option>
-                                <option value="rate2_5">万份之2.5（场内ETF、免五）</option>
-                                <option value="tips">注：以上不包括印花税、过户费</option>
-                            </select>
-                            <label for="rate" class="active">每笔交易费率</label>
+                            <input type="text" id="initia-retreat" type="number" class="floatLabel number"
+                                name="number">
+                            <label for="initia-retreat">建仓时标的回撤(%)</label>
                         </div>
                         <div class="controls">
                             <input type="text" id="target-rate" type="number" class="floatLabel number" name="number">
-                            <label for="loss">目标收益率(%)</label>
+                            <label for="target-rate">目标收益率(%)</label>
                         </div>
                     </div>
 
-                    <!--  后市交易 -->
+                    <!--  交易 -->
                     <div class="form-group result">
-                        <h2 class="heading">后市交易</h2>
+                        <h2 class="heading">交易</h2>
 
                         <div class="cell">
-                            <div class="controls">
+                            <div class="controls" style="display: none;">
                                 <input type="text" class="floatLabel number add rate-cell" name="cell">
-                                <label for="rate-cell">第1次交易前收益率(%)</label>
+                                <label for="rate-cell">建仓时不显示</label>
                             </div>
                             <div class="controls">
                                 <input type="text" class="floatLabel number add amount-cell" name="cell">
-                                <label for="amount-cell">第1次交易金额(元)</label>
+                                <label for="amount-cell">建仓买入数量(股)</label>
                             </div>
 
                             <div class="showData">
-                                <div class="gap-rate">从上次交易后的收益率 <span>--</span>%到本次交易前的收益率<span>--</span>%，
-                                    需要的涨跌幅：<span>--</span>%，从建仓后价格变动：<span>--</span>%
-                                </div>
-                                <div class="total-funds">交易后成本：<span>--</span> 元</div>
-                                <div class="profit-funds">交易后收益：<span>--</span> 元</div>
-                                <div class="rate-fee">交易费用：<span>--</span> 元</div>
+                                <div class="current-price important">当前价格：<span>--</span> 元</div>
+                                <div class="buy-funds important">本次买入金额：<span>--</span>元</div>
+                                <div class="final-amount">交易后持仓数量：<span>--</span> 股</div>
                                 <div class="final-funds">交易后总市值：<span>--</span> 元</div>
-                                <div class="total-rate">交易后收益率：<span>--</span>%</div>
-                                <div class="need-rate">达到目标收益率所需收益率：<span>--</span>%</div>
-                                <div class="target-return">达到目标收益率后的收益：<span>--</span> 元</div>
+                                <div class="total-funds">交易后成本：<span>--</span> 元</div>
+                                <div class="profit-funds ">交易后收益：<span>--</span> 元</div>
+                                <div class="total-rate important">交易后收益率：<span>--</span>%</div>
+                                <div class="initia-retreat important">(标的价格)建仓后回撤：<span>--</span>% </div>
+                                <div class="total-retreat">(标的价格)总回撤：<span>--</span>% </div>
+                                <div class="need-rate important">达到目标收益率所需收益率：<span>--</span>%</div>
+                                <div class="target-return">达到目标收益率后的收益金额：<span>--</span> 元</div>
                                 <div class="target-funds">达到目标收益率后的总市值：<span>--</span> 元</div>
+                                <div class="target-price important">达到目标收益率后的价格：<span>--</span> 元</div>
+                                <div class="comeback-rate">达到前期高点时收益率：<span>--</span>%</div>
                             </div>
                         </div>
                         <div class="controls">
@@ -308,7 +333,6 @@
 
         // 只能输入数字（包括小数点）
         function pickNumber(obj) {
-
             obj.value = obj.value.replace(/[^\d.-]/g, ""); //清除"数字"和"."以外的字符
             obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个小数点, 清除多余的
             obj.value = obj.value.replace(/\-{2,}/g, "-"); //只保留第一个负号, 清除多余的
@@ -323,126 +347,99 @@
         // 显示计算结果
         function showResult() {
             // 用于获取基本参数
+            var initiaPrice = 0;//建仓价格
+            var retreat = 0;//建仓时标的回撤
             var targetReturnRate = 0;//目标收益率
-            var rate = 0;//交易费率
-            var fee = 0;//交易费用
 
             // 用于获取交易信息
             var tradeRate = 0;//交易前收益率
             var tradeAmount = 0;//交易金额
 
             // 用于计算交易结果
-            var gapRate = 0;//上次交易后涨跌幅
-            var totalGapRate = 1;//建仓后目标标的的价格变动
+            var price = 0;//建仓价格
+            var highestPrice = 0;//标的最高价格
+            var initiaRetreat = 0;//建仓后回撤
+            var totalRetreat = 0;//总回撤（标的价格）
+            var totalAmount = 0;//持股数量
             var capex = 0;//投资成本
-            var profitFunds = 0;//收益金额
             var marketValue = 0;//市值
             var returnRate = 0;//收益率
-            var needRate = 0;//所需收益率
+            var needRate = 0;//达到目标收益率所需收益率
+            var highestRate = 0;//达到前期高点收益率
 
-            var previousFunds = 0;//上一次交易后总市值
-            var previousRate = 0;//上一次收益率
             // -----------------------*获取基本参数*-----------------------
-            // 获取建仓成本
-            if (parseFloat(document.querySelector("#initia-amount").value)) {//防止其没有设置数据时为NaN
-                capex = parseFloat(document.querySelector("#initia-amount").value);//当前金额
-                previousFunds = parseFloat(document.querySelector("#initia-amount").value);
+            // 获取建仓价格
+            if (parseFloat(document.querySelector("#initia-price").value)) {//防止其没有设置数据时为NaN
+                initiaPrice = price = parseFloat(document.querySelector("#initia-price").value);//
             }
-            // 获取交易费率
-            if (document.querySelector("#rate").value) {
-                rate = document.querySelector("#rate").value;
+            // 建仓时标的回撤
+            if (parseFloat(document.querySelector("#initia-retreat").value)) {//防止其没有设置数据时为NaN
+                retreat = parseFloat(document.querySelector("#initia-retreat").value) / 100;//建仓时标的回撤
             }
             // 获取目标收益率
             if (parseFloat(document.querySelector("#target-rate").value)) {
                 targetReturnRate = parseFloat(document.querySelector("#target-rate").value) / 100;//目标收益率
             }
-
-            //  计算费率
-            if (capex != 0) {
-                if (rate == "rate5") {//万5
-                    if (capex * 0.0005 > 5) {
-                        fee += capex * 0.0005;
-                    } else {
-                        fee += 5;
-                    }
-                }
-                else if (rate == "rate3") {//万3
-                    if (capex * 0.0003 > 5) {
-                        fee += capex * 0.0003;
-                    } else {
-                        fee += 5;
-                    }
-                }
-                else if (rate == "rate2_5") {//万2.5
-                    fee += capex * 0.00025;
-                } else if (rate == "tips") {//
-                    window.parent.Mask("您选择的交易费率不合法！");
-                }
-            }
-
+            // 标的前期最高价格=建仓价格/（1-回撤幅度）
+            highestPrice = initiaPrice / (1 - retreat);
             // -----------------------*对后市交易进行计算*-----------------------
             var cell = document.querySelectorAll("div.cell");//获取每次交易的DOM
             for (let index = 0; index < cell.length; index++) {//遍历所有后市交易
                 const element = cell[index];
-                // 获取交易前收益率
+                // 获取与上次相比回撤幅度
                 if (parseFloat(element.querySelector(".rate-cell").value)) {
-                    //从现在开始，第一次交易时收益率
                     tradeRate = parseFloat(element.querySelector(".rate-cell").value) / 100;
                 }
-                profitFunds = capex * tradeRate;//交易后收益金额=交易前投资成本*前期收益率
-                marketValue = capex * (1 + tradeRate);//交易后市值=成本*（1+收益率）
-                //从上次交易后到交易前收益率涨跌幅=总市值/交易前成本-1
-                gapRate = (marketValue / previousFunds - 1);
-                totalGapRate = (totalGapRate * (1 + gapRate));
-                // 显示 从上次交易后到交易前收益率涨跌幅
-                element.querySelector(".gap-rate").querySelectorAll("span")[0].innerHTML = (previousRate * 100).toFixed(3);//上次收益率
-                element.querySelector(".gap-rate").querySelectorAll("span")[1].innerHTML = (tradeRate * 100).toFixed(3);//本次交易前收益率
-                element.querySelector(".gap-rate").querySelectorAll("span")[2].innerHTML = (gapRate * 100).toFixed(3);//从上次收益到目前涨跌幅
-                element.querySelector(".gap-rate").querySelectorAll("span")[3].innerHTML = (totalGapRate * 100 - 100).toFixed(3);//从上次收益到目前涨跌幅
-                // 获取交易金额
+                // 获取交易数量
                 if (parseFloat(element.querySelector(".amount-cell").value)) {
-                    tradeAmount = parseFloat(element.querySelector(".amount-cell").value);//交易金额
-                }
-                capex += tradeAmount;//交易后成本金额=交易前成本+交易金额
-                // 计算交易费率
-                if (tradeAmount != 0) {//费用为0时，不计算
-                    if (rate == "rate5") {//万5
-                        if (tradeAmount * 0.0005 > 5) {
-                            fee += tradeAmount * 0.0005;
-                        } else {
-                            fee += 5;
-                        }
-                    }
-                    else if (rate == "rate3") {//万3
-                        if (tradeAmount * 0.0003 > 5) {
-                            fee += tradeAmount * 0.0003;
-                        } else {
-                            fee += 5;
-                        }
-                    }
-                    else if (rate == "rate2_5") {//万2.5
-                        fee += tradeAmount * 0.00025;
-                    } else if (rate == "tips") {//
-                        window.parent.Mask("您选择的交易费率不合法！");
-                    }
+                    tradeAmount = parseFloat(element.querySelector(".amount-cell").value);//交易数量
                 }
 
-                marketValue = capex + profitFunds;//交易后市值=成本+收益金额 
-                returnRate = (marketValue - capex) / capex;//交易后收益率=(交易后金额-交易后成本）/交易后成本金额
+                totalAmount += tradeAmount;//持股数量
+                price *= (1 - tradeRate);//交易后价格=上次交易后价格*（1-回撤）
+                //建仓后回撤（标的价格）=（建仓时价格-当前价格）/建仓价格
+                initiaRetreat = (initiaPrice - price) / initiaPrice;
+
+                //总回撤（标的价格）=（最高点价格-当前价格）/最高点价格
+                totalRetreat = (highestPrice - price) / highestPrice;
+                //交易后成本金额=交易前成本+(交易数量*交易价格）
+                capex += (tradeAmount * price);
+
+                marketValue = totalAmount * price;//交易后市值=持股数量*当前价格 
+                returnRate = (marketValue - capex) / capex;//交易后收益率=(交易后市值-交易后成本）/交易后成本金额
                 // (1+所需收益率）*当前市值=目标市值=（1+目标收益率）*投资成本
                 needRate = (1 + targetReturnRate) * capex / marketValue - 1;//所需收益率
-                previousRate = returnRate;//上一次交易后收益率=本次交易后收益率（留给下一次计算）
-                previousFunds = marketValue;//保存交易后总市值，留下一次使用
-
+                // 达到前期高点时收益率=(最高点时市值-成本)/成本
+                highestRate = (highestPrice * totalAmount - capex) / capex * 100;
                 // -----------------------*显示计算后数据*-----------------------
-                element.querySelector(".total-funds span").innerHTML = capex.toFixed(2);//投资成本
-                element.querySelector(".profit-funds span").innerHTML = profitFunds.toFixed(2);//投资收益
-                element.querySelector(".rate-fee span").innerHTML = fee.toFixed(3);//交易费用
-                element.querySelector(".final-funds span").innerHTML = marketValue.toFixed(2);//交易后市值
-                element.querySelector(".total-rate span").innerHTML = (returnRate* 100).toFixed(2) ;//交易后收益率
-                element.querySelector(".need-rate span").innerHTML = (needRate* 100).toFixed(2) ;//达到目标收益率所需收益率
-                element.querySelector(".target-return span").innerHTML = (capex * targetReturnRate).toFixed(2);//达到目标收益率后的收益：
-                element.querySelector(".target-funds span").innerHTML = (capex * (1 + targetReturnRate)).toFixed(2);//达到目标收益率后的总市值：
+                // 当前价格：
+                element.querySelector(".current-price span").innerHTML = price.toFixed(2);
+                // 本次买入金额
+                element.querySelector(".buy-funds span").innerHTML = (price * tradeAmount).toFixed(2);
+                //交易后持仓数量：
+                element.querySelector(".final-amount span").innerHTML = totalAmount.toFixed(0);
+                //交易后市值
+                element.querySelector(".final-funds span").innerHTML = marketValue.toFixed(2);
+                //投资成本
+                element.querySelector(".total-funds span").innerHTML = capex.toFixed(2);
+                //投资收益
+                element.querySelector(".profit-funds span").innerHTML = (marketValue - capex).toFixed(2);
+                //交易后收益率
+                element.querySelector(".total-rate span").innerHTML = (returnRate * 100).toFixed(2);
+                //建仓后回撤（标的价格）
+                element.querySelector(".initia-retreat span").innerHTML = (initiaRetreat * 100).toFixed(2);
+                // 总回撤（标的价格）
+                element.querySelector(".total-retreat span").innerHTML = (totalRetreat * 100).toFixed(2);
+                //达到目标收益率所需收益率
+                element.querySelector(".need-rate span").innerHTML = (needRate * 100).toFixed(2);
+                //达到目标收益率后的收益：
+                element.querySelector(".target-return span").innerHTML = (capex * targetReturnRate).toFixed(2);
+                //达到目标收益率后的总市值：
+                element.querySelector(".target-funds span").innerHTML = (capex * (1 + targetReturnRate)).toFixed(2);
+                //达到目标收益率后的价格：
+                element.querySelector(".target-price span").innerHTML = ((capex * (1 + targetReturnRate)) / totalAmount).toFixed(2);
+                //达到前期高点时收益率
+                element.querySelector(".comeback-rate span").innerHTML = highestRate.toFixed(2);
             }
         };
 
@@ -483,8 +480,9 @@
                 addNumber++;
                 // 复制一个DOM
                 var cell = document.querySelector("div.cell").cloneNode(true);
-                cell.querySelector("label[for=\"rate-cell\"]").innerHTML = "第" + addNumber + "次交易前收益率(%)";
-                cell.querySelector("label[for=\"amount-cell\"]").innerHTML = "第" + addNumber + "次交易金额(元)";
+                cell.querySelector(".controls").style.display = "";
+                cell.querySelector("label[for=\"rate-cell\"]").innerHTML = "第" + addNumber + "次买入价格与上次相比回撤(%)";
+                cell.querySelector("label[for=\"amount-cell\"]").innerHTML = "第" + addNumber + "次买入数量(股)";
                 insertAfter(cell, document.querySelectorAll("div.cell")[addNumber - 2]);//在后面追加
 
                 addAnimation();//重新添加动画
