@@ -450,11 +450,11 @@ function addLeftList() { // 生成左侧菜单栏
 })();
 
 (function () { //添加百度统计、一言API的script
-    var _hmt = _hmt || [];
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?dfb2e9af2c4ea3536c96e73ddb3dc6b8";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
+    // var _hmt = _hmt || [];
+    // var hm = document.createElement("script");
+    // hm.src = "https://hm.baidu.com/hm.js?dfb2e9af2c4ea3536c96e73ddb3dc6b8";
+    // var s = document.getElementsByTagName("script")[0];
+    // s.parentNode.insertBefore(hm, s);
 
     // 加载左上角句子的script 不用一个个添加   一言API
     var secScript = document.createElement("script");
@@ -525,6 +525,6 @@ function addLeftList() { // 生成左侧菜单栏
     }
 })();
 
-window.onresize = function () { // 页面大小变化，重载页面
-    location.reload();
-}
+// window.onresize = function () { // 页面大小变化，重载页面
+//     location.reload();
+// }
