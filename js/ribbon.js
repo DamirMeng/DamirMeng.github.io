@@ -1,3 +1,5 @@
+// 动态带子
+
 ! function (t) {
     t.fn.circleMagic = function (i) {
         var n, o, s, e, h = !0,

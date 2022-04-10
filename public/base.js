@@ -3,45 +3,6 @@
  */
 var width = document.documentElement.clientWidth;
 var container = document.querySelector('#container');
-! function () { //使用ifram的优化
-    //标题添加“蒙大明的个人博客”
-    var title = document.querySelector("title");
-    if (title.innerText != "蒙大明的个人博客") {
-        title.innerText = title.innerText + " - 蒙大明的个人博客"
-    }
-
-    // 防止iframe消失  刷新时---
-    function GetUrlRelativePath() { //获取相对路径
-        var url = document.location.toString();
-        var arrUrl = url.split("//");
-        var start = arrUrl[1].indexOf("/");
-        var relUrl = arrUrl[1].substring(start); //stop省略，截取从start开始到结尾的所有字符
-        if (relUrl.indexOf("?") != -1) {
-            relUrl = relUrl.split("?")[0];
-        }
-        return relUrl;
-    }
-    if (!parent.document.body.querySelector("#iframe")) {
-        window.location.href = "/" + "#" + GetUrlRelativePath(); //刷新时传递锚点
-    }
-    //地址栏  标题  主题
-    window.parent.document.querySelector("title").innerText = document.querySelector("title").innerText
-    window.parent.addEventListener("popstate", function (e) { //后退的优化
-        window.history.back(-2);
-    }, false);
-
-    var stateObject = {};
-    var title = document.querySelector("title").innerHTML;
-    var newUrl = document.location.href;
-    if ((GetUrlRelativePath() == "/homePage.html") ||
-        (GetUrlRelativePath() == "/homePage.html#knowledge") ||
-        (GetUrlRelativePath() == "/homePage.html#article") ||
-        (GetUrlRelativePath() == "/homePage.html#myArticle") ||
-        (GetUrlRelativePath() == "/homePage.html#myKnowledge")) { //主页优化
-        newUrl = window.location.origin;
-    }
-    window.parent.history.pushState(stateObject, title, newUrl);
-}()
 
 function addListSVg() { //添加移动端菜单键与监听
     if (width < 783) {
@@ -212,6 +173,15 @@ function addLeftList() { // 生成左侧菜单栏
             document.querySelector('.top_progress').value = scrollTop;
         }
     }
+
+    //标题添加“蒙大明的个人博客”
+    var title = document.querySelector("title");
+    if (title.innerText != "蒙大明的个人博客") {
+        title.innerText = title.innerText + " - 蒙大明的个人博客"
+    }
+
+    console.log("%cBlue Blog%c\n 蒙大明的博客\n\n  用于发布一些文章！", "font-size:96px;color:#3b3e43",
+        "font-size:12px;color:#4285f4;");
 }();
 
 (function () { // 站长推荐、相关阅读、随机阅读栏目DOM的生成与内容加载
@@ -449,14 +419,14 @@ function addLeftList() { // 生成左侧菜单栏
     }
 })();
 
-(function () { //添加百度统计、一言API的script
-    // var _hmt = _hmt || [];
-    // var hm = document.createElement("script");
-    // hm.src = "https://hm.baidu.com/hm.js?dfb2e9af2c4ea3536c96e73ddb3dc6b8";
-    // var s = document.getElementsByTagName("script")[0];
-    // s.parentNode.insertBefore(hm, s);
+(function () {
+    // 添加jquery以支持动态带子
+    var secScript = document.createElement("script");
+    secScript.setAttribute("type", "text/javascript");
+    secScript.setAttribute("src", "https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js");
+    document.body.insertBefore(secScript, document.body.lastChild);
 
-    // 加载左上角句子的script 不用一个个添加   一言API
+    //添加一言API的script
     var secScript = document.createElement("script");
     secScript.setAttribute("type", "text/javascript");
     secScript.setAttribute("src", "https://v1.hitokoto.cn/?c=d&c=i&c=j&c=k&encode=js&select=%23hitokoto&max_length=22"); //一言c参数可以设置句子类型
@@ -525,6 +495,82 @@ function addLeftList() { // 生成左侧菜单栏
     }
 })();
 
-// window.onresize = function () { // 页面大小变化，重载页面
-//     location.reload();
-// }
+window.onload = function () {
+    // 添加动态带子
+    var secScript = document.createElement("script");
+    secScript.setAttribute("type", "text/javascript");
+    secScript.setAttribute("src", "../../../../js/ribbon.js");
+    document.body.insertBefore(secScript, document.body.lastChild);
+
+}
+
+// 添加提示页面的HTML
+function writeMaskHTML() {
+    document.write("    <div class=\"mask\"><\/div>");
+    document.write("    <div id=\"loading\">");
+    document.write("        <h2>Loading ···<\/h2><img src=\"..\/..\/..\/..\/svg\/loading.svg\">");
+    document.write("    <\/div>");
+    document.write("    <div id=\"feedback\">");
+    document.write("        <div class=\"morph-shape\">");
+    document.write("            <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 560 280\"");
+    document.write("                preserveAspectRatio=\"none\">");
+    document.write("                <rect x=\"3\" y=\"3\" fill=\"none\" width=\"556\" height=\"276\" \/>");
+    document.write("            <\/svg>");
+    document.write("        <\/div>");
+    document.write("        <div class=\"dialog-inner\">");
+    document.write("            <h2>欢迎访问至简博客！<\/h2>");
+    document.write("            <img>");
+    document.write("            <div><button class=\"feedback-close\">关闭<\/button><\/div>");
+    document.write("        <\/div>");
+    document.write("    <\/div>");
+}
+writeMaskHTML()
+// 遮盖层的实现
+const feedback = document.querySelector('#feedback');
+const mask = document.querySelector(".mask");
+// 反馈层函数
+function Feedback(text, src) {
+    feedback.classList.add('feedback-open');
+    mask.classList.add('feedback-open');
+    if (text) {
+        feedback.querySelector('.dialog-inner h2').innerHTML = text;
+    } else {
+        feedback.querySelector('.dialog-inner h2').innerHTML = " ";
+    }
+    if (src) {
+        feedback.querySelector('.dialog-inner img').src = src;
+    } else {
+        feedback.querySelector('.dialog-inner img').src = " ";
+    }
+
+    mask.addEventListener("click", function (e) { //点击灰色部位 反馈层消失
+        feedback.classList.remove('feedback-open');
+        mask.classList.remove('feedback-open');
+    })
+
+    feedback.querySelector('.feedback-close').addEventListener("click", function (e) { //点击按键 反馈层消失
+        feedback.classList.remove('feedback-open');
+        mask.classList.remove('feedback-open');
+    })
+
+}
+
+// 加载提示
+const loading = document.querySelector('#loading');
+var myLoading
+function Loading() {
+    myLoading = setTimeout(function () { //延时，加载快的话不必显示
+        mask.classList.add('feedback-open');
+        loading.classList.add('loading-open');
+        mask.addEventListener("click", function (e) { //点击灰色部位 反馈层消失
+            mask.classList.remove('feedback-open');
+            loading.classList.remove('loading-open');
+        })
+    }, 500);
+}
+
+function LoadingClose() { //关闭加载提示
+    clearTimeout(myLoading);
+    mask.classList.remove('feedback-open');
+    loading.classList.remove('loading-open');
+}

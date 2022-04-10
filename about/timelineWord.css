@@ -1,0 +1,175 @@
+main {
+  padding: 0;
+}
+
+.timeline {
+  width: 100%;
+  /* background: #fff; */
+  padding: 100px 50px;
+  position: relative;
+  /* box-shadow: 0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2); */
+  overflow: hidden;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: calc(33% + 15px);
+  bottom: 100px;
+  width: 4px;
+  background: #ddd;
+}
+
+.timeline:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.entry {
+  clear: both;
+  text-align: left;
+  position: relative;
+}
+
+.entry .title {
+  margin-bottom: 0.5em;
+  float: left;
+  width: 33%;
+  padding-right: 30px;
+  text-align: right;
+  position: relative;
+}
+
+.entry .title:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 4px solid salmon;
+  background-color: #fff;
+  border-radius: 100%;
+  top: 15%;
+  right: -4px;
+  z-index: 99;
+}
+
+.entry:hover .title:before {
+  border: 5px solid #2196f3;
+  background-color: #ff5722;
+}
+
+.title a:hover,
+.entry .body a:hover {
+  color: blue;
+}
+
+.entry .title div {
+  margin: 0;
+  font-size: 16px;
+}
+
+.entry .title p {
+  font-size: 10px;
+  color: #aaa;
+  margin: 0;
+  /* font-size: 100%; */
+}
+
+.entry .body {
+  margin: 0 0 3em;
+  float: right;
+  width: 66%;
+  padding-left: 30px;
+}
+
+.entry .body a {
+  line-height: 1.4em;
+}
+
+.entry .body a:first-child {
+  margin-top: 0;
+  font-weight: 400;
+}
+
+li:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.period.entry {
+  width: 100%;
+  padding: 0;
+  /* background-color: #fff; */
+  position: relative;
+  left: 0;
+  margin: 0;
+}
+
+.period.entry div {
+  font-size: xx-large;
+  font-weight: 700;
+  text-align: center;
+  line-height: 30px;
+  padding: 0;
+  transform: translateX(50%);
+  z-index: 5;
+}
+
+.period.entry .title:before {
+  background: transparent;
+  content: "";
+  width: 16px;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  top: 0;
+  right: 2px;
+  bottom: 0px;
+  position: absolute;
+  border-top: 3px solid #ccd5db;
+  border-bottom: 3px solid #ccd5db;
+}
+
+.period.entry .title {
+  /* width: 100%; */
+  margin: 20px 0;
+  padding: 60px 0;
+  background-color: #fff;
+  transform: translateX(10px);
+}
+
+@media only screen and (max-width: 800px) {
+  .entry .title {
+    padding-right: 20px;
+    font-size: 13px;
+    width: 37%;
+  }
+
+  .timeline {
+    padding: 100px 5px;
+  }
+
+  .entry .body {
+    width: 63%;
+    padding-right: 20px;
+  }
+
+  .period.entry .title {
+    width: 100%;
+  }
+
+  .period.entry .title:before {
+    transform: translateX(-3px);
+    left: 33%;
+  }
+
+  .period.entry div {
+    font-size: xx-large;
+    text-align: center;
+    transform: translateX(0px);
+    z-index: 5;
+  }
+}

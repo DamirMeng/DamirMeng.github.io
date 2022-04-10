@@ -20,7 +20,7 @@
     *默认文本对应的是randomPictureApi对应的随机图片
  */
 function getArticleData(file_name) { //file_name为要加载的json文件名  需要在相应的HTML中调用
-    window.parent.Loading(); //显示加载特效
+    // window.parent.Loading(); //显示加载特效
     for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
         document.querySelectorAll(".pagination li")[index].classList.remove("active"); //清除之前就存在的active
     }
@@ -133,7 +133,7 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
                 }
             }
             setCardHTML(0); //未点击前，自动加载第一页
-            window.parent.LoadingClose(); //关闭
+            // window.parent.LoadingClose(); //关闭
         }
     }
     xmlhttp.open("GET", file_name, true);

@@ -64,10 +64,10 @@ function writeFooter() {
     document.writeln("	<a target=\'_blank\' href=\'https://bblog.github.io/\'>更多友链</a>");
     document.writeln("</div>");
     document.writeln("<div class=\'link-list\'>");
-    document.writeln("		<a  href=\'../../../../homePage.html\'>本站首页</a>");
-    document.writeln("		<a  href=\'../../../../homePage.html#myArticle\'>原创文章</a>");
+    document.writeln("		<a  href=\'../../../../index.html\'>本站首页</a>");
+    document.writeln("		<a  href=\'../../../../index.html#myArticle\'>原创文章</a>");
     document.writeln("		<a  href=\'../../../../sentence/mySentence.html'>个人感悟</a>");
-    document.writeln("		<a  href=\'../../../../homePage.html#article\'>知海拾贝</a>");
+    document.writeln("		<a  href=\'../../../../index.html#article\'>知海拾贝</a>");
     document.writeln("		<a  href=\'../../../../sentence\'>美句收录</a>");
     document.writeln("		<a  href=\'../../../../about/search.html#我的\'>文章搜索</a>");
     document.writeln("</div>");
@@ -262,6 +262,6 @@ if (timeToNowDOM) {
 const weixin = document.querySelector("#weixin");
 if (weixin) {
     weixin.addEventListener("click", function (e) {
-        window.parent.Mask("欢迎扫码添加微信", "https://s1.ax1x.com/2020/04/02/GJvhLj.jpg");
+        Feedback("欢迎扫码添加微信", "https://s1.ax1x.com/2020/04/02/GJvhLj.jpg");
     })
 }

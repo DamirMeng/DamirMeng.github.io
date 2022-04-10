@@ -11,6 +11,7 @@ function writeAside() {
     document.write("<\/aside>");
 }
 writeAside();
+
 var width = document.documentElement.clientWidth;
 //置顶键、qq相应
 ! function () {

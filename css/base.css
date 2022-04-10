@@ -1110,3 +1110,235 @@ html {
     line-height: 60px;
     position: relative;
 }
+
+
+
+
+
+
+
+
+   /* 显示层最外层 */
+   #loading,
+   #feedback {
+       position: fixed;
+       z-index: 10001;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       padding: 0;
+       background: transparent;
+       text-align: center;
+       -webkit-align-items: center;
+       align-items: center;
+       -webkit-justify-content: center;
+       justify-content: center;
+   }
+   #loading:not(.loading-open),
+   #feedback:not(.feedback-open) {
+       pointer-events: none;
+       opacity: 0;
+   }
+   #loading.loading-open,
+   #feedback.feedback-open {
+       pointer-events: auto;
+       opacity: 1;
+   }
+
+   /* 灰色遮盖层 */
+   .mask {
+       display: none;
+       background: rgba(55, 58, 71, 0.9);
+       opacity: 0;
+       -webkit-transition: opacity 0.3s;
+       transition: opacity 0.3s;
+       -webkit-backface-visibility: hidden;
+
+   }
+
+   .feedback-open.mask {
+       position: fixed;
+       z-index: 10000;
+       top: 0;
+       right: 0;
+       left: 0;
+       bottom: 0;
+       display: block;
+       width: 100%;
+       height: 100%;
+       transition: all 1s;
+       -webkit-transition: all .2s;
+       background: rgba(55, 58, 71, 0.9);
+       opacity: 1;
+       pointer-events: auto;
+   }
+
+   /* SVG特效 */
+   .morph-shape {
+       position: absolute;
+       width: calc(100% + 2px);
+       height: calc(100% + 2px);
+       top: -2px;
+       left: -2px;
+       z-index: -1;
+   }
+   .morph-shape svg {
+       height: 100%;
+       width: 100%;
+       overflow: hidden;
+   }
+
+   .morph-shape svg rect {
+       stroke: rgb(255, 255, 255);
+       stroke-width: 2px;
+       stroke-dasharray: 1680;
+   }
+
+   #feedback.feedback-open .morph-shape svg rect {
+       -webkit-animation: anim-dash 0.6s forwards;
+       animation: anim-dash 0.6s forwards;
+   }
+
+
+
+   /* 文字 */
+   .feedback-open .dialog-inner {
+       padding: 2em;
+       opacity: 1;
+       -webkit-transition: opacity 0.85s 0.35s;
+       transition: opacity 0.85s 0.35s;
+       background: #fff;
+   }
+
+   #loading.loading-open {
+       padding: 2em;
+       opacity: 1;
+   }
+
+   #loading,
+   .dialog-inner {
+       opacity: 0;
+       color: rgb(0, 153, 255);
+   }
+
+   #loading.loading-open h2,
+   #feedback.feedback-open h2 {
+       -webkit-animation: anim-elem-1 0.7s ease-out both;
+       animation: anim-elem-1 0.7s ease-out both;
+   }
+
+   #loading h2,
+   #feedback h2 {
+       margin: 0;
+       font-weight: 400;
+       font-size: 2em;
+       padding: 0 0 1em;
+       margin: 0;
+   }
+
+   /* 图片 */
+   #loading.loading-open img,
+   #feedback.feedback-open img {
+       -webkit-animation: anim-elem-1 0.7s ease-out both;
+       animation: anim-elem-1 0.7s ease-out both;
+   }
+
+   #loading img,
+   #feedback img {
+       height: 50%;
+       width: 50%;
+       padding: 0 0 2em;
+       display: unset;
+   }
+
+   /* 按钮 */
+   .feedback-open button {
+       -webkit-animation: anim-elem-2 0.7s ease-out both;
+       animation: anim-elem-2 0.7s ease-out both;
+   }
+
+   button {
+       cursor: pointer;
+       padding: 1em 2em;
+       outline: none;
+       font-weight: 600;
+       border: none;
+       color: #fff;
+       background: rgb(0, 153, 255);
+   }
+
+
+   /* 动画 */
+   @keyframes anim-dash {
+       0% {
+           stroke-dashoffset: 1680;
+       }
+
+       100% {
+           stroke-dashoffset: 0;
+       }
+   }
+
+   @-webkit-keyframes anim-dash {
+       0% {
+           stroke-dashoffset: 1680;
+       }
+
+       100% {
+           stroke-dashoffset: 0;
+       }
+   }
+
+
+   /* Inner elements animations */
+   @-webkit-keyframes anim-elem-1 {
+       0% {
+           opacity: 0;
+           -webkit-transform: translate3d(-150px, 0, 0);
+       }
+
+       100% {
+           opacity: 1;
+           -webkit-transform: translate3d(0, 0, 0);
+       }
+   }
+
+   @keyframes anim-elem-1 {
+       0% {
+           opacity: 0;
+           -webkit-transform: translate3d(-150px, 0, 0);
+           transform: translate3d(-150px, 0, 0);
+       }
+
+       100% {
+           opacity: 1;
+           -webkit-transform: translate3d(0, 0, 0);
+           transform: translate3d(0, 0, 0);
+       }
+   }
+
+   @-webkit-keyframes anim-elem-2 {
+       0% {
+           opacity: 0;
+           -webkit-transform: translate3d(150px, 0, 0);
+       }
+
+       100% {
+           opacity: 1;
+           -webkit-transform: translate3d(0, 0, 0);
+       }
+   }
+
+   @keyframes anim-elem-2 {
+       0% {
+           opacity: 0;
+           -webkit-transform: translate3d(150px, 0, 0);
+           transform: translate3d(150px, 0, 0);
+       }
+
+       100% {
+           opacity: 1;
+           -webkit-transform: translate3d(0, 0, 0);
+           transform: translate3d(0, 0, 0);
+       }
+   }

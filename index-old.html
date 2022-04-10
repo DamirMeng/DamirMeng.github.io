@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ff6600" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>至简博客</title>
+    <!-- <link rel="icon" sizes="any" mask="" href="https://s3.ax1x.com/2020/11/18/DneSpV.png"> -->
+    <link rel="icon" sizes="any" mask="" href="https://s3.ax1x.com/2020/11/18/DneSpV.png">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" defer> -->
+    <style>
+        body {
+            background-color: #f4f8fb;
+        }
+
+        .aplayer.aplayer-fixed .aplayer-body {
+            top: 1px;
+            bottom: unset;
+        }
+
+        .aplayer-list {
+            margin-top: 65px;
+            margin-bottom: unset !important;
+        }
+
+        .aplayer.aplayer-narrow .aplayer-body,
+        .aplayer.aplayer-narrow .aplayer-pic {
+            height: 58px;
+            width: 66px;
+        }
+
+        #aplayer {
+            top: 1px;
+            bottom: unset;
+        }
+
+        .aplayer .aplayer-miniswitcher {
+            background: #e6e6e63d;
+        }
+
+        #iframe {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: -1;
+        }
+
+        .aplayer .aplayer-lrc p {
+            font-size: 16px;
+            color: #03A9F4;
+            line-height: 16px !important;
+            height: 16px !important;
+        }
+    </style>
+    <style>
+        /* 显示层最外层 */
+        #loading,
+        #feedback {
+            position: fixed;
+            z-index: 11;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0;
+            background: transparent;
+            text-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+        #loading:not(.loading-open),
+        #feedback:not(.feedback-open) {
+            pointer-events: none;
+            opacity: 0;
+        }
+        #loading.loading-open,
+        #feedback.feedback-open {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        /* 灰色遮盖层 */
+        .mask {
+            display: none;
+            background: rgba(55, 58, 71, 0.9);
+            opacity: 0;
+            -webkit-transition: opacity 0.3s;
+            transition: opacity 0.3s;
+            -webkit-backface-visibility: hidden;
+
+        }
+
+        .feedback-open.mask {
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: all 1s;
+            -webkit-transition: all .2s;
+            background: rgba(55, 58, 71, 0.9);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* SVG特效 */
+        .morph-shape {
+            position: absolute;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            top: -2px;
+            left: -2px;
+            z-index: -1;
+        }
+
+
+        .morph-shape svg rect {
+            stroke: rgb(255, 255, 255);
+            stroke-width: 2px;
+            stroke-dasharray: 1680;
+        }
+
+        #feedback.feedback-open .morph-shape svg rect {
+            -webkit-animation: anim-dash 0.6s forwards;
+            animation: anim-dash 0.6s forwards;
+        }
+
+
+
+        /* 文字 */
+        .feedback-open .dialog-inner {
+            padding: 2em;
+            opacity: 1;
+            -webkit-transition: opacity 0.85s 0.35s;
+            transition: opacity 0.85s 0.35s;
+            background: #fff;
+        }
+
+        #loading.loading-open {
+            padding: 2em;
+            opacity: 1;
+        }
+
+        #loading,
+        .dialog-inner {
+            opacity: 0;
+            color: rgb(0, 153, 255);
+        }
+
+        #loading.loading-open h2,
+        #feedback.feedback-open h2 {
+            -webkit-animation: anim-elem-1 0.7s ease-out both;
+            animation: anim-elem-1 0.7s ease-out both;
+        }
+
+        #loading h2,
+        #feedback h2 {
+            margin: 0;
+            font-weight: 400;
+            font-size: 2em;
+            padding: 0 0 1em;
+            margin: 0;
+        }
+
+        /* 图片 */
+        #loading.loading-open img,
+        #feedback.feedback-open img {
+            -webkit-animation: anim-elem-1 0.7s ease-out both;
+            animation: anim-elem-1 0.7s ease-out both;
+        }
+
+        #loading img,
+        #feedback img {
+            height: 50%;
+            width: 50%;
+            padding: 0 0 2em;
+        }
+
+        /* 按钮 */
+        .feedback-open button {
+            -webkit-animation: anim-elem-2 0.7s ease-out both;
+            animation: anim-elem-2 0.7s ease-out both;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 1em 2em;
+            outline: none;
+            font-weight: 600;
+            border: none;
+            color: #fff;
+            background: rgb(0, 153, 255);
+        }
+
+
+        /* 动画 */
+        @keyframes anim-dash {
+            0% {
+                stroke-dashoffset: 1680;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @-webkit-keyframes anim-dash {
+            0% {
+                stroke-dashoffset: 1680;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+
+        /* Inner elements animations */
+        @-webkit-keyframes anim-elem-1 {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-150px, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes anim-elem-1 {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-150px, 0, 0);
+                transform: translate3d(-150px, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @-webkit-keyframes anim-elem-2 {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(150px, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes anim-elem-2 {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(150px, 0, 0);
+                transform: translate3d(150px, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* 加载提示页面 */
+    </style>
+    <!-- <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?dfb2e9af2c4ea3536c96e73ddb3dc6b8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script> -->
+
+</head>
+
+<body>
+    <div class="mask"></div>
+    <div id="loading">
+        <h2>Loading ···</h2><img src="svg/loading.svg">
+    </div>
+
+    <div id="feedback">
+        <div class="morph-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 560 280"
+                preserveAspectRatio="none">
+                <rect x="3" y="3" fill="none" width="556" height="276" />
+            </svg>
+        </div>
+        <div class="dialog-inner">
+            <h2>欢迎访问至简博客！</h2>
+            <img>
+            <div><button class="feedback-close">关闭</button></div>
+        </div>
+    </div>
+
+    <iframe id="iframe" name="iframe_a" frameborder="0" scrolling-X="no" src="homePage.html"> </iframe>
+    <div id="aplayer"></div>
+    <script>
+        //刷新
+        if (document.location.hash.substring(1).length > 5) { //借助锚点来加载框架的src  substring(1)去除#
+            document.getElementById('iframe').src = document.location.hash.substring(1);
+        } else {
+            document.getElementById('iframe').src = "homePage.html";
+        }
+        console.log("%cBlue Blog%c\n 蒙大明的博客\n\n  用于发布一些文章！", "font-size:96px;color:#3b3e43",
+            "font-size:12px;color:#4285f4;");
+
+        // 遮盖层的实现
+        const feedback = document.querySelector('#feedback');
+        const mask = document.querySelector(".mask");
+
+        function Mask(text, src) {
+            feedback.classList.add('feedback-open');
+            mask.classList.add('feedback-open');
+            if (text) {
+                feedback.querySelector('.dialog-inner h2').innerHTML = text;
+            } else {
+                feedback.querySelector('.dialog-inner h2').innerHTML = " ";
+            }
+            if (src) {
+                feedback.querySelector('.dialog-inner img').src = src;
+            } else {
+                feedback.querySelector('.dialog-inner img').src = " ";
+            }
+
+            mask.addEventListener("click", function (e) { //点击灰色部位 反馈层消失
+                feedback.classList.remove('feedback-open');
+                mask.classList.remove('feedback-open');
+            })
+
+            feedback.querySelector('.feedback-close').addEventListener("click", function (e) { //点击按键 反馈层消失
+                feedback.classList.remove('feedback-open');
+                mask.classList.remove('feedback-open');
+            })
+
+        }
+        // 加载提示
+        const loading = document.querySelector('#loading');
+        var myLoading
+
+        function Loading() {
+            myLoading = setTimeout(function () { //延时，加载快的话不必显示
+                mask.classList.add('feedback-open');
+                loading.classList.add('loading-open');
+                mask.addEventListener("click", function (e) { //点击灰色部位 反馈层消失
+                    mask.classList.remove('feedback-open');
+                    loading.classList.remove('loading-open');
+                })
+            }, 500);
+        }
+
+        function LoadingClose() { //关闭加载提示
+            clearTimeout(myLoading);
+            mask.classList.remove('feedback-open');
+            loading.classList.remove('loading-open');
+        }
+    </script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" defer></script>
+    <!-- <script src=" https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" defer></script> -->
+    <!-- <script src="/js/Aplayer.js" defer></script> -->
+    <script id="ribbon" zindex="-1111" alpha="0.2" size="100" src="../../js/ribbon.js" defer></script>
+
+</body>
+
+</html>

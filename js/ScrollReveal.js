@@ -1,4 +1,4 @@
-// ScrollReveal源文件
+// ScrollReveal源文件，用于设置出现和消失动画
 /*! @license ScrollReveal v4.0.6
 
 	Copyright 2020 Fisssion LLC.
