@@ -301,7 +301,11 @@
     overflow: hidden;
   }
 
-  .tabbed ul li {
+  .tabbed ul li a:hover {
+    color: var(--theme-color);;
+  }
+  
+  .tabbed > ul.nav-list > li {
     height: 100%;
     display: block;
     float: left;
@@ -319,13 +323,13 @@
     overflow: visible;
   }
 
-  .tabbed > ul > li:hover {
-    color: var(--theme-color);
+  ul.nav-list > li:hover {
     z-index: 100;
     overflow: visible;
+    background-color: rgb(247, 252, 255);
   }
 
-  .tabbed > ul > li::before {
+  .tabbed > ul.nav-list > li::before {
     background: var(--theme-color);
     bottom: 0;
     content: "";
@@ -362,10 +366,11 @@
     position: fixed;
     transition: all 1.2s;
     top: 60px;
-    padding: 10px 0 0 30%;
+    padding: 1px 0 0 30%;
     left: 0;
     display: none;
     width: 100% !important;
+    background-color: rgb(61, 130, 170);
   }
 
   ul.ul_c li {
@@ -385,9 +390,13 @@
     width: 100%;
   }
 
+  .tabbed :hover .ul_c,
+  .ul_c:hover {
+    border-bottom:  1px solid rgb(197, 234, 255); 
+  }
+
   .ul_c li:hover {
-    color: var(--theme-color);
-    background-color: whitesmoke;
+    background-color: rgb(247, 252, 255);
   }
 
   .tabbed ul li:hover ul {

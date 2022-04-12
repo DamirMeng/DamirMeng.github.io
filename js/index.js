@@ -143,8 +143,8 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
 const topItems = document.querySelectorAll(".top-items li");
 //secondMenuStr.js中定义的标题名称
 // 设置标题名称
-topItems[1].textContent = secondMenuStr[1][0][0];
-topItems[2].textContent = secondMenuStr[1][0][1];
+topItems[1].textContent = secondMenuStr[1][0][0] + "(转)";
+topItems[2].textContent = secondMenuStr[1][0][1] + "(转)";
 topItems[3].textContent = secondMenuStr[2][0][0];
 topItems[4].textContent = secondMenuStr[2][0][1];
 (function () { //根据跳转时的锚点来响应展示的内容
