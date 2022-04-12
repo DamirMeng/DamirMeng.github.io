@@ -136,7 +136,6 @@
 
 /* ======================前面几页的设置=========== */
 @media screen {
-
 	/* 封面 */
 	.end,
 	.cover-img {
@@ -171,7 +170,6 @@
 	}
 
 	/* 封面背面 */
-
 	.saying {
 		font-size: 26px;
 		text-align: center;
@@ -245,7 +243,6 @@
 	}
 
 	/* 扉页背面 */
-
 	.information {
 		position: absolute;
 		top: 47%;
@@ -276,9 +273,6 @@
 		letter-spacing: 1px;
 		text-align: justify;
 	}
-
-
-
 
 	.content-c {
 		position: absolute;
@@ -332,7 +326,6 @@
 		position: absolute;
 		background-color: #03A9F4;
 		transform: translate(250%, 0);
-
 	}
 
 	.list-number li:first-child:after {
@@ -342,7 +335,6 @@
 		position: absolute;
 		background-color: #03A9F4;
 		transform: translate(380%, 0);
-
 	}
 
 	.contents-list li,
@@ -401,8 +393,6 @@
 
 /* ======================日记内容=========== */
 @media screen {
-
-
 	/* 今日事项显示 */
 	.items {
 		position: absolute;
@@ -440,8 +430,6 @@
 
 	}
 
-
-
 	/* 切换按钮 */
 	.change-left,
 	.change-right {
@@ -462,7 +450,6 @@
 	}
 
 	/* 上部栏 */
-
 	.title-image {
 		position: absolute;
 		top: 5%;
@@ -492,8 +479,6 @@
 	}
 
 	/* 页码 */
-
-
 	.even .page-number {
 		text-decoration: underline;
 		position: absolute;
@@ -530,7 +515,6 @@
 	}
 
 	/* 日记主要内容 */
-
 	.content {
 		position: absolute;
 		top: 14%;
@@ -558,14 +542,10 @@
 		text-align: justify;
 		text-justify: distribute-all-lines;
 	}
-
-
 }
 
 /* 适配手机 */
 @media only screen and (max-width: 479px) {
-
-
 	.flipbook-viewport .container {
 		position: fixed;
 		top: 3%;

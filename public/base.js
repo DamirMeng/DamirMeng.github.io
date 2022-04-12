@@ -504,7 +504,7 @@ window.onload = function () {
 
 }
 
-// 添加提示页面的HTML
+// 添加反馈层页面的HTML
 function writeMaskHTML() {
     document.write("    <div class=\"mask\"><\/div>");
     document.write("    <div id=\"loading\">");

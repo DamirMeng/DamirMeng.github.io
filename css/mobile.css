@@ -2,8 +2,7 @@
 :root {
     --theme-color: rgb(0, 153, 255);
 }
-
-/* 所有移动端 重点*/
+/* ====================所有移动端样式==================== */
 @media only screen and (max-width: 1199px) {
     *：hover {
         border: none !important;
@@ -34,7 +33,7 @@
     }
 }
 
-/* 一般手机 重点*/
+/* ====================一般手机==================== */
 @media only screen and (min-width: 360px) and (max-width: 479px) {
     .menu {
         display: block;
@@ -127,7 +126,7 @@
     }
 }
 
-/* iPad   重点 */
+/* ====================iPad==================== */
 @media only screen and (min-width: 480px) and (max-width: 1199px) {
     #side-nav {
         background-color: #fff;
@@ -182,6 +181,7 @@
     }
 }
 
+/* ====================所有小于800的屏幕==================== */
 @media only screen and (max-width: 800px) {
 
     .hh .later::before,
@@ -263,7 +263,7 @@
     }
 }
 
-/* 超小手机 一般不必理会 */
+/* ====================超小手机==================== */
 @media only screen and (max-width: 359px) {
     .menu {
         display: block;
@@ -296,7 +296,6 @@
         margin-right: 2px;
         line-height: 32px;
         font-size: 18px;
-
     }
 
     .blogs .article-list li {
@@ -360,7 +359,7 @@
     }
 }
 
-/* iPad Pro */
+/* ====================iPad Pro==================== */
 @media screen and (min-width: 801px) and (max-width: 1199px) {
     main {
         margin-left: 200px !important;
@@ -384,7 +383,6 @@
         border: none;
     }
 
-
     .sidebar {
         width: 27%;
         left: 2%;
@@ -395,7 +393,7 @@
     }
 }
 
-/* 中型屏幕 */
+/* ====================中型屏幕==================== */
 @media screen and (min-width: 1200px) and (max-width: 1300px) {
     main {
         margin-left: 250px !important;

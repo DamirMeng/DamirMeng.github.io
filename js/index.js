@@ -93,7 +93,7 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
                             element.querySelector(".isTop-div").classList.add("isTop-ribbon"); //添加左上角置顶标志
                             element.querySelector("span a").href = articles[i].url; //图片的目的链接
                             element.querySelector("span a img").src = articles[i].img_url; //图片链接src用于图片显示
-                            element.querySelector(".blogtitle a").innerHTML =  articles[i].title; //标题
+                            element.querySelector(".blogtitle a").innerHTML = articles[i].title; //标题
                             element.querySelector(".blogtitle a").href = articles[i].url; //标题的目的链接
                             element.querySelector(".bloginfo p").innerHTML = articles[i].introduction; //文章简介
                             element.querySelector(".lm a").innerHTML = articles[i].tag; //标签
@@ -141,13 +141,12 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
 }
 
 const topItems = document.querySelectorAll(".top-items li");
-//strList为nav.js中定义的标题名称
-
+//secondMenuStr.js中定义的标题名称
 // 设置标题名称
-topItems[1].textContent=secondMenuStr[1][0][0];
-topItems[2].textContent=secondMenuStr[1][0][1];
-topItems[3].textContent=secondMenuStr[2][0][0];
-topItems[4].textContent=secondMenuStr[2][0][1];
+topItems[1].textContent = secondMenuStr[1][0][0];
+topItems[2].textContent = secondMenuStr[1][0][1];
+topItems[3].textContent = secondMenuStr[2][0][0];
+topItems[4].textContent = secondMenuStr[2][0][1];
 (function () { //根据跳转时的锚点来响应展示的内容
     var target = decodeURI(document.location.hash.substring(1));
     if (target == "article") {
@@ -203,7 +202,7 @@ topItems[4].textContent=secondMenuStr[2][0][1];
                 getArticleData("json/index.json");
                 topItems[0].classList.add("active");
             }
-            if (target == secondMenuStr[1][0][0] || target == secondMenuStr[1][0][1] || target == secondMenuStr[2][0][0] || target ==secondMenuStr[2][0][1]) {
+            if (target == secondMenuStr[1][0][0] || target == secondMenuStr[1][0][1] || target == secondMenuStr[2][0][0] || target == secondMenuStr[2][0][1]) {
                 if (document.querySelector(".menubar").classList.contains('arrow')) {
                     document.querySelector(".menubar").classList.remove("arrow");
                     document.querySelector(".nav-container").style.display = "none";

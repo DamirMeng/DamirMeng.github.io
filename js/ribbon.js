@@ -319,7 +319,6 @@
         h
 }());
 
-
 // 配置
 new Ribbons({
     colorSaturation: "60%",

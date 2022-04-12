@@ -244,7 +244,7 @@ if (timeToNowDOM) {
 (function () {
     // add iframe  底部动画
     var h = window.innerHeight / 2 - 50 + "px"
-    //随机几个
+    //随机几个动画
     var bottomSrc = [
         "../../../iframe/bike.html",
         "../../../iframe/horse.html",

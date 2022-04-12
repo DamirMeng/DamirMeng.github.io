@@ -1,60 +1,6 @@
 /*
  *PC、移动端菜单栏的显示与事件绑定等
  */
- function createNode() {
-    var e_1 = document.createElement("div");
-    e_1.setAttribute("class", "mask");
-    var e_2 = document.createElement("div");
-    e_2.setAttribute("id", "loading");
-    var e_3 = document.createElement("h2");
-    e_3.appendChild(document.createTextNode("Loading ···"));
-    e_2.appendChild(e_3);
-    var e_4 = document.createElement("img");
-    e_4.setAttribute("src", "svg/loading.svg");
-    e_2.appendChild(e_4);
-    var e_5 = document.createElement("div");
-    e_5.setAttribute("id", "feedback");
-    var e_6 = document.createElement("div");
-    e_6.setAttribute("class", "morph-shape");
-    var e_7 = document.createElement("svg");
-    e_7.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    e_7.setAttribute("width", "100%");
-    e_7.setAttribute("height", "100%");
-    e_7.setAttribute("viewBox", "0 0 560 280");
-    e_7.setAttribute("preserveAspectRatio", "none");
-    var e_8 = document.createElement("rect");
-    e_8.setAttribute("x", "3");
-    e_8.setAttribute("y", "3");
-    e_8.setAttribute("fill", "none");
-    e_8.setAttribute("width", "556");
-    e_8.setAttribute("height", "276");
-    e_7.appendChild(e_8);
-    e_6.appendChild(e_7);
-    e_5.appendChild(e_6);
-    var e_9 = document.createElement("div");
-    e_9.setAttribute("class", "dialog-inner");
-    var e_10 = document.createElement("h2");
-    e_10.appendChild(document.createTextNode("欢迎访问至简博客！"));
-    e_9.appendChild(e_10);
-    var e_11 = document.createElement("img");
-    e_9.appendChild(e_11);
-    var e_12 = document.createElement("div");
-    var e_13 = document.createElement("button");
-    e_13.setAttribute("class", "feedback-close");
-    e_13.appendChild(document.createTextNode("关闭"));
-    e_12.appendChild(e_13);
-    e_9.appendChild(e_12);
-    e_5.appendChild(e_9);
-    var first = document.body.firstChild;//得到页面的第一个元素
-    document.body.insertBefore(e_5, first);
-    var first = document.body.firstChild;//得到页面的第一个元素
-    document.body.insertBefore(e_2, first);
-
-    var first = document.body.firstChild;//得到页面的第一个元素
-    document.body.insertBefore(e_1, first);
-}
-// createNode();
-
 
 function writePCNav() {
     document.write(" <div class='tabbed round'>");

@@ -21,15 +21,6 @@ var randomPictureApi = [
 ]
 
 function getYiyan(nth_li) { // 用一言api添加  没有json数据的卡片
-    // fetch('https://international.v1.hitokoto.cn/')
-
-    // .then(response => response.json())
-    // .then(data => {
-    //   document.querySelectorAll("#columns li")[nth_li].querySelector("p").innerText = data.hitokoto
-    //   document.querySelectorAll("#columns li")[nth_li].querySelectorAll("p")[1].innerText = "—《" + data.from + "》" //加载来源并格式化
-    // })
-    // .catch(console.error)
-
     var xhr = new XMLHttpRequest();
     xhr.open('get', 'https://international.v1.hitokoto.cn/?encode=json'); //c参数可以的设置不同类型的句子
     xhr.onreadystatechange = function () {

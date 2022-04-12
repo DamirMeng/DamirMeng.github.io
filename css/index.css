@@ -13,7 +13,6 @@ article {
     position: relative;
 }
 
-
 /* =========左边栏============= */
 @media screen {
 
@@ -45,7 +44,11 @@ article {
         margin-bottom: 20px
     }
 
-
+    .lmnav,
+    .category {
+        animation: zoomIn 2s;
+        animation-delay: 0.1s;
+    }
 
     .navbor {
         border-left: #ff1b00 1px solid;
@@ -77,11 +80,7 @@ article {
         line-height: 26px;
         /* text-align: center; */
         font-size: 14px;
-
     }
-
-
-
 
     /* 下栏 */
     .category {
@@ -89,8 +88,6 @@ article {
         padding: 20px 30px;
         background-color: hsla(0, 0%, 100%, .66);
     }
-
-
 
     .widget-title h3 {
         font-size: 20px;
@@ -126,11 +123,8 @@ article {
 
     .category-list {
         border: 2px solid #e9e8ff;
-
     }
 }
-
-/* ================左边栏结束================ */
 
 /* ===========文章列表============== */
 @media screen {
@@ -139,7 +133,6 @@ article {
         width: 70%;
         margin: 0;
         overflow: hidden;
-
     }
 
     .article-list {
@@ -163,7 +156,6 @@ article {
         /* background-color: rgba(94, 161, 228, 0.16); */
         border: 1px solid #4fc3f7;
         box-shadow: 0 0 10px #4fc3f7;
-
         z-index: 20;
     }
 
@@ -181,7 +173,6 @@ article {
     .blogtitle a:hover {
         color: #6c62ff;
         text-decoration: underline;
-
     }
 
     .bloginfo {
@@ -321,23 +312,14 @@ article {
         border-width: 0 0 10px 10px;
         border-color: transparent transparent rgba(0, 0, 0, .15) transparent;
     }
+
     .isTop-div.isTop-ribbon{
         display: block;
     }
+
     .isTop-div{
         display: none;
     }
-}
-
-@media screen {
-
-    .lmnav,
-    .category {
-        animation: zoomIn 2s;
-        animation-delay: 0.1s;
-
-    }
-
 }
 
 /* ===============动画区域结束==================== */
@@ -383,7 +365,6 @@ article {
 }
 
 @keyframes bounce {
-
     0%,
     20%,
     50%,
@@ -413,7 +394,6 @@ article {
     margin: 50px auto;
     cursor: pointer;
 }
-
 
 .content {
     position: relative;
@@ -929,7 +909,6 @@ path#f3-l9 {
     background-color: var(--theme-color);
 }
 
-
 /* ======================分页=========== */
 @media screen {
     .pagination {
@@ -1029,5 +1008,3 @@ path#f3-l9 {
         }
     }
 }
-
-/* ==============分页结束============= */
