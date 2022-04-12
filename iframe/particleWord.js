@@ -1,12 +1,5 @@
 /**
- * demo.js
- * https://coidea.website
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2018, COIDEA
- * https://coidea.website
+ *头部粒子文字脚本
  */
 var index = window.parent.document.querySelector("title").innerHTML.indexOf(" ");
 var title = window.parent.document.querySelector("title").innerHTML.substring(0, index); //获取标题名称
@@ -43,11 +36,11 @@ var canvas = document.querySelector("#canvas"),
   },
   radius = 1,
   colors = [ //粒子颜色
-    "#F44336",
-    "##FF5722",
-    "#00CCFF",
-    "#006699",
-    "#FF5722"
+    "rgba(0,153,255,0.6)",
+    "rgba(0,153,255,0.65)",
+    "rgba(0,153,255,0.70)",
+    "rgba(0,153,255,0.75)",
+    "rgba(0,153,255,0.80)",
   ],
 
 
@@ -69,8 +62,8 @@ function Particle(x, y) {
   this.accX = 0;
   this.accY = 0;
   this.friction = Math.random() * 0.025 + 0.94;
-  // this.color = colors[Math.floor(Math.random() * colors.length)];
-  this.color = "#" + Math.round(Math.random() * 0x1000000).toString(16);//随机颜色
+  this.color = colors[Math.floor(Math.random() * colors.length)];
+  // this.color = "#" + Math.round(Math.random() * 0x1000000).toString(16);//随机颜色
 }
 
 Particle.prototype.render = function () {
