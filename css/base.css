@@ -396,7 +396,7 @@
   }
 
   .ul_c li:hover {
-    background-color: rgb(247, 252, 255);
+    background-color: whitesmoke;
   }
 
   .tabbed ul li:hover ul {
