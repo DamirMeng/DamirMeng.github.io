@@ -250,7 +250,6 @@ function addLeftList() { // 生成左侧菜单栏
                         classification = element.classification;
                         writer = element.writer;
                         tag = element.tag;
-                        console.log(tag);
                         time = element.time;
                         text.push(index);
                         index_have = true;

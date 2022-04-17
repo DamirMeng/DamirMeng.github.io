@@ -227,14 +227,14 @@ if (timeToNowDOM) {
             canvas.width = width;
             canvas.height = height;
         } else {
-            if (window.innerHeight > 1920) {
-                canvas.width = window.innerWidth;
-            } else {
-                canvas.width = 1920;
-            }
+            // if (window.innerHeight > 1920) {
+            //     canvas.width = window.innerWidth;
+            // } else {
+            //     canvas.width = 1920;
+            // }
             canvas.height = waveHeight;
+            canvas.width = window.innerWidth;
         }
-
     }
 
     document.addEventListener("DOMContentLoaded", init, false);
@@ -254,6 +254,7 @@ if (timeToNowDOM) {
     iframe.setAttribute("id", "bottom_frame")
     iframe.setAttribute("frameborder", "0")
     iframe.setAttribute("height", h)
+    iframe.setAttribute("title", "animation")
     iframe.setAttribute("src", bottomSrc[Math.floor(Math.random() * bottomSrc.length)])
     document.querySelector(".footer").appendChild(iframe)
     document.querySelector(".footer").style.paddingBottom = window.innerHeight / 2 - 120 + "px";

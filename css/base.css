@@ -326,7 +326,7 @@
   ul.nav-list > li:hover {
     z-index: 100;
     overflow: visible;
-    background-color: rgb(247, 252, 255);
+    background-color: whitesmoke;
   }
 
   .tabbed > ul.nav-list > li::before {
