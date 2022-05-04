@@ -9,6 +9,7 @@
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/mobile.css" rel="stylesheet">
     <title>搜索</title>
+    <link rel="icon" sizes="any" mask="" href="https://s3.ax1x.com/2020/11/18/DneSpV.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .pagination {
@@ -267,13 +268,14 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                articles = JSON.parse(this.responseText).articles;//例化
+                articles = JSON.parse(this.responseText);//例化
                 //decodeURI对锚点解码  substring(1)去#号
                 getJsonItems(decodeURI(document.location.hash.substring(1)));
             }
         }
-        xmlhttp.open('get', '../json/index.json', true);
+        xmlhttp.open('get', '../json/全部文章.json', true);
         xmlhttp.send();
+
         // 获取搜索框、清空搜索
         var searchClear = document.querySelector('.search-clear');
         var searchInput = document.querySelector('.search-input');
@@ -318,7 +320,7 @@
             // 注：不合并是为让具有相关度更高的文章排在前面，比如说优先显示与标题相关的
             for (let index = 0; index < articles.length; index++) {
                 // 搜索标题
-                if (articles[index].title.search(searchText) != -1 && !result.includes(index)) {
+                if (articles[index].标题.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
                 }
             }
@@ -326,37 +328,37 @@
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索标题
-                    if (articles[index].title.search(s_word[i]) != -1 && !result.includes(index)) {
+                    if (articles[index].标题.search(s_word[i]) != -1 && !result.includes(index)) {
                         result.push(index);
                     }
                 }
             }
             for (let index = 0; index < articles.length; index++) { // 搜索作者
-                if (articles[index].writer.search(searchText) != -1 && !result.includes(index)) {
+                if (articles[index].作者.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
                 }
             }
             for (let index = 0; index < articles.length; index++) {
                 // 搜索分类
-                if (articles[index].classification.search(searchText) != -1 && !result.includes(index)) {
+                if (articles[index].分类.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
                 }
             }
             for (let index = 0; index < articles.length; index++) {
                 // 搜索标签
-                if (articles[index].tag.search(searchText) != -1 && !result.includes(index)) {
+                if (articles[index].标签.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
                 }
             }
             for (let index = 0; index < articles.length; index++) {
                 // 搜索简介
-                if (articles[index].introduction.search(searchText) != -1 && !result.includes(index)) {
+                if (articles[index].简介.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
                 }
             }
             for (let index = 0; index < articles.length; index++) {
                 // 搜索日期
-                if (articles[index].time.search(searchText) != -1 && !result.includes(index)) {
+                if (articles[index].日期.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
                 }
             }
@@ -364,7 +366,7 @@
             // 单字检索
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) { // 搜索作者
-                    if (articles[index].writer.search(s_word[i]) != -1 && !result.includes(index)) {
+                    if (articles[index].作者.search(s_word[i]) != -1 && !result.includes(index)) {
                         result.push(index);
                     }
                 }
@@ -372,7 +374,7 @@
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索标签
-                    if (articles[index].tag.search(s_word[i]) != -1 && !result.includes(index)) {
+                    if (articles[index].标签.search(s_word[i]) != -1 && !result.includes(index)) {
                         result.push(index);
                     }
                 }
@@ -380,7 +382,7 @@
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索分类
-                    if (articles[index].classification.search(s_word[i]) != -1 && !result.includes(index)) {
+                    if (articles[index].分类.search(s_word[i]) != -1 && !result.includes(index)) {
                         result.push(index);
                     }
                 }
@@ -388,7 +390,7 @@
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索简介
-                    if (articles[index].introduction.search(s_word[i]) != -1 && !result.includes(index)) {
+                    if (articles[index].简介.search(s_word[i]) != -1 && !result.includes(index)) {
                         result.push(index);
                     }
                 }
@@ -396,7 +398,7 @@
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) {
                     // 搜索日期
-                    if (articles[index].time.search(s_word[i]) != -1 && !result.includes(index)) {
+                    if (articles[index].日期.search(s_word[i]) != -1 && !result.includes(index)) {
                         result.push(index);
                     }
                 }
@@ -449,19 +451,19 @@
                     var result_item = result[nth_card];
                     var element = articlesHTML[nth_li];
                     if (result_item >= 0) { //还存在json对象数据
-                        element.querySelector("span a").href = articles[result_item].url;//图片的目的链接
-                        element.querySelector("span a img").src = articles[result_item].img_url;//图片链接src用于图片显示
-                        element.querySelector(".blogtitle a").innerHTML = articles[result_item].title;//标题
-                        element.querySelector(".blogtitle a").href = articles[result_item].url;//标题的目的链接
-                        element.querySelector(".bloginfo p").innerHTML = articles[result_item].introduction; //文章简介
-                        element.querySelector(".lm a").innerHTML = articles[result_item].tag;//标签
+                        element.querySelector("span a").href = articles[result_item].文章链接;//图片的目的链接
+                        element.querySelector("span a img").src = articles[result_item].图片链接;//图片链接src用于图片显示
+                        element.querySelector(".blogtitle a").innerHTML = articles[result_item].标题;//标题
+                        element.querySelector(".blogtitle a").href = articles[result_item].文章链接;//标题的目的链接
+                        element.querySelector(".bloginfo p").innerHTML = articles[result_item].简介; //文章简介
+                        element.querySelector(".lm a").innerHTML = articles[result_item].标签;//标签
                         element.querySelector(".lm a").href = '../../../../about/search.html' + '#' +
-                            articles[result_item].tag;
-                        element.querySelector(".dtime a").innerHTML = articles[result_item].time //发表时间
+                            articles[result_item].标签;
+                        element.querySelector(".dtime a").innerHTML = articles[result_item].日期 //发表时间
                         element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' +
-                            articles[result_item].time;
-                        element.querySelector(".writer a").innerHTML = articles[result_item].writer //作者
-                        element.querySelector(".writer a").href = '#' + articles[result_item].writer;
+                            articles[result_item].日期;
+                        element.querySelector(".writer a").innerHTML = articles[result_item].作者 //作者
+                        element.querySelector(".writer a").href = '#' + articles[result_item].作者;
                     } else { //无数据，加载默认内容
                         element.querySelector("span a img").src = randomPictureApi[Math.floor(Math.random() *
                             randomPictureApi.length)]

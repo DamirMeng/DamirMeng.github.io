@@ -44,7 +44,6 @@ function writeMobileNav() {
 
 var width = document.documentElement.clientWidth;
 var container = document.querySelector('#container');
-
 // 导航栏菜单信息
 var secondMenuStr = [
     //** ------------------------一级菜单--------------
@@ -70,27 +69,23 @@ var secondMenuStr = [
     [
         // 第二个
         [
-            "文学类",
-            "知识类",
+            "转载文章",
             "美句收录"
         ],
         [ //链接
             "../../../../#article",
-            "../../../../#knowledge",
             "../../../../sentence"
         ]
     ],
     [
         // 第三个
         [
-            "文学类",
-            "知识类",
+            "原创文章",
             "个人句子",
             "我的说说"
         ],
         [ //链接
             "../../../../#myArticle",
-            "../../../../#myKnowledge",
             "../../../../sentence/mySentence.html",
             "../../../../about/saySomething.html"
         ]
@@ -148,7 +143,6 @@ var secondMenuStr = [
 ]
 
 function setNav() { //导航栏设置
-
     if (width < 1200) { //移动端菜单栏
         writeMobileNav();
         writeMobileTopBar();
@@ -195,7 +189,7 @@ function setNav() { //导航栏设置
             article_li.appendChild(ul2)
         }
 
-        // 监听菜单键，点击动画
+        // 监听左上角菜单键，点击动画
         document.querySelector(".menubar").addEventListener("click", function () {
             // 手机端菜单键点击后执行的函数
             if (document.querySelector(".menubar").classList.contains('arrow')) {
@@ -208,24 +202,15 @@ function setNav() { //导航栏设置
         })
 
         //移动端一级菜单点击展开二级菜单
-        window.onload = function (params) {
-            var navButton = document.querySelectorAll('.mobile-navbar li');
-            for (let index = 1; index < navButton.length; index++) {
-                const element = navButton[index];
-                element.addEventListener("click", function (e) {
-                    if (this.classList.contains('second-menu-open') == true) { //如果已经展开
-                        this.classList.remove("second-menu-open") //关闭
-                    } else { //如果没展开
-                        this.classList.add("second-menu-open") //展开点击的地方
-                    }
-                    for (var j = 1; j < navButton.length; j++) { //把其他的关闭
-                        if (navButton[j] != this) {
-                            navButton[j].classList.remove("second-menu-open")
-                        }
-                    }
-                })
-
-            }
+        var navButton = document.querySelectorAll('.mobile-navbar li');
+        for (let index = 1; index < navButton.length; index++) {
+            const element = navButton[index];
+            element.addEventListener("click", function (e) {
+                for (var j = 1; j < navButton.length; j++) { //全部关闭
+                    navButton[j].classList.remove("second-menu-open")
+                }
+                this.classList.add("second-menu-open") //展开点击的地方
+            })
         }
     } else { //PC端导航栏
 
@@ -265,7 +250,7 @@ function setNav() { //导航栏设置
             article_li.appendChild(ul2)
         }
 
-        window.addEventListener("scroll", function (e) { //pc导航栏背景
+        window.addEventListener("scroll", function (e) { //滚动到顶部时，pc导航栏背景变透明
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
             const tabbed = document.querySelector('.tabbed');
             if (tabbed) { // 目录栏响应

@@ -115,7 +115,7 @@ if (timeToNowDOM) {
     setTimeout(updateTimeStr, 500);
 }
 
-(function () { //波浪
+(function () { //波浪动画
     "use strict";
     var cvs, ctx;
     //var nodes = 5;
@@ -260,6 +260,7 @@ if (timeToNowDOM) {
     document.querySelector(".footer").style.paddingBottom = window.innerHeight / 2 - 120 + "px";
 })();
 
+// 点击微信图标显示二维码
 const weixin = document.querySelector("#weixin");
 if (weixin) {
     weixin.addEventListener("click", function (e) {

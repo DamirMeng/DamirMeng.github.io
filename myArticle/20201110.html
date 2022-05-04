@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Java基础</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/typora.style.css" rel="stylesheet">
+    <link href="../../css/mobile.css" rel="stylesheet">
+    <link rel="icon" sizes="any" mask="" href="https://s3.ax1x.com/2020/11/18/DneSpV.png">
+</head>
+
+<body>
+    <!-- PC、移动端导航栏和菜单 -->
+    <script src="../../../../public/nav.js"></script>
+    <div id="perspective">
+        <div id="container">
+            <!-- 正文，文章列表 -->
+            <main>
+                <header class="title">
+                    <h1><a name="Java基础" class="md-header-anchor"></a><span>Java基础</span></h1>
+                    <div class="mini"><span class="later"></span><span class="later">Java</span>
+                        <span class="later">蒙大明</span>
+                        <span class="hh"><span class="later">2020-11-10</span>
+                            <span id="word" class="later">11661字</span></span>
+                    </div>
+                </header>
+                <div class="massage">
+                    <div id='write' class=''>
+                        <p>&nbsp;</p>
+                        <h2 class="contents"><a name="java的运行机制" class="md-header-anchor"></a><span>Java的运行机制</span>
+                        </h2>
+                        <p><span>Java的源程序名的后缀为</span><code>*.java</code><span>，通过编译后会生成一个</span><code>*.class</code><span>
+                                文件
+                                ,通过Java虚拟机（JVM）</span><code>*.class</code><span> 文件。</span></p>
+                        <blockquote>
+                            <p><span>Java虚拟机只认</span><code>*.class</code><span> 文件，Java虚拟机就是一个抽象的计算机，与平台无关。</span></p>
+                        </blockquote>
+                        <p><span>Java运行机制与编译型语言的区别：</span></p>
+                        <p><img src="https://s1.ax1x.com/2020/11/10/BqWpcD.png" referrerpolicy="no-referrer"
+                                alt="Java的运行机制"></p>
+                        <p>&nbsp;</p>
+                        <hr />
+                        <p>&nbsp;</p>
+                        <h2 class="contents"><a name="-java的基本语法" class="md-header-anchor"></a><span>Java的基本语法</span>
+                        </h2>
+                        <h3 class="contents"><a name="java中的hello-word" class="md-header-anchor"></a><span>Java中的hello
+                                word</span></h3>
+                        <pre spellcheck="false"
+                            class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+                            lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 34px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>5</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 17px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">HelloWorld</span> {</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2
+                            </div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-variable">main</span>(<span class="cm-variable-3">String</span>[] <span class="cm-variable">args</span>) {</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3
+                            </div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"Hello World"</span>);</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4
+                            </div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre>
+                    </div>
+                    <div style="position: relative;">
+                        <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                                style="left: 0px; width: 17px;">5</div>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 100px;"></div>
+    <div class="CodeMirror-gutters" style="height: 100px; left: 0px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p><code>public class</code><span>是Java的关键字，用来定义一个类，这个类是主类。Java中只能有一个public
+            class，并且</span><mark><span>文件名必须与主类名相同</span></mark><span>。</span></p>
+    <ul>
+        <li><strong><span>主方法入口</span></strong><span>：所有的 Java 程序由 </span><code>public static void main(String[]
+                args)</code><span> 方法开始执行。</span></li>
+    </ul>
+    <p><strong><span>system.out.println()：</span></strong></p>
+    <ul>
+        <li><code>System</code><span> 是系统类。</span></li>
+        <li><code>println()</code><span> 是一个方法。</span></li>
+        <li><code>out</code><span> 是标准输出对象。</span></li>
+    </ul>
+    <blockquote>
+        <p><span>Java中所有的操作都是由类组成的，</span><mark><span>Java类名用每个字母首字母大写</span></mark><span>。</span></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <h3 class="contents"><a name="与c语言一致的内容" class="md-header-anchor"></a><span>与C语言一致的内容</span></h3>
+    <ul>
+        <li><span>注释</span></li>
+        <li><span>转义字符</span></li>
+        <li><span>基本的运算符</span></li>
+        <li><span>三大结构的语法</span></li>
+    </ul>
+    <blockquote>
+        <p><span>Java中的&amp;、|是可以用作逻辑运算符的，与&amp;&amp;和||的区别是前者不会逻辑短路。</span></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <h3 class="contents"><a name="java中的标识符" class="md-header-anchor"></a><span>Java中的标识符</span></h3>
+    <ul>
+        <li><span>所有的标识符都应该以字母（A-Z 或者 a-z）,美元符（$）、或者下划线（_）开始</span></li>
+        <li><span>首字符之后可以是字母（A-Z 或者 a-z）,美元符（$）、下划线（_）或数字的任何字符组合</span></li>
+        <li><span>关键字不能用作标识符</span></li>
+    </ul>
+    <blockquote>
+        <p><span>C语言：一个标识符以字母 A-Z 或 a-z 或下划线 _ 开始，后跟零个或多个字母、下划线和数字（0-9）。</span><mark><span>Java可以用美元符（$）。</span></mark>
+        </p>
+    </blockquote>
+    <p><span> </span></p>
+    <h3 class="contents"><a name="java的数据类型" class="md-header-anchor"></a><span>Java的数据类型</span></h3>
+    <p><span>基本数据类型与C语言一致</span></p>
+    <p><img src="https://s3.ax1x.com/2020/11/19/DKjTDP.png" referrerpolicy="no-referrer" alt="Java数据类型"></p>
+    <blockquote>
+        <p><span>Java中char占2个字节！</span><mark><span>“引用”传递的是一块空间的使用权！</span></mark></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <h3 class="contents"><a name="java的数组" class="md-header-anchor"></a><span>Java的数组</span></h3>
+    <h4><a name="数组定义" class="md-header-anchor"></a><span>数组定义</span></h4>
+    <h5><a name="动态初始化后面再赋值）" class="md-header-anchor"></a><span>动态初始化（后面再赋值）</span></h5>
+    <p><span>声明数组并分配空间：数据类型 数组名[ ] = new 数据类型[个数] </span></p>
+    <p><span>例：</span><code>int score[] = new int[10] ;</code></p>
+    <blockquote>
+        <p><span>也可以先声明，再分配内存，个人不建议！</span></p>
+    </blockquote>
+    <h5><a name="静态初始化" class="md-header-anchor"></a><span>静态初始化</span></h5>
+    <p><span>格式：数据类型 数组名[] = {初值1，初值2,...};</span></p>
+    <p><span>例： </span><code>int myList[] = {9, 2, 4, 3};</code></p>
+    <p><span>二维数组</span></p>
+    <p><span>格式：</span><code>type[][] typeName = new type\[typeLength1][typeLength2];</code></p>
+    <p><span>例如：</span><code>int a[][] = new int[2][3];</code></p>
+    <p>&nbsp;</p>
+    <h4 class="contents"><a name="java的数组方法" class="md-header-anchor"></a><span>Java的数组方法</span></h4>
+    <p><span>数组长度：数组名.length </span></p>
+    <p><span>例子：</span><code>score.length</code><span> </span></p>
+    <p><span>作用：返回数组的长度（int）</span></p>
+    <h3><a name="for-each-循环" class="md-header-anchor"></a><span>For-Each 循环</span></h3>
+    <p><span>JDK 1.5 引进了一种新的循环类型，被称为 For-Each 循环或者加强型循环，它能在不使用下标的情况下遍历数组。</span></p>
+    <p><span>语法格式如下：</span></p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 34px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>4</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span>(<span class="cm-variable">type</span> <span class="cm-variable">element</span>: <span class="cm-variable">array</span>)</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">element</span>);</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 80px;"></div>
+    <div class="CodeMirror-gutters" style="height: 80px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <blockquote>
+        <p><span>不建议过多使用！</span></p>
+    </blockquote>
+    <hr />
+    <p>&nbsp;</p>
+    <h2 class="contents"><a name="java中的方法函数）" class="md-header-anchor"></a><span>java中的方法（函数）</span></h2>
+    <p><span>Java中的方法与C语言中的函数是同一种概念</span></p>
+    <h4><a name="方法的定义" class="md-header-anchor"></a><span>方法的定义：</span></h4>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 34px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>4</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">修饰符</span> <span class="cm-variable">返回值类型</span> <span class="cm-def">方法名</span>(<span class="cm-variable">参数类型</span> <span class="cm-variable">参数名</span>){ &nbsp;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ... &nbsp; &nbsp;<span class="cm-variable">方法体</span> &nbsp;  ... &nbsp; </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  [<span class="cm-keyword">return</span> <span class="cm-variable">返回值</span>;]</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 80px;"></div>
+    <div class="CodeMirror-gutters" style="height: 80px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <blockquote>
+        <p><span>如果没有返回值，返回类型要明确写出void，return语句可省略！</span></p>
+    </blockquote>
+    <p><span>例子：</span></p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 34px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>9</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">int</span> <span class="cm-def">max</span>(<span class="cm-variable-3">int</span> <span class="cm-variable">num1</span>, <span class="cm-variable-3">int</span> <span class="cm-variable">num2</span>) {</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; <span class="cm-variable-3">int</span> <span class="cm-variable">result</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; <span class="cm-keyword">if</span> (<span class="cm-variable">num1</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">num2</span>)</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">result</span> <span class="cm-operator">=</span> <span class="cm-variable">num1</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">5</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; <span class="cm-keyword">else</span></span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">6</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">result</span> <span class="cm-operator">=</span> <span class="cm-variable">num2</span>;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">7</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">8</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; <span class="cm-keyword">return</span> <span class="cm-variable">result</span>; </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">9</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 180px;"></div>
+    <div class="CodeMirror-gutters" style="height: 180px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p>&nbsp;</p>
+    <blockquote>
+        <p><span>方法的名字的第一个单词应以小写字母作为开头，后面的单词则用大写字母开头写，不使用连接符。例如：</span><strong><span>addPerson</span></strong></p>
+    </blockquote>
+    <h4 class="contents"><a name="方法的重载" class="md-header-anchor"></a><span>方法的重载</span></h4>
+    <p><mark><span>重载：方法名称相同，参数的类型或个数不同，因此调用的不同功能的方法</span></mark><span>。</span></p>
+    <h3><a name="可变参数" class="md-header-anchor"></a><span>可变参数</span></h3>
+    <p><mark><span>方法中接收的参数的数量不是固定的。</span></mark></p>
+    <p><span>定义格式：</span></p>
+    <p><code>返回值类型 方法名称（类型... 参数名称）{}</code></p>
+    <p><span>例子：</span></p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 34px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>1</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">int</span> <span class="cm-def">max</span>(<span class="cm-variable-3">int</span>... <span class="cm-variable">arg</span>) {<span class="cm-keyword">for</span>(<span class="cm-variable-3">int</span> <span class="cm-variable">x</span>:<span class="cm-variable">arg</span>){}}</span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 20px;"></div>
+    <div class="CodeMirror-gutters" style="height: 20px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <h2 class="contents"><a name="命令行参数的使用" class="md-header-anchor"></a><span>命令行参数的使用</span></h2>
+    <p><span>命令行参数是传递给main函数的。</span></p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="java"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 7px; left: 34px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>7</div>
+    </div>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;">
+            </div>
+            <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">1</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">CommandLine</span> { &nbsp;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">2</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-variable">main</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">args</span>[]){ &nbsp; &nbsp; </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">3</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span>(<span class="cm-variable-3">int</span> <span class="cm-variable">i</span><span class="cm-operator">=</span><span class="cm-number">0</span>; <span class="cm-variable">i</span><span class="cm-operator">&lt;</span><span class="cm-variable">args</span>.<span class="cm-variable">length</span>; <span class="cm-variable">i</span><span class="cm-operator">++</span>){ &nbsp; &nbsp; &nbsp;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">4</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"args["</span> <span class="cm-operator">+</span> <span class="cm-variable">i</span> <span class="cm-operator">+</span> <span class="cm-string">"]: "</span> <span class="cm-operator">+</span> <span class="cm-variable">args</span>[<span class="cm-variable">i</span>]); &nbsp; &nbsp;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">5</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  } &nbsp;</span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 17px;">6</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } </span></pre>
+        </div>
+        <div style="position: relative;">
+            <div class="CodeMirror-gutter-wrapper" style="left: -26px;">
+                <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+                    style="left: 0px; width: 17px;">7</div>
+            </div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 140px;"></div>
+    <div class="CodeMirror-gutters" style="height: 140px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 25px;"></div>
+    </div>
+    </div>
+    </div>
+    </pre>
+    <p><span>如果输入命令行：</span><code>java CommandLine this is a command line</code></p>
+    <p><span>args[0]为this，其他参数以此类推。</span></p>
+    <blockquote>
+        <p><span>C语言中文件名也是一个参数！若参数中想加空格，则加上“&quot;”，如：&quot;Hello World&quot;</span></p>
+    </blockquote>
+    </div>
+    </div>
+    </main>
+
+    <!-- 底部栏 -->
+    <script src="../../../../public/footer.js"></script>
+    </div>
+    </div>
+    <!-- aside可置顶显示 -->
+    <script src="../../../../public/aside.js"></script>
+    <!-- <script src="../../js/top_text.js"></script> -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../public/base.js"></script>
+</body>
+
+</html>

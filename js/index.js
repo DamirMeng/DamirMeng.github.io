@@ -28,7 +28,10 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var articles = JSON.parse(this.responseText).articles; //例化
+            var articles = JSON.parse(this.responseText); //例化
+            articles.sort(function (a, b) { //按时间排序  整个对象已经排序
+                return Date.parse(a.日期) - Date.parse(b.日期); //时间正序
+            });
             var per_page_amount = 10; //决定每页卡片数量  可以调整
             var nth_page = 0; //第几页  
             document.querySelector(".pagination").addEventListener("click", function (e) { //监听页码点击事件 确定在第几页为nth_page赋值
@@ -69,7 +72,7 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
 
             // 提取文章
             for (let index = 0; index < articles.length; index++) {
-                if (articles[index].top == true) { //用数组来取序号
+                if (articles[index].置顶 == true) { //用数组来取序号
                     top.push(index); //置顶文章
                 } else {
                     art.push(index); //未置顶的文章
@@ -91,15 +94,15 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
                             i = top[index]
                             // 设置置项的值
                             element.querySelector(".isTop-div").classList.add("isTop-ribbon"); //添加左上角置顶标志
-                            element.querySelector("span a").href = articles[i].url; //图片的目的链接
-                            element.querySelector("span a img").src = articles[i].img_url; //图片链接src用于图片显示
-                            element.querySelector(".blogtitle a").innerHTML = articles[i].title; //标题
-                            element.querySelector(".blogtitle a").href = articles[i].url; //标题的目的链接
-                            element.querySelector(".bloginfo p").innerHTML = articles[i].introduction; //文章简介
-                            element.querySelector(".lm a").innerHTML = articles[i].tag; //标签
-                            element.querySelector(".lm a").href = '../../../../about/search.html' + '#' + articles[i].tag;
-                            element.querySelector(".dtime a").innerHTML = articles[i].time; //发表时间
-                            element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' + articles[i].time;
+                            element.querySelector("span a").href = articles[i].文章链接; //图片的目的链接
+                            element.querySelector("span a img").src = articles[i].图片链接; //图片链接src用于图片显示
+                            element.querySelector(".blogtitle a").innerHTML = articles[i].标题; //标题
+                            element.querySelector(".blogtitle a").href = articles[i].文章链接; //标题的目的链接
+                            element.querySelector(".bloginfo p").innerHTML = articles[i].简介; //文章简介
+                            element.querySelector(".lm a").innerHTML = articles[i].标签; //标签
+                            element.querySelector(".lm a").href = '../../../../about/search.html' + '#' + articles[i].标签;
+                            element.querySelector(".dtime a").innerHTML = articles[i].日期; //发表时间
+                            element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' + articles[i].日期;
                             element.querySelector(".writer a").innerHTML = articles[i].writer; //作者
                             element.querySelector(".writer a").href = '../../../../about/search.html' + '#' + articles[i].writer;
                         } else { //非置顶的文章
@@ -109,17 +112,17 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
                             if (element.querySelector(".isTop-div")) {
                                 element.querySelector(".isTop-div").classList.remove("isTop-ribbon"); //移除左上角置顶标志
                             }
-                            element.querySelector("span a").href = articles[i].url; //图片的目的链接
-                            element.querySelector("span a img").src = articles[i].img_url; //图片链接src用于图片显示
-                            element.querySelector(".blogtitle a").innerHTML = articles[i].title; //标题
-                            element.querySelector(".blogtitle a").href = articles[i].url; //标题的目的链接
-                            element.querySelector(".bloginfo p").innerHTML = articles[i].introduction; //文章简介
-                            element.querySelector(".lm a").innerHTML = articles[i].tag; //标签
-                            element.querySelector(".lm a").href = '../../../../about/search.html' + '#' + articles[i].tag;
-                            element.querySelector(".dtime a").innerHTML = articles[i].time; //发表时间
-                            element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' + articles[i].time;
-                            element.querySelector(".writer a").innerHTML = articles[i].writer; //作者
-                            element.querySelector(".writer a").href = '../../../../about/search.html' + '#' + articles[i].writer;
+                            element.querySelector("span a").href = articles[i].文章链接; //图片的目的链接
+                            element.querySelector("span a img").src = articles[i].图片链接; //图片链接src用于图片显示
+                            element.querySelector(".blogtitle a").innerHTML = articles[i].标题; //标题
+                            element.querySelector(".blogtitle a").href = articles[i].文章链接; //标题的目的链接
+                            element.querySelector(".bloginfo p").innerHTML = articles[i].简介; //文章简介
+                            element.querySelector(".lm a").innerHTML = articles[i].标签; //标签
+                            element.querySelector(".lm a").href = '../../../../about/search.html' + '#' + articles[i].标签;
+                            element.querySelector(".dtime a").innerHTML = articles[i].日期; //发表时间
+                            element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' + articles[i].日期;
+                            element.querySelector(".writer a").innerHTML = articles[i].作者; //作者
+                            element.querySelector(".writer a").href = '../../../../about/search.html' + '#' + articles[i].作者;
                         }
                     } else { //无数据，加载默认内容
                         element.querySelector("span a img").src = randomPictureApi[Math.floor(Math.random() * randomPictureApi.length)];
@@ -140,34 +143,46 @@ function getArticleData(file_name) { //file_name为要加载的json文件名  �
     xmlhttp.send();
 }
 
+function switchContent(buttonString) {//显示文章的切换
+    for (let index = 0; index < topItems.length; index++) {
+        topItems[index].classList.remove("active");
+    }
+    switch (buttonString) {
+        case secondMenuStr[1][0][0]:
+        case "article":
+            getArticleData("json/转载文章.json"); //展示转载的文章
+            topItems[1].classList.add("active"); //按钮添加active
+            break;
+
+        case secondMenuStr[2][0][0]:
+        case "myArticle":
+            getArticleData("json/我的文章.json");
+            topItems[2].classList.add("active");
+            break;
+
+        default:
+            getArticleData("json/全部文章.json");
+            topItems[0].classList.add("active");
+            break;
+    }
+    document.documentElement.scrollTop = window.innerHeight - 60;//直接滚到下面
+}
+
 const topItems = document.querySelectorAll(".top-items li");
-//secondMenuStr.js中定义的标题名称
+//secondMenuStr是nav.js中定义的标题名称
 // 设置标题名称
-topItems[1].textContent = secondMenuStr[1][0][0] + "(转)";
-topItems[2].textContent = secondMenuStr[1][0][1] + "(转)";
-topItems[3].textContent = secondMenuStr[2][0][0];
-topItems[4].textContent = secondMenuStr[2][0][1];
+topItems[0].textContent = "全部文章";
+topItems[1].textContent = secondMenuStr[1][0][0];
+topItems[2].textContent = secondMenuStr[2][0][0];
 (function () { //根据跳转时的锚点来响应展示的内容
-    var target = decodeURI(document.location.hash.substring(1));
-    if (target == "article") {
-        getArticleData("json/article.json"); //展示转载的文章
-        topItems[1].classList.add("active"); //按钮添加active
-        document.documentElement.scrollTop = window.innerHeight - 60 //直接滚到下面
-    } else if (target == "knowledge") {
-        getArticleData("json/knowledge.json");
-        topItems[2].classList.add("active");
-        document.documentElement.scrollTop = window.innerHeight - 60
-    } else if (target == "myArticle") {
-        getArticleData("json/myArticle.json");
-        topItems[3].classList.add("active");
-        document.documentElement.scrollTop = window.innerHeight - 60
-    } else if (target == "myKnowledge") {
-        getArticleData("json/myKnowledge.json");
-        topItems[4].classList.add("active");
-        document.documentElement.scrollTop = window.innerHeight - 60
-    } else {
-        getArticleData("json/index.json");
-        topItems[0].classList.add("active");
+    var text = decodeURI(document.location.hash.substring(1));//获取锚点文本
+    switchContent(text);
+
+    //文章列表上面的按钮的点击事件，显示效果、点击哪个就active哪个
+    if (document.querySelector(".top-items")) {
+        document.querySelector(".top-items").addEventListener("click", function (e) {
+            switchContent(e.target.innerHTML);
+        });
     }
 })();
 
@@ -178,30 +193,8 @@ topItems[4].textContent = secondMenuStr[2][0][1];
     if (mobileNav) {
         mobileNav.addEventListener("click", function (e) {
             var target = e.target.textContent;
-            for (let index = 0; index < topItems.length; index++) {
-                const element = topItems[index];
-                element.classList.remove("active");
-            }
-            if (target == secondMenuStr[1][0][0]) {
-                getArticleData("json/article.json");
-                topItems[1].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight;
-            } else if (target == secondMenuStr[1][0][1]) {
-                getArticleData("json/knowledge.json");
-                topItems[2].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight;
-            } else if (target == secondMenuStr[2][0][0]) {
-                getArticleData("json/myArticle.json");
-                topItems[3].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight;
-            } else if (target == secondMenuStr[2][0][1]) {
-                getArticleData("json/myKnowledge.json");
-                topItems[4].classList.add("active");
-                document.documentElement.scrollTop = window.innerHeight;
-            } else {
-                getArticleData("json/index.json");
-                topItems[0].classList.add("active");
-            }
+            switchContent(target);
+
             if (target == secondMenuStr[1][0][0] || target == secondMenuStr[1][0][1] || target == secondMenuStr[2][0][0] || target == secondMenuStr[2][0][1]) {
                 if (document.querySelector(".menubar").classList.contains('arrow')) {
                     document.querySelector(".menubar").classList.remove("arrow");
@@ -218,51 +211,19 @@ topItems[4].textContent = secondMenuStr[2][0][1];
     if (reprint) {
         reprint.addEventListener("click", function (e) {
             var target = e.target.textContent;
-            for (let index = 0; index < topItems.length; index++) {
-                const element = topItems[index];
-                element.classList.remove("active");
-            }
-            if (target == secondMenuStr[1][0][0]) {
-                getArticleData("json/article.json");
-                topItems[1].classList.add("active");
-            } else if (target == secondMenuStr[1][0][1]) {
-                getArticleData("json/knowledge.json");
-                topItems[2].classList.add("active");
-            } else if (target == secondMenuStr[2][0][0]) {
-                getArticleData("json/myArticle.json");
-                topItems[3].classList.add("active");
-
-            } else if (target == secondMenuStr[2][0][1]) {
-                getArticleData("json/myKnowledge.json");
-                topItems[4].classList.add("active");
-            } else {
-                getArticleData("json/index.json");
-                topItems[0].classList.add("active");
-            }
-            document.documentElement.scrollTop = window.innerHeight - 60;
+            switchContent(target);
         });
     }
 
 })();
 
 (function () { //文章列表上面的按钮、首页向下箭头
-    //文章列表上面的按钮显示效果、点击哪个就active哪个
-    if (document.querySelector(".top-items")) {
-        document.querySelector(".top-items").addEventListener("click", function (e) {
-            for (let index = 0; index < topItems.length; index++) {
-                const element = topItems[index];
-                element.classList.remove("active");
-            }
-            e.target.classList.add("active");
-            document.documentElement.scrollTop = window.innerHeight - 60;
-        });
-    }
-
     //首页向下箭头
     document.querySelector(".top_svg").style.height = window.innerHeight + "px";
     document.querySelector("#headerDown").addEventListener("click", function (e) {
         document.documentElement.scrollTop = window.innerHeight - 60;
     });
+
     document.querySelector(".pagination").addEventListener("click", function (e) { //监听页码点击事件
         setTimeout(function () { //直接跳转不行，我也不知道为什么
             // 判断文档和所有子资源(图片、音视频等)已完成加载

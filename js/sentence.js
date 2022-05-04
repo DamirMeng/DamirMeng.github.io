@@ -38,7 +38,7 @@ function getSentenceData(file_name) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var sentence = JSON.parse(this.responseText).sentence;
+            var sentence = JSON.parse(this.responseText);
             var per_page_amount = 21;//决定每页卡片数量
             var nth_page = 0;//第几页
             setCardHTML(0);
@@ -79,22 +79,25 @@ function getSentenceData(file_name) {
                     if (start_card >= 0 && nth_card >= 0) { //如果json还有数据
                         //nth_card是json中的序号
                         // 添加img
-                        if (sentence[nth_card].img_url) {
+                        if (sentence[nth_card].图片链接) {
                             var img = document.createElement('img');
                             document.querySelectorAll('#columns li')[nth_li].appendChild(img);
-                            document.querySelectorAll('#columns li')[nth_li].querySelector("img").src = sentence[nth_card].img_url;
+                            document.querySelectorAll('#columns li')[nth_li].querySelector("img").src = sentence[nth_card].图片链接;
                         }
-                        var content_length = sentence[nth_card].content.length;
+                        var content_length = sentence[nth_card].句子.length;
                         for (let index = 0; index < content_length + 1; index++) {
                             //每个li添加对应数量的p元素;
                             var p = document.createElement('p');
                             document.querySelectorAll('#columns li')[nth_li].appendChild(p);
                         }
                         for (let nth_para = 0; nth_para < content_length; nth_para++) { //遍历content
-                            sentenceHtml[nth_li].querySelectorAll("p")[nth_para].innerHTML = sentence[nth_card].content[nth_para];
+                            sentenceHtml[nth_li].querySelectorAll("p")[nth_para].innerHTML = sentence[nth_card].句子[nth_para];
                         }
-                        //作家
-                        sentenceHtml[nth_li].querySelector("p:last-child").innerHTML = "— " + sentence[nth_card].writer;
+                        if (sentence[nth_card].作者) {//转载
+                            sentenceHtml[nth_li].querySelector("p:last-child").innerHTML = "— " + sentence[nth_card].作者;
+                        } else if(sentence[nth_card].日期){//我的句子
+                            sentenceHtml[nth_li].querySelector("p:last-child").innerHTML = "— " + sentence[nth_card].日期;
+                        }
                     } else { //用一言api添加
                         var img = document.createElement('img');//add img
                         document.querySelectorAll('#columns li')[nth_li].appendChild(img);
@@ -104,7 +107,6 @@ function getSentenceData(file_name) {
                         var p = document.createElement('p');
                         document.querySelectorAll('#columns li')[nth_li].appendChild(p);
                         getYiyan(nth_li); //调用一言API
-
                     }
                 }
             }

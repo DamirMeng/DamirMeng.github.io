@@ -281,21 +281,21 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var articles = JSON.parse(this.responseText).articles //例化
+                var articles = JSON.parse(this.responseText) //例化
 
                 var classification = new Array(); //存储分类字符串，便于索引
                 var message = new Array(); //分类的详细信息
                 // 获取json数据到数组
                 for (let index = 0; index < articles.length; index++) { //
                     const element = articles[index];
-                    if (!classification.includes(element.classification)) { //建立分类，之前没有的添加
-                        classification.push(element.classification);
-                        message.push(new classMap(element.classification))
+                    if (!classification.includes(element.分类)) { //建立分类，之前没有的添加
+                        classification.push(element.分类);
+                        message.push(new classMap(element.分类))
                     }
                     // 将文章索引信息加入对应分类
-                    message[classification.indexOf(element.classification)].
-                    index[message[classification.indexOf(element.classification)].number] = index;
-                    message[classification.indexOf(element.classification)].number++; //文章数量
+                    message[classification.indexOf(element.分类)].
+                    index[message[classification.indexOf(element.分类)].number] = index;
+                    message[classification.indexOf(element.分类)].number++; //文章数量
                 }
                 // 添加节点，设置信息
                 for (let index = 0; index < message.length; index++) {
@@ -308,10 +308,10 @@
                         "#" + Math.round(Math.random() * 0x1000000).toString(16);
                     for (let j = 0; j < element.number; j++) { //克隆分类下的文章节点
                         var li2 = document.querySelector("li.alarm_item").cloneNode(true);
-                        li2.querySelector("a").href = articles[element.index[j]].url //文章链接
-                        li2.querySelector(".time").innerHTML = articles[element.index[j]].time //文章日期
+                        li2.querySelector("a").href = articles[element.index[j]].文章链接 //文章链接
+                        li2.querySelector(".time").innerHTML = articles[element.index[j]].日期 //文章日期
                         li2.querySelector(".alarm_item_description").innerHTML = articles[element.index[j]]
-                            .title + " — " + articles[element.index[j]].writer //文章标题
+                            .标题 + " — " + articles[element.index[j]].作者 //文章标题
                         li.querySelector(".card ul").appendChild(li2) //追加
                     }
                     document.querySelector(".cards_wrapper").appendChild(li) //追加
@@ -335,7 +335,7 @@
                 }
             }
         }
-        xmlhttp.open("GET", "../json/index.json", true);
+        xmlhttp.open("GET", "../json/全部文章.json", true);
         xmlhttp.send();
     </script>
 </body>

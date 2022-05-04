@@ -52,12 +52,12 @@
         var xmlhttp = new XMLHttpRequest()
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var articles = JSON.parse(this.responseText).articles;//例化
+                var articles = JSON.parse(this.responseText);//例化
                 var div = document.querySelector("#tags_list");
                 var tags = new Array;//将标签名引入（不重复）
                 var num = new Array;//标签所对应的文章数量
                 for (let index = 0; index < articles.length; index++) { //遍历json
-                    var str = articles[index].tag.split(" ");//以空格划分，可能存在多个标签
+                    var str = articles[index].标签.split(" ");//以空格划分，可能存在多个标签
                     for (let index = 0; index < str.length; index++) { //遍历划分的标签
                         if (!tags.includes(str[index])) { //将不重名的标签放进数组
                             num.push(1);
@@ -100,7 +100,7 @@
                 }
             }
         }
-        xmlhttp.open("GET", "../../../../json/index.json", true);
+        xmlhttp.open("GET", "../../../../json/全部文章.json", true);
         xmlhttp.send();
     </script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

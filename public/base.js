@@ -189,7 +189,7 @@ function addLeftList() { // 生成左侧菜单栏
         var xmlhttp = new XMLHttpRequest()
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var articles = JSON.parse(this.responseText).articles;//例化
+                var articles = JSON.parse(this.responseText);//例化
                 // 顶部
                 var card = document.createElement("div"),
                     head = document.createElement("div");
@@ -246,11 +246,11 @@ function addLeftList() { // 生成左侧菜单栏
                 // 读取标题所对应的json的信息  将其序号加入text中
                 for (let index = 0; index < articles.length; index++) {
                     const element = articles[index];
-                    if (element.title == title) {
-                        classification = element.classification;
-                        writer = element.writer;
-                        tag = element.tag;
-                        time = element.time;
+                    if (element.标题 == title) {
+                        classification = element.分类;
+                        writer = element.作者;
+                        tag = element.标签;
+                        time = element.日期;
                         text.push(index);
                         index_have = true;
                     }
@@ -284,7 +284,7 @@ function addLeftList() { // 生成左侧菜单栏
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
                             for (let i = 0; i < title_word.length; i++) { //遍历是否有对应的字
-                                if (element.title.includes(title_word[i]) && text.length < list.length + 1 && !text.includes(index)) {
+                                if (element.标题.includes(title_word[i]) && text.length < list.length + 1 && !text.includes(index)) {
                                     text.push(index);
                                 }
                             }
@@ -294,7 +294,7 @@ function addLeftList() { // 生成左侧菜单栏
                     if (text.length < list.length + 1) {
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
-                            if (element.classification == classification && text.length < list.length + 1 && !text.includes(index)) {
+                            if (element.分类 == classification && text.length < list.length + 1 && !text.includes(index)) {
                                 text.push(index);
                             }
                         }
@@ -303,7 +303,7 @@ function addLeftList() { // 生成左侧菜单栏
                     if (text.length < list.length + 1) {
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
-                            if (element.writer == writer && text.length < list.length + 1 && !text.includes(index)) {
+                            if (element.作者 == writer && text.length < list.length + 1 && !text.includes(index)) {
                                 text.push(index);
                             }
                         }
@@ -312,7 +312,7 @@ function addLeftList() { // 生成左侧菜单栏
                     if (text.length < list.length + 1) {
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
-                            if (element.tag == tag && text.length < list.length + 1 && !text.includes(index)) {
+                            if (element.标签 == tag && text.length < list.length + 1 && !text.includes(index)) {
                                 text.push(index);
                             }
                         }
@@ -321,7 +321,7 @@ function addLeftList() { // 生成左侧菜单栏
                     if (text.length < list.length + 1) {
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
-                            if (element.time.substring(0, 4) == time.substring(0, 4) && text.length < list.length + 1 && !text.includes(index)) {
+                            if (element.日期.substring(0, 4) == time.substring(0, 4) && text.length < list.length + 1 && !text.includes(index)) {
                                 text.push(index);
                             }
                         }
@@ -335,7 +335,7 @@ function addLeftList() { // 生成左侧菜单栏
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
                             for (let i = 0; i < title_word.length; i++) { //遍历是否有对应的字
-                                if (element.title.includes(title_word[i]) && text.length < list.length + 1 && !text.includes(index)) {
+                                if (element.标题.includes(title_word[i]) && text.length < list.length + 1 && !text.includes(index)) {
                                     text.push(index);
                                 }
                             }
@@ -352,8 +352,8 @@ function addLeftList() { // 生成左侧菜单栏
                 // 使用text数组添加，title和href
                 for (let index = 0; index < list.length; index++) {
                     var element = list[index];
-                    element.querySelector("a").innerHTML = articles[text[index + 1]].title //index+1是因为第一个是当前的文章的序号
-                    element.querySelector("a").href = articles[text[index + 1]].url
+                    element.querySelector("a").innerHTML = articles[text[index + 1]].标题 //index+1是因为第一个是当前的文章的序号
+                    element.querySelector("a").href = articles[text[index + 1]].文章链接
                 }
 
                 // 添加监听ul
@@ -371,7 +371,7 @@ function addLeftList() { // 生成左侧菜单栏
                         var num = new Array
                         for (let index = 0; index < articles.length; index++) {
                             var element = articles[index];
-                            if (element.recommend) { //优先显示json中recommend=true的文章
+                            if (element.推荐) { //优先显示json中recommend=true的文章
                                 num.push(index)
                             }
                         }
@@ -385,15 +385,15 @@ function addLeftList() { // 生成左侧菜单栏
                         // 添加底部展示信息
                         for (let index = 0; index < list.length; index++) {
                             var element = list[index];
-                            element.querySelector("a").innerHTML = articles[num[index]].title
-                            element.querySelector("a").href = articles[num[index]].url
+                            element.querySelector("a").innerHTML = articles[num[index]].标题
+                            element.querySelector("a").href = articles[num[index]].文章链接
                         }
                     } else if (e.target.innerHTML == "相关阅读") { //点击相关阅读
                         // 利用数组text设置信息
                         for (let index = 0; index < list.length; index++) {
                             var element = list[index];
-                            element.querySelector("a").innerHTML = articles[text[index + 1]].title
-                            element.querySelector("a").href = articles[text[index + 1]].url
+                            element.querySelector("a").innerHTML = articles[text[index + 1]].标题
+                            element.querySelector("a").href = articles[text[index + 1]].文章链接
                         }
                     } else if (e.target.innerHTML == "随机阅读") { //点击随机阅读
                         var Random = new Array
@@ -407,14 +407,14 @@ function addLeftList() { // 生成左侧菜单栏
                         // 设置信息
                         for (let index = 0; index < list.length; index++) {
                             var element = list[index];
-                            element.querySelector("a").innerHTML = articles[Random[index]].title
-                            element.querySelector("a").href = articles[Random[index]].url
+                            element.querySelector("a").innerHTML = articles[Random[index]].标题
+                            element.querySelector("a").href = articles[Random[index]].文章链接
                         }
                     }
                 })
             }
         }
-        xmlhttp.open("GET", "../../../../json/index.json", true);
+        xmlhttp.open("GET", "../../../../json/全部文章.json", true);
         xmlhttp.send();
     }
 })();
@@ -495,6 +495,7 @@ function addLeftList() { // 生成左侧菜单栏
     }
 })();
 
+// onXXXX函数只能有一个，因此禁止在其他地方定义
 window.onload = function () {
     // 添加动态带子
     var secScript = document.createElement("script");
