@@ -22,9 +22,9 @@
 
         .search {
             position: relative;
-            height: 100px;
+            /* height: 100px; */
             width: 50%;
-            margin: 50px auto 20px auto;
+            margin: 160px auto 0px auto;
             line-height: 30px;
         }
 
@@ -324,15 +324,7 @@
                     result.push(index);
                 }
             }
-            // 提高单字搜索标题的优先级
-            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
-                for (let index = 0; index < articles.length; index++) {
-                    // 搜索标题
-                    if (articles[index].标题.search(s_word[i]) != -1 && !result.includes(index)) {
-                        result.push(index);
-                    }
-                }
-            }
+
             for (let index = 0; index < articles.length; index++) { // 搜索作者
                 if (articles[index].作者.search(searchText) != -1 && !result.includes(index)) {
                     result.push(index);
@@ -364,6 +356,15 @@
             }
 
             // 单字检索
+            // 提高单字搜索标题的优先级
+            for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
+                for (let index = 0; index < articles.length; index++) {
+                    // 搜索标题
+                    if (articles[index].标题.search(s_word[i]) != -1 && !result.includes(index)) {
+                        result.push(index);
+                    }
+                }
+            }
             for (let i = 0; i < s_word.length; i++) { //遍历是否有对应的字
                 for (let index = 0; index < articles.length; index++) { // 搜索作者
                     if (articles[index].作者.search(s_word[i]) != -1 && !result.includes(index)) {
@@ -444,7 +445,7 @@
                 var start_card = nth_page * per_page_amount //开始的页面
                 var articlesHTML = document.querySelectorAll("#article_ul li") //
 
-                for (let nth_card = start_card; nth_card < start_card + per_page_amount; nth_card++) { 
+                for (let nth_card = start_card; nth_card < start_card + per_page_amount; nth_card++) {
                     //遍历所有的十个json对象
                     //nth_card是json中的序号
                     var nth_li = nth_card - start_card //nth_li是HTML里的序号
@@ -473,9 +474,9 @@
                         element.querySelector(".blogtitle a").innerHTML = "没有更多结果了！^o^";
                         element.querySelector(".bloginfo p").innerHTML =
                             "欢迎来到至简博客，至简是少即是多的意思，简简单单、更少很多时候才会获得更多。"
-                        element.querySelector(".lm a").innerHTML = "demo";
-                        element.querySelector(".dtime a").innerHTML = "2012-12-12";
-                        element.querySelector(".writer a").innerHTML = "佚名";
+                        element.querySelector(".lm a").innerHTML = "--";
+                        element.querySelector(".dtime a").innerHTML = "--";
+                        element.querySelector(".writer a").innerHTML = "--";
                     }
                 }
 

@@ -153,7 +153,7 @@ function addLeftList() { // 生成左侧菜单栏
         }
     }
 }()
-
+var HtmlTitleText = document.querySelector("title").innerText;
 ! function () { //main边框、进度条
     //随机边框颜色
     if (document.querySelector('main')) {
@@ -175,9 +175,9 @@ function addLeftList() { // 生成左侧菜单栏
     }
 
     //标题添加“蒙大明的个人博客”
-    var title = document.querySelector("title");
-    if (title.innerText != "蒙大明的个人博客") {
-        title.innerText = title.innerText + " - 蒙大明的个人博客"
+
+    if (document.querySelector("title").innerText != "蒙大明的个人博客") {
+        document.querySelector("title").innerText += " - 蒙大明的个人博客"
     }
 
     console.log("%cBlue Blog%c\n 蒙大明的博客\n\n  用于发布一些文章！", "font-size:96px;color:#3b3e43",
@@ -232,11 +232,14 @@ function addLeftList() { // 生成左侧菜单栏
                 container.insertBefore(card, document.querySelector(".footer"));
                 var list = document.querySelectorAll(".b-htc ul li");
                 var text = new Array();
-                if (document.querySelector(".title h2")) {
-                    var title = document.querySelector(".title h2").innerText;
-                } else {
-                    var title = document.querySelector(".title h1").innerText;
-                }
+                var title = HtmlTitleText;
+                // 设标题
+                document.querySelector(".title h2").innerText = title;
+                // if (document.querySelector(".title h2")) {
+                //     var title = document.querySelector(".title h2").innerText;
+                // } else {
+                //     var title = document.querySelector(".title h1").innerText;
+                // }
                 var writer;
                 var tag;
                 var time;

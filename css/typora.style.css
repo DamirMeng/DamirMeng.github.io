@@ -2338,7 +2338,7 @@ var {
   .later::before {
     display: inline-block;
     width: 18px;
-    height: 18px;
+    /* height: 18px; */
     position: absolute;
     left: -18px;
     bottom: 0;
