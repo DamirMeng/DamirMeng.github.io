@@ -524,7 +524,7 @@ function writeMaskHTML() {
     document.write("        <div class=\"dialog-inner\">");
     document.write("            <h2>欢迎访问至简博客！<\/h2>");
     document.write("            <img>");
-    document.write("            <div><button class=\"feedback-close\">关闭<\/button><\/div>");
+    document.write("            <div><button type=\"button\" class=\"feedback-close\">关闭<\/button><\/div>");
     document.write("        <\/div>");
     document.write("    <\/div>");
 }
@@ -558,6 +558,16 @@ function Feedback(text, src) {
     })
 
 }
+
+// 对节点监听，节点被点击后会调用 遮盖层
+function listToCallFeedback(element,txt,img_url) {
+    if (element) {
+        element.addEventListener("click", function (e) {
+            Feedback(txt, img_url);
+        })
+    }
+}
+
 
 // 加载提示
 const loading = document.querySelector('#loading');

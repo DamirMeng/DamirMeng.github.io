@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------------------------------
+# 将excel文件内的网站数据内容转化为HTML，同时调整json文件的内容
+# 在我的文章、转载文章表格中 是否新增	未处理文件名 填入值后将会按 文章链接 中名称来生成新的html文件
+# 同时会在对应的内容更新到新的json到 全部文章.json 和对应的同名json中
+# ------------------------------------------------------------------------------------------------
 import openpyxl
 import json
 import io
@@ -69,7 +74,6 @@ def createHTML( srcfilename,destfilename,title):  # srcfilename没处理文件
     fh.write(text)
     fh.close()
 
-
 def excel_to_json(excel_file):
 
     work_book = openpyxl.load_workbook(excel_file)
@@ -84,7 +88,7 @@ def excel_to_json(excel_file):
         max_row = sheet.max_row
         max_column = sheet.max_column
 
-        # 解析第一行的表头数据
+        # 解析第一行的表头数据到heads
         for column in range(max_column):
             heads.append(sheet.cell(1, column + 1).value)
 
@@ -96,6 +100,7 @@ def excel_to_json(excel_file):
             row_is_none = True  # 判断该行是否为空
             sentence = []  # 用于记录句子时，有多个句子的情况,仅用于第五个表格
 
+            # 按列来遍历
             for column in range(max_column):  # 遍历一行中的每一个单元格
                 key_from_head = heads[column]  # 获取表头做为json的key名
                 if key_from_head == None:  # 跳过表头为空的列
@@ -115,11 +120,16 @@ def excel_to_json(excel_file):
                         one_line[key_from_head] = cell_value
 
                 else:
+                    # 添加一行数据到one_line
                     if(column < 10):
                         one_line[key_from_head] = cell_value
-                    elif column == 10 and cell_value:  # 是新添加的,处理HTML
+
+                    elif column == 10 and cell_value and len(cell_value)>6:  # 是新添加的,处理HTML
                         srcFile = "../markdown/" + \
-                            sheet.cell(row + 1, column + 2).value + ".html"
+                            sheet.cell(row + 1, column + 2).value + ".html"#获取源html文件
+                        # 删除 是否新增	未处理文件名 两列的值
+                        sheet.cell(row + 1, column + 1).value = ' '
+                        sheet.cell(row + 1, column + 2).value = ' '
                         destFile = "../"+one_line[heads[8]].split("../")[-1]
                         # 创建HTML文件，参数为typora生成的HTML文件和需要生成的文件名（包含路径）
                         # one_line[heads[8]].split("../")[-1]为目标文件名和路径，不包括带../的
@@ -133,7 +143,7 @@ def excel_to_json(excel_file):
                 json_dict.append(one_line)  # 添加非空的列
                 if(sheet_index <= 2):  # 全部文章
                     all_articles.append(one_line)
-
+        work_book.save(excel_file)
         work_book.close()
         if(sheet_index == 2):  # 生成全部文章json
             save_json_file(all_articles, '../json/全部文章.json')  # 按表名来保存文件
@@ -152,35 +162,7 @@ def save_json_file(jd, json_f_name):  # 将json保存为文件
     file.close()
 
 
-def json_to_excel(json_file, excel_file):
-    # 读取json文件数据
-    with open(json_file, mode='r', encoding='utf-8') as jf:
-        json_data = json.load(jf)
-    work_book = Workbook()  # 创建excel文件
-    work_sheet = work_book.active
-    j = 0
-    for sheet_data in json_data:
-        j += 1
-        i = 65  # ASCII码'65'表示'A'
-        for key in sheet_data:  # 遍历要写入的行
-            work_sheet['%s%d' % (chr(i), j)] = str(sheet_data[key])
-            i += 1
-    work_book.save(excel_file)
-
-
 # 直接引用本模块时运行以下代码
 if '__main__' == __name__:
     os.chdir(os.path.dirname(__file__))  # 切换工作目录到当前文件所在位置
-# '''
-#     json转表格
-#     file_names = os.listdir('./json')  # 获取文件列表
-#     for file_info in file_names:
-#         print(file_info)
-#         str_list = file_info.split('.')
-#         print(str_list[0])
-#         json_to_excel('./json/'+file_info, 'excel/'+str_list[0]+'.xlsx')
-# '''
-    file_names = os.listdir('../excel')  # 获取文件列表
-    for file_info in file_names:  # 遍历所有文件
-        str_list = file_info.split('.')  # 以.号为结束，提取文件名
-        excel_to_json('../excel/' + file_info)
+    excel_to_json('../excel/内容表格.xlsx')

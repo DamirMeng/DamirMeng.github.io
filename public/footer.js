@@ -58,8 +58,8 @@ function writeFooter() {
     document.writeln("	<a target=\'_blank\' href=\'../../../../diary\'>每日明记</a>");
     document.writeln("");
     document.writeln("	<a target=\'_blank\' href=\'../../../../tools/timer\'>计时器</a>");
-    document.writeln("	<a target=\'_blank\' href=\'https://bblog.github.io/\'>友情链接1</a>");
-    document.writeln("	<a target=\'_blank\' href=\'https://bblog.github.io/\'>友情链接2</a>");
+    document.writeln("	<a target=\'_blank\' href=\'../../../../tools/calculator/iCalculator.html\'>投资计算器</a>");
+    document.writeln("	<a target=\'_blank\' href=\'../../../../tools/calculator/ETFCalculator.html'>ETF计算器</a>");
     document.writeln("	<a target=\'_blank\' href=\'https://bblog.github.io/\'>友情链接3</a>");
     document.writeln("	<a target=\'_blank\' href=\'https://bblog.github.io/\'>更多友链</a>");
     document.writeln("</div>");

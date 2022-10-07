@@ -898,6 +898,7 @@
     font-size: 14px;
     color: gray;
     padding: 0;
+    background-color: white;
   }
 
   .about-list * {
@@ -1223,9 +1224,6 @@
   .feedback-open button {
     -webkit-animation: anim-elem-2 0.7s ease-out both;
     animation: anim-elem-2 0.7s ease-out both;
-  }
-
-  button {
     cursor: pointer;
     padding: 1em 2em;
     outline: none;

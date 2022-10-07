@@ -298,7 +298,7 @@
 				</div>
 				<ul id="article_ul" class="article-list">
 					<li>
-						<div class="isTop-div isTop-ribbon">
+						<div class="isTop-div ">
 							<div class="corner"></div>置顶
 						</div>
 						<span class="blogpic"><a href="/"><img></a></span>
@@ -312,136 +312,12 @@
 							<span class="writer"><a></a></span>
 						</div>
 					</li>
-					<li>
-						<div class="isTop-div isTop-ribbon">
-							<div class="corner"></div>置顶
-						</div><span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li>
-						<div class="isTop-div isTop-ribbon">
-							<div class="corner"></div>置顶
-						</div> <span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li>
-						<div class="isTop-div isTop-ribbon">
-							<div class="corner"></div>置顶
-						</div><span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li>
-						<div class="isTop-div isTop-ribbon">
-							<div class="corner"></div>置顶
-						</div><span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li> <span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li> <span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li> <span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li> <span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
-					<li> <span class="blogpic"><a href="/"><img></a></span>
-						<h3 class="blogtitle"><a href="/"></a></h3>
-						<div class="bloginfo">
-							<p></p>
-						</div>
-						<div class="author">
-							<span class="lm"><a></a></span>
-							<span class="dtime"><a></a></span>
-							<span class="writer"><a></a></span>
-						</div>
-					</li>
 				</ul>
-				<!-- 分页 -->
+				<!-- 加载更多 -->
 				<div>
-					<ul class="pagination">
-						<li>
-							<a href="#" class="page-link" aria-label="Previous"><span aria-hidden="true">«</span>
-							</a>
-						</li>
-						<li class="active"><a class="page-link" href="#">1</a></li>
-						<li><a class="page-link" href="#">2</a></li>
-						<li><a class="page-link" href="#">3</a></li>
-						<li><a class="page-link" href="#">4</a></li>
-						<li><a class="page-link" href="#">5</a></li>
-						<li>
-							<a href="#" class="page-link" aria-label="Next">
-								<span aria-hidden="true">»</span>
-							</a>
-						</li>
-					</ul>
+					<button type="button" class="load-more">
+						加载更多
+					</button>
 				</div>
 			</div>
 			<script src="../../../../public/footer.js"></script>
@@ -451,20 +327,20 @@
 	<!-- aside可置顶显示 -->
 	<script src="../../../../public/aside.js"></script>
 	<!-- <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script> -->
-	<script src="https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.js"></script>
+	<!-- <script src="https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.js"></script> -->
 	<script>
-		if (document.querySelector("#article_ul li")) {
-			ScrollReveal().reveal('#article_ul li', {
-				delay: 100, //延时
-				distance: '24px', //距离
-				duration: 500, //持续时间
-				easing: 'ease-in-out', //动画
-				interval: 300, //间隔
-				origin: 'bottom', //起点
-				cleanup: false,
-				reset: true,
-			});
-		}
+		// if (document.querySelector("#article_ul li")) {
+		// 	ScrollReveal().reveal('#article_ul li', {
+		// 		delay: 100, //延时
+		// 		distance: '24px', //距离
+		// 		duration: 500, //持续时间
+		// 		easing: 'ease-in-out', //动画
+		// 		interval: 300, //间隔
+		// 		origin: 'bottom', //起点
+		// 		cleanup: false,
+		// 		reset: true,
+		// 	});
+		// }
 	</script>
 	<script type="text/javascript" src="public/base.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>

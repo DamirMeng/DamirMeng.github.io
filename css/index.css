@@ -149,7 +149,7 @@ article {
         /* padding: 8px; */
         position: relative;
         background: #ffffffdb;
-        visibility: hidden;
+        /* visibility: hidden; */
     }
 
     .blogs .article-list li:hover {
@@ -340,6 +340,7 @@ article {
 
 .top_svg {
     position: relative;
+    padding: 8% 15%;
 }
 
 @-webkit-keyframes bounce {
@@ -909,9 +910,9 @@ path#f3-l9 {
     background-color: var(--theme-color);
 }
 
-/* ======================分页=========== */
+/* ======================加载更多=========== */
 @media screen {
-    .pagination {
+    .load-more {
         position: absolute;
         left: 50%;
         top: 0;
@@ -920,91 +921,15 @@ path#f3-l9 {
         display: inline-flex;
         position: relative;
         display: inline-block;
-        border-radius: 4px;
-        margin: 50px 0;
-        margin-bottom: 250px;
+        border-radius: 40px;
+        margin: 10px 0 60px 0;
+        padding: 1.5rem 3rem;
+        font-size: 1.25rem;
+        color: var(--theme-color);
+        background: #0000;
     }
-
-    .pagination li {
-        display: inline;
-    }
-
-    .pagination li a.page-link {
-        width: 55px;
-        height: 45px;
-        border: 2px solid #6559bc;
-        padding: 0;
-        margin-right: 12px;
-        font-size: 22px;
-        font-weight: 600;
-        color: #6559bc;
-        line-height: 45px;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.3s ease 0s;
-        float: left;
-        text-decoration: none;
-    }
-
-    .pagination li:last-child a.page-link {
-        margin-right: 0;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-
-    .pagination>li:first-child>a {
-        margin-left: 0;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-
-    .pagination li a.page-link:before,
-    .pagination li a.page-link:after {
-        content: "";
-        width: 0;
-        height: 100%;
-        background: #06d7fc;
-        position: absolute;
-        bottom: -1px;
-        left: -20px;
-        transform: rotate(-15deg);
-        transform-origin: top left;
-        z-index: -1;
-        transition: all 0.5s ease 0s;
-    }
-
-    .pagination li a.page-link:after {
-        background: #6559bc;
-        left: auto;
-        right: -10px;
-        transform: rotate(13deg);
-        transform-origin: bottom right;
-        transition-delay: 0.2s;
-    }
-
-    .pagination li.active a.page-link,
-    .pagination li a.page-link:hover,
-    .pagination li.active a.page-link:hover {
-        color: #fff;
-        background: transparent;
-    }
-
-    .pagination li.active a.page-link:before,
-    .pagination li a.page-link:hover:before,
-    .pagination li.active a.page-link:hover:before,
-    .pagination li.active a.page-link:after,
-    .pagination li a.page-link:hover:after,
-    .pagination li.active a.page-link:hover:after {
-        width: 150%;
-    }
-
-    @media only screen and (max-width: 480px) {
-        .pagination {
-            display: block;
-        }
-
-        .pagination li {
-            display: inline-block;
-        }
+    button.not-more{
+        color: gray;
+        font-size: 1.0rem;
     }
 }

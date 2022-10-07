@@ -109,107 +109,12 @@
                 </div>
                 <div class="show-result">搜索到“<span class="keyword"></span>”：共 <span class="length"></span> 条</div>
                 <ul id="article_ul" class="article-list">
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
+                    <li>
+                        <div class="isTop-div ">
+                            <div class="corner"></div>置顶
                         </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
-                        <div class="bloginfo">
-                            <p></p>
-                        </div>
-                        <div class="author">
-                            <span class="lm"><a></a></span>
-                            <span class="dtime"><a></a></span>
-                            <span class="writer"><a></a></span>
-                        </div>
-                    </li>
-                    <li> <span class="blogpic"><a href="/"><img></a></span>
-                        <h3 class="blogtitle"><a></a></h3>
+                        <span class="blogpic"><a href="/"><img></a></span>
+                        <h3 class="blogtitle"><a href="/"></a></h3>
                         <div class="bloginfo">
                             <p></p>
                         </div>
@@ -220,25 +125,11 @@
                         </div>
                     </li>
                 </ul>
-                <!-- 分页 -->
+                <!-- 加载更多 -->
                 <div>
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li class="active"><a class="page-link" href="#">1</a></li>
-                        <li><a class="page-link" href="#">2</a></li>
-                        <li><a class="page-link" href="#">3</a></li>
-                        <li><a class="page-link" href="#">4</a></li>
-                        <li><a class="page-link" href="#">5</a></li>
-                        <li>
-                            <a href="#" class="page-link" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <button type="button" class="load-more">
+                        加载更多
+                    </button>
                 </div>
                 <!-- 底部栏 -->
                 <script src="../../../../public/footer.js"></script>
@@ -247,7 +138,7 @@
     </div>
     <!-- aside可置顶显示 -->
     <script src="../../../../public/aside.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         if (document.querySelector("#article_ul li")) {
             ScrollReveal().reveal('#article_ul li', {
@@ -261,10 +152,11 @@
 
             });
         }
-    </script>
+    </script> -->
     <script>
         // ajax 的兼容写法
-        var articles
+        var articles;
+        var indexOfDisplayed = 0;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -302,21 +194,12 @@
                 getJsonItems(searchInput.value)
             }
         }
-        // 搜索无结果时显示图片的API
-        var randomPictureApi = [
-            "http://api.mtyqx.cn/api/random.php",
-            "http://www.dmoe.cc/random.php",
-            "https://api.ixiaowai.cn/api/api.php",
-            "https://bing.ioliu.cn/v1/rand?w=1920&h=1200",
-            "https://bing.ioliu.cn/v1/rand?w=600&h=800"
-
-        ]
         var result = new Array
 
         function getJsonItems(searchText) {
             document.querySelector('.keyword').innerHTML = searchText;
             var s_word = searchText.split(""); //剪辑成数组
-            var result = [];
+            result.length = 0;
             // 注：不合并是为让具有相关度更高的文章排在前面，比如说优先显示与标题相关的
             for (let index = 0; index < articles.length; index++) {
                 // 搜索标题
@@ -403,6 +286,16 @@
                         result.push(index);
                     }
                 }
+            } 
+            // 搜到的数据较少时，添加置顶文章
+            if (result.length < 3) {
+
+                for (let index = 0; index < articles.length; index++) {
+                    if (articles[index].置顶 == true && !result.includes(index)) {
+                        result.push(index);
+                    }
+
+                }
             }
 
             showResult(result)
@@ -410,76 +303,67 @@
         // 展示搜索结果
         function showResult(result) {
             document.querySelector('.length').innerHTML = result.length;
-
-            for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
-                //清除之前就存在的active
-                document.querySelectorAll(".pagination li")[index].classList.remove("active");
-                document.querySelectorAll(".pagination li")[1].classList.add("active");
-            }
             var per_page_amount = 10;//决定每页卡片数量  可以调整
-            var nth_page = 0;//第几页  
-            setCardHTML(0);
-            document.querySelector(".pagination").addEventListener("click", function (e) { //监听页码
-                for (let index = 0; index < document.querySelectorAll('.pagination li').length; index++) {
-                    //清除之前就存在的active
-                    document.querySelectorAll(".pagination li")[index].classList.remove("active")
-                    if (document.querySelectorAll(".pagination li")[index] == e.target.parentElement ||
-                        document.querySelectorAll(".pagination li")[index] == e.target.parentElement.parentElement) {
-                        // 确定触发源
-                        if (index == 0) { //到首页
-                            nth_page = 0;
-                        } else if (index == document.querySelectorAll('.pagination li').length - 1) {
-                            //到有页码的页
-                            nth_page = document.querySelectorAll('.pagination li').length - 3;
-                        } else { //到末页
-                            nth_page = index - 1;
-                        }
-                    }
-                }
-                //显示是第几页
-                document.querySelectorAll(".pagination li")[nth_page + 1].classList.add("active")
-                setCardHTML(nth_page); //设置对应的HTML
-            })
+            indexOfDisplayed = 0;
+            // 处理“加载更多”按钮
+            var more_button = document.querySelector('.load-more');
+            more_button.classList.remove("not-more");
+            more_button.innerHTML = "加载更多";
             // ==================HTML的设置函数
-            function setCardHTML(nth_page) {
-                var start_card = nth_page * per_page_amount //开始的页面
-                var articlesHTML = document.querySelectorAll("#article_ul li") //
-
-                for (let nth_card = start_card; nth_card < start_card + per_page_amount; nth_card++) {
-                    //遍历所有的十个json对象
-                    //nth_card是json中的序号
-                    var nth_li = nth_card - start_card //nth_li是HTML里的序号
-                    var result_item = result[nth_card];
-                    var element = articlesHTML[nth_li];
-                    if (result_item >= 0) { //还存在json对象数据
-                        element.querySelector("span a").href = articles[result_item].文章链接;//图片的目的链接
-                        element.querySelector("span a img").src = articles[result_item].图片链接;//图片链接src用于图片显示
-                        element.querySelector(".blogtitle a").innerHTML = articles[result_item].标题;//标题
-                        element.querySelector(".blogtitle a").href = articles[result_item].文章链接;//标题的目的链接
-                        element.querySelector(".bloginfo p").innerHTML = articles[result_item].简介; //文章简介
-                        element.querySelector(".lm a").innerHTML = articles[result_item].标签;//标签
-                        element.querySelector(".lm a").href = '../../../../about/search.html' + '#' +
-                            articles[result_item].标签;
-                        element.querySelector(".dtime a").innerHTML = articles[result_item].日期 //发表时间
-                        element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' +
-                            articles[result_item].日期;
-                        element.querySelector(".writer a").innerHTML = articles[result_item].作者 //作者
-                        element.querySelector(".writer a").href = '#' + articles[result_item].作者;
-                    } else { //无数据，加载默认内容
-                        element.querySelector("span a img").src = randomPictureApi[Math.floor(Math.random() *
-                            randomPictureApi.length)]
-
-                        // 图片采用必应API 图片动态更新
-                        // 延时几毫秒使图片不同？  待实现
-                        element.querySelector(".blogtitle a").innerHTML = "没有更多结果了！^o^";
-                        element.querySelector(".bloginfo p").innerHTML =
-                            "欢迎来到至简博客，至简是少即是多的意思，简简单单、更少很多时候才会获得更多。"
-                        element.querySelector(".lm a").innerHTML = "--";
-                        element.querySelector(".dtime a").innerHTML = "--";
-                        element.querySelector(".writer a").innerHTML = "--";
+            // 设置单个卡片的html
+            function setHtmlCard(element, content) {
+                element.querySelector("span a img").src = content.图片链接; //图片链接src用于图片显示
+                element.querySelector(".blogtitle a").innerHTML = content.标题; //标题
+                element.querySelector(".blogtitle a").href = content.文章链接; //标题的目的链接
+                element.querySelector(".bloginfo p").innerHTML = content.简介; //文章简介
+                element.querySelector(".lm a").innerHTML = content.标签; //标签
+                element.querySelector(".lm a").href = '../../../../about/search.html' + '#' + content.标签;
+                element.querySelector(".dtime a").innerHTML = content.日期; //发表时间
+                element.querySelector(".dtime a").href = '../../../../about/search.html' + '#' + content.日期;
+                element.querySelector(".writer a").innerHTML = content.作者; //作者
+                element.querySelector(".writer a").href = '../../../../about/search.html' + '#' + content.作者;
+            }
+            // 点击加载更多按钮
+            document.querySelector(".load-more").addEventListener("click", function (e) {
+                // 点击后进行克隆
+                for (let index = 0; index < per_page_amount; index++) {
+                    if (indexOfDisplayed > result.length - 1) {
+                        more_button.innerHTML = "———— 没有更多文章了！————";
+                        more_button.classList.add("not-more");
+                        break;
                     }
+                    i = result[indexOfDisplayed++];
+                    var li = document.querySelector("#article_ul li").cloneNode(true);
+                    setHtmlCard(li, articles[i]);
+                    document.querySelector("#article_ul").appendChild(li);
+
+                }
+            })
+            var articlesHTML = document.querySelectorAll("#article_ul li");//卡片
+            // 删除多余的节点
+            for (let index = 1; index < articlesHTML.length; index++) {
+                const element = articlesHTML[index];
+                element.remove();
+            }
+
+
+            // 第一次显示的
+            for (let index = 0; index < per_page_amount; index++) {
+                if (indexOfDisplayed > result.length - 1) {
+                    more_button.innerHTML = "———— 没有更多文章了！————";
+                    more_button.classList.add("not-more");
+                    break;
+                }
+                var i = result[indexOfDisplayed++];
+                if (index == 0) {
+                    element = document.querySelector("#article_ul li");
+                    setHtmlCard(element, articles[i]);
+                    continue;
                 }
 
+                var li = document.querySelector("#article_ul li").cloneNode(true);
+                setHtmlCard(li, articles[i]);
+                document.querySelector("#article_ul").appendChild(li);
             }
 
         }
@@ -492,7 +376,7 @@
         }
     </script>
     <script type="text/javascript" src="../public/base.js"></script>
-    <script src="https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/scrollReveal.js/4.0.5/scrollreveal.js"></script>
     <script>
         if (document.querySelector("#article_ul li")) {
             ScrollReveal().reveal('#article_ul li', {
@@ -506,7 +390,7 @@
                 reset: true,
             });
         }
-    </script>
+    </script> -->
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </body>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>至简博客概述</title>
+</head>
+
+<body>
+    <h1 id='至简博客概述'>至简博客概述</h1>
+    <p>&nbsp;</p>
+    <p>博客网站写完了，为了做个记录，同时便于日后的操作，在此做个关于博客的概述。主要包括以下内容：</p>
+    <ol start=''>
+        <li>本站文章的分类</li>
+        <li>本站文件的分布、结构</li>
+        <li>本站的内容的修改指南</li>
+
+    </ol>
+    <h2 id='文章分类'>文章分类</h2>
+    <h4 id='文章分为五个部分'>文章分为五个部分：</h4>
+    <ul>
+        <li>自己写的一些谈不上文章的随笔、感悟、读后感、想法等与知识无关的内容。</li>
+        <li>自己写的类似于笔记的知识类文章，它包括：C语言、嵌入式、Java等计算机知识。软件、电脑等东西的使用与安装技巧等。还有其他可以学习到知识的文章。</li>
+        <li>转载的文学类美文和一些其他美文</li>
+        <li>转载的知识类文章</li>
+        <li>短句，包括自己写的短句（感悟、句子）、转载的美句</li>
+
+    </ul>
+    <p><strong>简单来说，所有内容都分为原创和转载，分为3个类目：知识百科类、文学类、句子。</strong></p>
+    <h4 id='图说-1'>图说：</h4>
+    <p><a href='https://imgchr.com/i/ypZfTs'><img src="https://s3.ax1x.com/2021/01/28/ypZfTs.png"
+                referrerpolicy="no-referrer" alt="ypZfTs.png"></a></p>
+    <p>&nbsp;</p>
+    <h2 id='文件结构'>文件结构</h2>
+    <p>话不多说，直接看图！</p>
+    <h4 id='图说-2'>图说：</h4>
+    <p><a href='https://imgchr.com/i/ypmXJ1'><img src="https://s3.ax1x.com/2021/01/28/ypmXJ1.png"
+                referrerpolicy="no-referrer" alt="ypmXJ1.png"></a></p>
+    <h2 id='文件对应关系'>文件对应关系</h2>
+    <p>所有页面都在一个宽高均占满屏幕的框架内（iframe），文章的展示使用由<code>homePage.html</code>来完成，句子由<code>sentence.html</code>和<code>mySentence.html</code>来完成。需要说明的是，这三个文件都依赖来JS来加载json文件，然后显示内容。
+    </p>
+    <p>文章展示页面必须加载base.css、typora.style.css、mobile.css</p>
+    <p>如下图所示。</p>
+    <p>&nbsp;</p>
+    <h4 id='图说-3'>图说：</h4>
+    <p><a href='https://imgchr.com/i/ype236'><img src="https://s3.ax1x.com/2021/01/28/ype236.png"
+                referrerpolicy="no-referrer" alt="ype236.png"></a></p>
+    <h2 id='文件的模块化'>文件的模块化</h2>
+    <p>模块化主要体现在：网站的导航栏、底部栏、右下角侧边栏都是分别通过nav.js、footer.js、aside.js来加载的。只需修改这三个文件的内容，所有页面的内容都会全部改变。</p>
+    <p>文章列表和句子都是通过json文章来动态加载。</p>
+    <h2 id='关于发文'>关于发文</h2>
+    <p>鉴于本站是在GitHub
+        page上面发布的，所以发布文章都是通过直接写代码文件的形式而不是类似CSDN、博客园等网站有后端的用户界面。因此，书写一个文章发布指南是十分有必要的，有可能让访问者有所启发，最重要的是可以让自己可以在忘记的时候回来查看！
+    </p>
+    <p>若有疑问可查看：<a href='http://127.0.0.1:5500/about/structure.html'>本站代码结构</a>和<a
+            href='http://127.0.0.1:5500/about/timeline.html'>更新日志</a></p>
+    <p>&nbsp;</p>
+    <h4 id='基本内容的编写'>基本内容的编写：</h4>
+    <p>使用Markdown编辑器Typora编写，几乎和word一样简便，步骤如下：</p>
+    <ol start=''>
+        <li>在<strong>typora</strong>中编写Markdown文件并导出HTML文件(不需要CSS)，typora的样式详见：<a
+                href='http://127.0.0.1:5500/myarticle/other/20201026.html'>typora样式参考</a></li>
+        <li>复制一个同类目（同级）下的HTML文件</li>
+        <li>将<strong>typora</strong>导出的HTML文件里面的
+            <code>&lt;div id=&#39;write&#39;&gt;</code>放到新建的<code>&lt;div class=&quot;massage&quot;&gt;</code>里面（即替换掉原来的）
+        </li>
+        <li>保存即可</li>
+        <li>添加文章目录（如果必要的话）</li>
+        <li>设置json文件的内容</li>
+
+    </ol>
+    <p>更多内容请参考:<a href='http://127.0.0.1:5500/myarticle/other/20201026.html'>博客将使用Markdown编辑器来编写</a></p>
+    <h4 id='文章目录的添加'>文章目录的添加</h4>
+    <p>目前，文章目录的添加依赖于是否有文章信息栏的“字数”（<code>id=&quot;word&quot;</code>）项来决定是否自动生成目录，如果没“字数”（<code>id=&quot;word&quot;</code>）项，但依然要生成目录，可以调用函数<code>addLeftList()</code>来添加。
+    </p>
+    <p>目录的条目是通过锚点的方式实现的，添加<code>class=&quot;contents&quot;</code>会让其在目录栏生成条目，<code>data-title-name</code>可以用来定义要在目录中显示的内容，如果<code>data-title-name</code>是未定义的，那么会自动把有<code>class=&quot;contents&quot;</code>的节点的所有文本作为目录的条目内容。
+    </p>
+    <blockquote>
+        <p><code>class=&quot;contents&quot;</code>的添加是自由的，但是建议添加在<code>&lt;h&gt;</code>标签里面,最好是<code>&lt;h2&gt;</code>标签。
+        </p>
+    </blockquote>
+    <h3 id='基本说明'>基本说明</h3>
+    <p>显而易见，发布文章其实就是新增一个HTML页面，这里建议直接复制一个同一目录下的HTML文件。不论你是新建还是复制，必须保证页面里面包含文件<code>base.js</code>、<code>typora.style.css</code>、<code>mobile.css</code>，它们可以确保你的HTML文件得到最基础的支持。
+    </p>
+    <p>最重要的是，你必须引入<code>typora.style.css</code>，它定义了你的文章的几乎所有样式。</p>
+    <p>这些在<a href='#文件对应关系'>上面</a>也已经提到了。</p>
+    <h3 id='json文件的编写'>json文件的编写</h3>
+    <p>编写json文件的目的是让文章得到显示、索引、搜索、推荐等，这会让文章更新到：目录、文章分类、标签、归档等。至于json的格式，直接复制前面的代码即可，值得一提的是，文章中<code>&quot;top&quot;: true</code>可令文章置顶、<code>&quot;recommend&quot;: true</code>可以让文章在站长推荐中得到优先显示。
+    </p>
+    <blockquote>
+        <p>网站会有多个json文件，所有的文章必须在index.json里面写，然后在对应的类目里面写。</p>
+    </blockquote>
+    <h4 id='所有json文件和功能如下'>所有json文件和功能如下：</h4>
+    <figure>
+        <table>
+            <thead>
+                <tr>
+                    <th>json文件名</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>index.json</td>
+                    <td>存储所有的文章</td>
+                </tr>
+                <tr>
+                    <td>article.json</td>
+                    <td>转载的常规文章</td>
+                </tr>
+                <tr>
+                    <td>myArticle.json</td>
+                    <td>我的原创文章</td>
+                </tr>
+                <tr>
+                    <td>sentence.json</td>
+                    <td>名人名言</td>
+                </tr>
+                <tr>
+                    <td>mysentence.json</td>
+                    <td>我的感悟</td>
+                </tr>
+                <tr>
+                    <td>knowledge.json</td>
+                    <td>转载的技术博文（未实现）</td>
+                </tr>
+                <tr>
+                    <td>myKnowledge.json</td>
+                    <td>我的技术博文（未实现）</td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <p>&nbsp;</p>
+    <h3 id='遮盖层的调用'>遮盖层的调用</h3>
+    <p>遮盖层的实现是直接设置在框架外的，所以就只有一个，在<code>index.html</code>中。</p>
+    <h4 id='提示框'>提示框</h4>
+    <p>提示框可以显示提示文本和图片。</p>
+    <p>利用<code>Mask(text, src)</code>函数实现。</p>
+    <p>第一个参数，<code>text</code>为要显示的文本，第二个参数<code>src</code>为要显示的图片地址。</p>
+    <p>如果要缺省第一个则第一个参数可谓空或者空格，要缺省第二个参数则只写一个参数即可。</p>
+    <p>一般在调用时，<code>window.parent.Mask(&quot;文本&quot;,&quot;地址&quot;);</code></p>
+    <p>如：<code>window.parent.Mask(&quot;欢迎扫码添加微信&quot;,&quot;https://s1.ax1x.com/2020/04/02/GJvhLj.jpg&quot;);</code>
+    </p>
+    <h4 id='正在加载栏'>正在加载栏</h4>
+    <p>在加载一些资源时可以添加正在加载的提示。</p>
+    <p>利用<code>Loading();</code>函数实现显示，利用<code>LoadingcClose();</code>函数实现关闭提示。</p>
+    <p>调用：</p>
+    <p><code>window.parent.Loading();</code> 显示加载中提示</p>
+    <p><code>window.parent.LoadingClose();</code> 关闭提示</p>
+    <p><strong>显示加载时点击遮盖层会关闭提示，但请在加载完成时对其进行关闭</strong></p>
+    <blockquote>
+        <p>为了避免加载资源的速度很快，但是却闪过加载提示，所以加载页面提示会有一定的延时。</p>
+    </blockquote>
+    <h3 id='更多'>更多</h3>
+    <h5 id='每次代码更新后应当编写本站时光轴便于记录网站改动'>每次代码更新后应当编写“本站时光轴”，便于记录网站改动。</h5>
+    <h3 id='待实现的功能'>待实现的功能</h3>
+    <ul>
+        <li><del>图片的显示</del>（已实现）</li>
+        <li><del>代码的显示</del>（已实现，并添加复制功能）</li>
+        <li>文章添加导语、标签、分类</li>
+        <li><del>编写文章时一些常用样式</del>（已通过Typora实现）</li>
+        <li>文章显示、句子显示模块页数多之后瀑布流的显示</li>
+
+    </ul>
+    <p> </p>
+    <hr />
+    <p>了解更多关于本站的信息请进入<a href='http://127.0.0.1:5500/about/index.html'>关于本站</a>页面。</p>
+</body>
+
+</html>
