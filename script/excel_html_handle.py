@@ -13,6 +13,7 @@ warnings.simplefilter("ignore")
 
 # title文章的标题
 def createHTML( srcfilename,destfilename,title):  # srcfilename没处理文件
+    print("srcfilename="+srcfilename+"destfilename="+destfilename+"title="+title)
     # 三个htmlTemplate均为模板
     htmlTemplate1 = "<html lang=\"zh-CN\">"
     htmlTemplate1 += ""
@@ -124,9 +125,9 @@ def excel_to_json(excel_file):
                     if(column < 10):
                         one_line[key_from_head] = cell_value
 
-                    elif column == 10 and cell_value and len(cell_value)>6:  # 是新添加的,处理HTML
+                    elif column >= 10 and cell_value and len(cell_value)>1:  # 是新添加的,处理HTML
                         srcFile = "../markdown/" + \
-                            sheet.cell(row + 1, column + 2).value + ".html"#获取源html文件
+                            sheet.cell(row + 1, column + 1).value + ".html"#获取源html文件
                         # 删除 是否新增	未处理文件名 两列的值
                         sheet.cell(row + 1, column + 1).value = ' '
                         sheet.cell(row + 1, column + 2).value = ' '
@@ -134,7 +135,7 @@ def excel_to_json(excel_file):
                         # 创建HTML文件，参数为typora生成的HTML文件和需要生成的文件名（包含路径）
                         # one_line[heads[8]].split("../")[-1]为目标文件名和路径，不包括带../的
                         createHTML(srcFile, destFile,one_line[heads[0]])
-                        print("文件:"+srcFile+"     已成功转化到  文件:", destFile)
+                        print("***文件:"+srcFile+"     已成功转化到  文件:", destFile)
 
                 if cell_value != None:  # 一行中任意一个非空即添加
                     row_is_none = False

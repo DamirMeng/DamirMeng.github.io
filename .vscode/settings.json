@@ -4,5 +4,7 @@
     },
     "commentTranslate.targetLanguage": "zh-CN",
     "commentTranslate.hover.enabled": true,
-    "commentTranslate.source": "Bing"
+    "commentTranslate.source": "Bing",
+    "python.formatting.provider": "black",
+    "C_Cpp.errorSquiggles": "disabled"
 }
